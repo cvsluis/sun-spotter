@@ -31,7 +31,17 @@ Not a finalized list. Which features are core and which are stretch is still to 
 ### Styling Notes
 
 - AllTrails Clone
+- Landing page say: hello! hours until sunset:
 - 
+
+### working style
+- use github version of trello
+- meet daily to discuss merges
+- work feautre based/horizontally
+- meet in person once a week
+- meet on discord whenever we can 
+
+### 
 
 
 
