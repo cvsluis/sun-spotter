@@ -1,0 +1,20 @@
+INSERT INTO LABELS(name)
+VALUES
+  ('Wheelchair access'),
+  ('Hike required'),
+  ('No hike required'),
+  ('Car Pull Out'),
+  ('Bird Watching'),
+  ('Seating Available'),
+  ('Kid Friendly'),
+  ('Dog Friendly'),
+  ('Dogs on Leash'),
+  ('Ocean'),
+  ('Forest'),
+  ('Mountains'),
+  ('City'),
+  ('Waterfall'),
+  ('Lake'),
+  ('Wildflowers'),
+  ('Wildlife'),
+  ('Windy');
