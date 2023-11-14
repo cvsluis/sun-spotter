@@ -12,4 +12,4 @@ client
   .connect()
   .catch(error => console.log(`Error connecting to database:\n${error}`))
 
-module.exports = pool;
+module.exports = client;
