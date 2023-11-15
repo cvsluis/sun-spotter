@@ -4,11 +4,22 @@ export default function Test () {
   const [labels, setLabels] = useState([]);
   
   useEffect(() => {
-    fetch('api/labels')
-      .then(res => console.log(res))
+    fetch('http://localhost:8080/api/labels')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => console.log(data))
+      .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   return (
-    <div>testing api...</div>
+
+    <div>
+      testing api:
+      {/* {JSON.stringify(items)} */}
+    </div>
   )
 };
