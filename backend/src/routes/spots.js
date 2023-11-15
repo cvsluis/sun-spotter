@@ -1,8 +1,19 @@
-const router = require("express").Router();
+const router = require("express").Router()
+const spotQueries = require('../db/queries/02_spots')
 
 module.exports = db => {
+
+  // /api/spots
   router.get("/spots", (req, res) => {
-    res.send('Spots API route is working properly! Ready to give back some data 🫡');
+    spotQueries.getAllSpots()
+      .then(spots => {
+        res.json(spots);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
 
   return router;
