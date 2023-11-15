@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Root from './routes/root'
 
 //setup browser router, root to home page
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Home Page! Welcome to sunspotter</div>
+    element: <Root />
   }, 
 ]);
 
