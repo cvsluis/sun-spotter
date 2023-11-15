@@ -5,6 +5,12 @@ require('dotenv').config();
 const express = require('express');
 const port = process.env.PORT || 8080;
 const app = express();
+const cors = require('cors');
+
+//Setup cross origin resource sharing
+app.use(cors({
+  origin: 'http://localhost:3000',
+}));
 
 const db = require("./db");
 
