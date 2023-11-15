@@ -1,6 +1,5 @@
 import React from 'react';
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
-import '../styles/Map.scss';
 
 const libraries = ['places'];
 const mapContainerStyle = {
@@ -38,15 +37,13 @@ export default function Map({spots}) {
   });
 
   return (
-    <div className='map__container'>
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={12}
-        center={center}
-        options={{fullscreenControl: false}}
-      >
-        {markerList}
-      </GoogleMap>
-    </div>
+    <GoogleMap
+      mapContainerStyle={mapContainerStyle}
+      zoom={12}
+      center={center}
+      options={{fullscreenControl: false}}
+    >
+      {markerList}
+    </GoogleMap>
   );
 };

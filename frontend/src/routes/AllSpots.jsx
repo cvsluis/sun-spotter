@@ -21,9 +21,15 @@ export default function AllSpots() {
   }, []);
 
   return (<>
+    <div style={{width: '100%', height:'64px', backgroundColor: '#ddd'}}></div>
+
     <div className='allSpots__container'>
       <SideBar spots={spots}/>
-      <Map spots={spots} />
+
+      <div className='allSpots__map'>
+        <Map spots={spots} />
+      </div>
+
     </div>
   </>
   );
