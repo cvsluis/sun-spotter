@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.welcome__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+input { 
+  font-size: 1rem; 
+}
+
+.search__bar {
+  border-radius: 24px;
+  border: none;
+  padding: 0.5rem 1.5rem;
+}
