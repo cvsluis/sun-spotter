@@ -6,8 +6,8 @@ export default function TopNavBar() {
     <img class='logo' alt='logo' src={process.env.PUBLIC_URL + '/logo.png'}></img>
 
     <div>
-      <button>Log In</button>
-      <button>Register</button>
+      <button class='login-btn'>Log In</button>
+      <button class='register-btn'>Register</button>
     </div>
 
     </nav>
