@@ -16,13 +16,30 @@ This project was built as a part of our learnings at [Lighthouse Labs](https://w
 ## Features
 
 ## Getting Started
-1. Clone the repository onto your local device.
-2. Create a local PostgreSQL database.
-3. Create the `.env` by using `.env.example` as a reference
-4. Update the `.env` file with your correct local information
-5. Install dependencies: `npm i`
-6. Reset database: `npm run db:reset`
-7. Run the server: `npm start`
+Clone the repository onto your local device.
+
+### Backend 
+1. Open backend with `cd backend/`
+
+1. Create a local PostgreSQL database
+
+2. Create the `.env` by using `.env.example` as a reference
+
+3. Update the `.env` file with your correct local pg information
+
+4. Install dependencies with `npm install`
+
+5. Reset database: `npm run db:reset`
+
+6. Run the server: `npm start`
+
+
+### Frontend
+1. Open a second terminal and open frontend with `cd frontend/`
+
+3. Install dependencies with `npm install`
+
+4. Run the server: `npm start`
 
 ## Dependencies
 - [React](https://react.dev)
