@@ -1,8 +1,5 @@
-export default function Root() {
+export default function Root () {
   return <div>
-    <h1>
-      Homepage rendered from the Root route 
-    </h1> 
+    A Homepage!
   </div>
-
 }
