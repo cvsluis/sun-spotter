@@ -57,6 +57,7 @@ export default function Map() {
         mapContainerStyle={mapContainerStyle}
         zoom={12.5}
         center={center}
+        options={{fullscreenControl: false}}
       >
         {markerList}
       </GoogleMap>
