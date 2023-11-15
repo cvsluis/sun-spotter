@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SpotInfo from '../components/SpotInfo';
+import AboutSpot from '../components/AboutSpot';
 
 export default function OneSpot () {
 
@@ -15,6 +15,7 @@ export default function OneSpot () {
         return response.json();
       })
       .then(data => {
+        console.log(data[0])
         setSpotData(data[0]);
       })
       .catch(error => console.error('Error fetching data:', error));
@@ -27,12 +28,12 @@ export default function OneSpot () {
 
   return (
     <div className='one-spot'>
-      <h1>Spot Information</h1>
+      {/* <h1>Spot Information</h1>
       <p><strong>Name:</strong> {spotData.name}</p>
       <p><strong>City:</strong> {spotData.city}</p>
-      <p><strong>Province:</strong> {spotData.province}</p>
+      <p><strong>Province:</strong> {spotData.province}</p> */}
 
-      <SpotInfo /> 
+      <AboutSpot {...spotData}/> 
     </div>
   );
 }
