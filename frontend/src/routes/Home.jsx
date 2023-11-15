@@ -1,9 +1,6 @@
-import TopNavBar from "../components/TopNavBar";
-
 export default function Root() {
   return (
     <div>
-      <TopNavBar />
 
       <div class="welcome-section">
         <img alt="sunset" src={process.env.PUBLIC_URL + "/sunset.jpeg"}></img>
