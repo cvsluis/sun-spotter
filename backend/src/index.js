@@ -10,9 +10,11 @@ const db = require("./db");
 
 // Separated Routes for each Resource
 const spots = require("./routes/spots");
+const labels = require("./routes/labels");
 
 // Mount all resource routes
 app.use("/api", spots(db));
+app.use("/api", labels(db));
 
 // Home page
 app.get('/', (req, res) => {
