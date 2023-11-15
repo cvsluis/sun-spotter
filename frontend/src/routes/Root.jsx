@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import TopNavBar from "../components/TopNavBar";
 
 export default function Root() {
@@ -29,3 +30,20 @@ export default function Root() {
     </div>
   );
 }
+=======
+import { Outlet } from "react-router-dom";
+
+export default function Root () {
+  return (
+    <div className ="root-layout">
+      <header>
+        page header here
+      </header>
+    
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
+}
+>>>>>>> ed0b7938333ab4e41391ab4f4ef0d26d84241e74
