@@ -2,7 +2,7 @@ export default function Home () {
   return (
     <div>
 
-      <div class="welcome-section">
+      <div className="welcome__section">
         <img alt="sunset" src={process.env.PUBLIC_URL + "/sunset.jpeg"}></img>
 
         <h4>Welcome, user! It's 2 hours to sunset in Victoria</h4>
@@ -17,10 +17,10 @@ export default function Home () {
         </form>
       </div>
 
-      <div class='spots-near-user'>
+      <div className='spots__near-user'>
       </div>
 
-      <div class='saved-spots'>
+      <div className='spots__saved'>
       </div>
       
     </div>
