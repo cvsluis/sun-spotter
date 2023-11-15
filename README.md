@@ -25,3 +25,8 @@ This project was built as a part of our learnings at [Lighthouse Labs](https://w
 7. Run the server: `npm start`
 
 ## Dependencies
+- [React](https://react.dev)
+- [Express](https://expressjs.com)
+- [Node.js](https://nodejs.org) v5.10.x or above
+- [NPM](https://www.npmjs.com) 5.x or above
+- [PG](https://www.npmjs.com/package/pg) 6.x
