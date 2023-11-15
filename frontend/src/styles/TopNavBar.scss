@@ -8,7 +8,7 @@ nav {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-nav .logo {
+nav .nav__logo {
   height: 40px;
   margin-left: 1rem;
 }
@@ -20,11 +20,11 @@ nav button {
   padding: 0.5rem 1rem;
 }
 
-.login-btn {
+.nav__login-btn {
   background-color: lightgray;
 }
 
-.register-btn {
+.nav__register-btn {
   background-color: orangered;
   color: white;
 }
