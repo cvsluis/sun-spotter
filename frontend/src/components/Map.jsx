@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
+import '../styles/Map.scss';
 
 const libraries = ['places'];
 const mapContainerStyle = {
-  width: '800px',
-  height: '600px',
+  width: '100%',
+  // 100vh - nav bar and search bar height
+  height: 'calc(100vh - 64px)',
   margin: '0 auto'
 };
 
@@ -36,10 +38,10 @@ export default function Map({spots}) {
   });
 
   return (
-    <div>
+    <div className='map__container'>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={12.5}
+        zoom={12}
         center={center}
         options={{fullscreenControl: false}}
       >
