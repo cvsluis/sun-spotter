@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Root from './routes/Root';
+//import Root from './routes/Root';
 import Spot from './routes/Spot';
 
 //setup browser router, root to home page
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />
+    element: <div>test</div>
   }, 
   {
     path: "/spots",
