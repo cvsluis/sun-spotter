@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
 import Spot from './routes/Spot';
 
+
 //setup browser router, root to home page
 const router = createBrowserRouter([
   {
