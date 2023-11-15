@@ -2,7 +2,7 @@ const db = require('../index');
 
 // Get All Spots
 const getAllSpots = () => {
-  return db.query('SELECT * FROM spots;')
+  return db.query('SELECT id, name, lat, lng, city, province, country, created_at FROM spots;')
     .then(data => {
       return data.rows;
     });

@@ -3,10 +3,8 @@ import TopNavBar from "../components/TopNavBar";
 
 export default function Root () {
   return (
-    <div className ="root-layout">
-      <header>
+    <div>
       <TopNavBar />
-      </header>
     
       <main>
         <Outlet />

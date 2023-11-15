@@ -1,15 +1,16 @@
 import '../styles/TopNavBar.scss';
+import logo from '../assets/logo.png'
 
 export default function TopNavBar() {
-  return <nav>
+  return (
+    <nav>
+      <img class='nav__logo' alt='logo' src={logo}></img>
 
-    <img className='logo' alt='logo' src={process.env.PUBLIC_URL + '/logo.png'}></img>
-
-    <div>
-      <button className='login-btn'>Log In</button>
-      <button className='register-btn'>Register</button>
-    </div>
-
+      <div>
+        <button class='nav__login-btn'>Log In</button>
+        <button class='nav__register-btn'>Register</button>
+      </div>
     </nav>
+  )
 }
 
