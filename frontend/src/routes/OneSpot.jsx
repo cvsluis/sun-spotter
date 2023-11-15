@@ -6,7 +6,7 @@ export default function OneSpot () {
 
     
   useEffect(() => {
-    fetch('http://localhost:8080/api/spot/1')
+    fetch('http://localhost:8080/api/spots/1')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

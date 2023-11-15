@@ -20,9 +20,8 @@ module.exports = db => {
   router.get("/spots/:id", (req, res) => {
 
     const spotID = req.params.id;
-    console.log(spotID)
 
-    spotQueries.getOneSpot()
+    spotQueries.getOneSpot(spotID)
       .then(spot => {
         res.json(spot);
       })
