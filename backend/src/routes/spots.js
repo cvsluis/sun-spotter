@@ -16,5 +16,22 @@ module.exports = db => {
       });
   });
 
+  // /api/spots/:id
+  router.get("/spots/:id", (req, res) => {
+
+    const spotID = req.params.id;
+    console.log(spotID)
+
+    spotQueries.getOneSpot()
+      .then(spot => {
+        res.json(spot);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  })
+
   return router;
 };
