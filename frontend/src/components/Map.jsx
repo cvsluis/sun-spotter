@@ -32,7 +32,7 @@ export default function Map() {
   }, []);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyCDGmiLZi277Uo_aQFMSG8fX04TiLvbZ3s',
+    googleMapsApiKey: 'AIzaSyCZ4m4MUuWXxIlkrriyTTQp4f3TRby2yes',
     libraries,
   });
 
