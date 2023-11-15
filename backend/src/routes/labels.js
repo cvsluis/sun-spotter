@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const labelQueries = require('../db/queries/labels');
+const labelQueries = require('../db/queries/06_labels');
 
 module.exports = db => {
 
