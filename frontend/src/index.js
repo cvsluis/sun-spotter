@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Root from './routes/root'
+import Root from './routes/Root';
+import Spot from './routes/Spot';
 
 //setup browser router, root to home page
 const router = createBrowserRouter([
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <Root />
   }, 
+  {
+    path: "/spots",
+    element: <Spot />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
