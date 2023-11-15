@@ -11,11 +11,13 @@ import Spots from './routes/Spots';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />
-  }, 
-  {
-    path: "/spots",
-    element: <Spots />
+    element: <Root />,
+    children: [
+      {
+        path: "spots/",
+        element: <Spots />
+      }
+    ]
   }
 ]);
 
