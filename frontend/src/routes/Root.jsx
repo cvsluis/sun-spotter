@@ -1,5 +1,8 @@
+import TopNavBar from '../components/TopNavBar';
+
 export default function Root () {
   return <div>
-    A Homepage!
+    <TopNavBar />
+    hey!
   </div>
 }
