@@ -4,7 +4,9 @@ import './styles/index.scss';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
+import Home from './routes/Home'
 import Spot from './routes/Spot';
+
 
 
 //setup browser router, root to home page
@@ -14,8 +16,12 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
+        path: "/home",
+        element: <Home />
+      },
+      {
         path: "/spots",
-        element: <Spot />,
+        element: <Spot />
       }
     ]
   }
