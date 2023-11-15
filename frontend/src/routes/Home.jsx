@@ -1,10 +1,11 @@
 import '../styles/Home.scss';
+import sunset from '../assets/sunset.jpg'
 
 export default function Home () {
   return <div>
 
       <header>
-      <img className='header__img' alt="sunset" src={process.env.PUBLIC_URL + "/sunset.jpg"}></img>
+      <img className='header__img' alt="sunset" src={sunset}></img>
 
       <div className="welcome__section">
         <h4>Welcome, user! It's 2 hours to sunset in Victoria</h4>
