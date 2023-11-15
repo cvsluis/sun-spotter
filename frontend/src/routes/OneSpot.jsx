@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import AboutSpot from '../components/AboutSpot';
 
-export default function OneSpot () {
+//import styles 
+import '../styles/OneSpot.scss';
+
+
+export default function OneSpot() {
 
   const [ spotData, setSpotData ] = useState([]);
 
