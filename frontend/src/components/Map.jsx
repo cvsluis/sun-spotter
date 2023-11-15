@@ -14,23 +14,7 @@ const center = {
   lng: -123.331720,
 };
 
-export default function Map() {
-  // spots for markers state
-  const [spots, setSpots] = useState([]);
-
-  // fetch data from backend, set it to spots state
-  useEffect(() => {
-    fetch('http://localhost:8080/api/spots')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => setSpots(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
-
+export default function Map({spots}) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyCZ4m4MUuWXxIlkrriyTTQp4f3TRby2yes',
     libraries,
