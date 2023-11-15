@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import SpotInfo from '../components/SpotInfo';
 
 export default function OneSpot () {
 
@@ -19,10 +20,10 @@ export default function OneSpot () {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  //check spotInfo
-  useEffect(() => {
-    console.log(spotInfo);
-  }, [spotInfo]);
+  // //check spotInfo
+  // useEffect(() => {
+  //   console.log(spotInfo);
+  // }, [spotInfo]);
 
   return (
     <div className='one-spot'>
@@ -31,6 +32,7 @@ export default function OneSpot () {
       <p><strong>City:</strong> {spotInfo.city}</p>
       <p><strong>Province:</strong> {spotInfo.province}</p>
 
+      <SpotInfo /> 
     </div>
   );
 }
