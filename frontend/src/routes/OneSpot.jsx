@@ -3,7 +3,7 @@ import SpotInfo from '../components/SpotInfo';
 
 export default function OneSpot () {
 
-  const [ spotInfo, setSpotInfo ] = useState([]);
+  const [ spotData, setSpotData ] = useState([]);
 
     
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function OneSpot () {
         return response.json();
       })
       .then(data => {
-        setSpotInfo(data[0]);
+        setSpotData(data[0]);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
@@ -28,9 +28,9 @@ export default function OneSpot () {
   return (
     <div className='one-spot'>
       <h1>Spot Information</h1>
-      <p><strong>Name:</strong> {spotInfo.name}</p>
-      <p><strong>City:</strong> {spotInfo.city}</p>
-      <p><strong>Province:</strong> {spotInfo.province}</p>
+      <p><strong>Name:</strong> {spotData.name}</p>
+      <p><strong>City:</strong> {spotData.city}</p>
+      <p><strong>Province:</strong> {spotData.province}</p>
 
       <SpotInfo /> 
     </div>
