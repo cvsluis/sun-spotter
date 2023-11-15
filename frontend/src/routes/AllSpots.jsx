@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Map from '../components/Map';
 import SideBar from '../components/SideBar';
+import '../styles/AllSpots.scss';
 
 export default function AllSpots() {
   // all spots state
@@ -19,11 +20,11 @@ export default function AllSpots() {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  return (
-    <>
-    <div style={{width: '100%', height:'64px', backgroundColor: '#ddd'}}></div>
+  return (<>
+    <div className='allSpots__container'>
       <SideBar spots={spots}/>
-      <Map spots={spots}/>
-    </>
+      <Map spots={spots} />
+    </div>
+  </>
   );
 }
