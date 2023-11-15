@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function OneSpot () {
 
-  const [ spotInfo, setSpotInfo ] = useState();
+  const [ spotInfo, setSpotInfo ] = useState([]);
 
     
   useEffect(() => {
@@ -14,14 +14,22 @@ export default function OneSpot () {
         return response.json();
       })
       .then(data => {
-        console.log(data)
+        setSpotInfo(data);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
+  //check spotInfo
+  useEffect(() => {
+    console.log(spotInfo);
+  }, [spotInfo]);
+
   return (
     <div className='one-spot'>
-      One spot view!!
+      <h1>Spot Information</h1>
+      <p><strong>Name:</strong> {spotInfo.name}</p>
+      <p><strong>City:</strong> {spotInfo.city}</p>
+      <p><strong>Province:</strong> {spotInfo.province}</p>
 
     </div>
   );
