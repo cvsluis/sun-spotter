@@ -14,7 +14,7 @@ export default function OneSpot () {
         return response.json();
       })
       .then(data => {
-        setSpotInfo(data);
+        setSpotInfo(data[0]);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
