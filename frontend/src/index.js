@@ -5,9 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
 import Home from './routes/Home'
-import Spot from './routes/Spot';
-
-
+import AllSpots from './routes/AllSpots';
 
 //setup browser router, root to home page
 const router = createBrowserRouter([
@@ -21,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/spots",
-        element: <Spot />
+        element: <AllSpots />
       }
     ]
   }
