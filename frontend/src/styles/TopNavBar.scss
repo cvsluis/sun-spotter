@@ -1,0 +1,30 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  width: 100;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+nav .nav__logo {
+  height: 40px;
+  margin-left: 1rem;
+}
+
+nav button {
+  border-radius: 24px;
+  border: none;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.nav__login-btn {
+  background-color: lightgray;
+}
+
+.nav__register-btn {
+  background-color: orangered;
+  color: white;
+}
