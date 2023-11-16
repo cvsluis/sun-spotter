@@ -29,8 +29,8 @@ Each individual query takes the form of a function that returns a promise that r
 const getYourData = (params) => {
   const query = `your query here`;
 
-    // inject parameters safely using `$1, $2, ..`, [param1, param2, ...] method
-    // if anyone know what this is called please tell me -Janay 
+  // inject parameters safely using `$1, $2, ..`, [param1, param2, ...] method
+  // if anyone know what this is called please tell me -Janay 
   return db.query(query, [params])
     .then(data => {
       return data.rows;
@@ -168,9 +168,63 @@ Our URL patterns are defined in the frontend/src/index.js file, where we have cr
 
 Once you have added your route, you can see it in your browser at http://localhost:3000/your-endpoint, and it will render the <YourEndpointView /> component.
 
+To continue our example, a page displaying the info for one user would be at the .../users/:id endpoint. We the following element to the children array:
+
+```js
+  {
+    path: "/users/:id",
+    element: <OneUser />
+  }
+```
+
+You will of course need to create the <OneUser /> component, and import it into index.js
+
 ## Frontend Views
 
-Each frontend route renders a specific React component responsible for rendering the HTML body associated with that route.
+Each frontend route renders a specific React component responsible for rendering the HTML body associated with that route (we'll call this a View) These components are separated from the rest of the React components in the frontend/src/routes folder.
+
+
+## Fetching 
+
+To access the data from our backend server, we need to fetch it. We fetch data using useEffect from within a view (a react component responsible for rendering the html associated with a frontend route; e.g., AllSpots.jsx, Home.jsx):
+
+```jsx
+/* yourEndpointView.jsx */
+
+import React, { useState } from 'react';
+
+
+export default function OneSpot() {
+
+  // manage your data with state
+  const [ data, setData ] = useState();
+ 
+  //fetch the data
+  useEffect(() => {
+    fetch('http://localhost:8080/api/your-endpoint')
+      .then(response => {
+        //throw error if it didn't work
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        //otherwise resolve to the json data provided at your backend api
+        return response.json();
+      })
+      //then update your state to what you got back
+      .then(data => {
+        //console.log(data) //for debugging
+        setSpotData(data[0]);
+      })
+
+      .catch(error => console.error('Error fetching data:', error));
+  }, []); // what you put in [] determines your dependencies.
+}
+```
+
+
+
+
+
 
 
 
