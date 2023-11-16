@@ -1,11 +1,15 @@
 .one-spot{
   width: 75%;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #ffffff;
   display: flex;
   margin: auto;
+  margin-top: 2em;
   border-radius: 24px 24px 0 0 ;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  // make container extend below the page 
+  bottom: -20px;
 
   
 }
