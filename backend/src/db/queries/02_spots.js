@@ -8,7 +8,7 @@ const getAllSpots = () => {
       JOIN spots ON visits.spot_id = spots.id GROUP BY spots.id), 
     last_visit AS (SELECT DISTINCT ON (spot_id) * 
       FROM visits ORDER BY spot_id, visits.created_at), 
-    label_list AS (SELECT visits.id, ARRAY_AGG(labels.name) AS list  
+    label_list AS (SELECT visits.id, ARRAY_AGG(DISTINCT labels.name) AS list  
       FROM visit_labels 
       JOIN visits ON visits.id = visit_labels.visit_id
       JOIN labels ON labels.id = visit_labels.label_id 
