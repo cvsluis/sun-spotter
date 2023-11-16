@@ -1,3 +1,7 @@
 .sideBar__container {
   width: 500px;
+  height: calc(100vh - 4rem);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
 }
