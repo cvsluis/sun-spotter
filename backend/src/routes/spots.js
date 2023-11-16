@@ -34,7 +34,7 @@ module.exports = db => {
   });
 
   // /api/spots/:id/labels
-  router.get("/spots/:id/label", (req, res) => {
+  router.get("/spots/:id/labels", (req, res) => {
     const spotID = req.params.id;
 
     labelQueries.getAllSpotLabels(spotID)
