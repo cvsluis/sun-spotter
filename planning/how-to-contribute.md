@@ -46,7 +46,7 @@ Here, **params** is any parameters that the query uses. You will replace **your 
 
 ```js
 // Get user with specific id
-const getOneUser = (userID) => {
+const getUserByID = (userID) => {
 
   const query = `SELECT * FROM users WHERE users.id = $1`;
 
@@ -58,7 +58,7 @@ const getOneUser = (userID) => {
 
  /* ...other queries etc... */
 
-module.exports = { getSpotLabels };
+module.exports = { getUserByID };
 ```
 If I called the above query with userID = 2, it would return a promise resolving to:
 
@@ -75,7 +75,7 @@ Our route files live in the backend/src/routes folder; each is named someEntity.
 Before writing your route, ensure that its corresponding query has been imported:
 
 ```js
-const yourDataQueries = require('../db/queries/0X_entity.js);
+const yourDataQueries = require('../db/queries/0X_entity.js');
 ```
 
 Then each route will look something like: 
@@ -109,9 +109,9 @@ Some notes:
 If your endpoint is dynamic - for example 'entity/:some-param', you can use req.params.some_param to access the id. The route to get the endpoint '/users/:id' would look like
 
 ```js
-const userQueries = require('../db/queries/0X_entity.js');
+const userQueries = require('../db/queries/01_users.js');
 
- /* other code/routes  etc */
+ /* other code/routes  etc here */
 
 // Get specific user
 router.get('/users/:id', (req, res) => {
@@ -120,7 +120,7 @@ router.get('/users/:id', (req, res) => {
   const userID = req.params.id;
 
   // call query
-  userQueries.getOneUser(userID)
+  userQueries.getUserByID(userID)
     // send response
     .then(data => {
       res.json({ data });
