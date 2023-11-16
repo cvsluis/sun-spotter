@@ -1,5 +1,5 @@
 import '../styles/Home.scss';
-import sunset from '../assets/sunset.jpg'
+import sunset from '../assets/sunset.jpeg'
 
 export default function Home () {
   return <div>
