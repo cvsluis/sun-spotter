@@ -3,3 +3,19 @@
   display: flex;
   flex-direction: column;
 }
+.about-spot__labels {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+
+}
+.about-spot__label {
+  font-size: 12px;
+  background-color: #FCBC94;
+  border-radius: 9999px;
+  padding: 0.5em
+}
+
+about-spot__name {
+  font-size: 34px;
+}

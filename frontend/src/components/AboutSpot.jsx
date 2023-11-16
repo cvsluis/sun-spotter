@@ -10,7 +10,7 @@ export default function AboutSpot({spotData, spotLabels}) {
 
       {/* Spot info */}
       <div className='about-spot__info'>
-        <h1>{spotData.name}</h1>
+        <h1 className='about-spot__name'>{spotData.name}</h1>
         <div>{spotData.city}, {spotData.province}</div>
         <div>implement rating here</div>
       </div>

@@ -14,7 +14,7 @@ export default function OneSpot() {
   const spotID = useParams().id;
 
   const [ spotData, setSpotData ] = useState([]);
-  const [ spotLabels, setSpotLabels ] = useState();
+  const [ spotLabels, setSpotLabels ] = useState([]);
     
   useEffect(() => {
     fetch(`http://localhost:8080/api/spots/${spotID}`)
@@ -43,10 +43,7 @@ export default function OneSpot() {
       .catch(error => console.error('Error fetching labels data:', error));
   }, []);
 
-
   
-
-
   return (
     <div className='one-spot'>
       <header className='one-spot__header'>
