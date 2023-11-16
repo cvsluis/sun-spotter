@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
 import Home from './routes/Home'
 import AllSpots from './routes/AllSpots';
+import OneSpot from './routes/OneSpot';
 
 //setup browser router, root to home page
 const router = createBrowserRouter([
@@ -16,6 +17,11 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />
+      },
+      {
+        path: "/spots/:id",
+        element: <OneSpot />
+
       },
       {
         path: "/spots",
