@@ -9,15 +9,15 @@ Developer notes for how to contribute a full-stack feature to sun-spotter
 - [Example](#stack-overview)
 - [Queries](#queries)
 - [Backend Routes](#backend-routes)
-
+<!-- 
 ## Example
 
 Suppose you want to implement a full stack feature. For example, you want to create a webpage at the route http://localhost:3000/users that displays all the website users. To implement this, you will need to interact with every element of the stack. You will
-  1 - Create a database query that will return all users
-  2 - Set up a backend api route http://localhost:8080/api/users to host the above information
-  3 - Create a front end route at http://localhost:3000/users using react-router that will host the page
-  4 - Create the Users.jsx file that contains the html the page will display
-  5 - Fetch the users data from the backend api route in the Users.jsx
+  1. Create a database query that will return all users
+  2. Set up a backend api route http://localhost:8080/api/users to host the above information
+  3. Create a front end route at http://localhost:3000/users using react-router that will host the page
+  4. Create the Users.jsx file that contains the html the page will display
+  5. Fetch the users data from the backend api route in the Users.jsx -->
 
 ## Queries
 To access data from our database, we need to **query** it. All of the app's queries live in the backend/src/db/queries folder. You will put your query the 0X_entity.js file that is most relevant to your query; for example, if you are trying to find information about users, put your query in the .../queries/01_users.js file.
@@ -81,7 +81,7 @@ const yourDataQueries = require('../db/queries/0X_entity.js');
 Then each route will look something like: 
 
 ```js
-// Get All Labels
+// Get your data
 router.get('/your-endpoint-here', (req, res) => {
   // call query
   yourDataQueries.getYourData()
