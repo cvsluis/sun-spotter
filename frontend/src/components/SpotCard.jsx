@@ -6,7 +6,7 @@ export default function SpotCard({ spot }) {
   return (
     <div className='spotCard__container'>
       <div className='spotCard__image'>
-        <img src={image} />
+        <img src={`http://localhost:8080/${spot.image_url}`} />
       </div>
       <div className='spotCard__details'>
         <div className='spotCard__header'>
