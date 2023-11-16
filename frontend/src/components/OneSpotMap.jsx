@@ -9,10 +9,6 @@ const mapContainerStyle = {
 }
 
 //static for now
-const center = {
-  lat: 48.424158647072495,
-  lng: -123.41913232109277
-};
 
 export default function OneSpotMap (props) {
 
@@ -22,6 +18,12 @@ export default function OneSpotMap (props) {
 
   if (loadError) return 'Error loading maps';
   if (!isLoaded) return 'Loading maps';
+
+  const center = {
+    lat: Number(props.lat),
+    lng: Number(props.lng)
+  };
+  
 
   return (
     <div className="one-spot__map">
