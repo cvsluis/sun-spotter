@@ -43,7 +43,7 @@ const getSpotRating = (spotID) => {
 };
 
 // Get All Labels associated with one spot and their respective counts
-const getAllSpotLabels = (id) => {
+const getSpotLabels = (id) => {
   const query = `SELECT labels.id as id, labels.name as name, COUNT(visits.name) 
                   FROM spots JOIN visits 
                   ON spots.id = visits.spot_id 
@@ -60,4 +60,4 @@ const getAllSpotLabels = (id) => {
   });
 };
 
-module.exports = { getAllSpots, getOneSpot, createSpot, getSpotRating };
+module.exports = { getAllSpots, getOneSpot, createSpot, getSpotRating, getSpotLabels };
