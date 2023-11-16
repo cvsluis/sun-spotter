@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AboutSpot from '../components/AboutSpot';
+import OneSpotMap from '../components/OneSpotMap';
 
 //import styles 
 import '../styles/OneSpot.scss';
@@ -25,19 +26,13 @@ export default function OneSpot() {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  // //check spotInfo
-  // useEffect(() => {
-  //   console.log(spotInfo);
-  // }, [spotInfo]);
 
   return (
     <div className='one-spot'>
-      {/* <h1>Spot Information</h1>
-      <p><strong>Name:</strong> {spotData.name}</p>
-      <p><strong>City:</strong> {spotData.city}</p>
-      <p><strong>Province:</strong> {spotData.province}</p> */}
-
-      <AboutSpot {...spotData}/> 
+      <header className='one-spot__header'>
+        <OneSpotMap lng={spotData.lng} lat={spotData.lat} />
+        <AboutSpot {...spotData}/> 
+      </header>
     </div>
   );
 }

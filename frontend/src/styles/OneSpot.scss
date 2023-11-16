@@ -13,5 +13,11 @@
   // make container extend below the page 
   bottom: -20px;
 
-  
+}
+
+.one-spot__header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1.5em;
 }
