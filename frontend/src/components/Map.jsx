@@ -15,7 +15,7 @@ const center = {
   lng: -123.331720,
 };
 
-export default function Map({spots}) {
+export default function Map({ spots }) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyCZ4m4MUuWXxIlkrriyTTQp4f3TRby2yes',
     libraries,

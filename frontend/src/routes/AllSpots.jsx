@@ -20,17 +20,16 @@ export default function AllSpots() {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  return (<>
-    <div style={{width: '100%', height:'64px', backgroundColor: '#ddd'}}></div>
+  return (
+    <>
+      <div className='allSpots__container'>
+        <SideBar spots={spots}/>
 
-    <div className='allSpots__container'>
-      <SideBar spots={spots}/>
+        <div className='allSpots__map'>
+          <Map spots={spots} />
+        </div>
 
-      <div className='allSpots__map'>
-        <Map spots={spots} />
       </div>
-
-    </div>
-  </>
+    </>
   );
 }
