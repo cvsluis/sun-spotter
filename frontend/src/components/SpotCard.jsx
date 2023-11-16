@@ -2,6 +2,8 @@ import React from 'react';
 import '../styles/SpotCard.scss';
 
 export default function SpotCard({ spot }) {
+  const labelList = spot.list.join(', ');
+
   return (
     <div className='spotCard__container'>
       <div className='spotCard__image'>
@@ -13,7 +15,7 @@ export default function SpotCard({ spot }) {
           <h4>* {spot.rating} <span>({spot.rating_count})</span></h4>
         </div>
         <h3>{spot.city}, {spot.province}</h3>
-        <h3>Label, Label, Label, Label</h3>
+        <h3>{labelList}</h3>
       </div>
     </div>
   );
