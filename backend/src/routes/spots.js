@@ -1,5 +1,6 @@
-const router = require("express").Router()
-const spotQueries = require('../db/queries/02_spots')
+const router = require("express").Router();
+const spotQueries = require('../db/queries/02_spots');
+const labelQueries = require('../db/queries/06_labels');
 
 module.exports = db => {
 
@@ -24,6 +25,21 @@ module.exports = db => {
     spotQueries.getOneSpot(spotID)
       .then(spot => {
         res.json(spot);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  // /api/spots/:id/labels
+  router.get("/spots/:id/label", (req, res) => {
+    const spotID = req.params.id;
+
+    labelQueries.getAllSpotLabels(spotID)
+      .then(labels => {
+        res.json(labels);
       })
       .catch(err => {
         res
