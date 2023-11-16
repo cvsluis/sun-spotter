@@ -37,10 +37,12 @@ export default function OneSpot() {
         return response.json();
       })
       .then(data => {
-        console.log("Here is your data: ", data)
+        console.log("Here is your data: ", data);
+        setSpotLabels(data);
       })
       .catch(error => console.error('Error fetching labels data:', error));
   }, []);
+
 
   
 
@@ -49,7 +51,7 @@ export default function OneSpot() {
     <div className='one-spot'>
       <header className='one-spot__header'>
         <OneSpotMap lng={spotData.lng} lat={spotData.lat} />
-        <AboutSpot {...spotData}/> 
+        <AboutSpot spotData={spotData} spotLabels={spotLabels}/> 
       </header>
     </div>
   );
