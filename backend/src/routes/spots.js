@@ -32,5 +32,18 @@ module.exports = db => {
       });
   });
 
+  // /api/spots/:id/rating
+  router.get("/spots/:id/rating", (req, res) => {
+    const spotID = req.params.id;
+
+    spotQueries.getSpotRating(spotID)
+      .then(rating => res.json(rating))
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
   return router;
 };
