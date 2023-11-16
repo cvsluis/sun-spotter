@@ -29,7 +29,7 @@ export default function OneSpot() {
       })
       .catch(error => console.error('Error fetching spot data:', error));
 
-    fetch('http://localhost:8080/api/spots/${spotID}/labels')
+    fetch(`http://localhost:8080/api/spots/${spotID}/labels`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
