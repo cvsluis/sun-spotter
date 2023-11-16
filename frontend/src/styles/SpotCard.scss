@@ -5,23 +5,28 @@
   flex-direction: column;
   gap: 0.65rem;
   padding: 1.5rem;
+  padding-bottom: 0.75rem;
 
-  h2 {
+  h2, h5 {
     font-size: 16px;
     font-weight: 700;
+
+    span {
+      font-weight: 400;
+      color: #5d5d5d;
+    }
   }
 
   h3 {
     font-size: 13px;
-    font-weight: 400;
-    color: #656e5e;
+    font-weight: 700;
+    color: #5d5d5d;
   }
 
   h4 {
-    span {
-      font-weight: 400;
-      color: #656e5e;
-    }
+    font-size: 13px;
+    font-weight: 400;
+    color: #757575;
   }
 }
 
