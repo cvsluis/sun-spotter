@@ -2,7 +2,7 @@ const db = require('../index');
 
 // Get All Spots
 const getAllSpots = () => {
-  return db.query('SELECT id, name, lat, lng, city, province, country, created_at FROM spots;')
+  return db.query('SELECT spots.*, ROUND(AVG(visits.rating), 1) AS average_rating FROM visits JOIN spots ON visits.spot_id = spots.id GROUP BY spots.id;')
     .then(data => {
       return data.rows;
     });
