@@ -5,7 +5,7 @@ import '../styles/SideBar.scss';
 export default function SideBar({ spots }) {
 
   const spotsList = spots.map((spot) => {
-    return <SpotCard spot={spot}/>
+    return <SpotCard spot={spot} key={spot.id} />
   });
 
   return (
