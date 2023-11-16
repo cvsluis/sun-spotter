@@ -5,7 +5,9 @@ import { GoogleMap, useLoadScript, MarkerF} from '@react-google-maps/api';
 const mapContainerStyle = {
   width: '471px',
   height: '350px',
-};
+  borderRadius: '24px'
+
+}
 
 
 const center = {
@@ -29,16 +31,21 @@ export default function OneSpotMap (props) {
  
 
   return (
-    <>
+    <div className="one-spot__map">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         center={center}
         zoom={15}
-        options = {{fullscreenControl: false}}
+        options = {{
+          streetViewControl: true,
+          fullscreenControl: false,
+          zoomControl: false,
+          mapTypeControl: false
+        }}
       > 
         <MarkerF position={{lat: Number(center.lat), lng: Number(center.lng)}} />
       </GoogleMap>
     
-    </>
+    </div>
   );
 };
