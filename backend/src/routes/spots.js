@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const spotQueries = require('../db/queries/02_spots');
-const labelQueries = require('../db/queries/06_labels');
+
 
 module.exports = db => {
 
