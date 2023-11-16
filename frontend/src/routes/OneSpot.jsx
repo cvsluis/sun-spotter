@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+//import components
 import AboutSpot from '../components/AboutSpot';
 import OneSpotMap from '../components/OneSpotMap';
 
@@ -8,11 +11,13 @@ import '../styles/OneSpot.scss';
 
 export default function OneSpot() {
 
+  const spotID = useParams().id;
+
   const [ spotData, setSpotData ] = useState([]);
   const [ spotLabels, setSpotLabels ] = useState();
     
   useEffect(() => {
-    fetch('http://localhost:8080/api/spots/1')
+    fetch(`http://localhost:8080/api/spots/${spotID}`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -24,7 +29,7 @@ export default function OneSpot() {
       })
       .catch(error => console.error('Error fetching spot data:', error));
 
-    fetch('http://localhost:8080/api/spots/1/labels')
+    fetch(`http://localhost:8080/api/spots/${spotID}/labels`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
