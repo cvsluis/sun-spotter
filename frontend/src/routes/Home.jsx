@@ -1,7 +1,9 @@
 import '../styles/Home.scss';
 import sunset from '../assets/sunset.jpeg'
+import SpotCard from '../components/SpotCard';
 
 export default function Home () {
+
   return <div>
 
       <header>
@@ -26,6 +28,7 @@ export default function Home () {
 
       <div className='spots__near-user'>
         <h1>Local favourites near Victoria</h1>
+
       </div>
 
       <div className='spots__saved'>
