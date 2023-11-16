@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/SpotCard.scss';
-import image from '../assets/1.jpg'
 
 export default function SpotCard({ spot }) {
   return (
@@ -11,7 +10,7 @@ export default function SpotCard({ spot }) {
       <div className='spotCard__details'>
         <div className='spotCard__header'>
           <h2>{spot.name}</h2>
-          <h4>* {spot.average_rating} <span>(15)</span></h4>
+          <h4>* {spot.rating} <span>(15)</span></h4>
         </div>
         <h3>{spot.city}, {spot.province}</h3>
         <h3>Label, Label, Label, Label</h3>
