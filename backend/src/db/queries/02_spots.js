@@ -34,4 +34,12 @@ const createSpot = (spot) => {
     });  
 };
 
-module.exports = { getAllSpots, getOneSpot, createSpot };
+// Get Spot Rating
+const getSpotRating = (spotID) => {
+  return db.query(`SELECT ROUND(AVG(visits.rating), 1) as average_rating FROM visits JOIN spots ON visits.spot_id = spots.id WHERE spots.id = $1;`, [spotID])
+    .then(data => {
+      return data.rows;
+    });
+};
+
+module.exports = { getAllSpots, getOneSpot, createSpot, getSpotRating };
