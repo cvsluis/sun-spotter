@@ -21,15 +21,13 @@ export default function AllSpots() {
   }, []);
 
   return (
-    <>
-      <div className='allSpots__container'>
-        <SideBar spots={spots}/>
+    <div className='allSpots__container'>
+      <SideBar spots={spots}/>
 
-        <div className='allSpots__map'>
-          <Map spots={spots} />
-        </div>
-
+      <div className='allSpots__map'>
+        <Map spots={spots} />
       </div>
-    </>
+
+    </div>
   );
 }
