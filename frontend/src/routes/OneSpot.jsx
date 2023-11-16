@@ -12,7 +12,7 @@ export default function OneSpot() {
   const [ spotLabels, setSpotLabels ] = useState();
     
   useEffect(() => {
-    fetch('http://localhost:8080/api/spots/5')
+    fetch('http://localhost:8080/api/spots/1')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -24,7 +24,7 @@ export default function OneSpot() {
       })
       .catch(error => console.error('Error fetching spot data:', error));
 
-    fetch('http://localhost:8080/api/spots/5/labels')
+    fetch('http://localhost:8080/api/spots/1/labels')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
