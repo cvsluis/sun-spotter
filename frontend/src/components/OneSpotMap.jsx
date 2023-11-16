@@ -3,13 +3,12 @@ import { GoogleMap, useLoadScript, MarkerF} from '@react-google-maps/api';
 
 
 const mapContainerStyle = {
-  width: '471px',
-  height: '350px',
+  width: '100%',
+  height: '100%',
   borderRadius: '24px'
-
 }
 
-
+//static for now
 const center = {
   lat: 48.424158647072495,
   lng: -123.41913232109277
@@ -23,12 +22,6 @@ export default function OneSpotMap (props) {
 
   if (loadError) return 'Error loading maps';
   if (!isLoaded) return 'Loading maps';
-
-  // const center = {
-  //   lat: Number(props.lat),
-  //   lng: Number(props.long),
-  // };
- 
 
   return (
     <div className="one-spot__map">
@@ -45,7 +38,6 @@ export default function OneSpotMap (props) {
       > 
         <MarkerF position={{lat: Number(center.lat), lng: Number(center.lng)}} />
       </GoogleMap>
-    
     </div>
   );
 };

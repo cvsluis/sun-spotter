@@ -9,7 +9,6 @@ import '../styles/OneSpot.scss';
 export default function OneSpot() {
 
   const [ spotData, setSpotData ] = useState([]);
-
     
   useEffect(() => {
     fetch('http://localhost:8080/api/spots/1')
@@ -20,7 +19,6 @@ export default function OneSpot() {
         return response.json();
       })
       .then(data => {
-        console.log(data[0])
         setSpotData(data[0]);
       })
       .catch(error => console.error('Error fetching data:', error));
