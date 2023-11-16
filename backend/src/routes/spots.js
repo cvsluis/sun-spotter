@@ -50,7 +50,7 @@ module.exports = db => {
   router.get("/spots/:id/labels", (req, res) => {
     const spotID = req.params.id;
 
-    labelQueries.getAllSpotLabels(spotID)
+    spotQueries.getSpotLabels(spotID)
       .then(labels => {
         res.json(labels);
       })

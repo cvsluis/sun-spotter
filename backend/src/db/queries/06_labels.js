@@ -10,4 +10,4 @@ const getAllLabels = () => {
 
 
 
-module.exports = { getAllLabels, getAllSpotLabels };
+module.exports = { getAllLabels };
