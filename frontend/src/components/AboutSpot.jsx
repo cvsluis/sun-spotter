@@ -1,16 +1,26 @@
 import React from 'react';
 import '../styles/AboutSpot.scss'
 
-export default function AboutSpot(props) {
+export default function AboutSpot({spotData, spotLabels}) {
+
+  console.log("labels are: ", spotLabels);
+
   return (
     <div className='about-spot'>
+
+      {/* Spot info */}
       <div className='about-spot__info'>
-        <h1>{props.name}</h1>
-        <div>{props.city}, {props.province}</div>
+        <h1>{spotData.name}</h1>
+        <div>{spotData.city}, {spotData.province}</div>
         <div>implement rating here</div>
       </div>
-      <div className='about-spot__labels'>
-        put tags here
+
+      {/* Spot labels */}
+      <div className='about-spot__labels'>  
+        {spotLabels.length > 0 && spotLabels.map(label => (
+          <div className="about-spot__label">{label.name} ({label.count})</div>
+        ))}
+        {spotLabels.length === 0 && <div className='about-spot__labels'>no labels yet!</div>}
       </div>
     </div>
   );
