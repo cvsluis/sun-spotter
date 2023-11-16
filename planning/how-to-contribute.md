@@ -134,6 +134,49 @@ router.get('/users/:id', (req, res) => {
 });
 ```
 
+## Frontend Routes
+
+We are using **react-router** to handle our frontend routes, such as http://localhost:3000/home, http://localhost:3000/users/:id. React-router allows us to define every URL pattern the app will use, and what component will be rendered at each URL pattern (route). 
+
+Our URL patterns are defined in the frontend/src/index.js file, where we have created a browser router: 
+
+```js
+  /* frontend/src/index.js*/
+
+  // Setup router: this defines all the front end routes our app will use
+  const router = createBrowserRouter([
+    {
+      // Root route: All of our pages are wrapped by the Root component, which contains the app navbar and footer
+      path: '/',
+      element: <Root />,
+      // All non-root routes are children of the Root.
+      children: [
+        //define your route here
+        {
+          path: "/your-endpoint",        // defines the frontend endpoint
+          element: <YourEndpointView />     // defines what React Component will be rendered at this endpoint
+        },
+        //handling a dynamic endpoint:
+        {
+          path: "/your-dynamic-endpoint/:some-parameter",        
+          element: <YourEndpointView />     
+        }
+      ]
+    }
+  ]);
+```
+
+Once you have added your route, you can see it in your browser at http://localhost:3000/your-endpoint, and it will render the <YourEndpointView /> component.
+
+## Frontend Views
+
+Each frontend route renders a specific React component responsible for rendering the HTML body associated with that route.
+
+
+
+
+
+
 
 
 
