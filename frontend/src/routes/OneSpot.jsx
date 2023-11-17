@@ -38,7 +38,7 @@ export default function OneSpot() {
         return response.json();
       })
       .then(data => {
-        console.log("Here is your data: ", data);
+        //console.log("Here is your data: ", data);
         setSpotLabels(data);
       })
       .catch(error => console.error('Error fetching labels data:', error));
@@ -67,7 +67,7 @@ export default function OneSpot() {
     .then(data => {
       console.log("Here is your data: ", data)
     })
-    .catch(error => console.error('Error fetching spots data:', error));
+    .catch(error => console.error('Error fetching visits data:', error));
 
 
       

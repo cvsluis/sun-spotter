@@ -63,13 +63,13 @@ module.exports = db => {
 
 
 // /api/spots/:id/visits
-router.get('spots/:id/:visits', (req, res) => {
+router.get("/spots/:id/:visits", (req, res) => {
 
-  const spotVisits = req.params.id;
+  const spotID = req.params.id;
 
-  spotQueries.getSpotVisits(spotVisits)
+  spotQueries.getSpotVisits(spotID)
     .then(visits => {
-      res.json({ visits });
+      res.json(visits);
     })
     .catch(err => {
       res

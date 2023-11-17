@@ -77,12 +77,11 @@ const getSpotLabels = (id) => {
   });
 };
 
-const getSpotVisits = function (spotName) {
-  const query = `SELECT * FROM visits 
-  JOIN spots ON spots.id = visits.spot_id
-  WHERE spots.name = $1`
-  db.query(query, [spotName])
+const getSpotVisits = function (spotID) {
+  const query = `SELECT * FROM visits WHERE spot_id = $1`
+  return db.query(query, [spotID])
     .then(data => data.rows);
+    
 }
 
 module.exports = { getAllSpots, getOneSpot, createSpot, getSpotRating, getSpotLabels, getSpotVisits };
