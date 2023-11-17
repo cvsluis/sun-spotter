@@ -77,4 +77,12 @@ const getSpotLabels = (id) => {
   });
 };
 
-module.exports = { getAllSpots, getOneSpot, createSpot, getSpotRating, getSpotLabels };
+const getSpotVisits = function (spotName) {
+  const query = `SELECT * FROM visits 
+  JOIN spots ON spots.id = visits.spot_id
+  WHERE spots.name = $1`
+  db.query(query, [spotName])
+    .then(data => data.rows);
+}
+
+module.exports = { getAllSpots, getOneSpot, createSpot, getSpotRating, getSpotLabels, getSpotVisits };
