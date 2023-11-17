@@ -14,6 +14,7 @@ export default function AboutSpot({spotData, spotLabels}) {
         <div>{spotData.city}, {spotData.province}</div>
       </div>
 
+      {/* rating - static until fetch is refactored */}
       <div className='about-spot__rating'>
         <h2>4.0 ****</h2>
       </div>
