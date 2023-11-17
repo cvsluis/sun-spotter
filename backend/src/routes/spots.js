@@ -6,7 +6,7 @@ module.exports = db => {
 
   // /api/spots
   router.get("/spots", (req, res) => {
-    spotQueries.getAllSpots()
+    spotQueries.getAllSpots(req.query.search)
       .then(spots => {
         res.json(spots);
       })
