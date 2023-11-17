@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/AllSpotsSearch.scss';
 
-export default function AllSpotsSearch({ searchInput, handleSearchInputChange, handleSearchSubmit }) {
+export default function AllSpotsSearch({ searchInput, handleSearchInputChange }) {
   return (
     <div className='allSpotsSearch__container'>
       <input placeholder='Search location' autoComplete='off' value={searchInput} onChange={handleSearchInputChange} onKeyUp={handleSearchInputChange}/>
