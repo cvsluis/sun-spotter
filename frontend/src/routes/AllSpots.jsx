@@ -20,12 +20,17 @@ export default function AllSpots() {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
+  const handlePinClick = (id) => {
+    const element = document.getElementById('spot_card_' + id);
+    element.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className='allSpots__container'>
-      <SideBar spots={spots}/>
+      <SideBar spots={spots} />
 
       <div className='allSpots__map'>
-        <Map spots={spots} />
+        <Map spots={spots} handlePinClick={handlePinClick} />
       </div>
 
     </div>
