@@ -13,6 +13,7 @@ export default function AllSpots() {
 
   const handleSearchInputChange = (e) => {
     setSearchInput(e.target.value);
+    fetchAllSpots(searchInput);
   };
 
   // call fetch request for data that matches search string
@@ -22,11 +23,10 @@ export default function AllSpots() {
   };
 
   const fetchAllSpots = (searchInput) => {
-    let url = '';
+    let url = 'http://localhost:8080/api/spots';
+
     if (searchInput) {
-      url = `http://localhost:8080/api/spots?search=${searchInput.trim()}`;
-    } else {
-      url = `http://localhost:8080/api/spots`;
+      url += `?search=${searchInput.trim()}`;
     }
 
     fetch(url)
@@ -55,7 +55,7 @@ export default function AllSpots() {
       <SideBar spots={spots} />
 
     <div className='allSpots__map-container'>
-      <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} handleSearchSubmit={handleSearchSubmit} />
+      <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} />
       <div className='allSpots__map'>
         <Map spots={spots} handlePinClick={handlePinClick} />
       </div>
