@@ -5,7 +5,7 @@ export default function SpotCard({ spot }) {
   const labelList = spot.list.join(', ');
 
   return (
-    <div className='spotCard__container'>
+    <div className='spotCard__container' id={`spot_card_${spot.id}`}>
       <div className='spotCard__image'>
         <img src={`http://localhost:8080/${spot.image_url}`} />
       </div>
