@@ -27,7 +27,7 @@ export default function VisitCard({ visit }) {
         <img src={`http://localhost:8080/${visit.image_url}`} /> 
       </div>
 
-      <div className='visitCard_info'>
+      <div className='visitCard__info'>
         <div className='visitCard__icon'>
           icon
         </div>
