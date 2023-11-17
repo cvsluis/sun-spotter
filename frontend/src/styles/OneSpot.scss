@@ -34,6 +34,7 @@
   max-width: 500px;
   min-width: 200px;
   height: 350px;
+  flex: 0 0 50%;
 }
 
 .one-spot__create-visit {
@@ -49,6 +50,7 @@
 
 .one-spot__header > div {
   display: flex;
+  flex: 1;
   flex-direction: column;
   flex-wrap: none;
   justify-content: space-between;
