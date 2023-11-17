@@ -11,6 +11,7 @@ export default function SideBar({ spots }) {
   return (
     <div className='sideBar__container'>
       {spotsList}
+      {spotsList.length == 0 && <p className='sideBar__error'>No search results found</p>}
     </div>
   );
 }

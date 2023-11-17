@@ -5,7 +5,7 @@ const libraries = ['places'];
 const mapContainerStyle = {
   width: '100%',
   // 100vh - nav bar and search bar height
-  height: 'calc(100vh - 64px)',
+  height: 'calc(100vh - 8rem)',
   margin: '0 auto'
 };
 
