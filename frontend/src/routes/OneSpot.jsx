@@ -42,7 +42,38 @@ export default function OneSpot() {
         setSpotLabels(data);
       })
       .catch(error => console.error('Error fetching labels data:', error));
+
+
+    fetch(`http://localhost:8080/api/spots/${spotID}/labels`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        //console.log("Here is your data: ", data);
+        setSpotLabels(data);
+      })
+      .catch(error => console.error('Error fetching labels data:', error));
+
+    fetch(`http://localhost:8080/api/spots/${spotID}/visits`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Here is your data: ", data)
+    })
+    .catch(error => console.error('Error fetching spots data:', error));
+
+
+      
   }, []);
+
+
 
   
   return (
