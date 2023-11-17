@@ -76,7 +76,7 @@ export default function OneSpot() {
       
   }, []);
 
-
+  
 
   
   return (
@@ -90,7 +90,7 @@ export default function OneSpot() {
       </header>
 
       <div className="one-spot__visits">
-        <VisitCard {...spotVisits}/>
+        <VisitCard visit = {spotVisits[0]}/>
       </div>
     </div>
   );

@@ -1,8 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function VisitCard(props) {
+export default function VisitCard({ visit }) {
+
+  console.log(visit)
   
-  return <div>props.name</div>
+  return (
+    <div className='visitCard__containter'>
+      <div className='visitCard__image'>
+        <img src={`http://localhost:8080/${visit.image_url}`} /> 
+      </div>
+    </div>
+  )
 
 }
