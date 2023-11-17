@@ -23,8 +23,7 @@
 .one-spot__header {
   display: flex;
   justify-content: space-between;
-  //width: 94%; //could use refactor, not sure why it's spilling over
-  height: 370px;
+  height: 340px;
   margin: 1.5em;
   gap: 1.5em;
 }
@@ -34,7 +33,7 @@
   width: 100%;
   max-width: 500px;
   min-width: 200px;
-  height: 350px;
+  height: 320px;
   flex: 0 0 40%;
 }
 
