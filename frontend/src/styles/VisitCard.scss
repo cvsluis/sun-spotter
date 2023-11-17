@@ -1,11 +1,8 @@
-* {
-  color: #000000;
-  text-decoration: none;
-}
 
 .visitCard__container {
+  color: #000000;
+  text-decoration: none;
   width: 100%;
-  height: 500px;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -13,11 +10,8 @@
 }
 
 .visitCard__container:hover .visitCard__image img {
-  /* Apply styles when the parent container (.visitCard__container) is hovered */
-  transform: scale(1.08); /* Example: Increase image size on hover */
-  transition: transform 0.25s ease-in; /* Add a smooth transition effect */
+  transform: scale(1.08); 
 }
-
 
 .visitCard__info {
   display: flex;
