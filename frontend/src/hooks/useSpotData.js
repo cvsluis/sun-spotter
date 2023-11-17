@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useSpotData(spotID) {
 
@@ -15,7 +15,6 @@ export default function useSpotData(spotID) {
           fetch(`http://localhost:8080/api/spots/${spotID}/rating`).then(res => res.json())
         ]);
 
-       
         setSpotData(res1[0]);
         setSpotLabels(res2);
         setSpotRating(res3[0].average_rating);
@@ -26,7 +25,6 @@ export default function useSpotData(spotID) {
 
     fetchData();
   }, []);
-
 
   return [spotData, spotLabels, spotRating];
 }

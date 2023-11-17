@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import useSpotData from '../hooks/useSpotData';
 
+//import hooks
+import useSpotData from '../hooks/useSpotData';
 
 //import components
 import AboutSpot from '../components/AboutSpot';
@@ -14,8 +15,6 @@ import '../styles/OneSpot.scss';
 export default function OneSpot() {
 
   const spotID = useParams().id;
-  //console.log(spotID);
-
   const [ spotData, spotLabels, spotRating ] = useSpotData(spotID);
   
   return (

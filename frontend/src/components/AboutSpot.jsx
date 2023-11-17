@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/AboutSpot.scss'
-import { Link } from 'react-router-dom'
 
 export default function AboutSpot({spotData, spotLabels, spotRating}) {
 
+  //how many stars to 
   const starNumber = Math.floor(Number(spotRating));
   
   console.log(starNumber);
@@ -16,7 +16,7 @@ export default function AboutSpot({spotData, spotLabels, spotRating}) {
         <div>{spotData.city}, {spotData.province}</div>
       </div>
 
-      {/* rating - static until fetch is refactored */}
+      {/* rating - currently does not handle decimal ratings for star display */}
       <div className='about-spot__rating'>
         <h2>{spotRating}{[...Array(starNumber)].map(() => '*')}</h2>
       </div>
@@ -24,7 +24,6 @@ export default function AboutSpot({spotData, spotLabels, spotRating}) {
       {/* Spot labels */}
       <div className='about-spot__labels'>  
         {spotLabels.length > 0 && spotLabels.map((label, i) => {
-
           // make every second label grey
           if (i % 2 === 0) {
             return <div key={label.id} className="about-spot__label">{label.name} ({label.count})</div>;
