@@ -34,7 +34,7 @@ export default function AllSpots() {
     fetchAllSpots(searchInput);
   };
 
-  // fetch data from backend, set it to spots state
+  // fetch data from backend on intial render, set it to spots state
   useEffect(() => {
     fetchAllSpots();
   }, []);
