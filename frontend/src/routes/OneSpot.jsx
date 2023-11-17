@@ -5,6 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 //import components
 import AboutSpot from '../components/AboutSpot';
 import OneSpotMap from '../components/OneSpotMap';
+import VisitCard from '../components/VisitCard';
 
 //import styles 
 import '../styles/OneSpot.scss';
@@ -16,6 +17,7 @@ export default function OneSpot() {
 
   const [ spotData, setSpotData ] = useState([]);
   const [ spotLabels, setSpotLabels ] = useState([]);
+  const [ spotVisits, setSpotVisits ] = useState([]);
     
   useEffect(() => {
     fetch(`http://localhost:8080/api/spots/${spotID}`)
@@ -65,7 +67,8 @@ export default function OneSpot() {
       return response.json();
     })
     .then(data => {
-      console.log("Here is your data: ", data)
+      console.log("Here is your data: ", data);
+      setSpotVisits(data);
     })
     .catch(error => console.error('Error fetching visits data:', error));
 
@@ -85,6 +88,10 @@ export default function OneSpot() {
           <Link className={'one-spot__create-visit'} to="/">Add Visit</Link>
         </div>
       </header>
+
+      <div className="one-spot__visits">
+        <VisitCard {...spotVisits}/>
+      </div>
     </div>
   );
 }
