@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+//import styles
+import '../styles/VisitCard.scss'
+
 export default function VisitCard({ visit }) {
 
   console.log(visit);
