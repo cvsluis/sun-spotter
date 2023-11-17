@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/AboutSpot.scss'
+import { Link } from 'react-router-dom'
 
 export default function AboutSpot({spotData, spotLabels}) {
 
@@ -11,7 +12,10 @@ export default function AboutSpot({spotData, spotLabels}) {
       <div className='about-spot__info'>
         <h1 className='about-spot__name'>{spotData.name}</h1>
         <div>{spotData.city}, {spotData.province}</div>
-        <div>implement rating here</div>
+      </div>
+
+      <div className='about-spot__rating'>
+        <h2>4.0 ****</h2>
       </div>
 
       {/* Spot labels */}

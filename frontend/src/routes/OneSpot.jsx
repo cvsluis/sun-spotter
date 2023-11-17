@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+
 
 //import components
 import AboutSpot from '../components/AboutSpot';
@@ -48,7 +49,10 @@ export default function OneSpot() {
     <div className='one-spot'>
       <header className='one-spot__header'>
         <OneSpotMap lng={spotData.lng} lat={spotData.lat} />
-        <AboutSpot spotData={spotData} spotLabels={spotLabels}/> 
+        <div>
+          <AboutSpot spotData={spotData} spotLabels={spotLabels}/> 
+          <Link className={'one-spot__create-visit'} to="/">Add Visit</Link>
+        </div>
       </header>
     </div>
   );
