@@ -1,8 +1,10 @@
 const db = require('../index');
 
-const getVisitsBySpotID = function (spotID) {
-  const query = `SELECT * FROM visits WHERE spot_id = $!`
-  db.query(query, [spotID])
+const getVisitsBySpotName = function (spotName) {
+  const query = `SELECT * FROM visits 
+  JOIN spots ON spots.id = visits.spot_id
+  WHERE spots.name = $1`
+  db.query(query, [spotName])
     .then(data => data.rows) ;
 }
 
