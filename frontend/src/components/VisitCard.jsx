@@ -6,7 +6,8 @@ import '../styles/VisitCard.scss'
 
 export default function VisitCard({ visit }) {
 
-  console.log(visit);
+  console.log(visit.date, typeof(visit.date));
+
   
   return (
     <div className='visitCard__containter'>
@@ -15,8 +16,11 @@ export default function VisitCard({ visit }) {
       </div>
 
       <div className='visitCard_details'>
-        <div className='visitCard_icon'>
-          <span className='dot' style={{height: '4px', width: '5px', color: 'grey'}}></span>
+        <div className='visitCard__icon'>
+          icon
+        </div>
+        <div className='visitCard__details'>
+          {visit.first_name} {visit.last_name}
         </div>
       </div>
     </div>
