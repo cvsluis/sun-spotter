@@ -1,5 +1,34 @@
-.about-spot{ 
+.about-spot { 
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  padding-top: 1.5em;
+}
+
+.about-spot__info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+}
+.about-spot__labels {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+
+}
+.about-spot__label {
+  font-size: 12px;
+  background-color: #FCBC94;
+  border-radius: 9999px;
+  padding: 0.5em;
+}
+
+about-spot__name {
+  font-size: 34px;
+}
+
+.about-spot__label--grey {
+  background-color: #DADADA;
 }

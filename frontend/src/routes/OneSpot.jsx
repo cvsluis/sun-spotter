@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+
 
 //import components
 import AboutSpot from '../components/AboutSpot';
@@ -14,7 +15,7 @@ export default function OneSpot() {
   const spotID = useParams().id;
 
   const [ spotData, setSpotData ] = useState([]);
-  const [ spotLabels, setSpotLabels ] = useState();
+  const [ spotLabels, setSpotLabels ] = useState([]);
     
   useEffect(() => {
     fetch(`http://localhost:8080/api/spots/${spotID}`)
@@ -37,19 +38,21 @@ export default function OneSpot() {
         return response.json();
       })
       .then(data => {
-        console.log("Here is your data: ", data)
+        console.log("Here is your data: ", data);
+        setSpotLabels(data);
       })
       .catch(error => console.error('Error fetching labels data:', error));
   }, []);
 
   
-
-
   return (
     <div className='one-spot'>
       <header className='one-spot__header'>
         <OneSpotMap lng={spotData.lng} lat={spotData.lat} />
-        <AboutSpot {...spotData}/> 
+        <div>
+          <AboutSpot spotData={spotData} spotLabels={spotLabels}/> 
+          <Link className={'one-spot__create-visit'} to="/">Add Visit</Link>
+        </div>
       </header>
     </div>
   );
