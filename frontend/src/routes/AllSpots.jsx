@@ -11,11 +11,6 @@ export default function AllSpots() {
   // search filter state
   const [searchInput, setSearchInput] = useState('');
 
-  const handleSearchInputChange = (e) => {
-    setSearchInput(e.target.value);
-    fetchAllSpots(searchInput);
-  };
-
   const fetchAllSpots = (searchInput) => {
     let url = 'http://localhost:8080/api/spots';
 
@@ -32,6 +27,11 @@ export default function AllSpots() {
       })
       .then(data => setSpots(data))
       .catch(error => console.error('Error fetching data:', error));
+  };
+
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+    fetchAllSpots(searchInput);
   };
 
   // fetch data from backend, set it to spots state
