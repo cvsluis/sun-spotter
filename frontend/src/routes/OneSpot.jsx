@@ -16,16 +16,14 @@ export default function OneSpot() {
   const spotID = useParams().id;
   //console.log(spotID);
 
-  const [ spotData, spotLabels ] = useSpotData(spotID);
-  //console.log(spotData);
-
+  const [ spotData, spotLabels, spotRating ] = useSpotData(spotID);
   
   return (
     <div className='one-spot'>
       <header className='one-spot__header'>
         <OneSpotMap lng={spotData.lng} lat={spotData.lat} />
         <div>
-          <AboutSpot spotData={spotData} spotLabels={spotLabels}/> 
+          <AboutSpot spotData={spotData} spotLabels={spotLabels} spotRating={spotRating}/> 
           <Link className={'one-spot__create-visit'} to="/">Add Visit</Link>
         </div>
       </header>
