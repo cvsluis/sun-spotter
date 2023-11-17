@@ -16,12 +16,6 @@ export default function AllSpots() {
     fetchAllSpots(searchInput);
   };
 
-  // call fetch request for data that matches search string
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    fetchAllSpots(searchInput);
-  };
-
   const fetchAllSpots = (searchInput) => {
     let url = 'http://localhost:8080/api/spots';
 
@@ -45,6 +39,7 @@ export default function AllSpots() {
     fetchAllSpots();
   }, []);
 
+  // scroll spot card into view when clicking on map pin
   const handlePinClick = (id) => {
     const element = document.getElementById('spot_card_' + id);
     element.scrollIntoView({ behavior: 'smooth' });
