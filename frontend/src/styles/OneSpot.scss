@@ -4,7 +4,7 @@
   width: 75%;
   max-width: 1020px;
   min-width: 540px;
-  height: 110vh;
+  height: max-content;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -58,7 +58,9 @@
 }
 
 .one-spot__visits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  margin: 1.5em;
 }
