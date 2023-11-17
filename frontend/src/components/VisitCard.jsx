@@ -7,22 +7,10 @@ import '../styles/VisitCard.scss'
 
 export default function VisitCard({ visit }) {
 
-
-  console.log(visit.date)
-
   const visitDate = new Date(visit.date);
 
-  console.log(dateFormatter(visitDate));
-
-  const monthNames = [
-  'January', 'February', 'March', 'April',
-  'May', 'June', 'July', 'August',
-  'September', 'October', 'November', 'December'
-];
-
-  
   return (
-    <Link to={`/`} className='visitCard__containter'>
+    <Link to={`/`} className='visitCard__container'>
       <div className='visitCard__image'>
         <img src={`http://localhost:8080/${visit.image_url}`} alt={visit.image_alt} />
       </div>
