@@ -28,6 +28,9 @@ export default function Home () {
 
       <div className='spots__near-user'>
         <h1>Local favourites near Victoria</h1>
+        <SpotCard />
+        <SpotCard />
+        <SpotCard />
 
       </div>
 
