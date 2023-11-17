@@ -2,9 +2,11 @@ import React from 'react';
 import '../styles/AboutSpot.scss'
 import { Link } from 'react-router-dom'
 
-export default function AboutSpot({spotData, spotLabels}) {
+export default function AboutSpot({spotData, spotLabels, spotRating}) {
 
-
+  const starNumber = Math.floor(Number(spotRating));
+  
+  console.log(starNumber);
   return (
     <div className='about-spot'>
 
@@ -16,7 +18,7 @@ export default function AboutSpot({spotData, spotLabels}) {
 
       {/* rating - static until fetch is refactored */}
       <div className='about-spot__rating'>
-        <h2>4.0 ****</h2>
+        <h2>{spotRating}{[...Array(starNumber)].map(() => '*')}</h2>
       </div>
 
       {/* Spot labels */}
