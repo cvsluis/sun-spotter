@@ -79,7 +79,7 @@ const getSpotLabels = (id) => {
 
 //get info required to render Visit Card
 const getSpotVisits = function (spotID) {
-  const query = `SELECT users.first_name as first_name, users.last_name as last_name, visits.created_at as date, visits.image_url as image_url
+  const query = `SELECT visits.id as id, users.first_name as first_name, users.last_name as last_name, visits.created_at as date, visits.image_url as image_url
                   FROM users JOIN visits
                   ON users.id = visits.user_id
                   WHERE visits.spot_id = $1`
