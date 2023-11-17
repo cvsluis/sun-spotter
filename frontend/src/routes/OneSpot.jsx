@@ -15,7 +15,7 @@ export default function OneSpot() {
 
   const spotID = useParams().id;
 
-  const [ spotData, setSpotData ] = useState([]);
+  const [ spotData, setSpotData ] = useState({});
   const [ spotLabels, setSpotLabels ] = useState([]);
   const [ spotVisits, setSpotVisits ] = useState([]);
     
@@ -45,20 +45,6 @@ export default function OneSpot() {
       })
       .catch(error => console.error('Error fetching labels data:', error));
 
-
-    fetch(`http://localhost:8080/api/spots/${spotID}/labels`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        //console.log("Here is your data: ", data);
-        setSpotLabels(data);
-      })
-      .catch(error => console.error('Error fetching labels data:', error));
-
     fetch(`http://localhost:8080/api/spots/${spotID}/visits`)
     .then(response => {
       if (!response.ok) {
@@ -67,7 +53,7 @@ export default function OneSpot() {
       return response.json();
     })
     .then(data => {
-      console.log("Here is your data: ", data);
+      console.log("Here is your data: ", data[0]);
       setSpotVisits(data);
     })
     .catch(error => console.error('Error fetching visits data:', error));
@@ -90,7 +76,7 @@ export default function OneSpot() {
       </header>
 
       <div className="one-spot__visits">
-        <VisitCard visit = {spotVisits[0]}/>
+        {spotVisits.length > 0 && <VisitCard visit={spotVisits[0]}/>}
       </div>
     </div>
   );
