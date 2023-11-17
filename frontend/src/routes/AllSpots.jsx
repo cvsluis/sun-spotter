@@ -7,10 +7,29 @@ import '../styles/AllSpots.scss';
 export default function AllSpots() {
   // all spots state
   const [spots, setSpots] = useState([]);
+  
+  // search filter state
+  const [searchInput, setSearchInput] = useState('');
 
-  // fetch data from backend, set it to spots state
-  useEffect(() => {
-    fetch('http://localhost:8080/api/spots')
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  // call fetch request for data that matches search string
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    fetchAllSpots(searchInput);
+  };
+
+  const fetchAllSpots = (searchInput) => {
+    let url = '';
+    if (searchInput) {
+      url = `http://localhost:8080/api/spots?search=${searchInput.trim()}`;
+    } else {
+      url = `http://localhost:8080/api/spots`;
+    }
+
+    fetch(url)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -19,14 +38,19 @@ export default function AllSpots() {
       })
       .then(data => setSpots(data))
       .catch(error => console.error('Error fetching data:', error));
+  };
+
+  // fetch data from backend, set it to spots state
+  useEffect(() => {
+    fetchAllSpots();
   }, []);
 
   return (
     <div className='allSpots__container'>
-      <SideBar spots={spots}/>
+      <SideBar spots={spots} />
 
     <div className='allSpots__map-container'>
-      <AllSpotsSearch />
+      <AllSpotsSearch searchInput={searchInput} handleChange={handleChange} handleSearchSubmit={handleSearchSubmit} />
       <div className='allSpots__map'>
         <Map spots={spots} />
       </div>
