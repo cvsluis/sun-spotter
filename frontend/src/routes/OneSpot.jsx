@@ -29,7 +29,7 @@ export default function OneSpot() {
       </header>
 
       <div className="one-spot__visits">
-        {spotVisits.length > 0 && <VisitCard visit={spotVisits[0]}/>}
+        {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit}/>)}
       </div>
     </div>
   );
