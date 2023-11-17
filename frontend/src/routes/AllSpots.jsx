@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Map from '../components/Map';
 import SideBar from '../components/SideBar';
+import AllSpotsSearch from '../components/AllSpotsSearch';
 import '../styles/AllSpots.scss';
 
 export default function AllSpots() {
@@ -24,9 +25,12 @@ export default function AllSpots() {
     <div className='allSpots__container'>
       <SideBar spots={spots}/>
 
+    <div className='allSpots__map-container'>
+      <AllSpotsSearch />
       <div className='allSpots__map'>
         <Map spots={spots} />
       </div>
+    </div>
 
     </div>
   );
