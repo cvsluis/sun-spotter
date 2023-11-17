@@ -45,6 +45,11 @@ export default function AllSpots() {
     fetchAllSpots();
   }, []);
 
+  const handlePinClick = (id) => {
+    const element = document.getElementById('spot_card_' + id);
+    element.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className='allSpots__container'>
       <SideBar spots={spots} />
@@ -52,7 +57,7 @@ export default function AllSpots() {
     <div className='allSpots__map-container'>
       <AllSpotsSearch searchInput={searchInput} handleChange={handleChange} handleSearchSubmit={handleSearchSubmit} />
       <div className='allSpots__map'>
-        <Map spots={spots} />
+        <Map spots={spots} handlePinClick={handlePinClick} />
       </div>
     </div>
 
