@@ -58,7 +58,7 @@
 }
 
 .one-spot__visits {
-  width: 90%; //could use refactor, not sure why it's spilling over
+  width: 91.8%; //could use refactor, not sure why it's spilling over
   display: grid;
   grid-template-columns: repeat(3, 33.33%);
   grid-column-gap: 1em;

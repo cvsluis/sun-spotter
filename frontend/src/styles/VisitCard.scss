@@ -8,33 +8,8 @@
   gap: 0.65rem;
   padding: 1.5rem;
   padding-bottom: 0.75rem;
-
-  h2, h5 {
-    font-size: 16px;
-    font-weight: 700;
-
-    span {
-      font-weight: 400;
-      color: #5d5d5d;
-    }
-  }
-
-  h3 {
-    font-size: 13px;
-    font-weight: 700;
-    color: #5d5d5d;
-  }
-
 }
 
-.visitCard__container:hover {
-  cursor: pointer;
-
-  .visitCard__image img {
-    transform: scale(1.08);
-  }
-
-}
 
 .visitCard__info {
   display: flex;
@@ -42,10 +17,11 @@
 }
 
 .visitCard__details {
-  font-weight: 800;
+  font-size: 14px;
+  //font-weight: 800;
 }
 .visitCard__date {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   color: #757575;
 }

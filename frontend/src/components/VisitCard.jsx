@@ -22,7 +22,9 @@ export default function VisitCard({ visit }) {
 
   
   return (
+
     <div className='visitCard__containter'>
+    
       <div className='visitCard__image'>
         <img src={`http://localhost:8080/${visit.image_url}`} /> 
       </div>
@@ -41,6 +43,7 @@ export default function VisitCard({ visit }) {
         </div>
       </div>
     </div>
+
   )
 
 }
