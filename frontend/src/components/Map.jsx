@@ -15,7 +15,7 @@ const center = {
   lng: -123.331720,
 };
 
-export default function Map({ spots }) {
+export default function Map({ spots, handlePinClick }) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyCZ4m4MUuWXxIlkrriyTTQp4f3TRby2yes',
     libraries,
@@ -32,7 +32,7 @@ export default function Map({ spots }) {
   // for each spot, create marker component
   const markerList = spots.map(spot => {
     return (
-      <MarkerF key={spot.id} position={{lat: Number(spot.lat), lng: Number(spot.lng)}} />
+      <MarkerF key={spot.id} position={{lat: Number(spot.lat), lng: Number(spot.lng)}} onClick={() => handlePinClick(spot.id)}/>
     );
   });
 
