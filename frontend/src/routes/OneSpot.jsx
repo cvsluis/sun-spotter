@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import useSpotData from '../hooks/useSpotData';
 
 
 //import components
@@ -13,58 +14,10 @@ import '../styles/OneSpot.scss';
 export default function OneSpot() {
 
   const spotID = useParams().id;
-  console.log(spotID)
+  //console.log(spotID);
 
-  const [ spotData, setSpotData ] = useState([]);
-  const [ spotLabels, setSpotLabels ] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [res1, res2 ] = await Promise.all([
-          fetch(`http://localhost:8080/api/spots/${spotID}`).then(res => res.json()),
-          fetch(`http://localhost:8080/api/spots/${spotID}/labels`).then(res => res.json())
-
-        ]);
-
-        console.log(res1, res2)
-        setSpotData(res1[0]);
-        setSpotLabels(res2);
-      } catch(err) {
-        console.error('Error fetching data', err);
-      }
-    };
-
-    fetchData();
-
-  }, []);
-    
-  // useEffect(() => {
-  //   fetch(`http://localhost:8080/api/spots/${spotID}`)
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! Status: ${response.status}`);
-  //       }
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       setSpotData(data[0]);
-  //     })
-  //     .catch(error => console.error('Error fetching spot data:', error));
-
-  //   fetch(`http://localhost:8080/api/spots/${spotID}/labels`)
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! Status: ${response.status}`);
-  //       }
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       console.log("Here is your data: ", data);
-  //       setSpotLabels(data);
-  //     })
-  //     .catch(error => console.error('Error fetching labels data:', error));
-  // }, []);
+  const [ spotData, spotLabels ] = useSpotData(spotID);
+  //console.log(spotData);
 
   
   return (
