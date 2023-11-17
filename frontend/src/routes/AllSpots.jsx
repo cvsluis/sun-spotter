@@ -11,7 +11,7 @@ export default function AllSpots() {
   // search filter state
   const [searchInput, setSearchInput] = useState('');
 
-  const handleChange = (e) => {
+  const handleSearchInputChange = (e) => {
     setSearchInput(e.target.value);
   };
 
@@ -55,7 +55,7 @@ export default function AllSpots() {
       <SideBar spots={spots} />
 
     <div className='allSpots__map-container'>
-      <AllSpotsSearch searchInput={searchInput} handleChange={handleChange} handleSearchSubmit={handleSearchSubmit} />
+      <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} handleSearchSubmit={handleSearchSubmit} />
       <div className='allSpots__map'>
         <Map spots={spots} handlePinClick={handlePinClick} />
       </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import '../styles/AllSpotsSearch.scss';
 
-export default function AllSpotsSearch({ searchInput, handleChange, handleSearchSubmit }) {
+export default function AllSpotsSearch({ searchInput, handleSearchInputChange, handleSearchSubmit }) {
   return (
     <div className='allSpotsSearch__container'>
       <form onSubmit={handleSearchSubmit} >
-        <input placeholder='Search location' autoComplete='off' value={searchInput} onChange={handleChange} />
+        <input placeholder='Search location' autoComplete='off' value={searchInput} onChange={handleSearchInputChange} />
       </form>
       {/* to be implemented */}
       {/* <button id='allspots-btn-filter' className='allSpots-btn-grey'>Filter</button>
