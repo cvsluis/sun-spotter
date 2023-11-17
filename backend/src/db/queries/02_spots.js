@@ -1,8 +1,9 @@
 const db = require('../index');
 
 // Get All Spots
-const getAllSpots = () => {
-  return db.query(`
+const getAllSpots = (searchString) => {
+  const queryParams = [];
+  let queryString = `    
     WITH spot_rating AS (SELECT spots.id, ROUND(AVG(visits.rating), 1) AS rating, COUNT(visits.rating) AS rating_count
       FROM visits
       JOIN spots ON visits.spot_id = spots.id GROUP BY spots.id), 
@@ -17,9 +18,19 @@ const getAllSpots = () => {
     FROM spots 
     JOIN last_visit ON spots.id = last_visit.spot_id 
     JOIN spot_rating ON spots.id = spot_rating.id 
-    JOIN label_list ON spots.id = label_list.id
-    ORDER BY spot_id DESC;
-  `)
+    JOIN label_list ON spots.id = label_list.id `;
+
+  // Check if searchString exists and add a WHERE clause to filter by it
+  if (searchString) {
+    queryParams.push(`%${searchString}%`);
+    queryString += `WHERE spots.name ILIKE $${queryParams.length} OR spots.city ILIKE $${queryParams.length} OR spots.province ILIKE $${queryParams.length} OR spots.country ILIKE $${queryParams.length} `;
+  }
+
+  // order by last added spot
+  queryString += `ORDER BY spot_id DESC;`;
+
+  return db
+    .query(queryString, queryParams)
     .then(data => {
       return data.rows;
     });
