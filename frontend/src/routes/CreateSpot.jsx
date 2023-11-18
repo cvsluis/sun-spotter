@@ -23,6 +23,12 @@ export default function CreateSpot() {
     return <Label key={label.id} name={label.name} active={false}/>
   });
 
+  const [marker, setMarker] = useState([{}]);
+
+  const onMapClick = (e) => {
+    setMarker([{ lat: e.latLng.lat(), lng: e.latLng.lng()}]);
+  };
+
   return (
     <div className='one-spot createSpot__container'>
 
@@ -43,7 +49,7 @@ export default function CreateSpot() {
       </div>
 
       <div className='createSpot__map'>
-        <Map spots={[]} handlePinClick={null} borderRadius={true}/>
+        <Map spots={marker} handlePinClick={null} borderRadius={true} onMapClick={onMapClick}/>
       </div>
 
     </div>
