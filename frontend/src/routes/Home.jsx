@@ -1,7 +1,6 @@
 export default function Home () {
   return (
     <div>
-
       <div className="welcome__section">
         <img alt="sunset" src={process.env.PUBLIC_URL + "/sunset.jpeg"}></img>
 
