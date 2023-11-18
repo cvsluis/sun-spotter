@@ -7,7 +7,13 @@ export default function CreateSpot() {
 
       <div className='createSpot__sideBar'>
         <h1>Create a Spot</h1>
-        <form>
+        <form className='creatSpot__form'>
+          <input className='creatSpot__form--element' placeholder='Add Title'></input>
+          <input className='creatSpot__form--element' placeholder='Location'></input>
+          <input className='creatSpot__form--element' type="datetime-local"></input>
+          <input className='creatSpot__form--element' placeholder='Rating'></input>
+          <textarea className='creatSpot__form--element' type="text" rows='3' maxlength="250" placeholder='Description'></textarea>
+          <input className='creatSpot__form--element' placeholder='Image Upload'></input>
         </form>
       </div>
 
