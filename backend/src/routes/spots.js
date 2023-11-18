@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const spotQueries = require('../db/queries/02_spots');
-
+const visitQueries = require('../db/queries/03_visits');
+const visitlabelQueries = require('../db/queries/07_visit_lables');
 
 module.exports = db => {
 
@@ -15,6 +16,31 @@ module.exports = db => {
           .status(500)
           .json({ error: err.message });
       });
+  });
+
+  // POST /api/spots
+  router.post("/spots", (req, res) => {
+    // need to be logged in, check for user (to be implemented)
+    // for now user_id will be 1
+    const user_id = 1;
+    const newSpot = req.body.spot;
+    const newVisit = req.body.visit;
+    const newVisitLabels = req.body.labels;
+
+    // call createSpot with newSpot details
+    spotQueries.createSpot(newSpot)
+    // .then(receive spot id from query return and pass it to create visit)
+      .then((received_spot) => {
+        newVisit.spot_id = received_spot.id;
+        newVisit.user_id = user_id;
+        newVisit.timestamp = newVisit.dateTime.replace("T", " ")
+
+        visitQueries.createVisit(newVisit)
+          .then(() => {
+            visitlabelQueries.addVisitLabels(newVisitLabels)
+            .then(() => res.redirect("/spots"))
+          })
+      }).catch(err => res.status(500).json({ error: err.message }));
   });
 
   // /api/spots/:id
