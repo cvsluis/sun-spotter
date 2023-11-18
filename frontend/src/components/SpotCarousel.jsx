@@ -1,7 +1,9 @@
 import Carousel from "react-multi-carousel";
+import SpotCard from "../components/SpotCard";
 import "react-multi-carousel/lib/styles.css";
 
-export default function SpotCarousel() {
+export default function SpotCarousel({spots}) {
+  console.log(spots);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -20,14 +22,16 @@ export default function SpotCarousel() {
       breakpoint: { max: 464, min: 0 },
       items: 1
     }
-
 }
+
+const spotsCarouselList = spots.map((spot) => {
+  return <SpotCard spot={spot} key={spot.id} />
+});
+
 return(
 <Carousel responsive={responsive}>
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-  <div>Item 4</div>
+  { spotsCarouselList }
+  {spotsCarouselList.length === 0 && <p className='sideBar__error'>No search results found</p>}
 </Carousel>
 )
 

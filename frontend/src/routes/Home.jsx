@@ -1,20 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SpotCarousel from '../components/SpotCarousel';
 import "../styles/Home.scss";
 import sunset from "../assets/sunset_header.jpg";
-// import SpotCard from "../components/SpotCard";
+
 
 export default function Home() {
 
   // all spots state
   const [spots, setSpots] = useState([]);
 
-  const fetchAllSpots = (searchInput) => {
+  const fetchAllSpots = () => {
     let url = 'http://localhost:8080/api/spots';
-
-    if (searchInput) {
-      url += `?search=${searchInput.trim()}`;
-    }
 
     fetch(url)
       .then(response => {
@@ -27,6 +23,10 @@ export default function Home() {
       .catch(error => console.error('Error fetching data:', error));
   };
 
+    // // fetch data from backend on intial render, set it to spots state
+    useEffect(() => {
+      fetchAllSpots();
+    }, []);
 
   return (
     <div>
@@ -55,13 +55,13 @@ export default function Home() {
       <div className="spots__near-user">
         <h1>Local favourites near Victoria</h1>
         <div className="spots__carousel"></div>
-        <SpotCarousel />
+        <SpotCarousel spots={spots}/>
       </div>
 
       <div className="spots__saved">
         <h1>Your favourites sunset spots</h1>
         <div className="spots__carousel"></div>
-        <SpotCarousel />   
+        {/* <SpotCarousel spots={spots}/>    */}
       </div>
     </section>
 
