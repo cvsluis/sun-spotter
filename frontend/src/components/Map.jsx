@@ -9,7 +9,7 @@ const center = {
   lng: -123.331720,
 };
 
-export default function Map({ spots, handlePinClick, borderRadius }) {
+export default function Map({ spots, handlePinClick, borderRadius, onMapClick }) {
   const mapContainerStyle = {
     width: '100%',
     height: '100%',
@@ -43,6 +43,7 @@ export default function Map({ spots, handlePinClick, borderRadius }) {
       zoom={12}
       center={center}
       options={{ fullscreenControl: false, streetViewControl: false, mapTypeControl: false }}
+      onClick={onMapClick}
     >
       {markerList}
     </GoogleMap>
