@@ -61,7 +61,7 @@ export default function Home() {
       <div className="spots__saved">
         <h1>Your favourites sunset spots</h1>
         <div className="spots__carousel"></div>
-        {/* <SpotCarousel spots={spots}/>    */}
+        <SpotCarousel spots={spots}/>    
       </div>
     </section>
 
