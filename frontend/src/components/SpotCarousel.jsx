@@ -3,7 +3,6 @@ import SpotCard from "../components/SpotCard";
 import "react-multi-carousel/lib/styles.css";
 
 export default function SpotCarousel({spots}) {
-  console.log(spots);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -28,8 +27,22 @@ const spotsCarouselList = spots.map((spot) => {
   return <SpotCard spot={spot} key={spot.id} />
 });
 
+console.log(spotsCarouselList);
+
 return(
-<Carousel responsive={responsive}>
+<Carousel
+  swipeable={true}
+  draggable={true}
+  arrows={true}
+  responsive={responsive}
+  ssr={true} // means to render carousel on server-side.
+  infinite={true}
+  autoPlaySpeed={1000}
+  keyBoardControl={true}
+  customTransition="all .5"
+  transitionDuration={500}
+  sliderClass='react-multi-carousel-track'
+>
   { spotsCarouselList }
   {spotsCarouselList.length === 0 && <p className='sideBar__error'>No search results found</p>}
 </Carousel>
