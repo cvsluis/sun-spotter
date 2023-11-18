@@ -7,20 +7,20 @@
 
 .label__inactive {
   background-color: #cecece;
-
-  &:hover {
-    cursor: pointer;
-    background-color: #c3c3c3;
-  }
 }
 
 .label__active {
   background-color: #e65e0986;
+}
 
-  &:hover {
-    cursor: pointer;
-    background-color: #ff6200b8;
-  }
+.label__hover.label__inactive:hover {
+  cursor: pointer;
+  background-color: #c3c3c3;
+}
+
+.label__hover.label__active:hover {
+  cursor: pointer;
+  background-color: #ff6200b8;
 }
 
 .label__container {
