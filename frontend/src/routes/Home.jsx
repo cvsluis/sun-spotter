@@ -1,5 +1,5 @@
 import "../styles/Home.scss";
-import sunset from "../assets/sunset.jpeg";
+import sunset from "../assets/sunset_header.jpg";
 import SpotCard from "../components/SpotCard";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
         <img className="header__img" alt="sunset" src={sunset}></img>
 
         <div className="welcome__section">
-          <h4>Welcome, user! It's 2 hours to sunset in Victoria</h4>
+          <h4>Welcome, user!</h4>
 
           <div className="search__wrapper">
             <form action="/search" method="get">
@@ -21,8 +21,11 @@ export default function Home() {
               ></input>
             </form>
           </div>
+          <p>It's 2 hours to sunset in Victoria</p>
         </div>
       </header>
+
+      <section className='list__spots'>
 
       <div className="spots__near-user">
         <h1>Local favourites near Victoria</h1>
@@ -41,6 +44,8 @@ export default function Home() {
         <div></div>
         <div></div>
       </div>
+    </section>
+
     </div>
   );
 }
