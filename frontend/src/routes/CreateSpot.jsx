@@ -6,26 +6,26 @@ import Label from '../components/Label';
 
 export default function CreateSpot() {
   const [labels, setLabels] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8080/api/labels')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => setLabels(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
-
-  const labelList = labels.map(label => {
-    return <Label key={'createSpot_' + label.id} name={label.name} />
-  });
+  const [clickedLabels, setClickedLabels] = useState([]);
 
   // FORM DATA HANDLERS
   const [marker, setMarker] = useState([{}]);
-  const [formData, setFormData] = useState({ spot: {}, visit: {}, labels: []});
+  const [formData, setFormData] = useState({ spot: {}, visit: {}, labels: [] });
+
+  const handleLabelClick = (e) => {
+    const label = { label_id: Number(e.target.id) };
+    setFormData(prev => ({ ...prev, labels: [...prev.labels, label] }));
+
+    if (clickedLabels.includes(e.target.id)) {
+      setClickedLabels(() => clickedLabels.filter(id => id !== e.target.id))
+    } else {
+      setClickedLabels(prev => [...prev, e.target.id])
+    }
+  };
+
+  const labelList = labels.map(label => {
+    return <Label key={'createSpot_' + label.id} active={clickedLabels.includes((label.id).toString())} label={label} handleLabelClick={handleLabelClick}/>
+  });
 
   const onMapClick = (e) => {
     const lat = e.latLng.lat();
@@ -39,6 +39,18 @@ export default function CreateSpot() {
     const name = event.target.name;
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, [name]: event.target.value } }));
   };
+
+  useEffect(() => {
+    fetch('http://localhost:8080/api/labels')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => setLabels(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   return (
     <div className='one-spot createSpot__container'>
