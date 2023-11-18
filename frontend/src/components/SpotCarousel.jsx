@@ -27,8 +27,6 @@ const spotsCarouselList = spots.map((spot) => {
   return <SpotCard className="carousel__spotCard" spot={spot} key={spot.id} />
 });
 
-console.log(spotsCarouselList);
-
 return(
 <Carousel
   swipeable={true}
