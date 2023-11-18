@@ -39,10 +39,11 @@ export default function Home() {
           <div className="search__wrapper">
             <form action="/search" method="get">
               <input
-                className="search__bar"
+                className="homepage-search__input"
                 type="text"
                 id="search"
                 placeholder="Search by city"
+                
               ></input>
             </form>
           </div>
