@@ -40,6 +40,10 @@ $container-height: 680px;
 .createSpot__form--location {
   display: flex;
   justify-content: space-between;
+
+  span {
+    font-size: 12px;
+  }
 }
 
 .createSpot__form--green {
