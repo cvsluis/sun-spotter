@@ -45,15 +45,15 @@ export default function CreateSpot() {
       <div className='createSpot__sideBar'>
         <h1>Create a Spot</h1>
         <form className='createSpot__form'>
-          <input className='createSpot__form--element' placeholder='Add Name' name='spotName' onChange={handleFormChange} autoComplete='off'></input>
+          <input className='createSpot__form--element' placeholder='Add Name' id='createSpot__form-id--name' name='spotName' onChange={handleFormChange} autoComplete='off'></input>
           <div className={`createSpot__form--element createSpot__form--location ${formData.lat && 'createSpot__form--green'}`} >
             Location
             {formData.lat ? <span>✅</span>: <span>Select location on Map</span> }
           </div>
-          <input className='createSpot__form--element' type="datetime-local"></input>
-          <input className='createSpot__form--element' placeholder='Rating'></input>
-          <textarea className='createSpot__form--element' type="text" rows='3' maxLength="250" placeholder='Description' autoComplete='off'></textarea>
-          <input className='createSpot__form--element' placeholder='Image Upload'></input>
+          <input className='createSpot__form--element' type="datetime-local" id='createSpot__form-id--date-time'></input>
+          <input className='createSpot__form--element' placeholder='Rating' id='createSpot__form-id--rating'></input>
+          <textarea className='createSpot__form--element' type="text" rows='3' maxLength="250" placeholder='Description' autoComplete='off' id='createSpot__form-id--description'></textarea>
+          <input className='createSpot__form--element' placeholder='Image Upload' id='createSpot__form-id--image'></input>
           <div className='label__container'>
             {labelList}
           </div>
@@ -62,7 +62,7 @@ export default function CreateSpot() {
       </div>
 
       <div className='createSpot__map'>
-        <Map spots={marker} handlePinClick={null} borderRadius={true} onMapClick={onMapClick}/>
+        <Map spots={marker} borderRadius={true} onMapClick={onMapClick}/>
       </div>
 
     </div>
