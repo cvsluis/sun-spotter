@@ -24,7 +24,7 @@ export default function SpotCarousel({spots}) {
 }
 
 const spotsCarouselList = spots.map((spot) => {
-  return <SpotCard spot={spot} key={spot.id} />
+  return <SpotCard className="carousel__spotCard" spot={spot} key={spot.id} />
 });
 
 console.log(spotsCarouselList);
@@ -36,7 +36,7 @@ return(
   arrows={true}
   responsive={responsive}
   ssr={true} // means to render carousel on server-side.
-  infinite={true}
+  infinite={false}
   autoPlaySpeed={1000}
   keyBoardControl={true}
   customTransition="all .5"
