@@ -35,7 +35,7 @@ export default function Home() {
       .catch((error) => console.error("Error fetching data:", error));
   };
 
-  // // fetch data from backend on intial render, set it to spots state
+  // fetch data from backend on intial render, set it to spots state
   useEffect(() => {
     fetchAllSpots();
   }, []);
