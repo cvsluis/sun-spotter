@@ -57,7 +57,7 @@ export default function AllSpots() {
             <span className='allSpots__btn--icon'>+</span>
             <span className='allSpots__btn--text slide-right'>Add Spot to Map</span>
           </Link>
-        <Map spots={spots} handlePinClick={handlePinClick} borderRadius={null} onMapClick={null}/>
+        <Map spots={spots} handlePinClick={handlePinClick} />
       </div>
     </div>
 
