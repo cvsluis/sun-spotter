@@ -5,7 +5,7 @@ const libraries = ['places'];
 const mapContainerStyle = {
   width: '100%',
   // 100vh - nav bar and search bar height
-  height: 'calc(100vh - 64px)',
+  height: 'calc(100vh - 8rem)',
   margin: '0 auto'
 };
 
@@ -15,7 +15,7 @@ const center = {
   lng: -123.331720,
 };
 
-export default function Map({ spots }) {
+export default function Map({ spots, handlePinClick }) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyCZ4m4MUuWXxIlkrriyTTQp4f3TRby2yes',
     libraries,
@@ -32,7 +32,7 @@ export default function Map({ spots }) {
   // for each spot, create marker component
   const markerList = spots.map(spot => {
     return (
-      <MarkerF key={spot.id} position={{lat: Number(spot.lat), lng: Number(spot.lng)}} />
+      <MarkerF key={spot.id} position={{lat: Number(spot.lat), lng: Number(spot.lng)}} onClick={() => handlePinClick(spot.id)}/>
     );
   });
 
@@ -41,7 +41,7 @@ export default function Map({ spots }) {
       mapContainerStyle={mapContainerStyle}
       zoom={12}
       center={center}
-      options={{fullscreenControl: false}}
+      options={{ fullscreenControl: false, streetViewControl: false, mapTypeControl: false }}
     >
       {markerList}
     </GoogleMap>

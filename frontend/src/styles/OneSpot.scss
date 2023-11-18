@@ -4,9 +4,10 @@
   width: 75%;
   max-width: 1020px;
   min-width: 540px;
-  height: 110vh;
+  height: max-content;
   background-color: #ffffff;
   display: flex;
+  flex-direction: column;
   margin: auto;
   margin-top: 3em;
   border-radius: 24px 24px 0 0 ;
@@ -22,8 +23,7 @@
 .one-spot__header {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  height: 370px;
+  height: 340px;
   margin: 1.5em;
   gap: 1.5em;
 }
@@ -33,8 +33,8 @@
   width: 100%;
   max-width: 500px;
   min-width: 200px;
-  height: 350px;
-  flex: 0 0 50%;
+  height: 320px;
+  flex: 0 0 40%;
 }
 
 .one-spot__create-visit {
@@ -54,4 +54,15 @@
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+.one-spot__visits {
+
+  //width: 91.8%; //could use refactor, not sure why it's spilling over
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1.5em;
+  margin: 1.5em;
+
+  
 }

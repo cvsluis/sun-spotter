@@ -6,7 +6,7 @@ module.exports = db => {
 
   // /api/spots
   router.get("/spots", (req, res) => {
-    spotQueries.getAllSpots()
+    spotQueries.getAllSpots(req.query.search)
       .then(spots => {
         res.json(spots);
       })
@@ -60,6 +60,23 @@ module.exports = db => {
           .json({ error: err.message });
       });
   });
+
+
+// /api/spots/:id/visits
+router.get("/spots/:id/:visits", (req, res) => {
+
+  const spotID = req.params.id;
+
+  spotQueries.getSpotVisits(spotID)
+    .then(visits => {
+      res.json(visits);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 
   return router;
 };

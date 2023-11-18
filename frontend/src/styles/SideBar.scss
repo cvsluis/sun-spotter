@@ -5,4 +5,11 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 0.75rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.sideBar__error {
+  margin: 0 auto;
+  padding-top: 4rem;
+  color: #9e9e9e;
 }
