@@ -9,4 +9,55 @@
 
 .allSpots__map {
   width: 100%;
+  position: relative;
+}
+
+.allSpots__btn--add-spot {
+  color: #fff;
+  background-color: orangered;
+  text-decoration: none;
+  border-radius: 9999px;
+  width: auto;
+  max-width: 64px;
+  height: 4rem;
+  display: inline-flex;
+  align-items: center;
+  align-items: center;
+  overflow:hidden;
+  z-index: 9999;
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  padding: 1rem 1.436rem;
+  text-align: center;
+  padding-top: 0.75rem;
+  font-size: 2rem;
+  font-weight: 300;
+  -webkit-transition: max-width 0.5s;
+  transition: max-width 0.5s;
+}
+
+.allSpots__btn--text {
+  white-space: nowrap;
+  margin-left: 1.41rem;
+  padding-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.allSpots__btn--add-spot:hover {
+  background-color: #e94003;
+  max-width: 200px;
+
+  .allSpots__btn--text {
+    animation: 0.5s slide-right;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform:translateX(-30%);
+  }
+  to {
+    transform:translateX(0);
+  }
 }
