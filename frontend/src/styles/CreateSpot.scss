@@ -22,6 +22,10 @@ $container-height: 680px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  h1 {
+    padding: 0;
+  }
 }
 
 .createSpot__form {
