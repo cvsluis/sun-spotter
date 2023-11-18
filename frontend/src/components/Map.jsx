@@ -49,3 +49,9 @@ export default function Map({ spots, handlePinClick, borderRadius, onMapClick })
     </GoogleMap>
   );
 };
+
+Map.defaultProps = {
+  handlePinClick: null,
+  onMapClick: null,
+  borderRadius: false
+};
