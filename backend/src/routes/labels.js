@@ -7,7 +7,7 @@ module.exports = db => {
 router.get('/labels', (req, res) => {
   labelQueries.getAllLabels()
     .then(labels => {
-      res.json({ labels });
+      res.json(labels);
     })
     .catch(err => {
       res
