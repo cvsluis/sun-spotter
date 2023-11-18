@@ -41,7 +41,7 @@ export default function Map({ spots, handlePinClick }) {
       mapContainerStyle={mapContainerStyle}
       zoom={12}
       center={center}
-      options={{fullscreenControl: false}}
+      options={{ fullscreenControl: false, streetViewControl: false, mapTypeControl: false }}
     >
       {markerList}
     </GoogleMap>
