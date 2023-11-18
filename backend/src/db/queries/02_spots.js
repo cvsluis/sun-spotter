@@ -46,13 +46,13 @@ const getOneSpot = (id) => {
 
 // Create Spot
 const createSpot = (spot) => {
-  const { lat, lng, name, city, province, country, created_at } = spot;
+  const { lat, lng, name, city, province, country } = spot;
 
-  const query = `INSERT INTO spots(lat, lng, name, city, province, country, created_at)
-                            VALUES ($1, $2, $3, $4, $5, $6, $7) 
+  const query = `INSERT INTO spots(lat, lng, name, city, province, country)
+                            VALUES ($1, $2, $3, $4, $5, $6) 
                             RETURNING *;`;
 
-  return db.query(query, [lat, lng, name, city, province, country, created_at])
+  return db.query(query, [lat, lng, name, city, province, country])
     .then(data => {
       return data.rows[0];
     })
