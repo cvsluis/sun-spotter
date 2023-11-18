@@ -2,12 +2,6 @@ import React from 'react';
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
 
 const libraries = ['places'];
-const mapContainerStyle = {
-  width: '100%',
-  // 100vh - nav bar and search bar height
-  height: 'calc(100vh - 8rem)',
-  margin: '0 auto'
-};
 
 // default location set to Victoria
 const center = {
@@ -15,7 +9,14 @@ const center = {
   lng: -123.331720,
 };
 
-export default function Map({ spots, handlePinClick }) {
+export default function Map({ spots, handlePinClick, borderRadius }) {
+  const mapContainerStyle = {
+    width: '100%',
+    height: '100%',
+    margin: '0 auto',
+    borderRadius: borderRadius ? '0 24px 24px 0' : '0'
+  };
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyCZ4m4MUuWXxIlkrriyTTQp4f3TRby2yes',
     libraries,
