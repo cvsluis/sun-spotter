@@ -24,9 +24,19 @@ export default function CreateSpot() {
   });
 
   const [marker, setMarker] = useState([{}]);
+  const [formData, setFormData] = useState({});
 
   const onMapClick = (e) => {
-    setMarker([{ lat: e.latLng.lat(), lng: e.latLng.lng()}]);
+    const lat = e.latLng.lat();
+    const lng = e.latLng.lng();
+
+    setMarker([{ lat: lat, lng: lng }]);
+    setFormData(prev => ({ ...prev, lat: lat, lng: lng }));
+  };
+
+  const handleFormChange = (event) => {
+    const name = event.target.name;
+    setFormData(prev => ({ ...prev, [name]: event.target.value }));
   };
 
   return (
@@ -35,12 +45,15 @@ export default function CreateSpot() {
       <div className='createSpot__sideBar'>
         <h1>Create a Spot</h1>
         <form className='createSpot__form'>
-          <input className='creatSpot__form--element' placeholder='Add Name'></input>
-          <input className='creatSpot__form--element' placeholder='Location'></input>
-          <input className='creatSpot__form--element' type="datetime-local"></input>
-          <input className='creatSpot__form--element' placeholder='Rating'></input>
-          <textarea className='creatSpot__form--element' type="text" rows='3' maxLength="250" placeholder='Description'></textarea>
-          <input className='creatSpot__form--element' placeholder='Image Upload'></input>
+          <input className='createSpot__form--element' placeholder='Add Name' name='spotName' onChange={handleFormChange} autoComplete='off'></input>
+          <div className={`createSpot__form--element createSpot__form--location ${formData.lat && 'createSpot__form--green'}`} >
+            Location
+            {formData.lat ? <span>✅</span>: <span>Select location on Map</span> }
+          </div>
+          <input className='createSpot__form--element' type="datetime-local"></input>
+          <input className='createSpot__form--element' placeholder='Rating'></input>
+          <textarea className='createSpot__form--element' type="text" rows='3' maxLength="250" placeholder='Description' autoComplete='off'></textarea>
+          <input className='createSpot__form--element' placeholder='Image Upload'></input>
           <div className='label__container'>
             {labelList}
           </div>
