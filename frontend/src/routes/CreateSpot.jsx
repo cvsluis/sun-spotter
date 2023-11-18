@@ -20,9 +20,10 @@ export default function CreateSpot() {
   }, []);
 
   const labelList = labels.map(label => {
-    return <Label key={label.id} name={label.name} active={false}/>
+    return <Label key={'createSpot_' + label.id} name={label.name} />
   });
 
+  // FORM DATA HANDLERS
   const [marker, setMarker] = useState([{}]);
   const [formData, setFormData] = useState({});
 
@@ -50,9 +51,9 @@ export default function CreateSpot() {
             Location
             {formData.lat ? <span>✅</span>: <span>Select location on Map</span> }
           </div>
-          <input className='createSpot__form--element' type="datetime-local" id='createSpot__form-id--date-time'></input>
+          <input className='createSpot__form--element' type="datetime-local" id='createSpot__form-id--date-time' name='spotDateTime' onChange={handleFormChange}></input>
           <input className='createSpot__form--element' placeholder='Rating' id='createSpot__form-id--rating'></input>
-          <textarea className='createSpot__form--element' type="text" rows='3' maxLength="250" placeholder='Description' autoComplete='off' id='createSpot__form-id--description'></textarea>
+          <textarea className='createSpot__form--element' type="text" rows='3' maxLength="250" placeholder='Description' autoComplete='off' id='createSpot__form-id--description' name='spotDescription' onChange={handleFormChange}></textarea>
           <input className='createSpot__form--element' placeholder='Image Upload' id='createSpot__form-id--image'></input>
           <div className='label__container'>
             {labelList}
