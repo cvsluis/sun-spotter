@@ -33,7 +33,7 @@ export default function Map({ spots, handlePinClick, borderRadius, onMapClick })
   // for each spot, create marker component
   const markerList = spots.map(spot => {
     return (
-      <MarkerF key={spot.id} position={{lat: Number(spot.lat), lng: Number(spot.lng)}} onClick={() => handlePinClick(spot.id)}/>
+      <MarkerF key={'marker_' + spot.id} position={{lat: Number(spot.lat), lng: Number(spot.lng)}} onClick={() => handlePinClick(spot.id)}/>
     );
   });
 
