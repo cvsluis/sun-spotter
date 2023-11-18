@@ -55,7 +55,7 @@ export default function CreateSpot() {
   }, []);
 
   return (
-    <div className='one-spot createSpot__container'>
+    <div className='createSpot__container'>
 
       <div className='createSpot__sideBar'>
         <h1>Create a Spot</h1>
