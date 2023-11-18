@@ -5,26 +5,28 @@ import Map from '../components/Map';
 import Label from '../components/Label';
 
 export default function CreateSpot() {
+  // list of labels from db
   const [labels, setLabels] = useState([]);
-  const [clickedLabels, setClickedLabels] = useState([]);
 
   // FORM DATA HANDLERS
   const [marker, setMarker] = useState([{}]);
   const [formData, setFormData] = useState({ spot: {}, visit: {}, labels: [] });
 
   const handleLabelClick = (e) => {
-    const label = { label_id: Number(e.target.id) };
-    setFormData(prev => ({ ...prev, labels: [...prev.labels, label] }));
+    const labelId = Number(e.target.id);
+    const label = { label_id: labelId };
+    const labelIsClicked = formData.labels.filter(labelObject => labelObject.label_id === labelId).length > 0;
 
-    if (clickedLabels.includes(e.target.id)) {
-      setClickedLabels(() => clickedLabels.filter(id => id !== e.target.id))
+    if (labelIsClicked) {
+      setFormData(prev => ({ ...prev, labels: formData.labels.filter(labelObject => labelObject.label_id !== labelId) }));
     } else {
-      setClickedLabels(prev => [...prev, e.target.id])
+      setFormData(prev => ({ ...prev, labels: [...prev.labels, label] }));
     }
   };
 
   const labelList = labels.map(label => {
-    return <Label key={'createSpot_' + label.id} active={clickedLabels.includes((label.id).toString())} label={label} handleLabelClick={handleLabelClick}/>
+    const isClicked = formData.labels.filter(labelObject => labelObject.label_id === label.id).length > 0;
+    return <Label key={'createSpot_' + label.id} active={isClicked} label={label} handleLabelClick={handleLabelClick}/>
   });
 
   const onMapClick = (e) => {
