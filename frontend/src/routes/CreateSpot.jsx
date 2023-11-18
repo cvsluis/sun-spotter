@@ -25,7 +25,7 @@ export default function CreateSpot() {
 
   // FORM DATA HANDLERS
   const [marker, setMarker] = useState([{}]);
-  const [formData, setFormData] = useState({ spot: {}, visit: {}, labels: {}});
+  const [formData, setFormData] = useState({ spot: {}, visit: {}, labels: []});
 
   const onMapClick = (e) => {
     const lat = e.latLng.lat();
