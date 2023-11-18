@@ -7,6 +7,18 @@ import Label from '../components/Label';
 export default function CreateSpot() {
   // list of labels from db
   const [labels, setLabels] = useState([]);
+  
+  useEffect(() => {
+    fetch('http://localhost:8080/api/labels')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => setLabels(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   // FORM DATA HANDLERS
   const [marker, setMarker] = useState([{}]);
@@ -41,18 +53,6 @@ export default function CreateSpot() {
     const name = event.target.name;
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, [name]: event.target.value } }));
   };
-
-  useEffect(() => {
-    fetch('http://localhost:8080/api/labels')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => setLabels(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
 
   return (
     <div className='createSpot__container'>
