@@ -23,6 +23,7 @@ export default function CreateSpot() {
   // FORM DATA HANDLERS
   const [marker, setMarker] = useState([{}]);
   const [formData, setFormData] = useState({ spot: {}, visit: {}, labels: [] });
+  // const [imagePreview, setImagePreview] = useState();
 
   const handleLabelClick = (e) => {
     const labelId = Number(e.target.id);
@@ -53,6 +54,12 @@ export default function CreateSpot() {
     const name = event.target.name;
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, [name]: event.target.value } }));
   };
+  
+  const handleFileInput = (e) => {
+    const img = e.target.files[0];
+    setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: img } }));
+    // setImagePreview(URL.createObjectURL(e.target.files[0]));
+  }
 
   return (
     <div className='createSpot__container'>
@@ -71,7 +78,8 @@ export default function CreateSpot() {
           <input className='createSpot__form--element' type="datetime-local" id='createSpot__form-id--date-time' name='dateTime' onChange={handleFormChange}></input>
           <input className='createSpot__form--element' placeholder='Rating' id='createSpot__form-id--rating'></input>
           <textarea className='createSpot__form--element' type="text" rows='3' maxLength="250" placeholder='Description' autoComplete='off' id='createSpot__form-id--description' name='description' onChange={handleFormChange}></textarea>
-          <input className='createSpot__form--element' placeholder='Image Upload' id='createSpot__form-id--image'></input>
+          {/* {imagePreview && <img src={imagePreview} width='200' height='200' />} */}
+          <input type='file' onChange={handleFileInput} className='createSpot__form--element' placeholder='Image Upload' name='image' id='createSpot__form-id--image'></input>
           <div className='label__container'>
             {labelList}
           </div>
