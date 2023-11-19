@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const multer = require("./multer");
+const multerExport = require("./multer");
 
 module.exports = db => {
 
@@ -8,7 +8,7 @@ module.exports = db => {
     res.json({ 'hi' : 'hi'});
   });
 
-  router.post("/image", multer.uploadImg.single("file"), async (req, res, next) => {
+  router.post("/image", multerExport.uploadImg.single("file"), async (req, res, next) => {
     const file = req.file;
 
     if (!file) {
