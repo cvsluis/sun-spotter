@@ -27,8 +27,6 @@ const spotsCarouselList = spots.map((spot) => {
   return <SpotCard className="carousel__spotCard" spot={spot} key={spot.id} />
 });
 
-console.log(spotsCarouselList);
-
 return(
 <Carousel
   swipeable={true}
@@ -36,7 +34,7 @@ return(
   arrows={true}
   responsive={responsive}
   ssr={true} // means to render carousel on server-side.
-  infinite={false}
+  infinite={true}
   autoPlaySpeed={1000}
   keyBoardControl={true}
   customTransition="all .5"
