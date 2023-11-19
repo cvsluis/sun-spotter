@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import  { Link } from 'react-router-dom'
+
 
 //import styles
 import "../styles/Login.scss";
@@ -6,7 +8,7 @@ import "../styles/Login.scss";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [users, setUsers] = useState("");
+  const [users, setUsers] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const fetchUsers = () => {
@@ -23,15 +25,7 @@ export default function Login() {
       .catch((error) => console.error("Error fetching data:", error));
 
     };
-    //   if (email ===  user.email && password === user.password ) {
-    //     setIsLoggedIn(true);
-    //     setErrorMessage('');
-    //   } else {
-    //     setIsLoggedIn(false);
-    //     setErrorMessage('Invalid username or password.');
-    //   }
 
-  console.log("here", users);
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -43,6 +37,7 @@ export default function Login() {
 
     if (user && user.password === password) {
       setIsLoggedIn(true);
+      return <Link to='/home' />
     } else {
       setIsLoggedIn(false);
     }
@@ -81,10 +76,12 @@ export default function Login() {
           Log in
         </button>
       </form>
-      <p>Forgot your password?</p>
-      <p>
-        Don't have an account?<strong>Sign up for free</strong>
-      </p>
+   
+      <span className="login__forgot-password">Forgot your password?</span>
+      <span className="login__register">
+        Don't have an account?<strong> Sign up for free</strong>
+      </span>
+  
     </div>
   );
 }
