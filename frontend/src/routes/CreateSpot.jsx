@@ -56,9 +56,20 @@ export default function CreateSpot() {
   };
   
   const handleFileInput = (e) => {
-    const img = e.target.files[0];
-    setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: img } }));
+    setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: e.target.files[0] } }));
     // setImagePreview(URL.createObjectURL(e.target.files[0]));
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append('file', formData.visit.image);
+
+    fetch('http://localhost:8080/api/image', {
+      method: 'POST',
+      body: data
+    }).then((res) => { console.log('here', res.text()) })
+      .catch(error => console.error('Error:', error));
   }
 
   return (
@@ -83,7 +94,7 @@ export default function CreateSpot() {
           <div className='label__container'>
             {labelList}
           </div>
-          <button className='createSpot__btn--submit'>Submit</button>
+          <button className='createSpot__btn--submit' onClick={handleSubmit}>Submit</button>
         </form>
       </div>
 
