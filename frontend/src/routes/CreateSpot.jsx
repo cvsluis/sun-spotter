@@ -64,8 +64,9 @@ export default function CreateSpot() {
     e.preventDefault();
     const data = new FormData();
     data.append('file', formData.visit.image);
+    data.append('data', JSON.stringify(formData));
 
-    fetch('http://localhost:8080/api/image', {
+    fetch('http://localhost:8080/api/spots', {
       method: 'POST',
       body: data
     }).then((res) => { console.log('here', res.text()) })
