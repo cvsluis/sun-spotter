@@ -7,7 +7,7 @@ import Label from '../components/Label';
 export default function CreateSpot() {
   // list of labels from db
   const [labels, setLabels] = useState([]);
-  
+
   useEffect(() => {
     fetch('http://localhost:8080/api/labels')
       .then(response => {
@@ -58,7 +58,10 @@ export default function CreateSpot() {
     <div className='createSpot__container'>
 
       <div className='createSpot__sideBar'>
-        <h1>Create a Spot</h1>
+        <div>
+          <h1>Create a Spot</h1>
+          <p>Add your visit to this new spot!</p>
+        </div>
         <form className='createSpot__form'>
           <input className='createSpot__form--element' placeholder='Add Name' id='createSpot__form-id--name' name='name' onChange={handleFormChange} autoComplete='off'></input>
           <div className={`createSpot__form--element createSpot__form--location ${formData.spot.lat && 'createSpot__form--green'}`} >
