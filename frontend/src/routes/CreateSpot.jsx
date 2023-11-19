@@ -22,7 +22,11 @@ export default function CreateSpot() {
 
   // FORM DATA HANDLERS
   const [marker, setMarker] = useState([{}]);
-  const [formData, setFormData] = useState({ spot: {}, visit: {}, labels: [] });
+  const [formData, setFormData] = useState({ 
+    spot: { city: 'Victoria', province: 'BC', country: 'Canada' }, 
+    visit: { rating: 5 }, 
+    labels: [] 
+  });
   // const [imagePreview, setImagePreview] = useState();
 
   const handleLabelClick = (e) => {
@@ -47,7 +51,7 @@ export default function CreateSpot() {
     const lng = e.latLng.lng();
 
     setMarker([{ lat: lat, lng: lng }]);
-    setFormData(prev => ({ ...prev, spot: {lat: lat, lng: lng} }));
+    setFormData(prev => ({ ...prev, spot: {...prev.spot, lat: lat, lng: lng} }));
   };
 
   const handleFormChange = (event) => {
