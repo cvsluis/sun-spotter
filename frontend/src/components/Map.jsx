@@ -14,7 +14,7 @@ export default function Map({ spots, handlePinClick, borderRadius, onMapClick })
     width: '100%',
     height: '100%',
     margin: '0 auto',
-    borderRadius: borderRadius ? '0 24px 24px 0' : '0'
+    borderRadius: borderRadius ? '24px' : '0'
   };
 
   const { isLoaded, loadError } = useLoadScript({
