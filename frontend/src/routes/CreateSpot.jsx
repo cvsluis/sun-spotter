@@ -5,11 +5,15 @@ import '../styles/CreateSpot.scss';
 import ChooseSpot from '../components/ChooseSpot';
 import FormDetails from '../components/FormDetails';
 import AddImage from '../components/AddImage';
-import NavigationButton from '../components/NavigationButton';
+import BackButton from '../components/BackButton';
+import ForwardButton from '../components/ForwardButton';
 
 export default function CreateSpot() {
   // for redirect after form submission
   const navigate = useNavigate();
+
+  // MODAL STATE
+  const [modalState, setModalState] = useState(2);
 
   // FORM DATA STATE
   const [marker, setMarker] = useState([{}]);
@@ -81,27 +85,33 @@ export default function CreateSpot() {
       <div className='createSpot__container--details'>
         <h1>Create a Spot</h1>
 
-        {/* <div>
-          <div className='createSpot__header'>
-            <h2>Step 1: Choose your location</h2>
-            <p>Click on the map to add a new pin!</p>
+        { modalState === 0 && 
+          <div>
+            <div className='createSpot__header'>
+              <h2>Step 1: Choose your location</h2>
+              <p>Click on the map to add a new pin!</p>
+            </div>
+            <ChooseSpot onMapClick={onMapClick} marker={marker} />
           </div>
-          <ChooseSpot />
-        </div> */}
+        }
 
-        {/* <div>
-          <div className='createSpot__header'>
-            <h2>Step 2: Add your visit to this sunset spot</h2>
+        { modalState === 1 && 
+          <div>
+            <div className='createSpot__header'>
+              <h2>Step 2: Add your visit to this sunset spot</h2>
+            </div>
+            <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} />
           </div>
-          <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} />
-        </div> */}
+        }
 
-        {/* <div>
+      { modalState === 2 && 
+        <div>
           <div className='createSpot__header'>
             <h2>Step 3: Attach a picture of your sunset!</h2>
           </div>
           <AddImage handleFileInput={handleFileInput} />
-        </div> */}
+        </div>
+      }
 
       </div>
 
@@ -109,8 +119,8 @@ export default function CreateSpot() {
         <hr className='createSpot__line'></hr>
 
         <div className='createSpot__container--nav'>
-          <NavigationButton direction={'back'} />
-          <NavigationButton direction={'forward'} />
+          <BackButton />
+          <ForwardButton handleSubmit={handleSubmit}/>
         </div>
       </div>
 
