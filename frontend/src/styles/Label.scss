@@ -6,21 +6,22 @@
 }
 
 .label__inactive {
-  background-color: #cecece;
+  background-color: #e4e4e4;
 }
 
 .label__active {
-  background-color: #ff6200b8;
+  color: white;
+  background-color: #ff5c21;
 }
 
 .label__hover.label__inactive:hover {
   cursor: pointer;
-  background-color: #c3c3c3;
+  background-color: #cacaca;
 }
 
 .label__hover.label__active:hover {
   cursor: pointer;
-  background-color: #e65e0986;
+  background-color: #ea4e15;
 }
 
 .label__container {
