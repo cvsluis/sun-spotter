@@ -1,38 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/CreateSpot.scss';
-import '../styles/Label.scss';
-import Map from '../components/Map';
-import Label from '../components/Label';
+
+import ChooseSpot from '../components/ChooseSpot';
+import FormDetails from '../components/FormDetails';
+import AddImage from '../components/AddImage';
+import NavigationButton from '../components/NavigationButton';
 
 export default function CreateSpot() {
   // for redirect after form submission
   const navigate = useNavigate();
 
-  // list of labels from db
-  const [labels, setLabels] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8080/api/labels')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => setLabels(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
-
-  // FORM DATA HANDLERS
+  // FORM DATA STATE
   const [marker, setMarker] = useState([{}]);
-  const [formData, setFormData] = useState({ 
-    spot: { city: 'Victoria', province: 'BC', country: 'Canada' }, 
-    visit: { rating: 5 }, 
-    labels: [] 
+  const [formData, setFormData] = useState({
+    spot: { city: 'Victoria', province: 'BC', country: 'Canada' },
+    visit: { rating: 5 },
+    labels: []
   });
   // const [imagePreview, setImagePreview] = useState();
 
+  // map state handler
+  const onMapClick = (e) => {
+    const lat = e.latLng.lat();
+    const lng = e.latLng.lng();
+
+    setMarker([{ lat: lat, lng: lng }]);
+    setFormData(prev => ({ ...prev, spot: { ...prev.spot, lat: lat, lng: lng } }));
+  };
+
+  // label state handlers
+  const isClicked = label => formData.labels.filter(labelObject => labelObject.label_id === label.id).length > 0;
   const handleLabelClick = (e) => {
     const labelId = Number(e.target.id);
     const label = { label_id: labelId };
@@ -45,30 +43,21 @@ export default function CreateSpot() {
     }
   };
 
-  const labelList = labels.map(label => {
-    const isClicked = formData.labels.filter(labelObject => labelObject.label_id === label.id).length > 0;
-    return <Label key={'createSpot_' + label.id} active={isClicked} label={label} handleLabelClick={handleLabelClick}/>
-  });
-
-  const onMapClick = (e) => {
-    const lat = e.latLng.lat();
-    const lng = e.latLng.lng();
-
-    setMarker([{ lat: lat, lng: lng }]);
-    setFormData(prev => ({ ...prev, spot: {...prev.spot, lat: lat, lng: lng} }));
-  };
-
+  // form input state handler
   const handleFormChange = (event) => {
     const name = event.target.name;
-    name === 'chosenName' && setFormData(prev => ({ ...prev, spot: { ...prev.spot, name: event.target.value }}));
+    name === 'chosenName' && setFormData(prev => ({ ...prev, spot: { ...prev.spot, name: event.target.value } }));
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, [name]: event.target.value } }));
+    console.log(formData);
   };
-  
+
+  // file input state handler
   const handleFileInput = (e) => {
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: e.target.files[0] } }));
     // setImagePreview(URL.createObjectURL(e.target.files[0]));
   };
 
+  // data submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -85,36 +74,44 @@ export default function CreateSpot() {
       console.error('Sorry, we could not complete your request: ', error);
       throw error;
     }
-  }
+  };
 
   return (
     <div className='createSpot__container'>
+      <div className='createSpot__container--details'>
+        <h1>Create a Spot</h1>
 
-      <div className='createSpot__sideBar'>
-        <div>
-          <h1>Create a Spot</h1>
-          <p>Add your visit to this new spot!</p>
-        </div>
-        <form className='createSpot__form'>
-          <input className='createSpot__form--element' placeholder='Add Name' id='createSpot__form-id--name' name='chosenName' onChange={handleFormChange} autoComplete='off'></input>
-          <div className={`createSpot__form--element createSpot__form--location ${formData.spot.lat && 'createSpot__form--green'}`} >
-            Location
-            {formData.spot.lat ? <span>✅</span>: <span>Select location on Map</span> }
+        {/* <div>
+          <div className='createSpot__header'>
+            <h2>Step 1: Choose your location</h2>
+            <p>Click on the map to add a new pin!</p>
           </div>
-          <input className='createSpot__form--element' type="datetime-local" id='createSpot__form-id--date-time' name='time_stamp' onChange={handleFormChange}></input>
-          <input className='createSpot__form--element' placeholder='Rating' id='createSpot__form-id--rating'></input>
-          <textarea className='createSpot__form--element' type="text" rows='3' maxLength="250" placeholder='Description' autoComplete='off' id='createSpot__form-id--description' name='description' onChange={handleFormChange}></textarea>
-          {/* {imagePreview && <img src={imagePreview} width='200' height='200' />} */}
-          <input type='file' onChange={handleFileInput} className='drop-container' placeholder='Image Upload' name='image' id='createSpot__form-id--image'></input>
-          <div className='label__container'>
-            {labelList}
+          <ChooseSpot />
+        </div> */}
+
+        {/* <div>
+          <div className='createSpot__header'>
+            <h2>Step 2: Add your visit to this sunset spot</h2>
           </div>
-          <button className='createSpot__btn--submit' onClick={handleSubmit}>Submit</button>
-        </form>
+          <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} />
+        </div> */}
+
+        {/* <div>
+          <div className='createSpot__header'>
+            <h2>Step 3: Attach a picture of your sunset!</h2>
+          </div>
+          <AddImage handleFileInput={handleFileInput} />
+        </div> */}
+
       </div>
 
-      <div className='createSpot__map'>
-        <Map spots={marker} borderRadius={true} onMapClick={onMapClick}/>
+      <div>
+        <hr className='createSpot__line'></hr>
+
+        <div className='createSpot__container--nav'>
+          <NavigationButton direction={'back'} />
+          <NavigationButton direction={'forward'} />
+        </div>
       </div>
 
     </div>
