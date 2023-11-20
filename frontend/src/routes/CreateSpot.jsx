@@ -12,9 +12,6 @@ export default function CreateSpot() {
   // for redirect after form submission
   const navigate = useNavigate();
 
-  // MODAL STATE
-  const [modalState, setModalState] = useState(2);
-
   // FORM DATA STATE
   const [marker, setMarker] = useState([{}]);
   const [formData, setFormData] = useState({
@@ -62,9 +59,7 @@ export default function CreateSpot() {
   };
 
   // data submit handler
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async () => {
     try {
       const data = new FormData();
       data.append('file', formData.visit.image);
@@ -77,6 +72,25 @@ export default function CreateSpot() {
     } catch (error) {
       console.error('Sorry, we could not complete your request: ', error);
       throw error;
+    }
+  };
+
+  // MODAL STATE
+  const [modalState, setModalState] = useState(1);
+
+  const handleBackClick = () => {
+    if (modalState === 0) {
+      navigate("/spots/");
+    } else {
+      setModalState(prev => prev - 1);
+    }
+  };
+
+  const handleForwardClick = (e) => {
+    if (modalState === 2) {
+      handleSubmit();
+    } else {
+      setModalState(prev => prev + 1);
     }
   };
 
@@ -119,8 +133,8 @@ export default function CreateSpot() {
         <hr className='createSpot__line'></hr>
 
         <div className='createSpot__container--nav'>
-          <BackButton />
-          <ForwardButton handleSubmit={handleSubmit}/>
+          <BackButton handleBackClick={handleBackClick}/>
+          <ForwardButton handleForwardClick={handleForwardClick} />
         </div>
       </div>
 
