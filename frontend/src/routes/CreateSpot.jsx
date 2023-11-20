@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import '../styles/CreateSpot.scss';
 import '../styles/Label.scss';
 import Map from '../components/Map';
 import Label from '../components/Label';
 
 export default function CreateSpot() {
+  // for redirect after form submission
+  const navigate = useNavigate();
+
   // list of labels from db
   const [labels, setLabels] = useState([]);
 
@@ -56,25 +60,31 @@ export default function CreateSpot() {
 
   const handleFormChange = (event) => {
     const name = event.target.name;
+    name === 'chosenName' && setFormData(prev => ({ ...prev, spot: { ...prev.spot, name: event.target.value }}));
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, [name]: event.target.value } }));
   };
   
   const handleFileInput = (e) => {
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: e.target.files[0] } }));
     // setImagePreview(URL.createObjectURL(e.target.files[0]));
-  }
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = new FormData();
-    data.append('file', formData.visit.image);
-    data.append('data', JSON.stringify(formData));
 
-    fetch('http://localhost:8080/api/spots', {
-      method: 'POST',
-      body: data
-    }).then((res) => { console.log('here', res.text()) })
-      .catch(error => console.error('Error:', error));
+    try {
+      const data = new FormData();
+      data.append('file', formData.visit.image);
+      data.append('data', JSON.stringify(formData));
+      await fetch('http://localhost:8080/api/spots', {
+        method: 'POST',
+        body: data
+      });
+      navigate("/spots/");
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
   }
 
   return (
@@ -86,12 +96,12 @@ export default function CreateSpot() {
           <p>Add your visit to this new spot!</p>
         </div>
         <form className='createSpot__form'>
-          <input className='createSpot__form--element' placeholder='Add Name' id='createSpot__form-id--name' name='name' onChange={handleFormChange} autoComplete='off'></input>
+          <input className='createSpot__form--element' placeholder='Add Name' id='createSpot__form-id--name' name='chosenName' onChange={handleFormChange} autoComplete='off'></input>
           <div className={`createSpot__form--element createSpot__form--location ${formData.spot.lat && 'createSpot__form--green'}`} >
             Location
             {formData.spot.lat ? <span>✅</span>: <span>Select location on Map</span> }
           </div>
-          <input className='createSpot__form--element' type="datetime-local" id='createSpot__form-id--date-time' name='dateTime' onChange={handleFormChange}></input>
+          <input className='createSpot__form--element' type="datetime-local" id='createSpot__form-id--date-time' name='time_stamp' onChange={handleFormChange}></input>
           <input className='createSpot__form--element' placeholder='Rating' id='createSpot__form-id--rating'></input>
           <textarea className='createSpot__form--element' type="text" rows='3' maxLength="250" placeholder='Description' autoComplete='off' id='createSpot__form-id--description' name='description' onChange={handleFormChange}></textarea>
           {/* {imagePreview && <img src={imagePreview} width='200' height='200' />} */}
