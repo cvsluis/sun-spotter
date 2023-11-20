@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/CreateSpot.scss'
 
 export default function NavigationButton({ direction }) {
   return (
