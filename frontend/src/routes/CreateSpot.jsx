@@ -19,7 +19,7 @@ export default function CreateSpot() {
     visit: { rating: 5 },
     labels: []
   });
-  // const [imagePreview, setImagePreview] = useState();
+  const [imagePreview, setImagePreview] = useState();
 
   // map state handler
   const onMapClick = (e) => {
@@ -54,8 +54,13 @@ export default function CreateSpot() {
 
   // file input state handler
   const handleFileInput = (e) => {
-    setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: e.target.files[0] } }));
-    // setImagePreview(URL.createObjectURL(e.target.files[0]));
+    if (imagePreview) {
+      setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: null } }));
+      setImagePreview(null);
+    } else {
+      setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: e.target.files[0] } }));
+      setImagePreview(URL.createObjectURL(e.target.files[0]));
+    }
   };
 
   // data submit handler
@@ -123,7 +128,7 @@ export default function CreateSpot() {
           <div className='createSpot__header'>
             <h2>Step 3: Attach a picture of your sunset!</h2>
           </div>
-          <AddImage handleFileInput={handleFileInput} />
+          <AddImage handleFileInput={handleFileInput} imagePreview={imagePreview} />
         </div>
       }
 
