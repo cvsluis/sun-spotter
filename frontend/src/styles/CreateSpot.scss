@@ -67,6 +67,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #df3c00;
+  }
 }
 
 .navigationButton__btn-grey {
