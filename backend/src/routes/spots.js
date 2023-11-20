@@ -2,6 +2,7 @@ const router = require("express").Router();
 const spotQueries = require('../db/queries/02_spots');
 const visitQueries = require('../db/queries/03_visits');
 const visitlabelQueries = require('../db/queries/07_visit_labels');
+const multerExport = require("./multer");
 
 module.exports = db => {
 
@@ -19,28 +20,44 @@ module.exports = db => {
   });
 
   // POST /api/spots
-  router.post("/spots", (req, res) => {
-    // need to be logged in, check for user (to be implemented)
-    // for now user_id will be 1
-    const user_id = 1;
-    const newSpot = req.body.spot;
-    const newVisit = req.body.visit;
-    const newVisitLabels = req.body.labels;
+  router.post("/spots", multerExport.uploadImg.single("file"), async (req, res) => {
+    try {
+      const data = JSON.parse(req.body.data);
+      const file = req.file; // to get file name
 
-    // call createSpot with newSpot details
-    spotQueries.createSpot(newSpot)
-    // .then(receive spot id from query return and pass it to create visit)
-      .then((received_spot) => {
-        newVisit.spot_id = received_spot.id;
-        newVisit.user_id = user_id;
-        newVisit.timestamp = newVisit.dateTime.replace("T", " ")
+      // need to be logged in, check for user (to be implemented)
+      // for now user_id will be 1
+      const user_id = 1;
+      const newSpot = data.spot;
+      const newVisit = data.visit;
+      const newVisitLabels = data.labels;
 
-        visitQueries.createVisit(newVisit)
-          .then(() => {
-            visitlabelQueries.addVisitLabels(newVisitLabels)
-            .then(() => res.redirect("/spots"))
-          })
-      }).catch(err => res.status(500).json({ error: err.message }));
+      const spot = await spotQueries.createSpot(newSpot);
+
+      // add details to new Visit
+      newVisit.spot_id = spot.id;
+      newVisit.user_id = user_id;
+      newVisit.time_stamp = newVisit.time_stamp.replace("T", " ");
+      newVisit.image_url = 'images/' + file.originalname;
+
+      const visit = await visitQueries.createVisit(newVisit);
+
+      // add visit id to all visit label pairs
+      const visitIdAdded = newVisitLabels.map(obj => ({ ...obj, visit_id: visit.id }));
+
+      // create array of add visit label queries to be executed
+      const visitLabelQueryList = [];
+      for (const item of visitIdAdded) {
+        visitLabelQueryList.push(visitlabelQueries.addVisitLabels(item));
+      }
+      // create promise for all visit label insert queries
+      await Promise.all(visitLabelQueryList);
+
+      res.status(200).json({ message: "Visit Created!" });
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
   });
 
   // /api/spots/:id
