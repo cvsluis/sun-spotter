@@ -7,6 +7,7 @@ import Root from './routes/Root';
 import Home from './routes/Home'
 import AllSpots from './routes/AllSpots';
 import OneSpot from './routes/OneSpot';
+import CreateSpot from './routes/CreateSpot';
 
 //setup browser router, root to home page
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/spots",
         element: <AllSpots />
+      },
+      {
+        path: "/spots/new",
+        element: <CreateSpot />
       }
     ]
   }

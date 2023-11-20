@@ -53,7 +53,7 @@ export default function AllSpots() {
     <div className='allSpots__map-container'>
       <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} />
       <div className='allSpots__map'>
-          <Link className='allSpots__btn--add-spot' to='/'>
+          <Link className='allSpots__btn--add-spot' to='/spots/new'>
             <span className='allSpots__btn--icon'>+</span>
             <span className='allSpots__btn--text slide-right'>Add Spot to Map</span>
           </Link>
