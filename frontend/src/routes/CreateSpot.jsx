@@ -76,21 +76,21 @@ export default function CreateSpot() {
   };
 
   // MODAL STATE
-  const [modalState, setModalState] = useState(1);
+  const [modal, setModal] = useState(0);
 
   const handleBackClick = () => {
-    if (modalState === 0) {
+    if (modal === 0) {
       navigate("/spots/");
     } else {
-      setModalState(prev => prev - 1);
+      setModal(prev => prev - 1);
     }
   };
 
   const handleForwardClick = (e) => {
-    if (modalState === 2) {
+    if (modal === 2) {
       handleSubmit();
     } else {
-      setModalState(prev => prev + 1);
+      setModal(prev => prev + 1);
     }
   };
 
@@ -99,7 +99,7 @@ export default function CreateSpot() {
       <div className='createSpot__container--details'>
         <h1>Create a Spot</h1>
 
-        { modalState === 0 && 
+        { modal === 0 && 
           <div>
             <div className='createSpot__header'>
               <h2>Step 1: Choose your location</h2>
@@ -109,7 +109,7 @@ export default function CreateSpot() {
           </div>
         }
 
-        { modalState === 1 && 
+        { modal === 1 && 
           <div>
             <div className='createSpot__header'>
               <h2>Step 2: Add your visit to this sunset spot</h2>
@@ -118,7 +118,7 @@ export default function CreateSpot() {
           </div>
         }
 
-      { modalState === 2 && 
+      { modal === 2 && 
         <div>
           <div className='createSpot__header'>
             <h2>Step 3: Attach a picture of your sunset!</h2>
@@ -133,8 +133,8 @@ export default function CreateSpot() {
         <hr className='createSpot__line'></hr>
 
         <div className='createSpot__container--nav'>
-          <BackButton handleBackClick={handleBackClick}/>
-          <ForwardButton handleForwardClick={handleForwardClick} />
+          <BackButton handleBackClick={handleBackClick} />
+          <ForwardButton handleForwardClick={handleForwardClick} modal={modal} />
         </div>
       </div>
 
