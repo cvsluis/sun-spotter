@@ -2,7 +2,7 @@ const router = require("express").Router();
 const spotQueries = require('../db/queries/02_spots');
 const visitQueries = require('../db/queries/03_visits');
 const visitlabelQueries = require('../db/queries/07_visit_labels');
-const multerExport = require("./multer");
+const multerExport = require("../services/multer");
 
 module.exports = db => {
 
