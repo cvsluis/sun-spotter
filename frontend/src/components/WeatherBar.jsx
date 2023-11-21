@@ -12,12 +12,12 @@ export default function WeatherBar({ weather }) {
   <>
     <div className="weather-bar__sunset-time">
       <h3>Sunset Time</h3>
-        <SunsetTimeCard />
+        <SunsetTimeCard sunsetTime={weather.sunsetTime} />
     </div>
 
     <div className="weather-bar__conditions">
       <h3>Conditions</h3>
-        <ConditionsCard />
+        <ConditionsCard conditions={weather.conditions}/>
     </div>
   </>
   )

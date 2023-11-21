@@ -21,7 +21,7 @@ export default function OneSpot() {
 
   const weather = useWeather();
   if(weather.time) {
-    console.log('the times are: ', weather);
+    console.log('the weather is: ', weather);
   }
 
   

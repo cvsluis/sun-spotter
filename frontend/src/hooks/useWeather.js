@@ -13,7 +13,7 @@ export default function useWeather() {
       // change data to have current day's sunset time and weekly sunset data 
       const {time, ...conditions} = data.daily;
       const spotWeather = {
-        time: time[0],
+        sunsetTime: time[0],
         conditions
       }
 
