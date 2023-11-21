@@ -10,7 +10,7 @@ import "../styles/WeatherBar.scss"
 
 export default function WeatherBar({ sunsetTime, conditionsArr }) {
 
-  console.log(conditionsArr)
+  //console.log(conditionsArr)
 
   return (
     <div className="weather-bar">
