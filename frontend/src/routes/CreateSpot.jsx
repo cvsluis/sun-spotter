@@ -16,7 +16,7 @@ export default function CreateSpot() {
   const [marker, setMarker] = useState([{}]);
   const [formData, setFormData] = useState({
     spot: { city: 'Victoria', province: 'BC', country: 'Canada', lat: '', lng: '' },
-    visit: { chosenName: '', time_stamp: '', description: '', rating: 5, image: '' },
+    visit: { chosenName: '', time_stamp: '', description: '', rating: 0, image: '' },
     labels: []
   });
   const [imagePreview, setImagePreview] = useState('');
@@ -63,8 +63,8 @@ export default function CreateSpot() {
   };
 
   // rating input state handler
-  const handleRatingInput = () => {
-
+  const handleRatingInput = (e) => {
+    setFormData(prev => ({ ...prev, visit: { ...prev.visit, rating: e } }));
   };
 
   // data submit handler
