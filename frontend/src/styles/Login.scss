@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
-.login__container{
+.login__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,10 +9,10 @@
   font-family: Roboto, sans serif;
 }
 
-  .login__welcome{
-    text-align: center;
-    margin-bottom: 24px;
-  }
+.login__welcome {
+  text-align: center;
+  margin-bottom: 24px;
+}
 
 .login__form {
   display: flex;
@@ -20,7 +20,7 @@
   justify-content: center;
 }
 
-.login__input{
+.login__input {
   display: inline-flex;
   border-radius: 12px;
   border: none;
@@ -29,12 +29,12 @@
   margin-bottom: 24px;
 }
 
-#password{
+#password {
   -webkit-text-security: disc;
   input-security: disc;
 }
 
-.login__btn{
+.login__btn {
   border-radius: 24px;
   border: none;
   margin: 0.5rem;
@@ -44,7 +44,7 @@
   color: white;
 }
 
-span{
-    font-size: 12px;
-    color: gray;
+span {
+  font-size: 12px;
+  color: gray;
 }
