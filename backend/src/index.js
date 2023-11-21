@@ -30,6 +30,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+app.post('/login', (req, res) => {
+  
+})
+
 app.use(express.static(__dirname + '/public'));
 
 app.listen(port, () => {
