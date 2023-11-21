@@ -62,6 +62,11 @@ export default function CreateSpot() {
     }
   };
 
+  // rating input state handler
+  const handleRatingInput = () => {
+
+  };
+
   // data submit handler
   const handleSubmit = async () => {
     try {
@@ -146,7 +151,7 @@ export default function CreateSpot() {
             <div className='createSpot__header'>
               <h2>Step 2: Add your visit to this sunset spot</h2>
             </div>
-            <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} visitValues={formData.visit} />
+            <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} visitValues={formData.visit} handleRatingInput={handleRatingInput} />
           </div>
         }
 
