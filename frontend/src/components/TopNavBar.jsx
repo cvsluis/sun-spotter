@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import '../styles/TopNavBar.scss';
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
 
 export default function TopNavBar() {
   return (
@@ -11,7 +11,7 @@ export default function TopNavBar() {
       </div>
 
       <div>
-        <button className='nav__login-btn'>Log In</button>
+        <Link to='/login' className='nav__login-btn'>Log In</Link>
         <button className='nav__register-btn'>Register</button>
       </div>
     </nav>

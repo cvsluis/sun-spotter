@@ -17,10 +17,12 @@ const db = require("./db");
 // Separated Routes for each Resource
 const spots = require("./routes/spots");
 const labels = require("./routes/labels");
+const users = require("./routes/users");
 
 // Mount all resource routes
 app.use("/api", spots(db));
 app.use("/api", labels(db));
+app.use("/api", users(db));
 
 // Home page
 app.get('/', (req, res) => {
