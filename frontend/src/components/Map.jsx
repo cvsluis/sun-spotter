@@ -2,12 +2,6 @@ import React from 'react';
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
 
 const libraries = ['places'];
-const mapContainerStyle = {
-  width: '100%',
-  // 100vh - nav bar and search bar height
-  height: 'calc(100vh - 8rem)',
-  margin: '0 auto'
-};
 
 // default location set to Victoria
 const center = {
@@ -15,7 +9,14 @@ const center = {
   lng: -123.331720,
 };
 
-export default function Map({ spots, handlePinClick }) {
+export default function Map({ spots, handlePinClick, borderRadius, onMapClick }) {
+  const mapContainerStyle = {
+    width: '100%',
+    height: '100%',
+    margin: '0 auto',
+    borderRadius: borderRadius ? '24px' : '0'
+  };
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyCZ4m4MUuWXxIlkrriyTTQp4f3TRby2yes',
     libraries,
@@ -32,7 +33,7 @@ export default function Map({ spots, handlePinClick }) {
   // for each spot, create marker component
   const markerList = spots.map(spot => {
     return (
-      <MarkerF key={spot.id} position={{lat: Number(spot.lat), lng: Number(spot.lng)}} onClick={() => handlePinClick(spot.id)}/>
+      <MarkerF key={'marker_' + spot.id} position={{lat: Number(spot.lat), lng: Number(spot.lng)}} onClick={() => handlePinClick(spot.id)}/>
     );
   });
 
@@ -41,9 +42,16 @@ export default function Map({ spots, handlePinClick }) {
       mapContainerStyle={mapContainerStyle}
       zoom={12}
       center={center}
-      options={{fullscreenControl: false}}
+      options={{ fullscreenControl: false, streetViewControl: false, mapTypeControl: false }}
+      onClick={onMapClick}
     >
       {markerList}
     </GoogleMap>
   );
+};
+
+Map.defaultProps = {
+  handlePinClick: null,
+  onMapClick: null,
+  borderRadius: false
 };
