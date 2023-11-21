@@ -4,11 +4,18 @@
 export default function formatWeatherData (data, isSunsetOnly) { 
 
   //separate sunset time and conditions
-  const {sunset, ...conditions} = data.daily;
+  const {sunset, ...conditions} = data;
+
 
   //extract hour and time of sunset
   const sunsetDate = new Date(sunset[0]); 
   const sunsetTime = { hour: sunsetDate.getHours(), minute: sunsetDate.getMinutes() };
+  
+  //return only sunset time if requested
+  if(isSunsetOnly) {
+    return sunsetTime;
+  }
+
 
   //Change YYYY-MM-DD to day of weeks: 
   var dayNames = [
