@@ -20,7 +20,10 @@ export default function OneSpot() {
   const [ spotInfo, spotLabels, spotRating, spotVisits ] = useSpotData(spotID);
 
   const weather = useWeather();
-  
+  if(weather.time) {
+    console.log('the times are: ', weather.time[0]);
+  }
+
   
   return (
     <div className='one-spot'>
@@ -31,6 +34,13 @@ export default function OneSpot() {
           <Link className={'one-spot__create-visit'} to="/">Add Visit</Link>
         </div>
       </header>
+
+      <div className="one-spot__weather">
+
+        weather info!!
+        {weather.time && weather.time[0]}
+   
+      </div>
 
       <div className="one-spot__visits">
         {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} key={visit.id}/>)}
