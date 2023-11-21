@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 //import hooks
 import useSpotData from '../hooks/useSpotData';
+import useWeather from '../hooks/useWeather';
 
 //import components
 import AboutSpot from '../components/AboutSpot';
@@ -17,6 +18,15 @@ export default function OneSpot() {
 
   const spotID = useParams().id;
   const [ spotInfo, spotLabels, spotRating, spotVisits ] = useSpotData(spotID);
+
+  const weather = useWeather();
+
+  // useEffect(() => {
+  //   fetch('https://api.open-meteo.com/v1/forecast?latitude=48.4359&longitude=-123.3516&daily=weather_code,temperature_2m_max,temperature_2m_min,sunset&timezone=America%2FLos_Angeles')
+  //   .then(response => response.json())
+  //   .then(data => console.log(data))
+  //   .catch(error => console.error('Error fetching data:', error));
+  // }, []);
   
   return (
     <div className='one-spot'>
