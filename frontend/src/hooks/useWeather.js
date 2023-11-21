@@ -9,8 +9,16 @@ export default function useWeather() {
     try {
       const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=48.4359&longitude=-123.3516&daily=weather_code,temperature_2m_max,temperature_2m_min,sunset&timezone=America%2FLos_Angeles');
       const data = await res.json();
+
+      // change data to have current day's sunset time and weekly sunset data 
+      const {time, ...conditions} = data.daily;
+      const spotWeather = {
+        time: time[0],
+        conditions
+      }
+
       //update state
-      setWeather(data.daily);
+      setWeather(spotWeather);
     } catch (error) {
       console.error("Error fetching data: ", error);
     } finally {
