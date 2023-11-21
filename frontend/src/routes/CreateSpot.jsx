@@ -124,8 +124,6 @@ export default function CreateSpot() {
     } else {
       setModal(prev => prev + 1);
     }
-    // after moving to next modal, check if all inputs are filled in
-    validateInput();
   };
 
   return (
