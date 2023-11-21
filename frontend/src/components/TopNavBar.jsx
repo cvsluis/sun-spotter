@@ -5,7 +5,7 @@ import logo from '../assets/logo.png'
 export default function TopNavBar() {
   return (
     <nav>
-      <div>
+      <div className='nav__main'>
       <Link to={'/home'}><img className='nav__logo' alt='logo' src={logo}></img></Link>
       <Link to={`/spots`} className='nav__explore-link'>Explore</Link>
       </div>
