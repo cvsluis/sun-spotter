@@ -91,7 +91,7 @@ export default function CreateSpot() {
     }
   };
 
-  const handleForwardClick = (e) => {
+  const handleForwardClick = () => {
     if (modal === 2) {
       handleSubmit();
     } else {
