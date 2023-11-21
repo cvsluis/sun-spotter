@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import '../styles/TopNavBar.scss';
-import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 export default function TopNavBar() {
