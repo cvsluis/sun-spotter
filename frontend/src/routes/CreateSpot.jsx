@@ -105,11 +105,6 @@ export default function CreateSpot() {
   // MODAL STATE
   const [modal, setModal] = useState(0);
 
-  // check for empty inputs after every time form data or modal changes
-  useEffect(() => {
-    validateInput();
-  }, [formData, modal]);
-
   const handleBackClick = () => {
     if (modal === 0) {
       navigate("/spots/");
@@ -125,6 +120,11 @@ export default function CreateSpot() {
       setModal(prev => prev + 1);
     }
   };
+
+  // check for empty inputs after every time form data or modal changes
+  useEffect(() => {
+    validateInput();
+  }, [formData, modal]);
 
   return (
     <div className='createSpot__container'>
