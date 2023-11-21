@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/CreateSpot.scss';
 
@@ -16,7 +16,7 @@ export default function CreateSpot() {
   const [marker, setMarker] = useState([{}]);
   const [formData, setFormData] = useState({
     spot: { city: 'Victoria', province: 'BC', country: 'Canada', lat: '', lng: '' },
-    visit: { chosenName: '', time_stamp: '', description: '', rating: 5 },
+    visit: { chosenName: '', time_stamp: '', description: '', rating: 5, image: '' },
     labels: []
   });
   const [imagePreview, setImagePreview] = useState();
@@ -49,7 +49,6 @@ export default function CreateSpot() {
     const name = event.target.name;
     name === 'chosenName' && setFormData(prev => ({ ...prev, spot: { ...prev.spot, name: event.target.value } }));
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, [name]: event.target.value } }));
-    console.log(formData);
   };
 
   // file input state handler
@@ -80,6 +79,34 @@ export default function CreateSpot() {
     }
   };
 
+  // FORM VALIDATION
+  const [activateNavButton, setActivateNavButton] = useState(false);
+  // for each modal, check if input has been set
+  const validateInput = () => {
+    if (modal === 0 && formData.spot.lat !== '') {
+      setActivateNavButton(true);
+      return;
+    }
+    if (modal === 1 && 
+        formData.visit.chosenName !== '' && 
+        formData.visit.time_stamp !== '' && 
+        formData.visit.description !== '' && 
+        formData.visit.rating !== '') {
+      setActivateNavButton(true);
+      return;
+    }
+    if (modal === 2 && formData.visit.image !== '' && formData.visit.image !== null) {
+      setActivateNavButton(true);
+      return;
+    } 
+    setActivateNavButton(false);
+  };
+
+  // check for empty inputs after every time form data changes
+  useEffect(() => {
+    validateInput();
+  }, [formData]);
+
   // MODAL STATE
   const [modal, setModal] = useState(0);
 
@@ -97,6 +124,8 @@ export default function CreateSpot() {
     } else {
       setModal(prev => prev + 1);
     }
+    // after moving to next modal, reset continue button to be disabled
+    setActivateNavButton(false);
   };
 
   return (
@@ -139,7 +168,7 @@ export default function CreateSpot() {
 
         <div className='createSpot__container--nav'>
           <BackButton handleBackClick={handleBackClick} />
-          <ForwardButton handleForwardClick={handleForwardClick} modal={modal} />
+          <ForwardButton handleForwardClick={handleForwardClick} modal={modal} buttonOn={activateNavButton}/>
         </div>
       </div>
 
