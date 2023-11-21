@@ -6,18 +6,16 @@ export default function formatWeatherData (data, isSunsetOnly) {
   //separate sunset time and conditions
   const {sunset, ...conditions} = data;
 
-
   //extract hour and time of sunset
   const sunsetDate = new Date(sunset[0]); 
   const sunsetTime = { hour: sunsetDate.getHours(), minute: sunsetDate.getMinutes() };
   
   //return only sunset time if requested
   if(isSunsetOnly) {
-    return sunsetTime;
+    return { sunsetTime } ;
   }
 
-
-  //Change YYYY-MM-DD to day of weeks: 
+  //add day of week info: 
   var dayNames = [
     'Sun',
     'Mon',
@@ -40,8 +38,7 @@ export default function formatWeatherData (data, isSunsetOnly) {
     max_temp: conditions.temperature_2m_max[i],
     min_temp: conditions.temperature_2m_min[i],
     weather_code: conditions.weather_code[i]
-  }))
-  console.log(conditionsArr)
+  }));
 
   return {sunsetTime, conditionsArr};
 }
