@@ -56,7 +56,7 @@ export default function FormDetails({ handleFormChange, handleLabelClick, isClic
 
       <div className='formDetails__container-rating'>
         <label htmlFor='rating'>How would you rate this spot?</label>
-        <StarRating handleRatingInput={handleRatingInput} />
+        <StarRating handleRatingInput={handleRatingInput} rating={visitValues.rating}/>
       </div>
 
     </div>
