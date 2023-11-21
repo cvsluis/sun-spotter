@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 //import hooks
 import useSpotData from '../hooks/useSpotData';
 import useSaved from '../hooks/useSaved'
+import useWeather from '../hooks/useWeather';
 
 //import components
 import AboutSpot from '../components/AboutSpot';
 import OneSpotMap from '../components/OneSpotMap';
 import VisitCard from '../components/VisitCard';
-
+import WeatherBar from '../components/WeatherBar';
 //import styles 
 import '../styles/OneSpot.scss';
 
@@ -21,6 +22,9 @@ export default function OneSpot() {
 
   //save icon click
   const [ isSaved, toggleSaved ] = useSaved();
+
+  const weather = useWeather();
+
   
   return (
     <div className='one-spot'>
@@ -44,8 +48,11 @@ export default function OneSpot() {
         </div>
       </header>
 
+      <WeatherBar {...weather} />
+
+
       <div className="one-spot__visits">
-        {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} id={visit.id}/>)}
+        {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} key={visit.id}/>)}
       </div>
     </div>
   );

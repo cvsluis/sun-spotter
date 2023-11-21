@@ -3,7 +3,7 @@ import '../styles/AboutSpot.scss'
 
 export default function AboutSpot({spotData, spotLabels, spotRating}) {
 
-  //how many stars to 
+  //how many stars to display
   const starNumber = Math.floor(Number(spotRating));
   const needsPartialStar = starNumber - Number(spotRating) !== 0;
   
