@@ -9,6 +9,8 @@ export default function AboutSpot({spotData, spotLabels, spotRating}) {
   console.log(starNumber);
   return (
     <div className='about-spot'>
+      
+
 
       {/* Spot info */}
       <div className='about-spot__info'>

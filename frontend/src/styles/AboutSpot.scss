@@ -6,10 +6,16 @@
   padding-top: 1.5em;
 }
 
+.about-spot__save {
+  align-self: flex-end;
+
+}
+
 .about-spot__info {
   display: flex;
   flex-direction: column;
   gap: 5px;
+
 
 }
 .about-spot__labels {

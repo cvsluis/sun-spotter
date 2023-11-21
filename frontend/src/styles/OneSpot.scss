@@ -14,7 +14,7 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
-
+  position: relative;
   // make container extend below the page 
   bottom: -20px;
   padding-bottom: 20px; 
@@ -27,6 +27,7 @@
   margin: 1.5em;
   gap: 1.5em;
 }
+
 
 
 .one-spot__map {
@@ -49,20 +50,23 @@
 }
 
 .one-spot__header > div {
-  display: flex;
+  position: relative;
   flex: 1;
-  flex-direction: column;
-  justify-content: space-between;
   margin-bottom: 20px;
+
+  .one-spot__save {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+  }
+
 }
 
 .one-spot__visits {
-
-  //width: 91.8%; //could use refactor, not sure why it's spilling over
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1.5em;
   margin: 1.5em;
-
-  
 }
