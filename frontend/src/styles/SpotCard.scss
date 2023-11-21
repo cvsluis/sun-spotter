@@ -16,8 +16,11 @@
     font-weight: 700;
 
     span {
+      position: relative;
       font-weight: 400;
+      font-size: 15px;
       color: $text-light-grey;
+      bottom: 0.02rem;
     }
   }
 
@@ -54,6 +57,25 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.spotCard__rating--container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+
+.spotCard__rating--stars {
+  display: flex;
+  flex-direction: row;
+  gap: 0.1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.1rem;
+}
+
+.spotCard__rating--star {
+  color: $sunny;
 }
 
 .spotCard__image {
