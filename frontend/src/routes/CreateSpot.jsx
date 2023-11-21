@@ -96,7 +96,7 @@ export default function CreateSpot() {
         formData.visit.chosenName !== '' && 
         formData.visit.time_stamp !== '' && 
         formData.visit.description !== '' && 
-        formData.visit.rating !== '') {
+        formData.visit.rating !== 0) {
       setActivateNavButton(true);
       return;
     }
