@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-export default function useWeather() {
+
+//to only get sunset time for current day, set isSunsetOnly to True
+export default function useWeather(isSunsetOnly) {
 
   const [ weather, setWeather ] = useState({});
   const [ isLoading, setIsLoading ] = useState(false);
@@ -11,12 +13,17 @@ export default function useWeather() {
       const data = await res.json();
 
       // change data to have current day's sunset time and weekly sunset data 
-      const {time, ...conditions} = data.daily;
+      const {sunset, ...conditions} = data.daily;
+
+      //extract hour and time
+      const sunsetDate = new Date(sunset[0]); 
+      const sunsetTime = { hour: sunsetDate.getHours(), minute: sunsetDate.getMinutes() };
+
       const spotWeather = {
-        sunsetTime: time[0],
+        sunsetTime,
         conditions
       }
-
+      
       //update state
       setWeather(spotWeather);
     } catch (error) {

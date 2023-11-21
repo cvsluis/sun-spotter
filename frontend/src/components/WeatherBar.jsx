@@ -15,7 +15,7 @@ export default function WeatherBar({ sunsetTime, conditions }) {
     <div className="weather-bar">
       <div className="weather-bar__sunset-time">
         <h3>Sunset Time</h3>
-         <SunsetTimeCard sunsetTime={sunsetTime} />
+         <SunsetTimeCard {...sunsetTime} />
       </div>
   
       <div className="weather-bar__conditions">
