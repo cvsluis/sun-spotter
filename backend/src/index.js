@@ -10,6 +10,7 @@ const cors = require('cors');
 //Setup cross origin resource sharing
 app.use(cors({
   origin: 'http://localhost:3000',
+  credentials: true
 }));
 
 const db = require("./db");
