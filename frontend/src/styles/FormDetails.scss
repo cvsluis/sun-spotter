@@ -21,6 +21,17 @@
   gap: 1.25rem;
 }
 
+.formDetails__rating--container {
+  button {
+    border: none;
+    background-color: inherit;
+
+  &:hover {
+    cursor: pointer;
+  }
+  }
+}
+
 .formDetails__rating--star {
   margin: 0 0.25rem;
 }

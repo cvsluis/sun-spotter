@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function StarRating({ rating, handleRatingInput }) {
   return (
-    <div className="star-rating">
+    <div className="formDetails__rating--container">
       {[...Array(5)].map((star, index) => {
         index += 1;
         return (
