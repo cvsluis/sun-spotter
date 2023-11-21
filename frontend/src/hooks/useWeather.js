@@ -17,6 +17,8 @@ export default function useWeather() {
       setIsLoading(false);
     }
   }
+
+  
   useEffect(() => {
     fetchWeather(); 
   }, [])
@@ -36,7 +38,7 @@ export default function useWeather() {
   if (isLoading) {
     return;
   }
-  
+
   return weather;
 
 

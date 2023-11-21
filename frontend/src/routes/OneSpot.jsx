@@ -9,7 +9,7 @@ import useWeather from '../hooks/useWeather';
 import AboutSpot from '../components/AboutSpot';
 import OneSpotMap from '../components/OneSpotMap';
 import VisitCard from '../components/VisitCard';
-
+import WeatherBar from '../components/WeatherBar';
 //import styles 
 import '../styles/OneSpot.scss';
 
@@ -21,7 +21,7 @@ export default function OneSpot() {
 
   const weather = useWeather();
   if(weather.time) {
-    console.log('the times are: ', weather.time[0]);
+    console.log('the times are: ', weather);
   }
 
   
@@ -38,7 +38,8 @@ export default function OneSpot() {
       <div className="one-spot__weather">
 
         weather info!!
-        {weather.time && weather.time[0]}
+
+        <WeatherBar weather={weather}/>
    
       </div>
 
