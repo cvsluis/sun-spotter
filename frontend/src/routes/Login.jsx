@@ -1,30 +1,33 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //import styles
 import "../styles/Login.scss";
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
-  
-    fetch('http://localhost:8080/login', (email, password))
-    .then(res => {
-      if(res.data.Status === 'Success') {
-        navigate('/home')
-      } else {
-        alert(res.data.Message)
-      };
+
+    fetch("http://localhost:8080/api/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
     })
-    .catch(err => console.error(err.message));
-  }
-  
-  
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.data.Status === "Success") {
+          return 'You are logged in';
+        } else {
+          alert(res.data.Message);
+        }
+      })
+  };
+
   return (
     <div className="login__container">
       <div className="login__welcome">
@@ -38,7 +41,7 @@ export default function Login() {
             type="text"
             id="email"
             placeholder="Email address"
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
@@ -47,19 +50,18 @@ export default function Login() {
             type="password"
             id="password"
             placeholder="Password"
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <button type="submit" className="login__btn">
           Log in
         </button>
       </form>
-   
+
       <span className="login__forgot-password">Forgot your password?</span>
       <span className="login__register">
         Don't have an account?<strong> Sign up for free</strong>
       </span>
-  
     </div>
   );
 }
