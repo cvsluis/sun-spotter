@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/CreateSpot.scss';
 
@@ -15,11 +15,11 @@ export default function CreateSpot() {
   // FORM DATA STATE
   const [marker, setMarker] = useState([{}]);
   const [formData, setFormData] = useState({
-    spot: { city: 'Victoria', province: 'BC', country: 'Canada' },
-    visit: { rating: 5 },
+    spot: { city: 'Victoria', province: 'BC', country: 'Canada', lat: '', lng: '' },
+    visit: { chosenName: '', time_stamp: '', description: '', rating: 5, image: '' },
     labels: []
   });
-  const [imagePreview, setImagePreview] = useState();
+  const [imagePreview, setImagePreview] = useState('');
 
   // map state handler
   const onMapClick = (e) => {
@@ -49,14 +49,13 @@ export default function CreateSpot() {
     const name = event.target.name;
     name === 'chosenName' && setFormData(prev => ({ ...prev, spot: { ...prev.spot, name: event.target.value } }));
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, [name]: event.target.value } }));
-    console.log(formData);
   };
 
   // file input state handler
   const handleFileInput = (e) => {
     if (imagePreview) {
-      setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: null } }));
-      setImagePreview(null);
+      setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: '' } }));
+      setImagePreview('');
     } else {
       setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: e.target.files[0] } }));
       setImagePreview(URL.createObjectURL(e.target.files[0]));
@@ -80,6 +79,29 @@ export default function CreateSpot() {
     }
   };
 
+  // FORM VALIDATION
+  const [activateNavButton, setActivateNavButton] = useState(false);
+  // for each modal, check if input has been set
+  const validateInput = () => {
+    if (modal === 0 && formData.spot.lat !== '') {
+      setActivateNavButton(true);
+      return;
+    }
+    if (modal === 1 && 
+        formData.visit.chosenName !== '' && 
+        formData.visit.time_stamp !== '' && 
+        formData.visit.description !== '' && 
+        formData.visit.rating !== '') {
+      setActivateNavButton(true);
+      return;
+    }
+    if (modal === 2 && formData.visit.image !== '') {
+      setActivateNavButton(true);
+      return;
+    } 
+    setActivateNavButton(false);
+  };
+
   // MODAL STATE
   const [modal, setModal] = useState(0);
 
@@ -91,7 +113,7 @@ export default function CreateSpot() {
     }
   };
 
-  const handleForwardClick = (e) => {
+  const handleForwardClick = () => {
     if (modal === 2) {
       handleSubmit();
     } else {
@@ -99,12 +121,17 @@ export default function CreateSpot() {
     }
   };
 
+  // check for empty inputs after every time form data or modal changes
+  useEffect(() => {
+    validateInput();
+  }, [formData, modal]);
+
   return (
     <div className='createSpot__container'>
       <div className='createSpot__container--details'>
         <h1>Create a Spot</h1>
 
-        { modal === 0 && 
+        {modal === 0 &&
           <div>
             <div className='createSpot__header'>
               <h2>Step 1: Choose your location</h2>
@@ -114,23 +141,23 @@ export default function CreateSpot() {
           </div>
         }
 
-        { modal === 1 && 
+        {modal === 1 &&
           <div>
             <div className='createSpot__header'>
               <h2>Step 2: Add your visit to this sunset spot</h2>
             </div>
-            <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} />
+            <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} visitValues={formData.visit} />
           </div>
         }
 
-      { modal === 2 && 
-        <div>
-          <div className='createSpot__header'>
-            <h2>Step 3: Attach a picture of your sunset!</h2>
+        {modal === 2 &&
+          <div>
+            <div className='createSpot__header'>
+              <h2>Step 3: Attach a picture of your sunset!</h2>
+            </div>
+            <AddImage handleFileInput={handleFileInput} imagePreview={imagePreview} />
           </div>
-          <AddImage handleFileInput={handleFileInput} imagePreview={imagePreview} />
-        </div>
-      }
+        }
 
       </div>
 
@@ -139,7 +166,7 @@ export default function CreateSpot() {
 
         <div className='createSpot__container--nav'>
           <BackButton handleBackClick={handleBackClick} />
-          <ForwardButton handleForwardClick={handleForwardClick} modal={modal} />
+          <ForwardButton handleForwardClick={handleForwardClick} modal={modal} buttonOn={activateNavButton}/>
         </div>
       </div>
 

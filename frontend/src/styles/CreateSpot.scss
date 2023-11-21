@@ -59,16 +59,21 @@
 }
 
 .navigationButton__btn {
+  background-color: #e5e5e5;
+  color: #a0a0a0;
   width: 6rem;
   height: 3rem;
-  background-color: orangered;
-  color: #fff;
   border: none;
   border-radius: 9999px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.3s;
+}
+
+.navigationButton__btn-orange {
+  background-color: orangered;
+  color: #fff;
 
   &:hover {
     cursor: pointer;
