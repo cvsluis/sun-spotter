@@ -19,7 +19,7 @@ export default function OneSpot() {
   const spotID = useParams().id;
   const [ spotInfo, spotLabels, spotRating, spotVisits ] = useSpotData(spotID);
 
-  const weather = useWeather();
+
 
   // useEffect(() => {
   //   fetch('https://api.open-meteo.com/v1/forecast?latitude=48.4359&longitude=-123.3516&daily=weather_code,temperature_2m_max,temperature_2m_min,sunset&timezone=America%2FLos_Angeles')
@@ -39,7 +39,7 @@ export default function OneSpot() {
       </header>
 
       <div className="one-spot__visits">
-        {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} id={visit.id}/>)}
+        {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} key={visit.id}/>)}
       </div>
     </div>
   );
