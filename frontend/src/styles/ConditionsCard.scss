@@ -1,4 +1,8 @@
-.conditions-card{
+.conditions-card {
   display: flex;
   flex-direction: column;
+
+  img {
+    height: 36px;
+  }
 }
