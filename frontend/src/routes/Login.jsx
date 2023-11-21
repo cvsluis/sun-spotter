@@ -1,10 +1,29 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 //import styles
 import "../styles/Login.scss";
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+  
+    fetch('http://localhost:8080/login', (email, password))
+    .then(res => {
+      if(res.data.Status === 'Success') {
+        navigate('/home')
+      } else {
+        alert(res.data.Message)
+      };
+    })
+    .catch(err => console.error(err.message));
+  }
+  
   
   return (
     <div className="login__container">
@@ -12,7 +31,7 @@ export default function Login() {
         <h2>Welcome back.</h2>
         <h2>Log in and chase the sun.</h2>
       </div>
-      <form className="login__form">
+      <form className="login__form" onSubmit={handleLogin}>
         <div>
           <input
             className="login__input"
@@ -25,7 +44,7 @@ export default function Login() {
         <div>
           <input
             className="login__input"
-            type="text"
+            type="password"
             id="password"
             placeholder="Password"
             onChange={e => setPassword(e.target.value)}
