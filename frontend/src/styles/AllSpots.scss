@@ -1,3 +1,5 @@
+@import '_theme.scss';
+
 .allSpots__container {
   display: flex;
   flex-direction: row;
@@ -15,7 +17,7 @@
 
 .allSpots__btn--add-spot {
   color: #fff;
-  background-color: orangered;
+  background-color: $button-orange;
   text-decoration: none;
   border-radius: 9999px;
   width: auto;
@@ -47,7 +49,7 @@
 
 .allSpots__btn--add-spot:hover {
   cursor: pointer;
-  background-color: #e94003;
+  background-color: $button-orange-hover;
   max-width: 200px;
 
   .allSpots__btn--text {
