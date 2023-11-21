@@ -20,7 +20,7 @@ export default function OneSpot() {
   const [ spotInfo, spotLabels, spotRating, spotVisits ] = useSpotData(spotID);
 
   const weather = useWeather();
-  if(weather.time) {
+  if(weather.sunsetTime) {
     console.log('the weather is: ', weather);
   }
 
@@ -35,13 +35,8 @@ export default function OneSpot() {
         </div>
       </header>
 
-      <div className="one-spot__weather">
+      <WeatherBar {...weather} />
 
-        weather info!!
-
-        <WeatherBar weather={weather}/>
-   
-      </div>
 
       <div className="one-spot__visits">
         {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} key={visit.id}/>)}
