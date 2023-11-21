@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+
+//hooks
+import useWeather from '../hooks/useWeather';
+
+//components and assets
 import SpotCarousel from "../components/SpotCarousel";
-import "../styles/Home.scss";
 import sunset from "../assets/sunset_header.jpg";
+
+//styles
+import "../styles/Home.scss";
 
 export default function Home() {
   // all spots state
