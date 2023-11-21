@@ -2,7 +2,7 @@ import React from "react";
 import '../styles/ConditionsCard.scss';
 
 export default function ConditionsCard({ conditions }) {
-  console.log(conditions)
+  //console.log(conditions)
   return(
     <div className="conditions-card">
       <div className="conditions-card__day">{conditions.day}</div>
