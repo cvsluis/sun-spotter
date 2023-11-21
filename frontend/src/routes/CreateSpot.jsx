@@ -15,8 +15,8 @@ export default function CreateSpot() {
   // FORM DATA STATE
   const [marker, setMarker] = useState([{}]);
   const [formData, setFormData] = useState({
-    spot: { city: 'Victoria', province: 'BC', country: 'Canada' },
-    visit: { rating: 5 },
+    spot: { city: 'Victoria', province: 'BC', country: 'Canada', lat: '', lng: '' },
+    visit: { chosenName: '', time_stamp: '', description: '', rating: 5 },
     labels: []
   });
   const [imagePreview, setImagePreview] = useState();
@@ -104,7 +104,7 @@ export default function CreateSpot() {
       <div className='createSpot__container--details'>
         <h1>Create a Spot</h1>
 
-        { modal === 0 && 
+        {modal === 0 &&
           <div>
             <div className='createSpot__header'>
               <h2>Step 1: Choose your location</h2>
@@ -114,23 +114,23 @@ export default function CreateSpot() {
           </div>
         }
 
-        { modal === 1 && 
+        {modal === 1 &&
           <div>
             <div className='createSpot__header'>
               <h2>Step 2: Add your visit to this sunset spot</h2>
             </div>
-            <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} />
+            <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} visitValues={formData.visit} />
           </div>
         }
 
-      { modal === 2 && 
-        <div>
-          <div className='createSpot__header'>
-            <h2>Step 3: Attach a picture of your sunset!</h2>
+        {modal === 2 &&
+          <div>
+            <div className='createSpot__header'>
+              <h2>Step 3: Attach a picture of your sunset!</h2>
+            </div>
+            <AddImage handleFileInput={handleFileInput} imagePreview={imagePreview} />
           </div>
-          <AddImage handleFileInput={handleFileInput} imagePreview={imagePreview} />
-        </div>
-      }
+        }
 
       </div>
 
