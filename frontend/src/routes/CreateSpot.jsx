@@ -19,7 +19,7 @@ export default function CreateSpot() {
     visit: { chosenName: '', time_stamp: '', description: '', rating: 5, image: '' },
     labels: []
   });
-  const [imagePreview, setImagePreview] = useState();
+  const [imagePreview, setImagePreview] = useState('');
 
   // map state handler
   const onMapClick = (e) => {
@@ -54,8 +54,8 @@ export default function CreateSpot() {
   // file input state handler
   const handleFileInput = (e) => {
     if (imagePreview) {
-      setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: null } }));
-      setImagePreview(null);
+      setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: '' } }));
+      setImagePreview('');
     } else {
       setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: e.target.files[0] } }));
       setImagePreview(URL.createObjectURL(e.target.files[0]));
@@ -95,20 +95,20 @@ export default function CreateSpot() {
       setActivateNavButton(true);
       return;
     }
-    if (modal === 2 && formData.visit.image !== '' && formData.visit.image !== null) {
+    if (modal === 2 && formData.visit.image !== '') {
       setActivateNavButton(true);
       return;
     } 
     setActivateNavButton(false);
   };
 
-  // check for empty inputs after every time form data changes
-  useEffect(() => {
-    validateInput();
-  }, [formData]);
-
   // MODAL STATE
   const [modal, setModal] = useState(0);
+
+  // check for empty inputs after every time form data or modal changes
+  useEffect(() => {
+    validateInput();
+  }, [formData, modal]);
 
   const handleBackClick = () => {
     if (modal === 0) {
@@ -124,8 +124,8 @@ export default function CreateSpot() {
     } else {
       setModal(prev => prev + 1);
     }
-    // after moving to next modal, reset continue button to be disabled
-    setActivateNavButton(false);
+    // after moving to next modal, check if all inputs are filled in
+    validateInput();
   };
 
   return (
