@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/ConditionsCard.scss';
 
 export default function ConditionsCard({ conditions }) {
   console.log(conditions)
