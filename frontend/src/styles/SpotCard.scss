@@ -1,3 +1,5 @@
+@import '_theme.scss';
+
 .spotCard__container {
   color: #000000;
   text-decoration: none;
@@ -15,20 +17,20 @@
 
     span {
       font-weight: 400;
-      color: #5d5d5d;
+      color: $text-light-grey;
     }
   }
 
   h3 {
     font-size: 13px;
     font-weight: 700;
-    color: #5d5d5d;
+    color: $text-grey;
   }
 
   h4 {
     font-size: 13px;
     font-weight: 400;
-    color: #757575;
+    color: $text-light-grey;
     padding: 0;
   }
 }
