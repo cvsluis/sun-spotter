@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 
 //import hooks
 import useSpotData from '../hooks/useSpotData';
+import useSaved from '../hooks/useSaved'
 
 //import components
 import AboutSpot from '../components/AboutSpot';
@@ -17,6 +18,9 @@ export default function OneSpot() {
 
   const spotID = useParams().id;
   const [ spotInfo, spotLabels, spotRating, spotVisits ] = useSpotData(spotID);
+
+  //save icon click
+  const [ isSaved, toggleSaved ] = useSaved();
   
   return (
     <div className='one-spot'>
