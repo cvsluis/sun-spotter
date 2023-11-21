@@ -1,7 +1,7 @@
 .formDetails__container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .formDetails__container--input-and-labels {
@@ -18,6 +18,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.25rem;
+}
+
+.formDetails__rating--container {
+  button {
+    border: none;
+    background-color: inherit;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.formDetails__rating--star {
+  margin: 0 0.25rem;
 }
 
 .formDetails__container--inputs {

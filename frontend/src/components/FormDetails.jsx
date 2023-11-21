@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Label from './Label';
+import StarRating from './StarRating';
 import '../styles/FormDetails.scss';
 
-export default function FormDetails({ handleFormChange, handleLabelClick, isClicked, visitValues }) {
+export default function FormDetails({ handleFormChange, handleLabelClick, isClicked, visitValues, handleRatingInput }) {
   // list of labels from db
   const [labels, setLabels] = useState([]);
 
@@ -55,6 +56,7 @@ export default function FormDetails({ handleFormChange, handleLabelClick, isClic
 
       <div className='formDetails__container-rating'>
         <label htmlFor='rating'>How would you rate this spot?</label>
+        <StarRating handleRatingInput={handleRatingInput} rating={visitValues.rating}/>
       </div>
 
     </div>
