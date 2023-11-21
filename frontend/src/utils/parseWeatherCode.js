@@ -1,18 +1,19 @@
 
 /*
-
-generalizes weather codes 1-100 to fall into the following categories:
-  
+generalizes the WMO weather codes (0-99) into the following (not meteologically correct) categories:
   1) cloud + sun
   2) sunny
-  3) overcast
+  3) cloudy
   4) rain
-  5) snow
-  6) thunderstorms
-
+  5) sun and rain (developing rain)
+  6) sun and snow (developing snow)
+  7) snow
+  8) thunderstorms
+  10) hazy etc... (dust, sand... not common in vic but still need to handle the codes)
+returns the category string (will eventually return icon)
 */
 
-const parseWeatherCode = function(code) {
+export default function parseWeatherCode(code) {
   //check code is valid
   if(code < 0 || code > 100) {
     return "invalid code";
