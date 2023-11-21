@@ -1,8 +1,5 @@
 const router = require("express").Router();
 const userQueries = require('../db/queries/01_users');
-const cookieParser = require('cookie-parser');
-const jwt = require('jsonwebtoken');
-
 
 module.exports = db => {
   
@@ -26,9 +23,8 @@ module.exports = db => {
       if(err) {
         return res.json({Message: 'Server side error'})
       }
-      const name = data[0];
-      const token = jwt.sign({name}, '', {expiresIn: '1d'});
-      res.cookie('token', token);
+      
+      console.log(res.json(data));
 
       return res.json({Status: 'Success'})
     })
