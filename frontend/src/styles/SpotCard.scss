@@ -1,3 +1,5 @@
+@import '_theme.scss';
+
 .spotCard__container {
   color: #000000;
   text-decoration: none;
@@ -14,21 +16,24 @@
     font-weight: 700;
 
     span {
+      position: relative;
       font-weight: 400;
-      color: #5d5d5d;
+      font-size: 15px;
+      color: $text-light-grey;
+      bottom: 0.02rem;
     }
   }
 
   h3 {
     font-size: 13px;
     font-weight: 700;
-    color: #5d5d5d;
+    color: $text-grey;
   }
 
   h4 {
     font-size: 13px;
     font-weight: 400;
-    color: #757575;
+    color: $text-light-grey;
     padding: 0;
   }
 }
@@ -52,6 +57,25 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.spotCard__rating--container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+
+.spotCard__rating--stars {
+  display: flex;
+  flex-direction: row;
+  gap: 0.1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.1rem;
+}
+
+.spotCard__rating--star {
+  color: $sunny;
 }
 
 .spotCard__image {

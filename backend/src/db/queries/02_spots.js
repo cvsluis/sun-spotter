@@ -28,7 +28,7 @@ const getAllSpots = (searchString) => {
   }
 
   // order by last added spot
-  queryString += `ORDER BY visits.created_at DESC;`;
+  queryString += `ORDER BY visits.time_stamp DESC;`;
 
   return db
     .query(queryString, queryParams)
@@ -91,7 +91,7 @@ const getSpotLabels = (id) => {
 
 //get info required to render Visit Card
 const getSpotVisits = function (spotID) {
-  const query = `SELECT visits.id as id, users.first_name as first_name, users.last_name as last_name, visits.created_at as date, visits.image_url as image_url
+  const query = `SELECT visits.id as id, users.first_name as first_name, users.last_name as last_name, visits.time_stamp as date, visits.image_url as image_url
                   FROM users JOIN visits
                   ON users.id = visits.user_id
                   WHERE visits.spot_id = $1`
