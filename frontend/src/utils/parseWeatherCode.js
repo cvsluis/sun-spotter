@@ -37,9 +37,9 @@ export default function parseWeatherCode(code) {
     hazy: [4, 5, 6, 7, 8, 9, 10, 11, 12, 28,30, 31, 32, 33, 34, 35]
   }
 
-  for (weatherType in codes) {
+  for (const weatherType in codes) {
     if (codes[weatherType].includes(code)) {
-      return weatherType
+      return weatherType;
     }
   }
 } 
