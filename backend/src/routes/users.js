@@ -11,7 +11,7 @@ module.exports = db => {
     .catch(err => {
       res
         .status(500)
-        .json({ erros:err.message })
+        .json({ error: err.message })
     });
   });
   return router;
