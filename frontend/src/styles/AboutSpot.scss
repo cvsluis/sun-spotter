@@ -1,15 +1,28 @@
 .about-spot { 
+  // position: absolute;
+  // top: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   padding-top: 1.5em;
+
+
+}
+
+.about-spot__save {
+  align-self: flex-end;
+
 }
 
 .about-spot__info {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  h1 {
+   padding-top: 0px; 
+  }
+
 
 }
 .about-spot__labels {
@@ -31,4 +44,16 @@ about-spot__name {
 
 .about-spot__label--pink {
   background-color: #F7B09D;
+}
+
+.about-spot__rating {
+  display: flex;
+  gap: 3px;
+}
+.about-spot__star  {
+  height: 20px;
+  width: 20px;
+  margin: 1px;
+  align-self: center;
+  color: #FCA712;
 }
