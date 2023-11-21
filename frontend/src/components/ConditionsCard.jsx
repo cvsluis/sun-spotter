@@ -5,15 +5,13 @@ import parseWeatherCode from "../utils/parseWeatherCode";
 export default function ConditionsCard({ conditions }) {
   
   const weatherType = parseWeatherCode(conditions.weather_code);
-  const iconPath = `../assets/weather-icons/${weatherType}.png`;
-  console.log(iconPath)
+
  
   return(
     <div className="conditions-card">
       <div className="conditions-card__day">{conditions.day}</div>
       <div className="conditions-card__weather">
-        <img src={ require(iconPath) }></img>
-
+        <img src={ require(`../assets/weather-icons/${weatherType}.png`) }  className={'conditions-card__icon'} alt={weatherType}></img>
       
       </div>
       <div className="conditions-card__max-temp">max: {conditions.max_temp}</div>
