@@ -20,9 +20,6 @@ export default function OneSpot() {
   const [ spotInfo, spotLabels, spotRating, spotVisits ] = useSpotData(spotID);
 
   const weather = useWeather();
-  if(weather.sunsetTime) {
-    console.log('the weather is: ', weather);
-  }
 
   
   return (

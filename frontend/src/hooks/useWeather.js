@@ -18,10 +18,20 @@ export default function useWeather(isSunsetOnly) {
       //extract hour and time
       const sunsetDate = new Date(sunset[0]); 
       const sunsetTime = { hour: sunsetDate.getHours(), minute: sunsetDate.getMinutes() };
+      
+     // console.log(conditions)
+
+      const conditionsArr = conditions.time.map((date, i) => ({
+        date,
+        max_temp: conditions.temperature_2m_max[i],
+        min_temp: conditions.temperature_2m_min[i],
+        weather_code: conditions.weather_code[i]
+      }))
+      console.log(conditionsArr)
 
       const spotWeather = {
         sunsetTime,
-        conditions
+        conditionsArr
       }
       
       //update state
