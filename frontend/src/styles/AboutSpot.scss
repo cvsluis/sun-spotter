@@ -32,3 +32,15 @@ about-spot__name {
 .about-spot__label--pink {
   background-color: #F7B09D;
 }
+
+.about-spot__rating {
+  display: flex;
+  gap: 3px;
+}
+.about-spot__star  {
+  height: 20px;
+  width: 20px;
+  margin: 1px;
+  align-self: center;
+  color: #FCA712;
+}
