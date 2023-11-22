@@ -8,6 +8,18 @@
   flex-direction: space-between;
 }
 
+.weather-bar > div {
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+
+  h2 {
+    padding-left: 0.5em;
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+
 .weather-bar__sunset {
   height: 36px;
 }
@@ -24,15 +36,17 @@
   display: flex;
   gap: 2px;
   justify-content: center;
+  align-items: center;
   background-color: $background-grey;
   border-radius: 24px;
   width: max-content;
+  height: 100px;
   padding: 1.5rem;
 
 
 
   img {
-    height: 36px;
+    height: 40px;
     
 
   }
