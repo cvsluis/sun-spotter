@@ -1,3 +1,5 @@
+@import '_theme.scss';
+
 .createSpot__container {
   margin: 2rem auto;
   background-color: #fff;
@@ -7,7 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: $shadow-grey;
 
   h1 {
     margin: 0;
@@ -20,7 +22,7 @@
 
     h2 {
       font-size: 18px;
-      color: grey;
+      color: $text-light-grey;
 
       font-weight: 400;
     }
@@ -55,12 +57,12 @@
 
 .createSpot__line {
   border: none;
-  border-top: 1px solid #afafaf;
+  border-top: 1px solid $button-grey;
   width: 100%;
 }
 
 .navigationButton__btn {
-  background-color: #e5e5e5;
+  background-color: $button-grey-disabled;
   color: #a0a0a0;
   width: 6rem;
   height: 3rem;
@@ -73,12 +75,12 @@
 }
 
 .navigationButton__btn-orange {
-  background-color: orangered;
+  background-color: $button-orange;
   color: #fff;
 
   &:hover {
     cursor: pointer;
-    background-color: #df3c00;
+    background-color: $button-orange-hover;
   }
 }
 
