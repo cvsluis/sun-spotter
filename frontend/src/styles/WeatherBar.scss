@@ -1,13 +1,61 @@
+@import '_theme.scss';
+
 .weather-bar {
   display:flex;
   margin-left: 1.5em;
   margin-right: 1.5em;
+  gap: 1rem;
   flex-direction: space-between;
 }
 
-.weather-bar__conditions {
-  div {
-    display: flex;
-    gap: 1.5em;
+.weather-bar > div {
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+
+  h2 {
+    padding-left: 0.5em;
+    font-size: 20px;
+    font-weight: 400;
   }
+}
+
+.weather-bar__sunset {
+  height: 36px;
+}
+
+.weather-bar__conditions {
+  .weather-bar__conditions-list {
+    display: flex;
+    gap: 1rem;
+
+  }
+}
+
+.sunset-time-card {  
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-grey;
+  border-radius: 24px;
+  width: max-content;
+  height: 100px;
+  padding: 1.5rem;
+
+
+
+  img {
+    height: 40px;
+    
+
+  }
+  span {
+    
+    font-size: 36px;
+    font-weight: 400;
+
+  }
+  
+
 }
