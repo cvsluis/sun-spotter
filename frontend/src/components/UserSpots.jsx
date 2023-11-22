@@ -7,15 +7,17 @@ import '../styles/UserSpots.scss';
 
 export default function UserSpots() {
 
-  const userID = useParams();
-  const [ userVisits, setUserVisits ] = useState();
+  const userID = useParams().id;
+  const [ userVisits, setUserVisits ] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:8080/api/users/${userID}`)
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        setUserVisits(data)
+      })
       .catch(err => console.log('Error fetching data: ', err));
-
   }, []);
 
   //which spots view is being displayed?
@@ -34,6 +36,12 @@ export default function UserSpots() {
 
         <ViewToggle />
       </header>
+
+      {isVisits && 
+      <div className="user-spots__visits">
+        user visits
+      </div>
+      }
     </div>
   );
 };
