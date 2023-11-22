@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const multerExport = require("../services/multer");
 const visitQueries = require('../db/queries/03_visits');
 const visitlabelQueries = require('../db/queries/07_visit_labels');
 
