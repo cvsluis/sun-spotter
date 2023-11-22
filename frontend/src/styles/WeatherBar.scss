@@ -13,5 +13,20 @@
   .weather-bar__conditions-list {
     display: flex;
     gap: 1.5rem;
+
   }
+}
+
+sunset-time-card {  
+
+  img {
+    height: 36px;
+  }
+  span {
+    font-size: 36px;
+    font-weight: 600;
+    background-color: red;
+  }
+  
+
 }
