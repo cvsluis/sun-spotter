@@ -1,5 +1,13 @@
 const db = require('../index');
 
+// Get One Visit
+const getOneVisit = (id) => {
+  return db.query(`SELECT * FROM VISITS WHERE id = $1;`, [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
 // Create Visit
 const createVisit = (visit) => {
   const { user_id, spot_id, chosenName, image_url, rating, description, time_stamp } = visit;
@@ -19,4 +27,4 @@ const createVisit = (visit) => {
 };
 
 
-module.exports = { createVisit };
+module.exports = { getOneVisit, createVisit };
