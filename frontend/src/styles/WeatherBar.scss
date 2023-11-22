@@ -10,8 +10,8 @@
 }
 
 .weather-bar__conditions {
-  div {
+  .weather-bar__conditions-list {
     display: flex;
-    gap: 1.5em;
+    gap: 1.5rem;
   }
 }

@@ -21,7 +21,7 @@ export default function WeatherBar({ sunsetTime, conditionsArr }) {
   
       <div className="weather-bar__conditions">
         <h3>Conditions</h3>
-        <div>
+        <div className='weather-bar__conditions-list'>
           {conditionsArr && [...Array(7).keys()].map(i => (
             <ConditionsCard conditions={conditionsArr[i]} key={conditionsArr[i].date} />
           ))}
