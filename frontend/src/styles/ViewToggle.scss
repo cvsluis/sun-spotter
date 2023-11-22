@@ -21,9 +21,13 @@
 
   .view-toggle__option {
     text-align: center;
+    color: $text-light-grey;
+
+    &:hover{
+      color:$text-grey;
+      cursor: pointer;
+    }
   }
-
-
 
   .view-toggle__option--selected {
     background-color: $button-orange;
@@ -39,5 +43,10 @@
     padding: 0.5rem;
     line-height: 22px;
 
+    &:hover {
+      cursor:default;
+      color:#FFFFFF;
+    }
   }
+
 }
