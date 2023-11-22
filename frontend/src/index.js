@@ -9,6 +9,7 @@ import AllSpots from './routes/AllSpots';
 import OneSpot from './routes/OneSpot';
 import CreateSpot from './routes/CreateSpot';
 import CreateVisit from './routes/CreateVisit';
+import OneVisit from './routes/OneVisit';
 import Login from './routes/Login';
 
 //setup browser router, root to home page
@@ -24,7 +25,6 @@ const router = createBrowserRouter([
       {
         path: "/spots/:id",
         element: <OneSpot />
-
       },
       {
         path: "/spots",
@@ -37,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/spots/:id/visits/new',
         element: <CreateVisit />
+      },
+      {
+        path: '/visits/:id',
+        element: <OneVisit />
       },
       {
         path:'/login',
