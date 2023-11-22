@@ -20,7 +20,7 @@ const getAllSpots = (searchString) => {
     JOIN visits ON visits.spot_id = spots.id
     JOIN last_visit ON spots.id = last_visit.spot_id 
     JOIN spot_rating ON spots.id = spot_rating.id 
-    JOIN label_list ON visits.id = label_list.spot_id `;
+    JOIN label_list ON spots.id = label_list.spot_id `;
 
   // Check if searchString exists and add a WHERE clause to filter by it
   if (searchString) {
