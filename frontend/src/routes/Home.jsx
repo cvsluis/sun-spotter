@@ -1,36 +1,26 @@
 import React, { useState, useEffect } from "react";
-
-//hooks
 import useWeather from '../hooks/useWeather';
-
-//components and assets
 import SpotCarousel from "../components/SpotCarousel";
 import sunset from "../assets/sunset_header.jpg";
-
-//styles
 import "../styles/Home.scss";
 
 export default function Home() {
-  // all spots state
   const [spots, setSpots] = useState([]);
-
-  //search by city
   const [searchInput, setSearchInput] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [timeToSunset, setTimeToSunset] = useState({ hours: 0, minutes: 0 });
 
   const handleInput = (e) => {
     setSearchInput(e.target.value);
   };
 
-  // Redirect to spots page when search form is submitted
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // Replace '/search-results' with the actual path you want to navigate to
     window.location.href = `/spots?query=${searchInput}`;
   };
 
   const fetchAllSpots = () => {
     let url = "http://localhost:8080/api/spots";
-
     fetch(url)
       .then((response) => {
         if (!response.ok) {
@@ -39,13 +29,53 @@ export default function Home() {
         return response.json();
       })
       .then((data) => setSpots(data))
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => console.error("Error fetching data:", error))
+      .finally(() => setLoading(false));
   };
 
-  // fetch data from backend on intial render, set it to spots state
   useEffect(() => {
     fetchAllSpots();
   }, []);
+
+  const weather = useWeather();
+  const sunsetTime = weather.sunsetTime;
+
+  const currentTime = {
+    hour: new Date().getHours(),
+    minute: new Date().getMinutes()
+  };
+
+  const convertToMinutes = (time) => {
+    if (!time || typeof time !== 'object' || !('hour' in time) || !('minute' in time)) {
+      console.error('Invalid time object:', time);
+      return NaN;
+    }
+    const { hour, minute } = time;
+    return (hour * 60) + minute;
+  };
+
+  const currentTimeInMin = convertToMinutes(currentTime);
+  const sunsetTimeInMin = convertToMinutes(sunsetTime);
+
+  const calculateTimeUntilSunset = (currentTime, sunsetTime) => {
+    let timeDifference = sunsetTime - currentTime;
+
+    if (timeDifference < 0) {
+      timeDifference += 24 * 60;
+    }
+
+    const hours = Math.floor(timeDifference / 60);
+    const minutes = timeDifference % 60;
+
+    return { hours, minutes };
+  };
+
+  useEffect(() => {
+    if (!loading && sunsetTime) {
+      const result = calculateTimeUntilSunset(currentTimeInMin, sunsetTimeInMin);
+      setTimeToSunset(result);
+    }
+  }, [loading, sunsetTime, currentTimeInMin, sunsetTimeInMin]);
 
   return (
     <div>
@@ -62,11 +92,16 @@ export default function Home() {
                 type="text"
                 id="search"
                 placeholder="Search by city"
-                
+                value={searchInput}
+                onChange={handleInput}
               ></input>
             </form>
           </div>
-          <p>It's 2 hours to sunset in Victoria</p>
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <p className="header__time-to-sunset">It's {timeToSunset.hours} hours and {timeToSunset.minutes} minutes to sunset in Victoria</p>
+          )}
         </div>
       </header>
 
