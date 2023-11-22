@@ -11,7 +11,7 @@ export default function UserSpots() {
   const [ userVisits, setUserVisits ] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:8080/users/${userID}`)
+    fetch(`http://localhost:8080/api/users/${userID}`)
       .then(res => res.json())
       .then(data => console.log(data))
       .catch(err => console.log('Error fetching data: ', err));
