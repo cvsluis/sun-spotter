@@ -12,17 +12,21 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
+    const userData = {
+      email: email,
+      password: password,
+    }
+
     fetch("http://localhost:8080/api/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
-      credentials: 'include'
-    })
+      body: JSON.stringify(userData),
+   })
       .then((response) => response.json())
-      .then((result) => {
-        if (result.success) {
+      .then((data) => {
+        if (data.success) {
           console.log('Login successful');
           navigate("/home");
         } else {
