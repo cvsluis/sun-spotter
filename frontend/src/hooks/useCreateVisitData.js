@@ -61,7 +61,7 @@ export default function useCreateSpotData(spotId) {
         method: 'POST',
         body: data
       });
-      navigate("/spots/");
+      navigate(`/spots/${spotId}`);
     } catch (error) {
       console.error('Sorry, we could not complete your request: ', error);
       throw error;
