@@ -5,6 +5,10 @@
   flex-direction: space-between;
 }
 
+.weather-bar__sunset {
+  height: 36px;
+}
+
 .weather-bar__conditions {
   div {
     display: flex;
