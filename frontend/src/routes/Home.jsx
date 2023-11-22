@@ -101,7 +101,7 @@ export default function Home() {
         <img className="header__img" alt="sunset" src={sunset}></img>
 
         <div className="welcome__section">
-          <h4>Welcome, user!</h4>
+          <h4 className="header__title">Welcome, user!</h4>
 
           <div className="search__wrapper">
             <form action="/search" method="get" onSubmit={handleFormSubmit}>
@@ -116,10 +116,10 @@ export default function Home() {
             </form>
           </div>
           {loading ? (
-            <p>Loading...</p>
+            <p className="header__paragraph">Loading...</p>
           ) : (
-            <p
-              className={`slide-down-paragraph ${
+            <p 
+              className={`header__paragraph slide-down-paragraph ${
                 isParagraphVisible ? "visible" : ""
               }`}
             >
@@ -132,13 +132,13 @@ export default function Home() {
 
       <section className="list__spots">
         <div className="spots__near-user">
-          <h1>Local favourites near Victoria</h1>
+          <h1 className="spots__carousel-title">Local favourites near Victoria</h1>
           <div className="spots__carousel"></div>
           <SpotCarousel spots={spots} />
         </div>
 
         <div className="spots__saved">
-          <h1>Your favourites sunset spots</h1>
+          <h1 className="spots__carousel-title">Your favourites sunset spots</h1>
           <div className="spots__carousel"></div>
           <SpotCarousel spots={spots} />
         </div>

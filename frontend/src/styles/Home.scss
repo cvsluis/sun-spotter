@@ -16,13 +16,13 @@ body {
  
 }
 
-h4{
+.header__title{
   font-size: 50px;
   padding-bottom: 24px;
   font-weight: bolder;
 }
 
-p {
+.header__paragraph {
   font-size: 20px;
   padding-top: 24px;
   font-weight: lighter;
@@ -55,7 +55,7 @@ p {
   margin-bottom: 64px;
 }
 
-h1{
+.spots__carousel-title{
   padding-top: 20px;
   padding-bottom: 20px;
 }
