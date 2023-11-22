@@ -1,3 +1,5 @@
+@import '_theme.scss';
+
 .label {
   padding: 0.5rem 0.7rem;
   border-radius: 999px;
@@ -6,22 +8,22 @@
 }
 
 .label__inactive {
-  background-color: #e4e4e4;
+  background-color: $button-grey-disabled;
 }
 
 .label__active {
   color: white;
-  background-color: #ff5c21;
+  background-color: $button-orange;
 }
 
 .label__hover.label__inactive:hover {
   cursor: pointer;
-  background-color: #cacaca;
+  background-color: $button-grey-hover;
 }
 
 .label__hover.label__active:hover {
   cursor: pointer;
-  background-color: #ea4e15;
+  background-color: $button-orange-hover;
 }
 
 .label__container {
