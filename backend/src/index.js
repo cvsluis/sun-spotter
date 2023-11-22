@@ -19,20 +19,19 @@ const db = require("./db");
 const spots = require("./routes/spots");
 const labels = require("./routes/labels");
 const users = require("./routes/users");
+const login = require('./routes/login');
 
 // Mount all resource routes
 app.use("/api", spots(db));
 app.use("/api", labels(db));
 app.use("/api", users(db));
+app.use('/api', login);
 
 // Home page
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.post('/login', (req, res) => {
-  
-})
 
 app.use(express.static(__dirname + '/public'));
 
