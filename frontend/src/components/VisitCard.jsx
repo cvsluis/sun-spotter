@@ -10,7 +10,7 @@ export default function VisitCard({ visit }) {
   const visitDate = new Date(visit.date);
 
   return (
-    <Link to={`/`} className='visitCard__container'>
+    <Link to={`/visits/${visit.id}`} className='visitCard__container'>
       <div className='visitCard__image'>
         <img src={`http://localhost:8080/${visit.image_url}`} alt={visit.image_alt} />
       </div>
