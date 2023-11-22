@@ -44,7 +44,7 @@ export default function OneSpot() {
           </button>
           
           <AboutSpot spotData={spotInfo} spotLabels={spotLabels} spotRating={spotRating}/> 
-          <Link className={'one-spot__create-visit'} to="/">Add Visit</Link>
+          <Link className={'one-spot__create-visit'} to={`/spots/${spotID}/visits/new`}>Add Visit</Link>
         </div>
       </header>
 
