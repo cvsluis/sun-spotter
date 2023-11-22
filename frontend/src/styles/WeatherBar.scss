@@ -1,7 +1,10 @@
+@import '_theme.scss';
+
 .weather-bar {
   display:flex;
   margin-left: 1.5em;
   margin-right: 1.5em;
+  gap: 1rem;
   flex-direction: space-between;
 }
 
@@ -12,20 +15,32 @@
 .weather-bar__conditions {
   .weather-bar__conditions-list {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
 
   }
 }
 
-sunset-time-card {  
+.sunset-time-card {  
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  background-color: $background-grey;
+  border-radius: 24px;
+  width: max-content;
+  padding: 1.5rem;
+
+
 
   img {
     height: 36px;
+    
+
   }
   span {
+    
     font-size: 36px;
-    font-weight: 600;
-    background-color: red;
+    font-weight: 400;
+
   }
   
 

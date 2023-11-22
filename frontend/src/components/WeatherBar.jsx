@@ -8,7 +8,7 @@ import ConditionsCard from './ConditionsCard';
 import "../styles/WeatherBar.scss"
 
 
-export default function WeatherBar({ sunsetTime, conditionsArr }) {
+export default function WeatherBar({ sunsetTime, conditionsArr }) { 
 
   //console.log(conditionsArr)
 
