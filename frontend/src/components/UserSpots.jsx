@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 
 import ViewToggle from "./ViewToggle";
 
 import '../styles/UserSpots.scss';
 
 export default function UserSpots() {
+
+  const userID = useParams();
+  const [ userVisits, setUserVisits ] = useState();
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/users/${userID}`)
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log('Error fetching data: ', err));
+
+  }, []);
 
   //which spots view is being displayed?
   const isMapView = false;
