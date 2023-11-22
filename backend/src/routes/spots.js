@@ -53,7 +53,7 @@ module.exports = db => {
       // create promise for all visit label insert queries
       await Promise.all(visitLabelQueryList);
 
-      res.status(200).json({ message: "Visit Created!" });
+      res.status(200).json({ message: "Spot Created!" });
     } catch (error) {
       console.error('Sorry, we could not complete your request: ', error);
       throw error;
