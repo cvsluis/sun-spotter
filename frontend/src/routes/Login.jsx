@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 //import styles
 import "../styles/Login.scss";
@@ -13,19 +12,15 @@ export default function Login() {
 
     fetch("http://localhost:8080/api/login", {
       method: "POST",
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(email, password),
     })
       .then((response) => response.json())
-      .then((res) => {
-        if (res.data.Status === "Success") {
-          return 'You are logged in';
-        } else {
-          alert(res.data.Message);
-        }
-      })
+      .then((result) => {
+        console.log(result);
+      });
   };
 
   return (
