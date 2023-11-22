@@ -1,15 +1,27 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-
 import BackButton from '../components/BackButton';
 import ForwardButton from '../components/ForwardButton';
-
 import '../styles/CreateSpot.scss';
+
+// state handler import
+import useCreateVisitData from '../hooks/useCreateVisitData';
 
 export default function CreateVisit() {
   const spotID = useParams().id;
 
-  // fetch: post to /api/visits
+  const [
+    formData,
+    imagePreview,
+    activateNavButton,
+    modal,
+    isClicked,
+    handleLabelClick,
+    handleFormChange,
+    handleFileInput,
+    handleRatingInput,
+    handleBackClick,
+    handleForwardClick] = useCreateVisitData(spotID);
 
   return (
     <div className='createSpot__container'>
@@ -21,8 +33,8 @@ export default function CreateVisit() {
         <hr className='createSpot__line'></hr>
 
         <div className='createSpot__container--nav'>
-          <BackButton handleBackClick={null} />
-          <ForwardButton handleForwardClick={null} modal={null} buttonOn={null} />
+          <BackButton handleBackClick={handleBackClick} />
+          <ForwardButton handleForwardClick={handleForwardClick} modal={modal} buttonOn={activateNavButton} />
         </div>
       </div>
     </div>

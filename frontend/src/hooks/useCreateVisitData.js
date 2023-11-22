@@ -112,12 +112,15 @@ export default function useCreateSpotData(spotId) {
   }, [formData, modal]);
 
   return [
+    formData,
+    imagePreview,
+    activateNavButton, 
+    modal,
     isClicked, 
     handleLabelClick, 
     handleFormChange, 
     handleFileInput, 
     handleRatingInput, 
-    activateNavButton, 
     handleBackClick, 
     handleForwardClick];
 }
