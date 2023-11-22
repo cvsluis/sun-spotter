@@ -8,45 +8,37 @@ router.use(cookieSession({
   name: 'session',
   keys: ['session-key'], 
   maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  credentials: true
 }));
 
 module.exports = (db) => {
 
   // Login
   router.post("/login", (req, res) => {
-    const [ email, password ] = req.body;
-    const query = `SELECT * FROM users WHERE email='$1' AND password='$2'`
+    const { email, password } = req.body;
+    const query = 'SELECT * FROM users WHERE email=$1';
 
-    const user = {}
+    if (!email && !password) {
+      return res.status(400).json({error: "Email and password are requires"});
+    }
 
-    console.log(req.body);
+    db.query(query, [email])
+      .then((result) => {
+        const user = result.rows[0]
 
-    db.query(query, req.body)
-      .then((req, res) => {
+        if (!user) {
+          return res.status(401).json({error: "Invalid email or password"});
+        }
+
+        req.session.user_id = user.id;
+
+        res.status(200).json({success: true});
 
       })
-
-    // Check if email and password are provided
-    if (!email || !password) {
-      return res
-        .status(400)
-        .json({ error: "Email and password are required." });
-    }
-
-    // Check if user exists
-    if (!user) {
-      return res.status(401).json({ error: "Invalid email or password." });
-    }
-
-    //check if password matches
-    if (user.password !== password) {
-      return res.status(401).json({ error: "Invalid email or password." });
-    }
-
-    //Set cookie to corresponding userID
-    req.session.user_id = user.id;
-    res.redirect("/home");
-    console.log('it worked');
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({error: "Internal Server Error"});
+      })
   });
 
   return router;
