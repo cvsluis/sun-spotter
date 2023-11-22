@@ -91,7 +91,7 @@ export default function useCreateSpotData(spotId) {
 
   const handleBackClick = () => {
     if (modal === 1) {
-      navigate("/spots/");
+      navigate(`/spots/${spotId}`);
     } else {
       setModal(prev => prev - 1);
     }
