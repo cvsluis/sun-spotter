@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
-//import styles
+// import styles
 import "../styles/Login.scss";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Corrected import
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,11 +17,20 @@ export default function Login() {
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(email, password),
+      body: JSON.stringify({ email, password }),
+      credentials: 'include'
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        if (result.success) {
+          console.log('Login successful');
+          navigate("/home");
+        } else {
+          console.log('Login failed');
+        }
+      })
+      .catch((error) => {
+        console.error('An error occurred:', error);
       });
   };
 
