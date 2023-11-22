@@ -10,7 +10,7 @@ const getAllSpots = (searchString) => {
     last_visit AS (SELECT DISTINCT ON (visits.spot_id) * 
       FROM visits ORDER BY visits.spot_id, visits.time_stamp),
     label_list AS (SELECT visit_list.spot_id, ARRAY_AGG(DISTINCT visit_list.label) AS list
-      FROM (SELECT visits.spot_id , UNNEST(ARRAY_AGG(DISTINCT labels.name)) label  
+      FROM (SELECT visits.spot_id , UNNEST(ARRAY_AGG(DISTINCT labels.name)) label 
       FROM visit_labels 
       FULL JOIN visits ON visits.id = visit_labels.visit_id 
       FULL JOIN labels ON labels.id = visit_labels.label_id JOIN spots ON spots.id = visits.spot_id 
