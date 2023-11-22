@@ -7,5 +7,15 @@ const getUsers = () => {
     });
 };
 
+const getVisitsByUser = (userID) => {
+  query = `SELECT * FROM visits WHERE visits.user_id = $1`
 
-module.exports = { getUsers };
+  return db.query(query, [userID])
+    .then(data => data.rows)
+    .catch(error => {
+      console.error("Error querying the database: ", error)
+      throw error});
+}
+
+
+module.exports = { getUsers, getVisitsByUser };
