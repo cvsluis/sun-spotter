@@ -20,11 +20,15 @@ module.exports = (db) => {
         if (!user) {
           return res.status(401).json({error: "Invalid email or password"});
         }
-        console.log('this is:', user);
-        req.session.user_id = user.id || 'hello';
 
-        res.status(200).json({success: true});
-        // res.send(200).json(user)
+        if (user.password === password) {
+          console.log(user);
+
+          req.session.user_id = user.id;
+          console.log('cookie', req.session.user_id);
+          res.status(200).json({success: true});
+          // res.sendStatus(200).json(user);
+        }
 
       })
       .catch((error) => {
