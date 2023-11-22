@@ -1,5 +1,7 @@
 import React from "react";
 
+import ViewToggle from "./ViewToggle";
+
 import '../styles/UserSpots.scss';
 
 export default function UserSpots() {
@@ -17,7 +19,10 @@ export default function UserSpots() {
           { isSaves && <h2>My Saved Spots</h2> }
           { isVisits && <h2>My Visited Spots</h2>}
         </span>
+
+        <ViewToggle />
       </header>
     </div>
   );
 };
+
