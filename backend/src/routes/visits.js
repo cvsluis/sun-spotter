@@ -17,7 +17,6 @@ module.exports = db => {
       const newVisitLabels = data.labels;
 
       // add details to new Visit
-      newVisit.spot_id = data.spot_id;
       newVisit.user_id = user_id;
       newVisit.time_stamp = newVisit.time_stamp.replace("T", " ");
       newVisit.image_url = 'images/' + file.originalname;

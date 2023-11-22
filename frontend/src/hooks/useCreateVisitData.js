@@ -7,8 +7,7 @@ export default function useCreateSpotData(spotId) {
 
   // FORM DATA STATE
   const [formData, setFormData] = useState({
-    spot_id: spotId,
-    visit: { chosenName: '', time_stamp: '', description: '', rating: 0, image: '' },
+    visit: { spot_id: spotId, chosenName: '', time_stamp: '', description: '', rating: 0, image: '' },
     labels: []
   });
 
