@@ -125,5 +125,18 @@ export default function useCreateSpotData() {
     validateInput();
   }, [formData, modal]);
 
-  return [formData, imagePreview, marker, onMapClick, isClicked, handleLabelClick, handleFormChange, handleFileInput, handleRatingInput, activateNavButton, modal, handleBackClick, handleForwardClick];
+  return [
+    formData,
+    imagePreview,
+    marker,
+    onMapClick,
+    isClicked,
+    handleLabelClick,
+    handleFormChange,
+    handleFileInput,
+    handleRatingInput,
+    activateNavButton,
+    modal,
+    handleBackClick,
+    handleForwardClick];
 }

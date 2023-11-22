@@ -11,7 +11,20 @@ import ForwardButton from '../components/ForwardButton';
 import useCreateSpotData from '../hooks/useCreateSpotData';
 
 export default function CreateSpot() {
-  const [formData, imagePreview, marker, onMapClick, isClicked, handleLabelClick, handleFormChange, handleFileInput, handleRatingInput, activateNavButton, modal, handleBackClick, handleForwardClick] = useCreateSpotData();
+  const [
+    formData, 
+    imagePreview, 
+    marker, 
+    onMapClick, 
+    isClicked, 
+    handleLabelClick, 
+    handleFormChange, 
+    handleFileInput, 
+    handleRatingInput, 
+    activateNavButton, 
+    modal, 
+    handleBackClick, 
+    handleForwardClick] = useCreateSpotData();
 
   return (
     <div className='createSpot__container'>
