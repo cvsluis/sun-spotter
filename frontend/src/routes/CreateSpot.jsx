@@ -57,8 +57,14 @@ export default function CreateSpot() {
       setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: '' } }));
       setImagePreview('');
     } else {
-      setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: e.target.files[0] } }));
-      setImagePreview(URL.createObjectURL(e.target.files[0]));
+      if (e.target.files[0].size > 2097152) {
+        alert("File is too big!");
+        setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: '' } }));
+        setImagePreview('');
+      } else {
+        setFormData(prev => ({ ...prev, visit: { ...prev.visit, image: e.target.files[0] } }));
+        setImagePreview(URL.createObjectURL(e.target.files[0]));
+      }
     }
   };
 
