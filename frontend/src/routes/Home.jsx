@@ -123,8 +123,7 @@ export default function Home() {
                 isParagraphVisible ? "visible" : ""
               }`}
             >
-              It's {timeToSunset.hours} hours and {timeToSunset.minutes} minutes
-              to sunset in Victoria
+              Time until sunset: {timeToSunset.hours} hours and {timeToSunset.minutes} minutes
             </p>
           )}
         </div>
