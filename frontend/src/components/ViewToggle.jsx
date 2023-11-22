@@ -5,9 +5,9 @@ import '../styles/ViewToggle.scss';
 export default function() {
   return (
     <div className='view-toggle'>
-      <div>Map</div>
-      <div>Saved</div>
-      <div>Visits</div>
+      <div className='view-toggle__option'>Map</div>
+      <div className='view-toggle__option'>Saved</div>
+      <div className='view-toggle__option view-toggle__option--selected'>Visits</div>
     </div>
 
   )
