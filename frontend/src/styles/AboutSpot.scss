@@ -1,11 +1,12 @@
+@import '_theme.scss';
+
 .about-spot { 
-  // position: absolute;
-  // top: 0;
+
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding-top: 1.5em;
+  gap:1.5rem;
+  padding-top: 1.5rem;
 
 
 }
@@ -21,6 +22,7 @@
   gap: 5px;
   h1 {
    padding-top: 0px; 
+   padding-bottom: 0px;
   }
 
 
@@ -33,7 +35,7 @@
 }
 .about-spot__label {
   font-size: 12px;
-  background-color: #FCBC94;
+  background-color: $light-orange;
   border-radius: 9999px;
   padding: 0.5em;
 }
@@ -43,7 +45,7 @@ about-spot__name {
 }
 
 .about-spot__label--pink {
-  background-color: #F7B09D;
+  background-color: $light-pink;
 }
 
 .about-spot__rating {
@@ -55,5 +57,5 @@ about-spot__name {
   width: 20px;
   margin: 1px;
   align-self: center;
-  color: #FCA712;
+  color: $sunny;
 }

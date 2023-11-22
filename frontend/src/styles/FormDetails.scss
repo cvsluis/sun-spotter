@@ -1,3 +1,5 @@
+@import '_theme.scss';
+
 .formDetails__container {
   display: flex;
   flex-direction: column;
@@ -56,7 +58,7 @@
 .formDetails__input--text {
   border-radius: 10px;
   background-color: inherit;
-  border: 1px solid #5d5d5d;
+  border: 1px solid $text-grey;
   padding: 0.8rem 1rem;
   font-size: 14px;
   width: 100%;
