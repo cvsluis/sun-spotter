@@ -9,17 +9,18 @@ const getAllSpots = (searchString) => {
       JOIN spots ON visits.spot_id = spots.id GROUP BY spots.id), 
     last_visit AS (SELECT DISTINCT ON (visits.spot_id) * 
       FROM visits ORDER BY visits.spot_id, visits.created_at), 
-    label_list AS (SELECT visits.id AS visit_id, ARRAY_AGG(DISTINCT labels.name) AS list  
+    label_list AS (SELECT visit_list.spot_id, ARRAY_AGG(DISTINCT visit_list.label) AS list
+      FROM (SELECT visits.spot_id , UNNEST(ARRAY_AGG(DISTINCT labels.name)) label  
       FROM visit_labels 
       JOIN visits ON visits.id = visit_labels.visit_id
-      JOIN labels ON labels.id = visit_labels.label_id 
-      GROUP BY visits.id ORDER BY visits.id)
+      JOIN labels ON labels.id = visit_labels.label_id JOIN spots ON spots.id = visits.spot_id 
+      GROUP BY visits.id ORDER BY visits.spot_id) AS visit_list GROUP BY visit_list.spot_id)
     SELECT spots.*, last_visit.image_url, spot_rating.rating, spot_rating.rating_count, label_list.list 
     FROM spots 
     JOIN visits ON visits.spot_id = spots.id
     JOIN last_visit ON spots.id = last_visit.spot_id 
     JOIN spot_rating ON spots.id = spot_rating.id 
-    JOIN label_list ON visits.id = label_list.visit_id `;
+    JOIN label_list ON visits.id = label_list.spot_id `;
 
   // Check if searchString exists and add a WHERE clause to filter by it
   if (searchString) {
