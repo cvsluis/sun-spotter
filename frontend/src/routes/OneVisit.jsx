@@ -6,16 +6,16 @@ import useVisitData from '../hooks/useVisitData';
 export default function OneVisit() {
 
   const visitId = useParams().id;
-  const [visitData] = useVisitData(visitId);
+  const [visit] = useVisitData(visitId);
 
   return (
     <div className='one-visit__container'>
       <div className='one-visit__details--container'>
-        {/* visit details */}
+        {visit.user_id}
       </div>
       
       <div className='one-visit__image--container'>
-        {/* image */}
+        <img src={`http://localhost:8080/${visit.image_url}`} />
       </div>
 
     </div>
