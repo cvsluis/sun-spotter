@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.scss';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-//import routes
 import Root from './routes/Root';
 import Home from './routes/Home'
 import AllSpots from './routes/AllSpots';
@@ -12,7 +10,6 @@ import OneSpot from './routes/OneSpot';
 import CreateSpot from './routes/CreateSpot';
 import CreateVisit from './routes/CreateVisit';
 import Login from './routes/Login';
-import Profile from './routes/Profile';
 
 //setup browser router, root to home page
 const router = createBrowserRouter([
@@ -44,10 +41,6 @@ const router = createBrowserRouter([
       {
         path:'/login',
         element: <Login />
-      },
-      {
-        path: '/users/:id',
-        element: <Profile />
       }
 
     ]
