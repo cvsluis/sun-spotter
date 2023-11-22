@@ -19,4 +19,10 @@ $square-dimension: 650px;
 .one-visit__image--container {
   height: $square-dimension;
   width: $square-dimension;
+
+  img {
+    border-radius: 0 24px 24px 0 ;
+    width: 100%;
+    height: 100%;
+  }
 }
