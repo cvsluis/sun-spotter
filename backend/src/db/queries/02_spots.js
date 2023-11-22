@@ -8,14 +8,14 @@ const getAllSpots = (searchString) => {
       FROM visits
       JOIN spots ON visits.spot_id = spots.id GROUP BY spots.id), 
     last_visit AS (SELECT DISTINCT ON (visits.spot_id) * 
-      FROM visits ORDER BY visits.spot_id, visits.created_at), 
+      FROM visits ORDER BY visits.spot_id, visits.time_stamp),
     label_list AS (SELECT visit_list.spot_id, ARRAY_AGG(DISTINCT visit_list.label) AS list
       FROM (SELECT visits.spot_id , UNNEST(ARRAY_AGG(DISTINCT labels.name)) label  
       FROM visit_labels 
-      JOIN visits ON visits.id = visit_labels.visit_id
-      JOIN labels ON labels.id = visit_labels.label_id JOIN spots ON spots.id = visits.spot_id 
+      FULL JOIN visits ON visits.id = visit_labels.visit_id 
+      FULL JOIN labels ON labels.id = visit_labels.label_id JOIN spots ON spots.id = visits.spot_id 
       GROUP BY visits.id ORDER BY visits.spot_id) AS visit_list GROUP BY visit_list.spot_id)
-    SELECT spots.*, last_visit.image_url, spot_rating.rating, spot_rating.rating_count, label_list.list 
+    SELECT DISTINCT ON (spots.id) spots.id, spots.name, spots.lat, spots.lng, spots.city, spots.province, spots.country, last_visit.image_url, spot_rating.rating, spot_rating.rating_count, label_list.list 
     FROM spots 
     JOIN visits ON visits.spot_id = spots.id
     JOIN last_visit ON spots.id = last_visit.spot_id 
@@ -29,7 +29,7 @@ const getAllSpots = (searchString) => {
   }
 
   // order by last added spot
-  queryString += `ORDER BY visits.time_stamp DESC;`;
+  queryString += `ORDER BY spots.id DESC;`;
 
   return db
     .query(queryString, queryParams)
