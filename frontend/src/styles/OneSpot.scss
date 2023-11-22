@@ -1,9 +1,9 @@
-
+@import '_theme.scss';
 
 .one-spot{
   width: 75%;
   max-width: 1020px;
-  min-width: 540px;
+  min-width: 1020px;
   height: max-content;
   background-color: #ffffff;
   display: flex;
@@ -11,7 +11,7 @@
   margin: auto;
   margin-top: 3em;
   border-radius: 24px 24px 0 0 ;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: $shadow-grey 0px 2px 8px 0px;
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 16px;
   position: relative;
@@ -25,6 +25,7 @@
   justify-content: space-between;
   height: 340px;
   margin: 1.5em;
+  margin-bottom: 0.5rem;
   gap: 1.5em;
 }
 
@@ -41,7 +42,7 @@
 .one-spot__create-visit {
   text-decoration: none;
   color: #FFFFFF;
-  background-color: #F86204;
+  background-color: $button-orange;
   border-radius: 9999px;
   padding: 0.5em 2.5em;
   align-self: flex-end;
@@ -49,7 +50,10 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
 
+.one-spot__create-visit:hover {
+  background-color: $button-orange-hover;
 }
 
 .one-spot__header > div {
@@ -70,7 +74,7 @@
 
 .one-spot__visits {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 1.5em;
   margin: 1.5em;
 }
