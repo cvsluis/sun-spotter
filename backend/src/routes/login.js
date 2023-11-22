@@ -1,15 +1,6 @@
 const router = require("express").Router();
 const db = require("../db");
 const users = require("../db/queries/01_users");
-const cookieSession = require("cookie-session");
-
-// Configure cookie-session middleware
-router.use(cookieSession({
-  name: 'session',
-  keys: ['session-key'], 
-  maxAge: 24 * 60 * 60 * 1000, // 24 hours
-  credentials: true
-}));
 
 module.exports = (db) => {
 
@@ -29,10 +20,11 @@ module.exports = (db) => {
         if (!user) {
           return res.status(401).json({error: "Invalid email or password"});
         }
+        console.log('this is:', user);
+        req.session.user_id = user.id || 'hello';
 
-        req.session.user_id = user.id;
-
-        res.status(200).json({success: true});
+        // res.status(200).json({success: true});
+        res.send(200).json(user)
 
       })
       .catch((error) => {
