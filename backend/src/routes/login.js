@@ -23,8 +23,8 @@ module.exports = (db) => {
         console.log('this is:', user);
         req.session.user_id = user.id || 'hello';
 
-        // res.status(200).json({success: true});
-        res.send(200).json(user)
+        res.status(200).json({success: true});
+        // res.send(200).json(user)
 
       })
       .catch((error) => {

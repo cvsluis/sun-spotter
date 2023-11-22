@@ -44,13 +44,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.options('/api/login', (req, res) => {
-  // Respond to preflight request
-  res.status(200).end();
-});
-
-
-
 app.use(express.static(__dirname + '/public'));
 
 app.listen(port, () => {
