@@ -1,7 +1,18 @@
 @import '_theme.scss';
+
+
 $width: 1020px;
 
 .profile {
   max-width: $width;
   min-width: $width;
+  display: flex;
+  gap: 3rem;
+  margin: 0 auto;
+
+}
+
+.profile > * {
+  background-color: #FFFFFF;
+  box-shadow: $shadow-grey 0px 2px 8px 0px;
 }
