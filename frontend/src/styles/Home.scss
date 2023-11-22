@@ -60,3 +60,16 @@ h1{
   padding-bottom: 20px;
 }
 
+/* Define the keyframes for the slide down animation */
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+ }
+  100% {
+    transform: translateY(0%);
+ }
+}
+
+.slide-down-paragraph {
+  animation: slide-down 4s forwards;
+ }

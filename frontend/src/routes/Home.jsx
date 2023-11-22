@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useWeather from '../hooks/useWeather';
+import useWeather from "../hooks/useWeather";
 import SpotCarousel from "../components/SpotCarousel";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
@@ -9,6 +9,7 @@ export default function Home() {
   const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState(true);
   const [timeToSunset, setTimeToSunset] = useState({ hours: 0, minutes: 0 });
+  const [isParagraphVisible, setIsParagraphVisible] = useState(false);
 
   const handleInput = (e) => {
     setSearchInput(e.target.value);
@@ -42,16 +43,21 @@ export default function Home() {
 
   const currentTime = {
     hour: new Date().getHours(),
-    minute: new Date().getMinutes()
+    minute: new Date().getMinutes(),
   };
 
   const convertToMinutes = (time) => {
-    if (!time || typeof time !== 'object' || !('hour' in time) || !('minute' in time)) {
-      console.error('Invalid time object:', time);
+    if (
+      !time ||
+      typeof time !== "object" ||
+      !("hour" in time) ||
+      !("minute" in time)
+    ) {
+      console.error("Invalid time object:", time);
       return NaN;
     }
     const { hour, minute } = time;
-    return (hour * 60) + minute;
+    return hour * 60 + minute;
   };
 
   const currentTimeInMin = convertToMinutes(currentTime);
@@ -72,10 +78,22 @@ export default function Home() {
 
   useEffect(() => {
     if (!loading && sunsetTime) {
-      const result = calculateTimeUntilSunset(currentTimeInMin, sunsetTimeInMin);
+      const result = calculateTimeUntilSunset(
+        currentTimeInMin,
+        sunsetTimeInMin
+      );
       setTimeToSunset(result);
     }
   }, [loading, sunsetTime, currentTimeInMin, sunsetTimeInMin]);
+
+  useEffect(() => {
+    // Assuming you want the paragraph to slide down after a delay
+    const timeoutId = setTimeout(() => {
+      setIsParagraphVisible(true);
+    }, 1000); // Adjust the delay as needed
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <div>
@@ -100,7 +118,14 @@ export default function Home() {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <p className="header__time-to-sunset">It's {timeToSunset.hours} hours and {timeToSunset.minutes} minutes to sunset in Victoria</p>
+            <p
+              className={`slide-down-paragraph ${
+                isParagraphVisible ? "visible" : ""
+              }`}
+            >
+              It's {timeToSunset.hours} hours and {timeToSunset.minutes} minutes
+              to sunset in Victoria
+            </p>
           )}
         </div>
       </header>
