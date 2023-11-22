@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <CreateSpot />
       },
       {
-        path: '/visits/new',
+        path: '/spots/:id/visits/new',
         element: <CreateVisit />
       },
       {
