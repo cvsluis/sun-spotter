@@ -7,18 +7,19 @@ const getAllSpots = (searchString) => {
     WITH spot_rating AS (SELECT spots.id, ROUND(AVG(visits.rating), 1) AS rating, COUNT(visits.rating) AS rating_count
       FROM visits
       JOIN spots ON visits.spot_id = spots.id GROUP BY spots.id), 
-    last_visit AS (SELECT DISTINCT ON (spot_id) * 
-      FROM visits ORDER BY spot_id, visits.created_at), 
-    label_list AS (SELECT visits.id, ARRAY_AGG(DISTINCT labels.name) AS list  
+    last_visit AS (SELECT DISTINCT ON (visits.spot_id) * 
+      FROM visits ORDER BY visits.spot_id, visits.created_at), 
+    label_list AS (SELECT visits.id AS visit_id, ARRAY_AGG(DISTINCT labels.name) AS list  
       FROM visit_labels 
       JOIN visits ON visits.id = visit_labels.visit_id
       JOIN labels ON labels.id = visit_labels.label_id 
       GROUP BY visits.id ORDER BY visits.id)
     SELECT spots.*, last_visit.image_url, spot_rating.rating, spot_rating.rating_count, label_list.list 
     FROM spots 
+    JOIN visits ON visits.spot_id = spots.id
     JOIN last_visit ON spots.id = last_visit.spot_id 
     JOIN spot_rating ON spots.id = spot_rating.id 
-    JOIN label_list ON spots.id = label_list.id `;
+    JOIN label_list ON visits.id = label_list.visit_id `;
 
   // Check if searchString exists and add a WHERE clause to filter by it
   if (searchString) {
@@ -27,7 +28,7 @@ const getAllSpots = (searchString) => {
   }
 
   // order by last added spot
-  queryString += `ORDER BY spot_id DESC;`;
+  queryString += `ORDER BY visits.time_stamp DESC;`;
 
   return db
     .query(queryString, queryParams)
@@ -90,7 +91,7 @@ const getSpotLabels = (id) => {
 
 //get info required to render Visit Card
 const getSpotVisits = function (spotID) {
-  const query = `SELECT visits.id as id, users.first_name as first_name, users.last_name as last_name, visits.created_at as date, visits.image_url as image_url
+  const query = `SELECT visits.id as id, users.first_name as first_name, users.last_name as last_name, visits.time_stamp as date, visits.image_url as image_url
                   FROM users JOIN visits
                   ON users.id = visits.user_id
                   WHERE visits.spot_id = $1`
