@@ -1,0 +1,22 @@
+@import '_theme.scss';
+$square-dimension: 650px;
+
+.one-visit__container {
+  margin: 2rem auto;
+  background-color: #fff;
+  width: fit-content;
+  height: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+.one-visit__details--container {
+  padding: 1.5rem;
+  width: 400px;
+}
+
+.one-visit__image--container {
+  height: $square-dimension;
+  width: $square-dimension;
+}
