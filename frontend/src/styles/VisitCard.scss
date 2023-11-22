@@ -1,3 +1,4 @@
+@import "_theme.scss";
 
 .visitCard__container {
   color: #000000;
@@ -25,7 +26,7 @@
 .visitCard__date {
   font-size: 12px;
   font-weight: 400;
-  color: #757575;
+  color: $text-light-grey;
 }
 
 .visitCard__image {

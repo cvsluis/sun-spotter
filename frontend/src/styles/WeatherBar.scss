@@ -28,7 +28,6 @@
   .weather-bar__conditions-list {
     display: flex;
     gap: 1rem;
-
   }
 }
 
@@ -43,19 +42,11 @@
   height: 100px;
   padding: 1.5rem;
 
-
-
   img {
     height: 40px;
-    
-
   }
-  span {
-    
+  span { 
     font-size: 36px;
     font-weight: 400;
-
   }
-  
-
 }
