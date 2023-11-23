@@ -8,7 +8,8 @@ const getUsers = () => {
 };
 
 const getVisitsByUser = (userID) => {
-  query = `SELECT * FROM visits WHERE visits.user_id = $1`
+  query = `SELECT visits.id as id, visits.time_stamp as date, visits.image_url as image_url
+   FROM visits WHERE visits.user_id = $1`
 
   return db.query(query, [userID])
     .then(data => data.rows)

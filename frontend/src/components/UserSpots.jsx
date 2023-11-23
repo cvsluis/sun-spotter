@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import ViewToggle from "./ViewToggle";
 
 import '../styles/UserSpots.scss';
+import VisitCard from "./VisitCard";
 
 export default function UserSpots() {
 
@@ -52,7 +53,7 @@ export default function UserSpots() {
 
       {view === 'visits' &&
       <div className="user-spots__visits">
-        user visits here
+        {userVisits.map(visit => <VisitCard visit={visit} isProfilePage={true} key={visit.id} />) }
       </div>
       }
 

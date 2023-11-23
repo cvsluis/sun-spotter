@@ -7,6 +7,7 @@ import '../styles/VisitCard.scss'
 
 export default function VisitCard({ visit, isProfilePage }) {
 
+  
   const visitDate = new Date(visit.date);
 
   return (
