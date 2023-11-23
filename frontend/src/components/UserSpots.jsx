@@ -16,7 +16,7 @@ export default function UserSpots() {
     
   //fetch visits
   useEffect(() => {
-    fetch(`http://localhost:8080/api/users/${userID}`)
+    fetch(`http://localhost:8080/api/users/${userID}/visits`)
       .then(res => res.json())
       .then(data => {
         //console.log(data)

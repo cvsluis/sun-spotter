@@ -7,6 +7,13 @@ const getUsers = () => {
     });
 };
 
+const getUserByID = (id) => {
+  return db.query(`SELECT * FROM USERS WHERE id = $1;`, [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
 const getVisitsByUser = (userID) => {
   query = `SELECT visits.id as id, visits.time_stamp as date, visits.image_url as image_url, visits.name as name
    FROM visits WHERE visits.user_id = $1`
@@ -19,4 +26,4 @@ const getVisitsByUser = (userID) => {
 }
 
 
-module.exports = { getUsers, getVisitsByUser };
+module.exports = { getUsers, getUserByID, getVisitsByUser };

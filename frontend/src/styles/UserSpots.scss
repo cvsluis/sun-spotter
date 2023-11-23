@@ -3,8 +3,8 @@
 .user-spots__container {
   width: 786px;
   padding: 2rem 1.5rem;
-
-  height: 700px;
+  
+  height: auto;
   flex: 16 auto;
   position: relative;
 
@@ -21,5 +21,4 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1.5em;
-  margin: 1.5em;
 }
