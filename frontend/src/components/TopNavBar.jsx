@@ -12,7 +12,9 @@ export default function TopNavBar({ context }) {
   const handleLogout = function (e) {
     e.preventDefault();
     console.log('logging out!')
+    //remove cookie
     Cookies.remove('user_id');
+    //remove userID state
     setUserID(undefined);
   }
   return (
@@ -31,7 +33,7 @@ export default function TopNavBar({ context }) {
 
       {userID && 
       <div>
-        <button className="'nav__logout-btn" onClick={handleLogout}>Log Out</button>
+        <button className="nav__logout-btn" onClick={handleLogout}>Log Out</button>
       </div>
       }
     </nav>

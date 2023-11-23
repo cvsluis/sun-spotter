@@ -10,7 +10,6 @@ import "../styles/Login.scss";
 export default function Login() {
 
   const [userID, setUserID] = useOutletContext();
-  console.log('in login:', userID)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,7 +21,6 @@ export default function Login() {
       email: email,
       password: password,
     }
-    console.log(userData)
 
     fetch("http://localhost:8080/api/login", {
       method: "POST",
@@ -33,15 +31,13 @@ export default function Login() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         if (data.success) {
           console.log('Login successful!', data);
           //set cookie
           Cookies.set('user_id', data.user_id, {expires: 1})
           setUserID(data.user_id)
           //return to home
-          navigate("/Home");
-          
+          navigate("/Home");      
         }
         else {
           console.log('Login failed');
