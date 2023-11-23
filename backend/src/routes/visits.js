@@ -16,6 +16,18 @@ module.exports = db => {
     }
   });
 
+  // GET /api/visits/:id/labels
+  router.get("/visits/:id/labels", async (req, res) => {
+    try {
+      const visitId = req.params.id;
+      const visit = await visitlabelQueries.getOneVisitLabels(visitId);
+      res.json(visit);
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  });
+
   // POST /api/visits
   router.post("/visits", multerExport.uploadImg.single("file"), async (req, res) => {
     try {
