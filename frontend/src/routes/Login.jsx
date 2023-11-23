@@ -8,39 +8,6 @@ import "../styles/Login.scss";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Corrected import
-
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-
-  //   const userData = {
-  //     email: email,
-  //     password: password,
-  //   }
-
-  //   fetch("http://localhost:8080/api/login", {
-  //     method: "POST",
-  //     credentials: 'include',
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(userData),
-  //  })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.success) {
-  //         console.log('Login successful');
-  //         // localStorage.setItem()
-  //         console.log(document.cookie);
-  //         navigate("/home");
-  //       } else {
-  //         console.log('Login failed');
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error('An error occurred:', error);
-  //     });
-  // };
 
   const handleLogin = function(e) {
     e.preventDefault();
@@ -49,6 +16,7 @@ export default function Login() {
       email: email,
       password: password,
     }
+    console.log(userData)
 
     fetch("http://localhost:8080/api/login", {
       method: "POST",
@@ -59,8 +27,11 @@ export default function Login() {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data)
         if (data.success) {
-          console.log('Login successful!');
+          console.log('Login successful!', data);
+          Cookies.set('user_id', data.user_id, {expires: 1})
+
         }
         else {
           console.log('Login failed');

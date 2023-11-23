@@ -26,7 +26,10 @@ module.exports = (db) => {
 
           req.session.user_id = user.id;
           console.log('cookie', req.session.user_id);
-          res.status(200).json({success: true});
+          res.status(200).json({
+            success: true,
+            user_id: user.id
+          });
         }
 
       })
