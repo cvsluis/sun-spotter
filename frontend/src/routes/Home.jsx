@@ -1,15 +1,32 @@
 import React, { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
+import Cookies from "js-cookie";
 import useWeather from "../hooks/useWeather";
+import useSpotData from '../hooks/useSpotData';
+import useSaved from '../hooks/useSaved'
 import SpotCarousel from "../components/SpotCarousel";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
 
-export default function Home() {
+export default function Home({context}) {
   const [spots, setSpots] = useState([]);
+  const [userSpots, setUserSpots] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState(true);
   const [timeToSunset, setTimeToSunset] = useState({ hours: 0, minutes: 0 });
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
+  const [userID, setUserID] = context;
+
+    //fetch user saved spots
+    useEffect(() => {
+      fetch(`http://localhost:8080/api/saves/${userID}`)
+        .then(res => res.json())
+        .then(data => {
+          //console.log(data)
+          setUserSpots(data)
+        })
+        .catch(err => console.log('Error fetching data: ', err));
+    }, []);
 
   const handleInput = (e) => {
     setSearchInput(e.target.value);
@@ -118,12 +135,13 @@ export default function Home() {
           {loading ? (
             <p className="header__paragraph">Loading...</p>
           ) : (
-            <p 
+            <p
               className={`header__paragraph slide-down-paragraph ${
                 isParagraphVisible ? "visible" : ""
               }`}
             >
-              Time until sunset: {timeToSunset.hours} hours and {timeToSunset.minutes} minutes
+              Time until sunset: {timeToSunset.hours} hours and{" "}
+              {timeToSunset.minutes} minutes
             </p>
           )}
         </div>
@@ -131,15 +149,19 @@ export default function Home() {
 
       <section className="list__spots">
         <div className="spots__near-user">
-          <h1 className="spots__carousel-title">Local favourites near Victoria</h1>
+          <h1 className="spots__carousel-title">
+            Local favourites near Victoria
+          </h1>
           <div className="spots__carousel"></div>
           <SpotCarousel spots={spots} />
         </div>
 
         <div className="spots__saved">
-          <h1 className="spots__carousel-title">Your favourites sunset spots</h1>
+          <h1 className="spots__carousel-title">
+            Your favourites sunset spots
+          </h1>
           <div className="spots__carousel"></div>
-          <SpotCarousel spots={spots} />
+          <SpotCarousel userSpots={userSpots} />
         </div>
       </section>
     </div>
