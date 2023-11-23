@@ -28,7 +28,7 @@ export default function({ view, setView}) {
       {view === 'saved' ?
       <div className='view-toggle__option view-toggle__option--selected'>Saved</div>
       :
-      <div className='view-toggle__option' onClick={(event) => handleToggleClick(event, 'saves')}>Saved</div>
+      <div className='view-toggle__option' onClick={(event) => handleToggleClick(event, 'saved')}>Saved</div>
       }
 
       {view === 'visits' ?
