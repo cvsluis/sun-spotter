@@ -37,10 +37,13 @@ export default function OneSpot() {
       try {
         await fetch('http://localhost:8080/api/saves', {
           method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
           body: JSON.stringify({userID: 2, spotID})
         });
       } catch (error) {
-        console.error('Sorry, we could not complete your request: ', error);
+        console.error('Error: ', error);
         throw error;
       }
     };

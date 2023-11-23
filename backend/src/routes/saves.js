@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const saveQueries = require('../db/queries/04_saves.sql');
+const saveQueries = require('../db/queries/04_saves');
 
 module.exports = db => {
 
@@ -9,5 +9,6 @@ module.exports = db => {
     saveQueries.createSave(userID, spotID)
       .catch(err => "Error: ", err);
   })
+  return router;
 }
 
