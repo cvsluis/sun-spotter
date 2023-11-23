@@ -56,6 +56,8 @@ $square-dimension: 650px;
   .one-visit__header--image {
     width: 50px;
     height: 50px;
+    border-radius: 9999px;
+    object-fit: cover;
   }
 
   h2 {
