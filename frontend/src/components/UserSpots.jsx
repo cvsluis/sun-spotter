@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-
-import ViewToggle from "./ViewToggle";
-
-import '../styles/UserSpots.scss';
 import VisitCard from "./VisitCard";
+import ViewToggle from "./ViewToggle";
+import '../styles/UserSpots.scss';
 
 export default function UserSpots() {
-
+  
   const userID = useParams().id;
 
   //visit data
@@ -16,7 +14,7 @@ export default function UserSpots() {
   //view toggle
   const [ view, setView ] = useState('visits');
     
-
+  //fetch visits
   useEffect(() => {
     fetch(`http://localhost:8080/api/users/${userID}`)
       .then(res => res.json())
@@ -39,6 +37,7 @@ export default function UserSpots() {
         <ViewToggle view={view} setView={setView}/>
       </header>
 
+      {/* user spot view changes with toggle */}
       {view === 'saved' && 
       <div className="user-spots__saves">
         saved spots content here
@@ -56,8 +55,6 @@ export default function UserSpots() {
         {userVisits.map(visit => <VisitCard visit={visit} isProfilePage={true} key={visit.id} />) }
       </div>
       }
-
-
     </div>
   );
 };

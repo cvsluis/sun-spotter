@@ -6,7 +6,6 @@ import dateFormatter from '../utils/dateFormatter';
 import '../styles/VisitCard.scss'
 
 export default function VisitCard({ visit, isProfilePage }) {
-
   
   const visitDate = new Date(visit.date);
 
@@ -25,6 +24,7 @@ export default function VisitCard({ visit, isProfilePage }) {
         </div> 
       }
         <div className='visitCard__details'>
+          {/* visit card info looks different depending on where the card is called */}
           {isProfilePage ?
           <div className='visitCard__user visitCard__user--profile'>
             {visit.name}
