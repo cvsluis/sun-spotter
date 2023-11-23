@@ -1,17 +1,21 @@
 import React from "react";
-import profile from "../assets/profile/janay.jpeg";
 
 import "../styles/UserInfoCard.scss"
 
-export default function UserInfoCard(user) {
+export default function UserInfoCard({user}) {
+  
+  if (!user) {
+    return null;
+  }
 
-  console.log('profile user', user);
+  const {first_name, last_name, email, profile_pic, city, province, country} = user;
+    
 
   return (
     <div className="user-info__container">
-      <img src={profile} alt="profile" className="card__image" />
-      <h2 className="card__name">Janay Ma</h2>
-      <p className="card__location">Victoria, British Columbia</p>
+      <img src={`http://localhost:8080/${profile_pic}`} alt="profile" className="card__image" />
+      <h2 className="card__name">{first_name} {last_name}</h2>
+      <p className="card__location">{city}, {province}</p>
     </div>
  );
 };
