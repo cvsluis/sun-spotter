@@ -20,7 +20,7 @@ export default function OneVisit() {
         <div className='one-visit__header--container'>
 
           <div className='one-visit__header--profile'>
-            <img src={`http://localhost:8080/${visit.profile_pic}`} className='one-visit__header--image'/>
+            <img src={`http://localhost:8080/${visit.profile_pic}`} className='one-visit__header--image' alt={`Profile for ${visit.first_name} ${visit.last_name}`} />
 
             <div>
               <h2>{visit.first_name} {visit.last_name}</h2>
@@ -64,7 +64,7 @@ export default function OneVisit() {
       </div>
       
       <div className='one-visit__image--container'>
-        <img src={`http://localhost:8080/${visit.image_url}`} />
+        <img src={`http://localhost:8080/${visit.image_url}`} alt={`Image of ${visit.name}`}/>
       </div>
 
     </div>
