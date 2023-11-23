@@ -22,8 +22,7 @@
   .view-toggle__option {
     text-align: center;
     color: $text-light-grey;
-    transition: color 0.25s ease-in 0s;
-
+    transition: color 0.2s ease-in 0s;
 
     &:hover{
       color:$text-grey;

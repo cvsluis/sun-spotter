@@ -30,19 +30,33 @@ export default function UserSpots() {
     <div className="user-spots__container">
       <header className="user-spots__header">
         <span className="user-spots__category">
-          { view === 'map' && <h2>Saves and Favourites</h2> }
-          { view === 'saves' && <h2>My Saved Spots</h2> }
+          { view === 'map' && <h2>My Spots</h2> }
+          { view === 'saved' && <h2>My Saved Spots</h2> }
           { view === 'visits' && <h2>My Visited Spots</h2>}
         </span>
 
         <ViewToggle view={view} setView={setView}/>
       </header>
 
-      {view === 'visits' && 
-      <div className="user-spots__visits">
-        user visits
+      {view === 'saved' && 
+      <div className="user-spots__saves">
+        saved spots content here
       </div>
       }
+
+      {view === 'map' && 
+      <div className="user-spots__map">
+        user saved spots here
+      </div>
+      }
+
+      {view === 'visits' &&
+      <div className="user-spots__visits">
+        user visits here
+      </div>
+      }
+
+
     </div>
   );
 };
