@@ -9,6 +9,10 @@ export default function UserSpots() {
 
   const userID = useParams().id;
   const [ userVisits, setUserVisits ] = useState([]);
+  
+  //view toggle
+  const [ view, setView ] = useState('visits');
+    
 
   useEffect(() => {
     fetch(`http://localhost:8080/api/users/${userID}`)
@@ -22,9 +26,6 @@ export default function UserSpots() {
 
   //which spots view is being displayed?
 
-
-  const [ view, setView ] = useState('visits');
-
   return (
     <div className="user-spots__container">
       <header className="user-spots__header">
@@ -34,7 +35,7 @@ export default function UserSpots() {
           { view === 'visits' && <h2>My Visited Spots</h2>}
         </span>
 
-        <ViewToggle />
+        <ViewToggle view={view} setView={setView}/>
       </header>
 
       {view === 'visits' && 
