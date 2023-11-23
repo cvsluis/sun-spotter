@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export default function useVisitData(visitId) {
   const [visit, setVisit] = useState({});
-  const [labels, setLabels] = useState({});
+  const [labels, setLabels] = useState([]);
 
   useEffect(() => {
     const fetchVisit = async () => {
