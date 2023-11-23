@@ -25,7 +25,11 @@ export default function VisitCard({ visit, isProfilePage }) {
         </div> 
       }
         <div className='visitCard__details'>
-          {!isProfilePage && 
+          {isProfilePage ?
+          <div className='visitCard__user visitCard__user--profile'>
+            {visit.name}
+          </div>
+          :
           <div className='visitCard__user'>
             {visit.first_name} {visit.last_name}
           </div>
