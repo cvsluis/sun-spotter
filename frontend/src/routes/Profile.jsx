@@ -18,8 +18,8 @@ export default function Profile() {
   }
   return (
     <div className="profile">
-      <UserInfoCard className="user-info__container" />
-      <UserSpots className="user-spots-visits__container"/>
+      <UserInfoCard />
+      <UserSpots />
     </div>
   );
 };
