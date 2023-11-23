@@ -52,7 +52,7 @@ export default function OneSpot() {
 
 
       <div className="one-spot__visits">
-        {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} key={visit.id}/>)}
+        {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} isProfilePage={false} key={visit.id}/>)}
       </div>
     </div>
   );

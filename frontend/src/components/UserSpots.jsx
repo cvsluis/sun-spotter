@@ -8,6 +8,8 @@ import '../styles/UserSpots.scss';
 export default function UserSpots() {
 
   const userID = useParams().id;
+
+  //visit data
   const [ userVisits, setUserVisits ] = useState([]);
   
   //view toggle
@@ -23,8 +25,6 @@ export default function UserSpots() {
       })
       .catch(err => console.log('Error fetching data: ', err));
   }, []);
-
-  //which spots view is being displayed?
 
   return (
     <div className="user-spots__container">
