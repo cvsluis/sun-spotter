@@ -11,7 +11,7 @@ export default function TopNavBar() {
       </div>
 
       <div>
-        <Link to='/login' className='nav__login-btn'>Log In</Link>
+        <Link to={'/login'} className='nav__login-btn'>Log In</Link>
         <button className='nav__register-btn'>Register</button>
       </div>
     </nav>
