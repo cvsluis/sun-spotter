@@ -27,6 +27,17 @@
   font-size: 12px;
   font-weight: 400;
   color: $text-light-grey;
+
+}
+
+.visitCard__date--profile {
+  margin-left:  0.5em;
+}
+
+.visitCard__name {
+  margin-left: 0.5em;
+  font-size: 14px;
+  font-weight: 800px;
 }
 
 .visitCard__image {
@@ -36,7 +47,6 @@
     transition: ease-in 0.25s;
     width: 100%;
     height: 100%;
-   
   }
 }
 

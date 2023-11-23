@@ -22,10 +22,10 @@ export default function OneSpot() {
 
   //save icon click
   const [ isSaved, toggleSaved ] = useSaved();
-
+  
+  //get weather info
   const weather = useWeather();
 
-  
   return (
     <div className='one-spot'>
       <header className='one-spot__header'>
@@ -50,9 +50,8 @@ export default function OneSpot() {
 
       <WeatherBar {...weather} />
 
-
       <div className="one-spot__visits">
-        {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} key={visit.id}/>)}
+        {spotVisits.length > 0 && spotVisits.map(visit => <VisitCard visit={visit} isProfilePage={false} key={visit.id}/>)}
       </div>
     </div>
   );
