@@ -62,3 +62,16 @@ $square-dimension: 650px;
     color: $text-grey;
   }
 }
+
+.one-visit--rating {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.one-visit--stars {
+  margin-bottom: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
