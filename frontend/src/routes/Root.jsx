@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import TopNavBar from "../components/TopNavBar";
 import { useState } from "react";
-import Cookies from 'js-cookie';
 import React from "react";
 
 
