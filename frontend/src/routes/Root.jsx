@@ -10,11 +10,6 @@ export default function Root () {
 
   const [ userID, setUserID ] = useState(undefined);
   
-  //is there a cookie?
-  // const id = Cookies.get('user_id');
-  // console.log("current user", userID)
-  // setUserID(userID);
-
   return (
     <div>
       <TopNavBar context={[userID, setUserID]}/>
