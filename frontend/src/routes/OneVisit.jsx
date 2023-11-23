@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import TimeAgo from 'react-timeago';
 import '../styles/OneVisit.scss';
 import useVisitData from '../hooks/useVisitData';
 
@@ -54,7 +55,7 @@ export default function OneVisit() {
             }
             </div>
             <h4>{visit.description}</h4>
-            <p>2 weeks ago</p>
+            <p><TimeAgo date={visit.time_stamp} /></p>
           </div>
         </div>
         <div className='one-visit__comments--container'>
