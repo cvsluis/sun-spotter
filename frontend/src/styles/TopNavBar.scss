@@ -64,6 +64,14 @@ nav button {
   }
 }
 
+.nav__logged-in{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  margin-right: 1rem;
+}
+
 .nav__logout-btn {
   border-radius: 24px;
   border: none;
@@ -77,5 +85,17 @@ nav button {
   &:hover {
     cursor: pointer;
     background-color: $button-grey-hover;
+  }
+}
+
+.nav__user-profile img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 2rem 1.5rem;
+
+  &:hover{
+    box-shadow: $shadow-grey 0px 2px 8px 0px;
   }
 }
