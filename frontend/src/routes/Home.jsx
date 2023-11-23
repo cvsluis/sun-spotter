@@ -53,7 +53,7 @@ export default function Home() {
       !("hour" in time) ||
       !("minute" in time)
     ) {
-      console.error("Invalid time object:", time);
+      //console.error("Invalid time object:", time);
       return NaN;
     }
     const { hour, minute } = time;
