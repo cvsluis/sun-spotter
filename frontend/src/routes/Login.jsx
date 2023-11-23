@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { useOutletContext } from "react-router-dom";
 
 
 // import styles
 import "../styles/Login.scss";
 
 export default function Login() {
+
+  const [userID, setUserID] = useOutletContext();
+  console.log('in login:', userID)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -34,6 +38,7 @@ export default function Login() {
           console.log('Login successful!', data);
           //set cookie
           Cookies.set('user_id', data.user_id, {expires: 1})
+          setUserID(data.user_id)
           //return to home
           navigate("/Home");
           

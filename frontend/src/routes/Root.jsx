@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import React from "react";
 
 
+
 export default function Root () {
 
   const [ userID, setUserID ] = useState(undefined);
@@ -16,7 +17,7 @@ export default function Root () {
 
   return (
     <div>
-      <TopNavBar />
+      <TopNavBar context={[userID, setUserID]}/>
     
       <main>
         <Outlet context={[userID, setUserID]}/>
