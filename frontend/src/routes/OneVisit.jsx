@@ -23,8 +23,7 @@ export default function OneVisit() {
 
             <div>
               <h2>{visit.first_name} {visit.last_name}</h2>
-              {/* <p>{visit.time_stamp}</p> */}
-              <p>Victoria, BC</p>
+              <p>{visit.city}, {visit.province}</p>
             </div>
           </div>
 
@@ -54,6 +53,7 @@ export default function OneVisit() {
             </div>
             <h4>{visit.description}</h4>
             <p><TimeAgo date={visit.time_stamp} /></p>
+            {/* refactor time */}
           </div>
         </div>
         <div className='one-visit__comments--container'>
