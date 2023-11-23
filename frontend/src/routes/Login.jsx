@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 // import styles
 import "../styles/Login.scss";
@@ -9,7 +10,39 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Corrected import
 
-  const handleLogin = (e) => {
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+
+  //   const userData = {
+  //     email: email,
+  //     password: password,
+  //   }
+
+  //   fetch("http://localhost:8080/api/login", {
+  //     method: "POST",
+  //     credentials: 'include',
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(userData),
+  //  })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.success) {
+  //         console.log('Login successful');
+  //         // localStorage.setItem()
+  //         console.log(document.cookie);
+  //         navigate("/home");
+  //       } else {
+  //         console.log('Login failed');
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error('An error occurred:', error);
+  //     });
+  // };
+
+  const handleLogin = function(e) {
     e.preventDefault();
 
     const userData = {
@@ -19,29 +52,24 @@ export default function Login() {
 
     fetch("http://localhost:8080/api/login", {
       method: "POST",
-      credentials: 'include',
       headers: {
-        "Content-type": "application/json",
+        "Content-type": "application/json"
       },
       body: JSON.stringify(userData),
-   })
-      .then((response) => response.json())
-      .then((data) => {
+    })
+      .then(res => res.json())
+      .then(data => {
         if (data.success) {
-          console.log('Login successful');
-          // localStorage.setItem()
-          console.log(document.cookie);
-          navigate("/home");
-        } else {
+          console.log('Login successful!');
+        }
+        else {
           console.log('Login failed');
         }
       })
-      .catch((error) => {
-        console.error('An error occurred:', error);
-      });
-  };
+      .catch(err => console.log("Error: ", err));
+  }
 
-  
+
 
   return (
     <div className="login__container">
