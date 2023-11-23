@@ -8,7 +8,7 @@ export default function UserInfoCard({user}) {
     return null;
   }
 
-  const {first_name, last_name, email, profile_pic, city, province, country} = user;
+  const {first_name, last_name, profile_pic, city, province, country} = user;
     
 
   return (
@@ -16,6 +16,7 @@ export default function UserInfoCard({user}) {
       <img src={`http://localhost:8080/${profile_pic}`} alt="profile" className="card__image" />
       <h2 className="card__name">{first_name} {last_name}</h2>
       <p className="card__location">{city}, {province}</p>
+      <p className='card__location'>{country}</p>
     </div>
  );
 };

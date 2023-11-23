@@ -36,9 +36,9 @@ export default function Profile() {
     }
   }, [userID]);
 
-  const fetchSavedUserSpots = () => {};
+  // const fetchSavedUserSpots = () => {};
 
-  const fetchUserVisits = () => {};
+  // const fetchUserVisits = () => {};
 
   return (
     <div className="profile">
