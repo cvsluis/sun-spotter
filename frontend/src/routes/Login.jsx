@@ -19,6 +19,7 @@ export default function Login() {
 
     fetch("http://localhost:8080/api/login", {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-type": "application/json",
       },
@@ -29,7 +30,7 @@ export default function Login() {
         if (data.success) {
           console.log('Login successful');
           // localStorage.setItem()
-          console.log(data);
+          console.log(document.cookie);
           navigate("/home");
         } else {
           console.log('Login failed');
@@ -39,6 +40,8 @@ export default function Login() {
         console.error('An error occurred:', error);
       });
   };
+
+  
 
   return (
     <div className="login__container">

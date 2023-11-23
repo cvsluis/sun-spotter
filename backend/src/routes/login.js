@@ -16,7 +16,7 @@ module.exports = (db) => {
     db.query(query, [email])
       .then((result) => {
         const user = result.rows[0]
-
+ 
         if (!user) {
           return res.status(401).json({error: "Invalid email or password"});
         }
@@ -27,7 +27,6 @@ module.exports = (db) => {
           req.session.user_id = user.id;
           console.log('cookie', req.session.user_id);
           res.status(200).json({success: true});
-          // res.sendStatus(200).json(user);
         }
 
       })
@@ -36,6 +35,8 @@ module.exports = (db) => {
         res.status(500).json({error: "Internal Server Error"});
       })
   });
+
+
 
   return router;
 };

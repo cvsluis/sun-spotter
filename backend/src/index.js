@@ -11,13 +11,15 @@ const cookieSession = require("cookie-session");
 //Setup cross origin resource sharing
 app.use(cors({
   origin: 'http://localhost:3000',
-  credentials: true
+  credentials: true,
 }));
 
 app.use(cookieSession({
   name: 'session',
   keys: ['session-key'], 
-  // maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  secure: false,
+  httpOnly: false
   // credentials: true
 })); 
 
