@@ -10,7 +10,7 @@ module.exports = (db) => {
     const query = 'SELECT * FROM users WHERE email=$1';
 
     if (!email && !password) {
-      return res.status(400).json({error: "Email and password are requires"});
+      return res.status(400).json({error: "Email and password are required"});
     }
 
     db.query(query, [email])
@@ -22,10 +22,6 @@ module.exports = (db) => {
         }
 
         if (user.password === password) {
-          console.log(user);
-
-          req.session.user_id = user.id;
-          console.log('cookie', req.session.user_id);
           res.status(200).json({
             success: true,
             user_id: user.id
@@ -38,8 +34,6 @@ module.exports = (db) => {
         res.status(500).json({error: "Internal Server Error"});
       })
   });
-
-
 
   return router;
 };

@@ -31,7 +31,7 @@ export default function Login() {
         if (data.success) {
           console.log('Login successful!', data);
           Cookies.set('user_id', data.user_id, {expires: 1})
-
+          
         }
         else {
           console.log('Login failed');
