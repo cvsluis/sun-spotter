@@ -6,9 +6,11 @@ module.exports = db => {
 
   // /api/spots
   router.get("/saves/:id", (req, res) => {
-    savesQueries.userSpots(req.body.data)
-      .then(spots => {
-        res.json(spots);
+    const user_id = req.params.id;
+
+    savesQueries.userSpots(user_id)
+      .then(spotsID => {
+        res.json(spotsID);
       })
       .catch(err => {
         res
