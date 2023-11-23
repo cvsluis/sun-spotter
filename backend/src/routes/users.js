@@ -6,7 +6,7 @@ module.exports = db => {
   router.get('/users', (req, res) => {
     userQueries.getUsers()
     .then(users => {
-      res.json({ users });
+      res.json(users);
     })
     .catch(err => {
       res
