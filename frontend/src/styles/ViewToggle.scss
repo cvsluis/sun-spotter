@@ -22,6 +22,8 @@
   .view-toggle__option {
     text-align: center;
     color: $text-light-grey;
+    transition: color 0.25s ease-in 0s;
+
 
     &:hover{
       color:$text-grey;
@@ -37,6 +39,8 @@
     height: 40px;
 
     box-shadow: $shadow-grey 0px 2px 8px 0px;
+
+
 
     //center overflow + recenter text
     margin: -10px 0;
