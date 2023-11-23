@@ -40,7 +40,7 @@ export default function TopNavBar({ context }) {
       fetchUser();
     }
   }, [userID]);
-  
+
   return (
     <nav>
       <div className='nav__main'>
@@ -57,7 +57,7 @@ export default function TopNavBar({ context }) {
       }
 
       {user && userID && 
-      <div>
+      <div className="nav__logged-in">
         <button className="nav__logout-btn" onClick={handleLogout}>Log Out</button>
         <Link to={`/users/${userID}`} className="nav__user-profile"><img src={`http://localhost:8080/${user.profile_pic}`} alt='profile-pics'></img></Link>
       </div>
