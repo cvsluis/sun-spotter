@@ -2,17 +2,19 @@ import { Link } from "react-router-dom";
 import '../styles/TopNavBar.scss';
 import logo from '../assets/logo.png';
 import Cookies from 'js-cookie';
+import { useOutletContext } from "react-router-dom";
 
 
 export default function TopNavBar() {
 
-  let userID = Cookies.get('user_id')
+  const context = useOutletContext();
+  console.log(context);
 
-  const handleLogout = function (e, userID) {
+  const handleLogout = function (e) {
     e.preventDefault();
     console.log('logging out!')
     Cookies.remove('user_id');
-    userID = 0;
+    //setUserID(undefined);
   }
   return (
     <nav>
@@ -21,14 +23,14 @@ export default function TopNavBar() {
       <Link to={`/spots`} className='nav__explore-link'>Explore</Link>
       </div>
 
-      {!userID && 
+      {!false && 
       <div>
         <Link to='/login' className='nav__login-btn'>Log In</Link>
         <button className='nav__register-btn'>Register</button>
       </div>
       }
 
-      {userID && 
+      {false && 
       <div>
         <button className="'nav__logout-btn" onClick={handleLogout}>Log Out</button>
       </div>
