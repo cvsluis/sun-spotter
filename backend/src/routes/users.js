@@ -14,5 +14,20 @@ module.exports = db => {
         .json({ error: err.message })
     });
   });
+
+  router.get('/users/:id', (req, res) => {
+    const user_id = req.params.id;
+
+    userQueries.getUserByID(user_id)
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => {
+      res
+      .status(500)
+      .json({ error: err.message });
+    })
+  })
+  
   return router;
 };
