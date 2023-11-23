@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import '../styles/TopNavBar.scss';
 import logo from '../assets/logo.png';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
+
 
 export default function TopNavBar() {
 

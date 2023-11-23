@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
+
 // import styles
 import "../styles/Login.scss";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = function(e) {
     e.preventDefault();
@@ -30,7 +32,10 @@ export default function Login() {
         console.log(data)
         if (data.success) {
           console.log('Login successful!', data);
+          //set cookie
           Cookies.set('user_id', data.user_id, {expires: 1})
+          //return to home
+          navigate("/Home");
           
         }
         else {
