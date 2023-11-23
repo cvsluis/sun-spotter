@@ -22,6 +22,7 @@ module.exports = (db) => {
         }
 
         if (user.password === password) {
+          //return success and user id
           res.status(200).json({
             success: true,
             user_id: user.id

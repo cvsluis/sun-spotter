@@ -8,9 +8,7 @@ import Cookies from 'js-cookie';
 export default function TopNavBar({ context }) {
 
   const [ userID, setUserID ] = context;
-
-  console.log("the context", context);
-
+  
   const handleLogout = function (e) {
     e.preventDefault();
     console.log('logging out!')

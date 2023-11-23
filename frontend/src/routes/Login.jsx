@@ -50,8 +50,6 @@ export default function Login() {
       .catch(err => console.log("Error: ", err));
   }
 
-
-
   return (
     <div className="login__container">
       <div className="login__welcome">
