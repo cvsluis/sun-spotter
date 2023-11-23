@@ -13,7 +13,10 @@ export default function TopNavBar() {
       <div>
         <Link to={'/login'} className='nav__login-btn'>Log In</Link>
         <button className='nav__register-btn'>Register</button>
+
+        <Link to={'users/:id'} className="nav__user-profile"><img src={''} alt='profile-pics'></img></Link>
       </div>
+
     </nav>
   )
 }
