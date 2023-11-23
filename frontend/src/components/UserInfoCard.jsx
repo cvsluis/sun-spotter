@@ -3,7 +3,10 @@ import profile from "../assets/profile/janay.jpeg";
 
 import "../styles/UserInfoCard.scss"
 
-export default function UserInfoCard() {
+export default function UserInfoCard(user) {
+
+  console.log('profile user', user);
+
   return (
     <div className="user-info__container">
       <img src={profile} alt="profile" className="card__image" />
