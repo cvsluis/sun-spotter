@@ -16,7 +16,7 @@ export default function VisitCard({ visit, isProfilePage }) {
         <img src={`http://localhost:8080/${visit.image_url}`} alt={visit.image_alt} />
       </div>
       <div className='visitCard__info'>
-      {isProfilePage && 
+      {!isProfilePage && 
         <div className='visitCard__icon'>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#757575" class="bi bi-person-circle " viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -31,7 +31,7 @@ export default function VisitCard({ visit, isProfilePage }) {
           </div>
           }
           
-          {!isProfilePage ?
+          {isProfilePage ?
           <div className='visitCard__date visitCard__date--profile'>{dateFormatter(visitDate)}</div>
           : 
           <div className='visitCard__date'>{dateFormatter(visitDate)}</div>
