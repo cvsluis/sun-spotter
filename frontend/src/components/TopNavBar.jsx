@@ -26,7 +26,7 @@ export default function TopNavBar({ context }) {
 
       {!userID && 
       <div>
-        <Link to='/login' className='nav__login-btn'>Log In</Link>
+        <Link to={'/login'} className='nav__login-btn'>Log In</Link>
         <button className='nav__register-btn'>Register</button>
       </div>
       }
