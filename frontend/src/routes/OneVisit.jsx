@@ -13,8 +13,6 @@ export default function OneVisit() {
   const starNumber = Math.floor(Number(visit.rating));
   const needsPartialStar = starNumber - Number(visit.rating) !== 0;
 
-  console.log(visit);
-
   return (
     <div className='one-visit__container'>
       <div className='one-visit__details--container'>
