@@ -29,7 +29,7 @@ module.exports = db => {
     })
   })
 
-  router.get('/users/:id', (req, res) => {
+  router.get('/users/:id/visits', (req, res) => {
     const userID = req.params.id;
     userQueries.getVisitsByUser(userID)
     .then(visits => {
