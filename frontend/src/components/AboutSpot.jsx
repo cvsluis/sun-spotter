@@ -7,7 +7,6 @@ export default function AboutSpot({spotData, spotLabels, spotRating}) {
   const starNumber = Math.floor(Number(spotRating));
   const needsPartialStar = starNumber - Number(spotRating) !== 0;
   
-  console.log(starNumber);
   return (
     <div className='about-spot'>
       
