@@ -19,7 +19,7 @@ export default function UserSpots() {
     fetch(`http://localhost:8080/api/users/${userID}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        //console.log(data)
         setUserVisits(data)
       })
       .catch(err => console.log('Error fetching data: ', err));

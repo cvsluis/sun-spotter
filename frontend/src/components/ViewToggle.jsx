@@ -7,8 +7,6 @@ export default function({ view, setView}) {
   const handleToggleClick = function(event, viewName ) {
     event.preventDefault();
 
-    console.log(`${viewName} clicked!`)
-
     if (view !== viewName) {
       setView(viewName);
     }
