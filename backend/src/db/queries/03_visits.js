@@ -2,7 +2,7 @@ const db = require('../index');
 
 // Get One Visit
 const getOneVisit = (id) => {
-  return db.query(`SELECT visits.*, users.first_name, users.last_name FROM VISITS JOIN users ON visits.user_id = users.id WHERE visits.id = $1;`, [id])
+  return db.query(`SELECT visits.*, users.first_name, users.last_name, users.profile_pic FROM VISITS JOIN users ON visits.user_id = users.id WHERE visits.id = $1;`, [id])
     .then(data => {
       return data.rows[0];
     });
