@@ -8,24 +8,28 @@ export default function useSaved(userID, spotID) {
   //set isSaved stated.
   const[ saveID, setSaveID ] = useState(undefined);
 
-  //check if save exists
+  //check if save exists if user is logged in;
   useEffect(() => {
     //post to the checking endpoint
-    fetch(`http://localhost:8080/api/saves/checkSave`, {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify({ userID: userID, spotID:spotID })
-    })
-    .then(res => res.json())
-    .then(data => {
-      //data.exists <=> save exists! setSaved to true.
-      if (data.id) {
-        // console.log("setting save ID as: ", data.id)
-        setSaveID(data.id);
-      }
-      console.log(data)
-    })
-    .catch(err => console.log("Error: ", err))
+    //if user is logged in, check 
+    if(userID){
+      //console.log(userID)
+      fetch(`http://localhost:8080/api/saves/checkSave`, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ userID: userID, spotID:spotID })
+      })
+      .then(res => res.json())
+      .then(data => {
+        //data.exists <=> save exists! setSaved to true.
+        if (data.id) {
+          // console.log("setting save ID as: ", data.id)
+          setSaveID(data.id);
+        }
+        console.log(data)
+      })
+      .catch(err => console.log("Error: ", err))  
+    } 
   }, [])
   
 
