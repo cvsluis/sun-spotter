@@ -8,7 +8,7 @@ const getVisitComments = (id) => {
         JOIN users ON comments.user_id = users.id
         WHERE comments.visit_id = $1;`, [id])
     .then(data => {
-      return data.rows[0];
+      return data.rows;
     });
 };
 
