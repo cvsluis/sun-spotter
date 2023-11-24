@@ -4,9 +4,9 @@ import React, { useState, useEffect } from "react";
 //handles toggling og save button 
 export default function useSaved(userID, spotID) {
 
-  console.log('in useSaved: ', userID, spotID);
+  //console.log('in useSaved: ', userID, spotID);
   //set isSaved stated.
-  const[ isSaved, setIsSaved ] = useState(false);
+  const[ saveID, setSaveID ] = useState(undefined);
 
   //check if save exists
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function useSaved(userID, spotID) {
     .then(data => {
       //data.exists <=> save exists! setSaved to true.
       if (data.exists) {
-        setIsSaved(true);
+        setSaveID(data.id);
       }
       console.log(data)
     })
@@ -58,14 +58,14 @@ export default function useSaved(userID, spotID) {
   const handleSaveClick = function(event, userID, spotID) {
     event.preventDefault();
 
-    if (isSaved) {
+    if (saveID) {
       addSave(userID, spotID);
     } else {
       removeSave();
     }
-    setIsSaved(!isSaved);
+    setSaveID(!saveID);
   }
 
 
-  return [isSaved, handleSaveClick];
+  return [saveID, handleSaveClick];
 }

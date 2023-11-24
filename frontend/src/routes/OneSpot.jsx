@@ -29,7 +29,7 @@ export default function OneSpot() {
   //get weather info
   const weather = useWeather();
 
-  console.log("in onespot:", userID, spotID);
+  //console.log("in onespot:", userID, spotID);
 
   return (
     <div className='one-spot'>
