@@ -129,11 +129,11 @@
   max-width: 200px;
 
   .one-spot__btn--text {
-    animation: 0.5s slide-left;
+    animation: 0.5s slide-right;
   }
 }
 
-@keyframes slide-left {
+@keyframes slide-right{
   from {
     transform:translateX(-40%);
   }
