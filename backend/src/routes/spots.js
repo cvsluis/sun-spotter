@@ -121,18 +121,7 @@ router.get("/spots/:id/:visits", (req, res) => {
     });
 });
 
-route.get('/spots/users/:id', (req, res) => {
-  const userID = req.params.id;
 
-  spotQueries.getSavedUserSpots(userID)
-  .then(savedSpots => {
-    res.json(savedSpots);
-  })
-  .catch(err => {
-    res.status(500)
-    .json({error: err.message});
-  });
-});
 
   return router;
 };
