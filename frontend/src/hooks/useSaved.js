@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 //handles toggling og save button 
 export default function useSaved(userID, spotID) {
 
+  console.log('in useSaved: ', userID, spotID);
   //set isSaved stated.
   const[ isSaved, setIsSaved ] = useState(false);
 
@@ -12,7 +13,7 @@ export default function useSaved(userID, spotID) {
     fetch(`http://localhost:8080/api/saves/checkSave`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify({ userID: 2, spotID })
+      body: JSON.stringify({ userID: 2, spotID:spotID })
     })
     .then((res => res.json()))
     .then(data => {
@@ -23,7 +24,7 @@ export default function useSaved(userID, spotID) {
       console.log(data)
     })
     .catch(err => console.log("Error: ", err))
-  }, [isSaved])
+  }, [])
   
 
   
@@ -38,7 +39,7 @@ export default function useSaved(userID, spotID) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({userID: 2, spotID})
+        body: JSON.stringify({ userID: 2, spotID: 5 })
       });
       
       console.log('save added!')

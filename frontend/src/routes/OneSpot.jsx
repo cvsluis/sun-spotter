@@ -21,13 +21,15 @@ export default function OneSpot() {
   const [ userID, setUserID ] = useOutletContext();
   const spotID = useParams().id;
 
-  const [ isSaved, handleSaveClick ] = useSaved();
+  const [ isSaved, handleSaveClick ] = useSaved(userID, spotID);
 
   //get spot information
   const [ spotInfo, spotLabels, spotRating, spotVisits ] = useSpotData(spotID);
   
   //get weather info
   const weather = useWeather();
+
+  console.log("in onespot:", userID, spotID);
 
   return (
     <div className='one-spot'>
