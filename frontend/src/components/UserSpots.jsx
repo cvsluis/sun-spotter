@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import VisitCard from "./VisitCard";
-import SpotCard from './SpotCard';
+import SavedSpotCard from './SavedSpotCard';
 import ViewToggle from "./ViewToggle";
 import "../styles/UserSpots.scss";
 
@@ -11,9 +11,7 @@ export default function UserSpots() {
   //visit data
   const [userVisits, setUserVisits] = useState([]);
 
-  const [userSavedSpots, setUserSavedSpots] = useState([]);
-
-  console.log(userSavedSpots);
+  const [userSpots, setUserSpots] = useState([]);
 
   //view toggle
   const [view, setView] = useState("visits");
@@ -34,10 +32,12 @@ export default function UserSpots() {
     fetch(`http://localhost:8080/api/saves/spots/${userID}`)
       .then((res) => res.json())
       .then((data) => {
-        setUserSavedSpots(data);
+        setUserSpots(data);
       })
       .catch((err) => console.log("Error fetching data: ", err));
   }, []);
+
+  console.log('here is here', userSpots);
 
   return (
     <div className="user-spots__container">
@@ -54,8 +54,8 @@ export default function UserSpots() {
       {/* user spot view changes with toggle */}
       {view === "saved" && (
         <div className="user-spots__saves">
-          {userSavedSpots.map((saved) => (
-            <SpotCard saved={saved} isProfilePage={true} key={saved.id} />
+          {userSpots.map((spot) => (
+            <SavedSpotCard spot={spot} isProfilePage={true} key={spot.id} />
           ))}
         </div>
       )}
