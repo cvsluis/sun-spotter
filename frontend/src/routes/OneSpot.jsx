@@ -43,6 +43,7 @@ export default function OneSpot() {
           body: JSON.stringify({userID: 2, spotID})
         });
       } catch (error) {
+        console.log("error in onespot")
         console.error('Error: ', error);
         throw error;
       }
