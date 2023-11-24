@@ -13,6 +13,10 @@ export default function OneVisit() {
   const starNumber = Math.floor(Number(visit.rating));
   const needsPartialStar = starNumber - Number(visit.rating) !== 0;
 
+  // const commentList = comments.map(comment => {
+  //   return <Comment key={'one-visit__comment_' + comment.id} comment={comment} />;
+  // }); 
+
   return (
     <div className='one-visit__container'>
       <div className='one-visit__details--container'>
@@ -61,7 +65,7 @@ export default function OneVisit() {
             <h4>Comments</h4>
             <div className='one-visit__comments--posted'>
               <div>comment</div>
-              {/* comment array */}
+              {/* {commentsList} */}
             </div>
           </div>
           <div className='one-visit__comments--add'>
