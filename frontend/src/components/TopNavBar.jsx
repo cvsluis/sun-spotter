@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 export default function TopNavBar({ context }) {
 
   const [ userID, setUserID ] = context;
+  console.log("in nav bar: ", userID)
   const [ user, setUser ] = useState()
   const navigate = useNavigate();
   
@@ -37,6 +38,7 @@ export default function TopNavBar({ context }) {
     };
 
     if (userID) {
+      console.log('fetching user: ', userID)
       fetchUser();
     }
   }, [userID]);
