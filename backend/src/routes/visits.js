@@ -41,6 +41,20 @@ module.exports = db => {
     }
   });
 
+  // POST /api/visits/:id/comments
+  router.post("/visits/:id/comments", async (req, res) => {
+    try {
+      const comment = req.body;
+      comment.visit_id = req.params.id;
+
+      await commentQueries.createComment(comment);
+      res.status(200).json({ message: "Comment Added!" });
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  });
+
   // POST /api/visits
   router.post("/visits", multerExport.uploadImg.single("file"), async (req, res) => {
     try {
