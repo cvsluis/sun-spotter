@@ -40,6 +40,18 @@ module.exports = db => {
     });
   });
 
+  router.get('/users/:id/saves', (req, res) => {
+    const userID = req.params.id;
+    userQueries.getSavesByUser(userID)
+      .then(saves => {
+        res.json(saves);
+      })
+      .catch(error => {
+        res
+          .status(500)
+        .json({ error: error.message });
+      });
+  });
   
   return router;
 };
