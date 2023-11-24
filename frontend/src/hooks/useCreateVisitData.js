@@ -7,7 +7,7 @@ export default function useCreateSpotData(spotId) {
 
   // FORM DATA STATE
   const [formData, setFormData] = useState({
-    visit: { spot_id: spotId, chosenName: '', time_stamp: '', description: '', rating: 0, image: '' },
+    visit: { spot_id: spotId, time_stamp: '', description: '', rating: 0, image: '' },
     labels: []
   });
 
@@ -30,7 +30,6 @@ export default function useCreateSpotData(spotId) {
   // form input state handler
   const handleFormChange = (event) => {
     const name = event.target.name;
-    name === 'chosenName' && setFormData(prev => ({ ...prev, spot: { ...prev.spot, name: event.target.value } }));
     setFormData(prev => ({ ...prev, visit: { ...prev.visit, [name]: event.target.value } }));
   };
 
