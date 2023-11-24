@@ -15,6 +15,9 @@ $square-dimension: 650px;
 .one-visit__details--container {
   padding: 2rem;
   width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .one-visit__image--container {
@@ -109,4 +112,18 @@ $square-dimension: 650px;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.one-visit__comments--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .one-visit__coments--posted {
+
+  }
+
+  .one-visit__coments--add {
+
+  }
 }
