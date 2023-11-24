@@ -17,60 +17,24 @@ import '../styles/OneSpot.scss';
 
 export default function OneSpot() {
 
+  //get userID and spotID. if not logged in, userID is undefined
   const [ userID, setUserID ] = useOutletContext();
-
   const spotID = useParams().id;
+
+  const [ isSaved, handleSaveClick ] = useSaved();
+
+  //get spot information
   const [ spotInfo, spotLabels, spotRating, spotVisits ] = useSpotData(spotID);
-
-  //save icon click
-  const [ isSaved, toggleSaved ] = useSaved();
-
   
   //get weather info
   const weather = useWeather();
-
-console.log(userID, spotID, "in frontend")
-
-//check if save exists
-useEffect(() => {
-  fetch(`http://localhost:8080/api/saves/checkSave`, {
-    method: "POST",
-    headers: { 'Content-Type': 'application/json'},
-    body: JSON.stringify({ userID: 2, spotID })
-  })
-  .then((res => res.json()))
-  .then(data => console.log(data))
-  .catch(err => console.log("Error: ", err))
-}, [isSaved])
-
-
-  // save click handler
-  const handleSaveClick = async (event) => {
-    event.preventDefault();
-    console.log("save clicked!")
-    try {
-      await fetch('http://localhost:8080/api/saves', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({userID: 2, spotID})
-      });
-    } catch (error) {
-      console.log("error in onespot")
-      console.error('Error: ', error);
-      throw error;
-    }
-    console.log("after save post!")
-    toggleSaved();
-  };
 
   return (
     <div className='one-spot'>
       <header className='one-spot__header'>
         <OneSpotMap lng={spotInfo.lng} lat={spotInfo.lat} />
         <div>
-          <button className='one-spot__save' onClick={(event) => {handleSaveClick(event)}}>
+          <button className='one-spot__save' onClick={(event) => {handleSaveClick(event, userID, spotID)}}>
             {isSaved ? 
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#F86204" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
               <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
