@@ -14,13 +14,13 @@ export default function useSaved(userID, spotID) {
     fetch(`http://localhost:8080/api/saves/checkSave`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify({ userID: 2, spotID:spotID })
+      body: JSON.stringify({ userID: userID, spotID:spotID })
     })
     .then(res => res.json())
     .then(data => {
       //data.exists <=> save exists! setSaved to true.
       if (data.id) {
-        console.log("setting save ID as: ", data.id)
+        // console.log("setting save ID as: ", data.id)
         setSaveID(data.id);
       }
       console.log(data)
@@ -38,7 +38,7 @@ export default function useSaved(userID, spotID) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userID: 2, spotID: 5 })
+        body: JSON.stringify({ userID: userID, spotID: spotID })
       });
       
       //wait for response data
