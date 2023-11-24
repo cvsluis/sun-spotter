@@ -10,15 +10,16 @@ export default function useSaved(userID, spotID) {
 
   //check if save exists
   useEffect(() => {
+    //post to the checking endpoint
     fetch(`http://localhost:8080/api/saves/checkSave`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ userID: 2, spotID:spotID })
     })
-    .then((res => res.json()))
+    .then(res => res.json())
     .then(data => {
       //data.exists <=> save exists! setSaved to true.
-      if (data.exists) {
+      if (data.id) {
         setSaveID(data.id);
       }
       console.log(data)
@@ -27,7 +28,6 @@ export default function useSaved(userID, spotID) {
   }, [])
   
 
-  
   // add save
   const addSave = async (userID, spotID) => {
     console.log('adding save')
@@ -49,9 +49,16 @@ export default function useSaved(userID, spotID) {
     }
   };
   
-  const removeSave = () => {
+  const removeSave = async () => {
     console.log("removing save(implement mee!");
-  }
+    try {
+      await fetch(`http://localhost:8080/api/saves/${saveID}`, { method: 'DELETE'});
+
+      console.log("deleting id")
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  };
   
   
   // //will need to handle posts to saves once user auth is implemented
