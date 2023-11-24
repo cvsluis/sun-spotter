@@ -41,7 +41,7 @@ export default function OneVisit() {
 
           <div className='one-visit__visit-details--container'>
             <div className='one-visit--visit-header'>
-              <h1>{visit.name}</h1>
+              <h1>{visit.spot_name}</h1>
             { visit.rating > 0 &&
               <div className='one-visit--rating'>
                 <div className='one-visit--stars'>
