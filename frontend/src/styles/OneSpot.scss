@@ -1,5 +1,7 @@
 @import '_theme.scss';
 
+
+
 .one-spot{
   max-width: 1020px;
   min-width: 1020px;
@@ -74,4 +76,67 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 1.5em;
   margin: 1.5em;
+}
+.one-spot__btn--add-spot {
+  color: #fff;
+  background-color: $button-orange;
+  text-decoration: none;
+  border-radius: 9999px;
+  width: auto;
+  max-width: 64px;
+  height: 4rem;
+  display: inline-flex;
+  align-items: center;
+  align-items: center;
+  overflow:hidden;
+  z-index: 9999;
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  padding: 1rem 1.25rem;
+
+  text-align: center;
+  padding-top: 0.75rem;
+  font-size: 2rem;
+  font-weight: 300;
+  -webkit-transition: max-width 0.5s;
+  transition: max-width 0.5s;
+  
+  
+  .one-spot__btn--icons {
+    padding-top: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+      
+   }
+}
+
+.one-spot__btn--text {
+  white-space: nowrap;
+  margin-left: 1.42rem;
+  padding-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.one-spot__btn--add-spot:hover {
+  cursor: pointer;
+  background-color: $button-orange-hover;
+  max-width: 200px;
+
+  .one-spot__btn--text {
+    animation: 0.5s slide-right;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform:translateX(-20%);
+  }
+  to {
+    transform:translateX(0);
+  }
 }
