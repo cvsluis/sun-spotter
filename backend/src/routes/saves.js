@@ -16,6 +16,7 @@ module.exports = db => {
 
   router.post('/saves/checkSave', (req, res) => {
     const { userID, spotID } = req.body;
+    console.log("in route: help meeeee");
 
     saveQueries.checkSave(userID, spotID) 
       .then(result => {

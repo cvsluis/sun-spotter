@@ -29,19 +29,19 @@ export default function OneSpot() {
   //get weather info
   const weather = useWeather();
 
-
+console.log(userID, spotID, "in frontend")
 
 //check if save exists
 useEffect(() => {
   fetch(`http://localhost:8080/api/saves/checkSave`, {
     method: "POST",
-    // headers: 'application/json',
+    headers: { 'Content-Type': 'application/json'},
     body: JSON.stringify({ userID: 2, spotID })
   })
-  .then((res => res.json()))
-  .then(data => console.log(data))
+  // .then((res => res.json()))
+  // .then(data => console.log(data))
   .catch(err => console.log("Error: ", err))
-})
+}, [isSaved])
 
 
   // save click handler

@@ -10,6 +10,7 @@ const createSave = (userID, spotID) => {
 
 
 const checkSave = (userID, spotID) => {
+  console.log(userID, spotID);
   const query = `SELECT exists(SELECT * FROM saves WHERE user_id = $1 AND spot_id = $2);`;
 
   return db.query(query, [userID, spotID])
