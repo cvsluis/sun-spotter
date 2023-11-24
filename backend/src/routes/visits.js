@@ -2,8 +2,45 @@ const router = require("express").Router();
 const multerExport = require("../services/multer");
 const visitQueries = require('../db/queries/03_visits');
 const visitlabelQueries = require('../db/queries/07_visit_labels');
+const commentQueries = require('../db/queries/05_comments');
 
 module.exports = db => {
+  // GET /api/visits/:id
+  router.get("/visits/:id", async (req, res) => {
+    try {
+      const visitId = req.params.id;
+      const visit = await visitQueries.getOneVisit(visitId);
+      res.json(visit);
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  });
+
+  // GET /api/visits/:id/labels
+  router.get("/visits/:id/labels", async (req, res) => {
+    try {
+      const visitId = req.params.id;
+      const visit = await visitlabelQueries.getOneVisitLabels(visitId);
+      res.json(visit);
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  });
+
+  // GET /api/visits/:id/comments
+  router.get("/visits/:id/comments", async (req, res) => {
+    try {
+      const visitId = req.params.id;
+      const comments = await commentQueries.getVisitComments(visitId);
+      res.json(comments);
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  });
+
   // POST /api/visits
   router.post("/visits", multerExport.uploadImg.single("file"), async (req, res) => {
     try {
