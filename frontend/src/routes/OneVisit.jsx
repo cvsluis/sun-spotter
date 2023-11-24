@@ -94,7 +94,7 @@ export default function OneVisit() {
       </div>
       
       <div className='one-visit__image--container'>
-        <img src={`http://localhost:8080/${visit.image_url}`} alt={`Image of ${visit.name}`}/>
+        <img src={`http://localhost:8080/${visit.image_url}`} alt={`sunset image`}/>
       </div>
 
     </div>
