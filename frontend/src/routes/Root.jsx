@@ -3,12 +3,20 @@ import TopNavBar from "../components/TopNavBar";
 import { useState } from "react";
 import React from "react";
 
+import parseCookie from "../utils/parseCookie";
+
 
 
 export default function Root () {
+  let userIDState = undefined;
 
-  const [ userID, setUserID ] = useState(undefined);
-  
+  if(document.cookie) {
+    const parsedCookie = parseCookie(document.cookie);
+    userIDState =  Number(parsedCookie.user_id);
+  }
+
+  const [ userID, setUserID ] = useState(userIDState);
+
   return (
     <div>
       <TopNavBar context={[userID, setUserID]}/>
