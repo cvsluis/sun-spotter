@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, Link, useOutletContext } from 'react-router-dom';
 
 //import hooks
@@ -11,6 +11,7 @@ import AboutSpot from '../components/AboutSpot';
 import OneSpotMap from '../components/OneSpotMap';
 import VisitCard from '../components/VisitCard';
 import WeatherBar from '../components/WeatherBar';
+
 //import styles 
 import '../styles/OneSpot.scss';
 
@@ -21,6 +22,7 @@ export default function OneSpot() {
   const [ userID, setUserID ] = useOutletContext();
   const spotID = useParams().id;
 
+  //handle user saves
   const [ saveID, handleSaveClick ] = useSaved(userID, spotID);
 
   //get spot information
@@ -29,15 +31,12 @@ export default function OneSpot() {
   //get weather info
   const weather = useWeather();
 
-  //console.log("in onespot:", userID, spotID);
-
   return (
     <div className='one-spot'>
       <header className='one-spot__header'>
         <OneSpotMap lng={spotInfo.lng} lat={spotInfo.lat} />
         <div>
           {userID ?
-          
           //if logged in save button works
           <button className='one-spot__save' onClick={(event) => {handleSaveClick(event, userID, spotID)}}>
             {saveID ? 
@@ -50,7 +49,6 @@ export default function OneSpot() {
             </svg> 
             }
           </button>
-
           :
           //if not logged in, button redirects to login
           <Link to='/login' className='one-spot__save'>
@@ -65,6 +63,7 @@ export default function OneSpot() {
           {userID ?
           <Link className={'one-spot__create-visit'} to={`/spots/${spotID}/visits/new`}>Add Visit</Link>
           : 
+          //redirect to login if not logged in
           <Link className={'one-spot__create-visit'} to={`/Login`}>Add Visit</Link>
           }
         </div>
