@@ -115,15 +115,17 @@ $square-dimension: 650px;
 }
 
 .one-visit__comments--container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  .one-visit__coments--posted {
-
+  .one-visit__comments--posted {
+    overflow: scroll;
+    width: 100%;
   }
 
-  .one-visit__coments--add {
-
+  .one-visit__comments--add {
   }
+
 }

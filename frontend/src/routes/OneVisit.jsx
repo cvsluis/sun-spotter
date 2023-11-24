@@ -57,11 +57,15 @@ export default function OneVisit() {
           </div>
         </div>
         <div className='one-visit__comments--container'>
-          <div className='one-visit__coments--posted'>
+          <div className='one-visit__comments--posted-container'>
             <h4>Comments</h4>
+            <div className='one-visit__comments--posted'>
+              <div>comment</div>
+              {/* comment array */}
+            </div>
           </div>
-          <div className='one-visit__coments--add'>
-
+          <div className='one-visit__comments--add'>
+            <p>Add a comment</p>
           </div>
 
         </div>
