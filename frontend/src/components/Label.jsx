@@ -13,5 +13,5 @@ Label.defaultProps = {
   name: 'Label Name Goes Here',
   active: false, 
   handleLabelClick: null,
-  lightorange: null
+  lightorange: false
 };
