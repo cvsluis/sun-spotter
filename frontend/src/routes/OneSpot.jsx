@@ -17,17 +17,6 @@ import '../styles/OneSpot.scss';
 
 export default function OneSpot() {
 
-//check if save exists
-  useEffect(() => {
-    fetch(`http://localhost:8080/api/saves/checkSave`, {
-      method: "POST",
-      headers: 'application/json',
-      body: JSON.stringify({ userID, spotID })
-    })
-    .then((res => res.json()))
-    .then(data => console.log(data))
-    .catch(err => console.log("Error: ", err))
-  })
   const [ userID, setUserID ] = useOutletContext();
 
   const spotID = useParams().id;
@@ -39,6 +28,20 @@ export default function OneSpot() {
   
   //get weather info
   const weather = useWeather();
+
+
+
+//check if save exists
+useEffect(() => {
+  fetch(`http://localhost:8080/api/saves/checkSave`, {
+    method: "POST",
+    // headers: 'application/json',
+    body: JSON.stringify({ userID: 2, spotID })
+  })
+  .then((res => res.json()))
+  .then(data => console.log(data))
+  .catch(err => console.log("Error: ", err))
+})
 
 
   // save click handler
