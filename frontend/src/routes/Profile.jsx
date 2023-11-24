@@ -36,10 +36,6 @@ export default function Profile() {
     }
   }, [userID]);
 
-  // const fetchSavedUserSpots = () => {};
-
-  // const fetchUserVisits = () => {};
-
   return (
     <div className="profile">
       <UserInfoCard user={user}/>
