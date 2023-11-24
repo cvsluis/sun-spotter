@@ -86,20 +86,20 @@
   max-width: 64px;
   height: 4rem;
   display: inline-flex;
+  flex-direction: row-reverse;
   align-items: center;
   align-items: center;
   overflow:hidden;
   z-index: 9999;
   position: absolute;
-  top: -1rem;
-  left: -1rem;
+  left: -5rem;
   padding: 1rem 1.25rem;
 
   text-align: center;
   padding-top: 0.75rem;
   font-size: 2rem;
   font-weight: 300;
-  -webkit-transition: max-width 0.5s;
+  -webkit-transition:  max-width 0.5s;
   transition: max-width 0.5s;
   
   
@@ -117,7 +117,8 @@
 
 .one-spot__btn--text {
   white-space: nowrap;
-  margin-left: 1.42rem;
+  margin-right: 1.2rem;
+  margin-left: 1rem;
   padding-right: 0.5rem;
   font-size: 1rem;
 }
@@ -128,15 +129,15 @@
   max-width: 200px;
 
   .one-spot__btn--text {
-    animation: 0.5s slide-right;
+    animation: 0.5s slide-left;
   }
 }
 
-@keyframes slide-right {
+@keyframes slide-left {
   from {
-    transform:translateX(-20%);
+    transform:translateX(-40%);
   }
   to {
-    transform:translateX(0);
+    transform:translateX(0%);
   }
 }
