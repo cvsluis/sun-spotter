@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import VisitCard from "./VisitCard";
 import ViewToggle from "./ViewToggle";
+import Map from "./Map";
 import '../styles/UserSpots.scss';
 
 export default function UserSpots() {
@@ -46,7 +47,7 @@ export default function UserSpots() {
 
       {view === 'map' && 
       <div className="user-spots__map">
-        user saved spots here
+        <Map spots={[]} borderRadius={true} />
       </div>
       }
 
