@@ -16,11 +16,17 @@ module.exports = db => {
 
   router.post('/saves/checkSave', (req, res) => {
     const { userID, spotID } = req.body;
-    console.log("in route: help meeeee");
+    //console.log("in route: help meeeee");
 
     saveQueries.checkSave(userID, spotID) 
       .then(result => {
-        console.log("is saved? ", result)
+        console.log("is saved? ", result);
+        if (result) {
+          res.status(200).json({exists: 'true', message: "This location is saved!"})
+          return;
+        }
+        res.status(404).json({exists: 'false', message: "This location is not saved."})
+        
       })
       .catch(err => console.log("Error: ", err))
   })
