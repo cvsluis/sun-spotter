@@ -25,7 +25,7 @@ module.exports = db => {
       .then(result => {
         //console.log("is saved? (in route 23) ", result);
         if (!result) {
-          res.status(404).json({exists: 'false', message: "This location is not saved."})
+          res.status(200).json({exists: 'false', message: "This location is not saved."})
         } else {
           res.status(200).json({exists: 'true', message: "This location is saved!", id: result.id})
         }
