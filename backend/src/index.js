@@ -41,7 +41,7 @@ app.use("/api", labels(db));
 app.use("/api", users(db));
 app.use('/api', login(db));
 app.use("/api", visits(db));
-app.use('/api', saves(db));
+app.use("/api", saves(db));
 
 // Home page
 app.get('/', (req, res) => {

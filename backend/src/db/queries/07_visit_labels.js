@@ -18,5 +18,17 @@ const addVisitLabels = (visitLabels) => {
     });
 };
 
+const getOneVisitLabels = (visit_id) => {
+  return db.query(`
+        SELECT DISTINCT labels.name, labels.id
+        FROM visit_labels 
+        JOIN labels ON visit_labels.label_id = labels.id 
+        WHERE visit_labels.visit_id = $1 
+        GROUP BY labels.name, labels.id;`, [visit_id])
+    .then(data => {
+      return data.rows;
+    });
+}; 
 
-module.exports = { addVisitLabels };
+
+module.exports = { addVisitLabels, getOneVisitLabels };

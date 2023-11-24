@@ -1,0 +1,42 @@
+@import '_theme.scss';
+
+.comment__container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    object-fit: cover;
+  }
+}
+
+.comment__bubble {
+  background-color: $background-grey;
+  // width: auto;
+  width: 100%;
+  border-radius: 18px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  p {
+    font-size: 12px;
+  }
+
+  .comment__bubble-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // gap: 2rem;
+
+    p {
+      font-size: 10px;
+      color: $text-grey;
+    }
+  }
+}

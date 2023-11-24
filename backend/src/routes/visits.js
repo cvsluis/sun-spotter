@@ -2,6 +2,7 @@ const router = require("express").Router();
 const multerExport = require("../services/multer");
 const visitQueries = require('../db/queries/03_visits');
 const visitlabelQueries = require('../db/queries/07_visit_labels');
+const commentQueries = require('../db/queries/05_comments');
 
 module.exports = db => {
   // GET /api/visits/:id
@@ -10,6 +11,44 @@ module.exports = db => {
       const visitId = req.params.id;
       const visit = await visitQueries.getOneVisit(visitId);
       res.json(visit);
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  });
+
+  // GET /api/visits/:id/labels
+  router.get("/visits/:id/labels", async (req, res) => {
+    try {
+      const visitId = req.params.id;
+      const visit = await visitlabelQueries.getOneVisitLabels(visitId);
+      res.json(visit);
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  });
+
+  // GET /api/visits/:id/comments
+  router.get("/visits/:id/comments", async (req, res) => {
+    try {
+      const visitId = req.params.id;
+      const comments = await commentQueries.getVisitComments(visitId);
+      res.json(comments);
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  });
+
+  // POST /api/visits/:id/comments
+  router.post("/visits/:id/comments", async (req, res) => {
+    try {
+      const comment = req.body;
+      comment.visit_id = req.params.id;
+
+      await commentQueries.createComment(comment);
+      res.status(200).json({ message: "Comment Added!" });
     } catch (error) {
       console.error('Sorry, we could not complete your request: ', error);
       throw error;
