@@ -9,7 +9,7 @@ import Comment from '../components/Comment';
 export default function OneVisit() {
 
   const visitId = useParams().id;
-  const [visit, labels, comments] = useVisitData(visitId);
+  const [visit, labels, comments, addComment, handleCommentChange, postComment] = useVisitData(visitId);
 
   //how many stars to display
   const starNumber = Math.floor(Number(visit.rating));
@@ -78,7 +78,9 @@ export default function OneVisit() {
             </div>
           </div>
           <div className='one-visit__comments--add'>
-            <p>Add a comment</p>
+            <form onSubmit={postComment}>
+              <input value={addComment} onChange={handleCommentChange} placeholder='Add comment'></input>
+            </form>
           </div>
 
         </div>

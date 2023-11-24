@@ -134,10 +134,11 @@ $square-dimension: 650px;
     }
   }
 
-
   .one-visit__comments--add {
+    input {
+      width: 100%;
+    }
   }
-
 }
 
 .one-visit__labels {
