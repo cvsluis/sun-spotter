@@ -12,4 +12,22 @@ const getVisitComments = (id) => {
     });
 };
 
-module.exports = { getVisitComments };
+// Create Comment
+const createComment = (comment) => {
+  const { user_id, visit_id, description } = comment;
+
+  const query = `INSERT INTO comments(user_id, visit_id, description)
+                            VALUES ($1, $2, $3) 
+                            RETURNING *;`;
+
+  return db.query(query, [user_id, visit_id, description])
+    .then(data => {
+      return data.rows[0];
+    })
+    .catch(error => {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    });
+};
+
+module.exports = { getVisitComments, createComment };
