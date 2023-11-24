@@ -8,4 +8,13 @@ const createSave = (userID, spotID) => {
   .catch(err => console.log('Error inserting save into database: ', err))
 }
 
-module.exports = { createSave }
+
+const checkSave = (userID, spotID) => {
+  const query = `SELECT exists(SELECT * FROM saves WHERE user_id = $1 AND spot_id = $2);`;
+
+  return db.query(query, [userID, spotID])
+  .then(data => data.rows)
+  .catch(err => console.log('Error checking save: ', err))
+}
+
+module.exports = { createSave, checkSave }
