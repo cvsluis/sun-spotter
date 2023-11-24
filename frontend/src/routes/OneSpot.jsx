@@ -21,7 +21,7 @@ export default function OneSpot() {
   const [ userID, setUserID ] = useOutletContext();
   const spotID = useParams().id;
 
-  const [ isSaved, handleSaveClick ] = useSaved(userID, spotID);
+  const [ saveID, handleSaveClick ] = useSaved(userID, spotID);
 
   //get spot information
   const [ spotInfo, spotLabels, spotRating, spotVisits ] = useSpotData(spotID);
@@ -36,8 +36,9 @@ export default function OneSpot() {
       <header className='one-spot__header'>
         <OneSpotMap lng={spotInfo.lng} lat={spotInfo.lat} />
         <div>
+          {userID && 
           <button className='one-spot__save' onClick={(event) => {handleSaveClick(event, userID, spotID)}}>
-            {isSaved ? 
+            {saveID ? 
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#F86204" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
               <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
             </svg>
@@ -47,6 +48,7 @@ export default function OneSpot() {
             </svg> 
             }
           </button>
+          }
           
           <AboutSpot spotData={spotInfo} spotLabels={spotLabels} spotRating={spotRating}/> 
           <Link className={'one-spot__create-visit'} to={`/spots/${spotID}/visits/new`}>Add Visit</Link>
