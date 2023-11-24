@@ -4,11 +4,12 @@ import TimeAgo from 'react-timeago';
 import '../styles/OneVisit.scss';
 import useVisitData from '../hooks/useVisitData';
 import Label from '../components/Label';
+import Comment from '../components/Comment';
 
 export default function OneVisit() {
 
   const visitId = useParams().id;
-  const [visit, labels] = useVisitData(visitId);
+  const [visit, labels, comments] = useVisitData(visitId);
 
   //how many stars to display
   const starNumber = Math.floor(Number(visit.rating));
@@ -17,6 +18,10 @@ export default function OneVisit() {
   const labelList = labels.map(label => {
     return <Label key={'one-visit_' + label.id} active={true} label={label} lightorange={true} />;
   });
+
+  const commentsList = comments.map(comment => {
+    return <Comment key={'one-visit__comment_' + comment.id} comment={comment} />;
+  }); 
 
   return (
     <div className='one-visit__container'>
@@ -66,6 +71,15 @@ export default function OneVisit() {
           </div>
         </div>
         <div className='one-visit__comments--container'>
+          <div className='one-visit__comments--posted-container'>
+            <h4>Comments</h4>
+            <div className='one-visit__comments--posted'>
+              {commentsList}
+            </div>
+          </div>
+          <div className='one-visit__comments--add'>
+            <p>Add a comment</p>
+          </div>
 
         </div>
 
