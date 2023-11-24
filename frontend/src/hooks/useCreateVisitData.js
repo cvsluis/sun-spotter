@@ -72,7 +72,6 @@ export default function useCreateSpotData(spotId) {
   // for each modal, check if input has been set
   const validateInput = () => {
     if (modal === 1 &&
-      formData.visit.chosenName !== '' &&
       formData.visit.time_stamp !== '' &&
       formData.visit.description !== '' &&
       formData.visit.rating !== 0) {
