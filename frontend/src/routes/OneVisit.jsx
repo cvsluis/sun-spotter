@@ -3,15 +3,20 @@ import { useParams } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
 import '../styles/OneVisit.scss';
 import useVisitData from '../hooks/useVisitData';
+import Label from '../components/Label';
 
 export default function OneVisit() {
 
   const visitId = useParams().id;
-  const [visit] = useVisitData(visitId);
+  const [visit, labels] = useVisitData(visitId);
 
   //how many stars to display
   const starNumber = Math.floor(Number(visit.rating));
   const needsPartialStar = starNumber - Number(visit.rating) !== 0;
+
+  const labelList = labels.map(label => {
+    return <Label key={'one-visit_' + label.id} active={true} label={label} lightorange={true} />;
+  });
 
   // const commentList = comments.map(comment => {
   //   return <Comment key={'one-visit__comment_' + comment.id} comment={comment} />;
@@ -27,8 +32,7 @@ export default function OneVisit() {
 
             <div>
               <h2>{visit.first_name} {visit.last_name}</h2>
-              {/* <p>{visit.time_stamp}</p> */}
-              <p>Victoria, BC</p>
+              <p>{visit.city}, {visit.province}</p>
             </div>
           </div>
 
@@ -58,6 +62,11 @@ export default function OneVisit() {
             </div>
             <h4>{visit.description}</h4>
             <p><TimeAgo date={visit.time_stamp} /></p>
+            {/* refactor time */}
+
+          </div>
+          <div className='one-visit__labels'>
+            {labelList}
           </div>
         </div>
         <div className='one-visit__comments--container'>

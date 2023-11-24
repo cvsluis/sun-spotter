@@ -17,6 +17,18 @@ module.exports = db => {
     }
   });
 
+  // GET /api/visits/:id/labels
+  router.get("/visits/:id/labels", async (req, res) => {
+    try {
+      const visitId = req.params.id;
+      const visit = await visitlabelQueries.getOneVisitLabels(visitId);
+      res.json(visit);
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  });
+
   // GET /api/visits/:id/comments
   router.get("/visits/:id/comments", async (req, res) => {
     try {
