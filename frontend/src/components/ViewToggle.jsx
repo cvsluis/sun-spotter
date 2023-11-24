@@ -12,8 +12,6 @@ export default function({ view, setView}) {
     }
   }
 
-  console.log('view is: ', view)
-
   return (
     <div className='view-toggle'>
 

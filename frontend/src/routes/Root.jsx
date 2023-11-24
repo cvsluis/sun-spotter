@@ -11,12 +11,12 @@ export default function Root () {
   let userIDState = undefined;
 
   if(document.cookie) {
-    console.log('parsing cookie')
     const parsedCookie = parseCookie(document.cookie);
     userIDState =  Number(parsedCookie.user_id);
   }
 
   const [ userID, setUserID ] = useState(userIDState);
+
   return (
     <div>
       <TopNavBar context={[userID, setUserID]}/>
