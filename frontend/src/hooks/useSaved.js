@@ -20,6 +20,7 @@ export default function useSaved(userID, spotID) {
     .then(data => {
       //data.exists <=> save exists! setSaved to true.
       if (data.id) {
+        console.log("setting save ID as: ", data.id)
         setSaveID(data.id);
       }
       console.log(data)
@@ -30,11 +31,9 @@ export default function useSaved(userID, spotID) {
 
   // add save
   const addSave = async (userID, spotID) => {
-    console.log('adding save')
-    
-    console.log("save button clicked!")
+
     try {
-      await fetch('http://localhost:8080/api/saves', {
+      const res = await fetch('http://localhost:8080/api/saves', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,35 +41,43 @@ export default function useSaved(userID, spotID) {
         body: JSON.stringify({ userID: 2, spotID: 5 })
       });
       
-      console.log('save added!')
+      //wait for response data
+      const data = await res.json();
+      console.log("adding id and Setting save ID to: ", data.id)
+      setSaveID(data.id);
+
     } catch (error) {
       console.error('Error: ', error);
       throw error;
     }
+  
   };
   
   const removeSave = async () => {
-    console.log("removing save(implement mee!");
+    
     try {
+      console.log("about to fetch")
       await fetch(`http://localhost:8080/api/saves/${saveID}`, { method: 'DELETE'});
+      
+      console.log("deleting id and setting saveID to undefined")
+      setSaveID(undefined);
 
-      console.log("deleting id")
     } catch (error) {
       console.error("Error: ", error);
     }
   };
   
-  
-  // //will need to handle posts to saves once user auth is implemented
   const handleSaveClick = function(event, userID, spotID) {
     event.preventDefault();
+    console.log("handle save clicked. Save id is: ", saveID);
 
-    if (saveID) {
+
+    if (!saveID) {
       addSave(userID, spotID);
     } else {
+      console.log('in handle save, removing save')
       removeSave();
     }
-    setSaveID(!saveID);
   }
 
 

@@ -10,7 +10,7 @@ module.exports = db => {
     saveQueries.createSave(userID, spotID)
       .then((result) => {
         console.log(result)
-        res.status(200).json({ message: "save Created!" })
+        res.status(200).json({ message: "save Created!", id: result.id })
       })
       .catch(err => console.log("Error: ", err));
   })
@@ -32,7 +32,20 @@ module.exports = db => {
         
       })
       .catch(err => console.log("Error: ", err))
-  })
+  });
+
+  router.delete('/saves/:id', (req, res) => {
+    const saveID = req.params.id;
+   // console.log(saveID);
+    console.log('in delete route')
+
+    saveQueries.deleteSave(saveID) 
+      .then(() => {
+        console.log("it's been deleted!");
+        res.status(200).json({message: "success deleting!"})
+      })
+      .catch(err => console.log("Error: ", error));
+  });
 
   return router;
 }
