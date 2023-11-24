@@ -31,23 +31,26 @@ export default function OneSpot() {
   const weather = useWeather();
 
 
-    // save click handler
-    const handleSaveClick = async (event) => {
-      event.preventDefault();
-      try {
-        await fetch('http://localhost:8080/api/saves', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({userID: 2, spotID})
-        });
-      } catch (error) {
-        console.log("error in onespot")
-        console.error('Error: ', error);
-        throw error;
-      }
-    };
+  // save click handler
+  const handleSaveClick = async (event) => {
+    event.preventDefault();
+    console.log("save clicked!")
+    try {
+      await fetch('http://localhost:8080/api/saves', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({userID: 2, spotID})
+      });
+    } catch (error) {
+      console.log("error in onespot")
+      console.error('Error: ', error);
+      throw error;
+    }
+    console.log("after save post!")
+    toggleSaved();
+  };
 
   return (
     <div className='one-spot'>

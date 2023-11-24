@@ -7,7 +7,10 @@ module.exports = db => {
     const { userID, spotID } = req.body
     console.log(userID);
     saveQueries.createSave(userID, spotID)
-      .then(res => res.status(201).json({ message: 'Data saved successfully' }))
+      .then((result) => {
+        console.log(result)
+        res.status(200).json({ message: "save Created!" })
+      })
       .catch(err => console.log("Error: ", err));
   })
   return router;
