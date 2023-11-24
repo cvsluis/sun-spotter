@@ -5,6 +5,35 @@ export default function useVisitData(visitId) {
   const [labels, setLabels] = useState([]);
   const [comments, setComments] = useState([]);
 
+  const [addComment, setAddComment] = useState('');
+  const [refresh, setRefresh] = useState(false);
+
+  const handleCommentChange = (e) => {
+    setAddComment(e.target.value);
+  };
+
+  const postComment = async (event) => {
+    event.preventDefault();
+    
+    try {
+      const res = await fetch(`http://localhost:8080/api/visits/${visitId}/comments`, {
+        method: 'POST',
+        body: JSON.stringify({
+          description: addComment,
+          user_id: 1
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+      setAddComment('');
+      setRefresh(!refresh);
+    } catch (error) {
+      console.error('Sorry, we could not complete your request: ', error);
+      throw error;
+    }
+  };
+
   useEffect(() => {
     const fetchVisit = async () => {
       try {
@@ -21,7 +50,7 @@ export default function useVisitData(visitId) {
     };
 
     fetchVisit();
-  }, []);
+  }, [refresh]);
 
-  return [visit, labels, comments];
+  return [visit, labels, comments, addComment, handleCommentChange, postComment];
 }

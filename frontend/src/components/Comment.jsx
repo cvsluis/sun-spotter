@@ -9,7 +9,7 @@ export default function Comment({ comment }) {
       <div className='comment__bubble'>
         <div className='comment__bubble-header'>
           <h5>{comment.first_name} {comment.last_name}</h5>
-          <p><TimeAgo date={comment.created_at} /></p>
+          <p><TimeAgo date={comment.created_at} minPeriod={3} /></p>
         </div>
         <p>{comment.description}</p>
       </div>
