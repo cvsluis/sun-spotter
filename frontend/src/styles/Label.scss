@@ -16,6 +16,11 @@
   background-color: $button-orange;
 }
 
+.label__lightorange {
+  background-color: $light-orange;
+  color: #000;
+}
+
 .label__hover.label__inactive:hover {
   cursor: pointer;
   background-color: $button-grey-hover;

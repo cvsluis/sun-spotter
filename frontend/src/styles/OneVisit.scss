@@ -14,7 +14,7 @@ $square-dimension: 650px;
 
 .one-visit__details--container {
   padding: 2rem;
-  width: 400px;
+  width: 420px;
 }
 
 .one-visit__image--container {
@@ -109,4 +109,12 @@ $square-dimension: 650px;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.one-visit__labels {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
