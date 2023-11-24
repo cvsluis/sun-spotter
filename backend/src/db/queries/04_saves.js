@@ -23,10 +23,8 @@ const checkSave = (userID, spotID) => {
 
 const deleteSave = (saveID) => {
   const query = `DELETE FROM saves WHERE id = $1`;
-  console.log("in deleteSave. The id im deleting is: ", saveID)
   return db.query(query, [saveID])
   .then(data => {
-    console.log("deleted. sending back: ", data.rows)
     return;
   })
   .catch(err => console.log("Error deleting save: ", err));
