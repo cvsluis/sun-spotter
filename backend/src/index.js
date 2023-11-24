@@ -33,6 +33,7 @@ const labels = require("./routes/labels");
 const users = require("./routes/users");
 const login = require('./routes/login');
 const visits = require("./routes/visits");
+const saves = require("./routes/saves");
 
 // Mount all resource routes
 app.use("/api", spots(db));
@@ -40,6 +41,7 @@ app.use("/api", labels(db));
 app.use("/api", users(db));
 app.use('/api', login(db));
 app.use("/api", visits(db));
+app.use("/api", saves(db));
 
 // Home page
 app.get('/', (req, res) => {
