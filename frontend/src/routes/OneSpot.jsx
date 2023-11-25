@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link, useOutletContext } from 'react-router-dom';
 
+
 //import hooks
 import useSpotData from '../hooks/useSpotData';
 import useSaved from '../hooks/useSaved'
