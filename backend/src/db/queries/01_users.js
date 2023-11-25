@@ -29,11 +29,23 @@ const getVisitsByUser = (userID) => {
 };
 
 const getSavesByUser = function(userID) {
-  const query = `SELECT SPOTS.id, SPOTS.lat AS lat, SPOTS.lng AS lng, SPOTS.name AS spotName, SPOTS.city AS city, SPOTS.province AS province, SPOTS.country AS country 
-                            FROM SPOTS
-                            JOIN SAVES ON SPOTS.id = SAVES.spot_id
-                            JOIN VISITS ON SPOTS.id = VISITS.spot_id
-                            WHERE SAVES.user_id = $1 GROUP BY spots.id;`;
+  const query = `SELECT
+  SPOTS.name AS spotName,
+  MIN(SPOTS.id) AS spot_id,
+  MIN(SPOTS.lat) AS lat,
+  MIN(SPOTS.lng) AS lng,
+  MIN(SPOTS.city) AS city,
+  MIN(SPOTS.province) AS province,
+  MIN(SPOTS.country) AS country,
+  MIN(VISITS.image_url) AS image_url
+FROM
+  SPOTS
+JOIN SAVES ON SPOTS.id = SAVES.spot_id
+JOIN VISITS ON SPOTS.id = VISITS.spot_id
+WHERE
+  SAVES.user_id = $1
+GROUP BY
+  SPOTS.name;`;
   return db.query(query, [userID]).then((data) => data.rows);
 };
 

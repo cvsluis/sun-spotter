@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import useUserPins from "../hooks/useUserPins";
 import VisitCard from "./VisitCard";
+import SavedSpotCard from './SavedSpotCard';
 import ViewToggle from "./ViewToggle";
 import Map from "./Map";
 import '../styles/UserSpots.scss';
@@ -22,7 +23,6 @@ export default function UserSpots() {
 
   // User Visits & Spots Data
   const [userSaves, userVisits] = useUserPins(userID);
-  
   //view toggle
   const [ view, setView ] = useState('visits');
 
@@ -41,7 +41,7 @@ export default function UserSpots() {
       {/* user spot view changes with toggle */}
       {view === 'saved' && 
       <div className="user-spots__saves">
-        saved spots content here
+        {userSaves.map(spot => <SavedSpotCard spot={spot} key={spot.id}/>)}
       </div>
       }
 
