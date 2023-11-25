@@ -7,22 +7,22 @@ import Label from '../components/Label';
 import Comment from '../components/Comment';
 
 export default function OneVisit() {
-
   const visitId = useParams().id;
   const [visit, labels, comments, addComment, handleCommentChange, postComment] = useVisitData(visitId);
-
+  
   //how many stars to display
   const starNumber = Math.floor(Number(visit.rating));
   const needsPartialStar = starNumber - Number(visit.rating) !== 0;
-
+  
   const labelList = labels.map(label => {
     return <Label key={'one-visit_' + label.id} active={true} label={label} lightorange={true} />;
   });
-
+  
   const commentsList = comments.map(comment => {
     return <Comment key={'one-visit__comment_' + comment.id} comment={comment} />;
   }); 
-
+  
+  console.log(visit.time_stamp)
   return (
     <div className='one-visit__container'>
       <div className='one-visit__details--container'>

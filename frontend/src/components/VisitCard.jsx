@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import TimeAgo from 'react-timeago';
 import dateFormatter from '../utils/dateFormatter';
 
 //import styles
@@ -7,7 +8,10 @@ import '../styles/VisitCard.scss'
 
 export default function VisitCard({ visit, isProfilePage }) {
   
+  //if visit less or equal to one month ago, display timeago. otherwise display date
   const visitDate = new Date(visit.date);
+  const isVisitOld = (Date.now() - visitDate) > 2628000000;
+
 
   return (
     <Link to={`/visits/${visit.id}`} className='visitCard__container'>
@@ -29,9 +33,9 @@ export default function VisitCard({ visit, isProfilePage }) {
           }
           
           {isProfilePage ?
-          <div className='visitCard__date visitCard__date--profile'>{dateFormatter(visitDate)}</div>
+          <div className='visitCard__date visitCard__date--profile'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</div>
           : 
-          <div className='visitCard__date'>{dateFormatter(visitDate)}</div>
+          <div className='visitCard__date'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</div>
           }
         </div>
       </div>
