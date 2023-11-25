@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { useParams, useNavigate } from 'react-router-dom';
+import useUserPins from "../hooks/useUserPins";
 import VisitCard from "./VisitCard";
 import ViewToggle from "./ViewToggle";
+import Map from "./Map";
 import '../styles/UserSpots.scss';
 
 export default function UserSpots() {
+  // for redirect after form submission
+  const navigate = useNavigate();
+
+  const handlePinClick = (spotId) => {
+    navigate(`/spots/${spotId}`);
+  };
+
+  const handleVisitClick = (visitId) => {
+    navigate(`/visits/${visitId}`);
+  };
   
   const userID = useParams().id;
 
-  //visit data
-  const [ userVisits, setUserVisits ] = useState([]);
+  // User Visits & Spots Data
+  const [userSaves, userVisits] = useUserPins(userID);
   
   //view toggle
   const [ view, setView ] = useState('visits');
-    
-  //fetch visits
-  useEffect(() => {
-    fetch(`http://localhost:8080/api/users/${userID}/visits`)
-      .then(res => res.json())
-      .then(data => {
-        //console.log(data)
-        setUserVisits(data)
-      })
-      .catch(err => console.log('Error fetching data: ', err));
-  }, []);
 
   return (
     <div className="user-spots__container">
@@ -46,7 +47,7 @@ export default function UserSpots() {
 
       {view === 'map' && 
       <div className="user-spots__map">
-        user saved spots here
+          <Map spots={userSaves} spots2={userVisits} borderRadius={true} handlePinClick={handlePinClick} handleVisitClick={handleVisitClick} />
       </div>
       }
 

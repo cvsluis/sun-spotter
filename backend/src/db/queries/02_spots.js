@@ -74,7 +74,7 @@ const getSpotRating = (spotID) => {
 
 // Get All Labels associated with one spot and their respective counts
 const getSpotLabels = (id) => {
-  const query = `SELECT labels.id as id, labels.name as name, COUNT(visits.name) 
+  const query = `SELECT labels.id as id, labels.name as name, COUNT(visits.id) 
                   FROM spots JOIN visits 
                   ON spots.id = visits.spot_id 
                   JOIN visit_labels 
