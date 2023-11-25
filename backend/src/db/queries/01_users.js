@@ -26,7 +26,7 @@ const getVisitsByUser = (userID) => {
 };
 
 const getSavesByUser = function(userID) {
-  const query = `SELECT SPOTS.id AS spot_id, SPOTS.lat AS lat, SPOTS.lng AS lng, SPOTS.name AS spotName, SPOTS.city AS city, SPOTS.province AS province, SPOTS.country AS country, VISITS.*
+  const query = `SELECT SPOTS.id, SPOTS.lat AS lat, SPOTS.lng AS lng, SPOTS.name AS spotName, SPOTS.city AS city, SPOTS.province AS province, SPOTS.country AS country 
                             FROM SPOTS
                             JOIN SAVES ON SPOTS.id = SAVES.spot_id
                             JOIN VISITS ON SPOTS.id = VISITS.spot_id
