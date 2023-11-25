@@ -35,7 +35,7 @@ export default function CreateVisit() {
             <div className='createSpot__header'>
               <h2>Step 1: Add your sunset details</h2>
             </div>
-            <FormDetails handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} visitValues={formData.visit} handleRatingInput={handleRatingInput} />
+            <FormDetails formType={'visit'} handleFormChange={handleFormChange} handleLabelClick={handleLabelClick} isClicked={isClicked} visitValues={formData.visit} handleRatingInput={handleRatingInput} />
           </div>
         }
 
