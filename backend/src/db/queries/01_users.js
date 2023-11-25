@@ -16,7 +16,8 @@ const getUserByID = (id) => {
 
 const getVisitsByUser = (userID) => {
   query = `SELECT visits.id as id, visits.time_stamp as date, visits.image_url as image_url, visits.name as name
-   FROM visits WHERE visits.user_id = $1`
+   FROM visits WHERE visits.user_id = $1
+   ORDER BY visits.time_stamp;`
 
   return db.query(query, [userID])
     .then(data => data.rows)
