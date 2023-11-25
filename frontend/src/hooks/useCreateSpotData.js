@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useOutletContext } from "react-router-dom";
 
 export default function useCreateSpotData() {
-  // for redirect after form submission
+  // for redirect
   const navigate = useNavigate();
-
+  // logged in user
   const [userID] = useOutletContext();
-
+  // not logged in, redirect to login
   if (userID === undefined) {
     navigate("/login");
   }
