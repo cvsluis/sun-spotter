@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useVisitData(visitId) {
+export default function useVisitData(visitId, userID) {
   const [visit, setVisit] = useState({});
   const [labels, setLabels] = useState([]);
   const [comments, setComments] = useState([]);
@@ -20,7 +20,7 @@ export default function useVisitData(visitId) {
         method: 'POST',
         body: JSON.stringify({
           description: addComment,
-          user_id: 1
+          user_id: userID
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8"

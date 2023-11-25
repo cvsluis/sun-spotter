@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useOutletContext } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
 import '../styles/OneVisit.scss';
 import useVisitData from '../hooks/useVisitData';
@@ -7,8 +7,11 @@ import Label from '../components/Label';
 import Comment from '../components/Comment';
 
 export default function OneVisit() {
+  // get logged in user
+  const [userID] = useOutletContext();
+
   const visitId = useParams().id;
-  const [visit, labels, comments, addComment, handleCommentChange, postComment] = useVisitData(visitId);
+  const [visit, labels, comments, addComment, handleCommentChange, postComment] = useVisitData(visitId, userID);
   
   //how many stars to display
   const starNumber = Math.floor(Number(visit.rating));
@@ -22,7 +25,6 @@ export default function OneVisit() {
     return <Comment key={'one-visit__comment_' + comment.id} comment={comment} />;
   }); 
   
-  console.log(visit.time_stamp)
   return (
     <div className='one-visit__container'>
       <div className='one-visit__details--container'>
@@ -81,6 +83,7 @@ export default function OneVisit() {
 
         </div>
 
+        { userID && 
         <div className='one-visit__comments--add'>
           <form onSubmit={postComment}>
             <div className='comment-input'>
@@ -90,7 +93,7 @@ export default function OneVisit() {
               <input value={addComment} onChange={handleCommentChange} placeholder='Add comment'></input>
             </div>
           </form>
-        </div>
+        </div> }
       </div>
       
       <div className='one-visit__image--container'>
