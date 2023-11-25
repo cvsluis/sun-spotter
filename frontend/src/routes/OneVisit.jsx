@@ -22,7 +22,6 @@ export default function OneVisit() {
     return <Comment key={'one-visit__comment_' + comment.id} comment={comment} />;
   }); 
   
-  console.log(visit.time_stamp)
   return (
     <div className='one-visit__container'>
       <div className='one-visit__details--container'>
