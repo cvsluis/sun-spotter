@@ -30,7 +30,7 @@ const getSavesByUser = function(userID) {
                             FROM SPOTS
                             JOIN SAVES ON SPOTS.id = SAVES.spot_id
                             JOIN VISITS ON SPOTS.id = VISITS.spot_id
-                            WHERE SAVES.user_id = $1;`;
+                            WHERE SAVES.user_id = $1 GROUP BY spots.id;`;
   return db.query(query, [userID]).then((data) => data.rows);
 };
 
