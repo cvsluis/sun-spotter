@@ -35,13 +35,13 @@ nav .nav__explore-link{
   text-decoration: none;
   font-size: 13px;
   color: black;
-  // transition: $transition-3;
+  transition: $transition-3;
 
-  // &:hover {
-  //   cursor: pointer;
-  //   transition: $transition-3;
-  //   transform: scale(1.05);
-  // }
+  &:hover {
+    cursor: pointer;
+    transition: $transition-3;
+    transform: scale(1.04);
+  }
 }
 
 nav button {
@@ -116,6 +116,6 @@ nav button {
   margin: 2rem 1.5rem;
 
   &:hover{
-    box-shadow: $shadow-grey 0px 2px 8px 0px;
+    box-shadow: $shadow-grey 0px 2px 8px 1px;
   }
 }
