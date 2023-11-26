@@ -77,20 +77,23 @@
 .navigationButton__btn-orange {
   background-color: $button-orange;
   color: #fff;
+  transition: $transition-3;
 
   &:hover {
     cursor: pointer;
     background-color: $button-orange-hover;
+    transition: $transition-3;
   }
 }
 
 .navigationButton__btn-grey {
   background-color: inherit;
   color: #000;
-  transition: 0.3s;
+  transition: $transition-3;
 
   &:hover {
     cursor: pointer;
     background-color: #efefef;
+    transition: $transition-3;
   }
 }

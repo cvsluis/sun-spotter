@@ -1,7 +1,5 @@
 @import '_theme.scss';
 
-
-
 .one-spot{
   max-width: 1020px;
   min-width: 1020px;
@@ -49,10 +47,13 @@
   position: absolute;
   bottom: 0;
   right: 0;
-}
+  transition: $transition-3;
 
-.one-spot__create-visit:hover {
-  background-color: $button-orange-hover;
+  &:hover {
+    cursor: pointer;
+    background-color: $button-orange-hover;
+    transition: $transition-3;
+  }
 }
 
 .one-spot__header > div {
@@ -68,6 +69,10 @@
     top: 0;
     right: 0;
     margin: 1.0em;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
