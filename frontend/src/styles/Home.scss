@@ -63,7 +63,7 @@ body {
 /* Define the keyframes for the slide down animation */
 @keyframes slide-down {
   0% {
-    transform: translateY(-100%);
+    transform: translateY(-30%);
  }
   100% {
     transform: translateY(0%);
@@ -71,5 +71,5 @@ body {
 }
 
 .slide-down-paragraph {
-  animation: slide-down 4s forwards;
+  animation: slide-down 0.8s;
  }
