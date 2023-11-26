@@ -36,15 +36,15 @@
     color: $text-light-grey;
     padding: 0;
   }
-}
 
-.spotCard__container:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
 
-  .spotCard__image img {
-    transform: scale(1.08);
+    .spotCard__image img {
+      transform: scale(1.08);
+      transition: ease-out 0.25s;
+    }
   }
-
 }
 
 .spotCard__details {
