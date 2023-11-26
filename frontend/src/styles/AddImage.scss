@@ -26,10 +26,16 @@
   top: -20px;
   right: -20px;
   z-index: 100;
+  transition: $transition-3;
 
   &:hover {
     cursor: pointer;
     background-color: #dedede;
+    transition: $transition-3;
+  }
+
+  .addImage__icon {
+    color: $text-grey;
   }
 }
 
