@@ -53,9 +53,12 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  transition: $transition-3;
 
   &:hover {
+    cursor: pointer;
     background-color: $background-grey;
+    transition: $transition-3;
   }
 }
 
