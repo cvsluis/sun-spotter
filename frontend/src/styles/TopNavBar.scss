@@ -116,6 +116,7 @@ nav button {
   margin: 2rem 1.5rem;
 
   &:hover{
+    cursor: pointer;
     box-shadow: $shadow-grey 0px 2px 8px 1px;
   }
 }
