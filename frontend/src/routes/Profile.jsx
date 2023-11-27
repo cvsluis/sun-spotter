@@ -33,10 +33,9 @@ export default function Profile() {
   };
 
   useEffect(() => {
-    if (userID) {
-      fetchUser();
-    }
-  }, [userID]);
+    fetchUser();
+  }, []);
+
 
   // const fetchSavedUserSpots = () => {};
 
@@ -45,7 +44,7 @@ export default function Profile() {
   return (
     <div className="profile">
       <UserInfoCard user={user}/>
-      <UserSpots />
+      <UserSpots userID={userID} userPageID={userPageID}/>
     </div>
   );
 }
