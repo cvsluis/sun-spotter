@@ -113,6 +113,7 @@ export default function Home() {
                 type="text"
                 id="search"
                 placeholder="Search by city"
+                autoComplete='off'
                 value={searchInput}
                 onChange={handleInput}
               ></input>
