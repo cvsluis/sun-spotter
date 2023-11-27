@@ -24,7 +24,7 @@ export default function SpotCarousel({spots}) {
 }
 
 const spotsCarouselList = spots.map((spot) => {
-  return <SavedSpotCard className="carousel__spotCard" style={{ height: '500px', padding: '1.5rem' }} spot={spot} key={spot.id} />
+  return <SavedSpotCard className="carousel__spotCard" spot={spot} key={spot.id} />
 });
 
 return(
