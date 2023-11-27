@@ -14,7 +14,7 @@ export default function VisitCard({ visit, isProfilePage }) {
 
 
   return (
-    <Link to={`/visits/${visit.id}`} className='visitCard__container'>
+    <Link to={`/visits/${visit.id}`} className={`visitCard__container ${isProfilePage ? "" : "oneSpot-visitCard__container"}`} >
       <div className='visitCard__image'>
         <img src={`http://localhost:8080/${visit.image_url}`} alt={visit.image_alt} />
       </div>
