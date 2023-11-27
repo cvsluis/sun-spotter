@@ -4,7 +4,7 @@
   color: #000000;
   text-decoration: none;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -52,8 +52,10 @@ h3 {
 }
 
 .visitCard__image {
+  width: 100%;
   border-radius: 24px;
   overflow: hidden;
+
   img {
     transition: ease-in 0.25s;
     width: 100%;
