@@ -107,8 +107,6 @@ export default function Home() {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  console.log(userVisits, '<<<<<<<<<<<<<<<<<');
-
   return (
     <div>
       <header>
@@ -168,7 +166,7 @@ export default function Home() {
 
           <div className="spots__saved">
             <h1 className="spots__carousel-title">
-              Your favourites sunset spots
+              Your favourite sunset spots
             </h1>
             <div className="spots__carousel"></div>
             <UserSpotsCarousel spots={userSaves} />
