@@ -22,7 +22,6 @@ export default function HomeCarousel({ places }) {
       items: 1
     }
   };
-  console.log(places);
 
   const carouselPlaces = places.map((place) => {
     return <CarouselCard spot={place} key={place.id} />;
