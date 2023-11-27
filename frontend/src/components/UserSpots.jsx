@@ -41,7 +41,7 @@ export default function UserSpots() {
       {/* user spot view changes with toggle */}
       {view === 'saved' && 
       <div className="user-spots__saves">
-        {userSaves.map(spot => <SavedSpotCard view='view2' spot={spot} key={spot.id}/>)}
+        {userSaves.map(spot => <SavedSpotCard spot={spot} key={spot.id}/>)}
       </div>
       }
 
