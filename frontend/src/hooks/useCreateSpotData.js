@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 export default function useCreateSpotData() {
-  // for redirect after form submission
+  // for redirect
   const navigate = useNavigate();
+  // logged in user
+  const [userID] = useOutletContext();
+  // not logged in, redirect to login
+  if (userID === undefined) {
+    navigate("/login");
+  }
 
   // FORM DATA STATE
   const [formData, setFormData] = useState({
     spot: { city: 'Victoria', province: 'BC', country: 'Canada', lat: '', lng: '' },
-    visit: { chosenName: '', time_stamp: '', description: '', rating: 0, image: '' },
+    visit: { user_id: userID, chosenName: '', time_stamp: '', description: '', rating: 0, image: '' },
     labels: []
   });
 
