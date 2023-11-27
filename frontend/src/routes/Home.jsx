@@ -4,6 +4,7 @@ import { useOutletContext } from "react-router-dom";
 import useWeather from "../hooks/useWeather";
 import SpotCarousel from "../components/SpotCarousel";
 import UserSpotsCarousel from "../components/UserSpotsCarousel";
+import VisitSpotsCarousel from '../components/VisitSpotsCarousel';
 import useUserPins from "../hooks/useUserPins";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
@@ -106,6 +107,8 @@ export default function Home() {
     return () => clearTimeout(timeoutId);
   }, []);
 
+  console.log(userVisits, '<<<<<<<<<<<<<<<<<');
+
   return (
     <div>
       <header>
@@ -168,7 +171,7 @@ export default function Home() {
               Your favourites sunset spots
             </h1>
             <div className="spots__carousel"></div>
-            <UserSpotsCarousel view='view1' spots={userSaves} />
+            <UserSpotsCarousel spots={userSaves} />
           </div>
 
           <div className="spots__visits">
@@ -176,7 +179,7 @@ export default function Home() {
               Your Visits
             </h1>
             <div className="spots__carousel"></div>
-            <UserSpotsCarousel view='view1' spots={userVisits} />
+            <VisitSpotsCarousel visits={userVisits} />
           </div>
 
         </section>
