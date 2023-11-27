@@ -12,8 +12,8 @@ export default function SavedSpotCard({ spot, view }) {
       </div>
       <div className='savedSpotCard__details'>
         <div className='savedSpotCard__header'>
-          <p className="savedSpotCard__title">{spot.spotname}</p>
-          <p className="savedSpotCard__location">{spot.city}, {spot.province}</p>
+          <h2 className="savedSpotCard__title">{spot.spotname}</h2>
+          <h3 className="savedSpotCard__location">{spot.city}, {spot.province}</h3>
         </div>
       </div>
     </Link>

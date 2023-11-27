@@ -9,6 +9,18 @@
   flex-direction: column;
   gap: 0.65rem;
   padding: 1.5rem;
+
+  h2, h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+}
+
+h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: $text-grey;
 }
 
 .visitCard__container:hover .visitCard__image img {
@@ -21,12 +33,12 @@
 }
 
 .visitCard__details {
-  font-size: 14px;
-  //font-weight: 800;
+  font-size: 16px;
+  font-weight: 700;
 }
 .visitCard__date {
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 13px;
+  font-weight: 700;
   color: $text-light-grey;
 
 }
@@ -37,8 +49,6 @@
 
 .visitCard__name {
   margin-left: 0.5em;
-  font-size: 14px;
-  font-weight: 800px;
 }
 
 .visitCard__image {

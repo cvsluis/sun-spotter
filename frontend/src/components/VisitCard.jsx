@@ -23,19 +23,19 @@ export default function VisitCard({ visit, isProfilePage }) {
         <div className='visitCard__details'>
           {/* visit card info looks different depending on where the card is called */}
           {isProfilePage ?
-          <div className='visitCard__name'>
+          <h2 className='visitCard__name'>
             {visit.spot_name}
-          </div>
+          </h2>
           :
-          <div className='visitCard__user'>
+          <h2 className='visitCard__user'>
             {visit.first_name} {visit.last_name}
-          </div>
+          </h2>
           }
           
           {isProfilePage ?
-          <div className='visitCard__date visitCard__date--profile'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</div>
+          <h3 className='visitCard__date visitCard__date--profile'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</h3>
           : 
-          <div className='visitCard__date'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</div>
+          <h3 className='visitCard__date'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</h3>
           }
         </div>
       </div>

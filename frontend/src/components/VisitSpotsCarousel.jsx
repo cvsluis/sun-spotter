@@ -24,7 +24,7 @@ export default function VisitCarousel({visits}) {
 }
 
 const visitsCarouselList = visits.map((visit) => {
-  return <VisitCard className="carousel__spotCard" visit={visit} key={visit.id} />
+  return <VisitCard className="carousel__spotCard" visit={visit} isProfilePage={true} key={visit.id} />
 });
 
 return(
