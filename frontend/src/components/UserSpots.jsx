@@ -29,13 +29,15 @@ export default function UserSpots() {
   return (
     <div className="user-spots__container">
       <header className="user-spots__header">
-        <span className="user-spots__category">
-          { view === 'map' && <h2>My Spots</h2> }
-          { view === 'saved' && <h2>My Saved Spots</h2> }
-          { view === 'visits' && <h2>My Visited Spots</h2>}
-        </span>
+        <div className="user-spots__category">
+          { view === 'map' && <h1>My Spots</h1> }
+          { view === 'saved' && <h1>My Saved Spots</h1> }
+          { view === 'visits' && <h1>My Visited Spots</h1>}
+        </div>
 
+        <div>
         <ViewToggle view={view} setView={setView}/>
+        </div>
       </header>
 
       {/* user spot view changes with toggle */}

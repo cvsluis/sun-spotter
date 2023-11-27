@@ -1,35 +1,47 @@
 @import '_theme.scss';
 
 .user-spots__container {
-  padding: 2rem 1.5rem;
-  width: 812px;
+
+  width: 876px;
   height: auto;
   flex: 16 auto;
   position: relative;
 
-  h2 {
-    font-size: 16px;
-  }
 
 }
 
 .user-spots__header {
-  margin-bottom: 2rem;
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: space-between; 
+
+
+  h1{
+    font-size: 32px; 
+
+    padding: 2rem 1.5rem; 
+    text-align: center; 
+  }
 }
 
 .user-spots__saves {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5em;
+  margin-bottom: 2rem;
+
 }
 
 .user-spots__visits {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5em;
+  margin-bottom: 2rem;
 }
 
 .user-spots__map {
-  width: 100%;
+  width: auto;
   height: 650px;
+  margin: 2rem 1.5rem;
 }
