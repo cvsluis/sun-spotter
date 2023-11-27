@@ -135,14 +135,14 @@ export default function Home() {
       <section className="list__spots">
         <div className="spots__near-user">
           <h1 className="spots__carousel-title">Local favourites near Victoria</h1>
-          <div className="spots__carousel"></div>
           <SpotCarousel spots={spots} />
         </div>
 
-        <div className="spots__saved">
-          <h1 className="spots__carousel-title">Your favourites sunset spots</h1>
-          <div className="spots__carousel"></div>
-          <SpotCarousel spots={spots} />
+        <div className="spots__saved--container">
+          <div className="spots__saved">
+            <h1 className="spots__carousel-title">Your favourites sunset spots</h1>
+            <SpotCarousel spots={spots} />
+          </div>
         </div>
       </section>
     </div>

@@ -28,22 +28,25 @@ const spotsCarouselList = spots.map((spot) => {
 });
 
 return(
-<Carousel
-  swipeable={true}
-  draggable={true}
-  arrows={true}
-  responsive={responsive}
-  ssr={true} // means to render carousel on server-side.
-  infinite={true}
-  autoPlaySpeed={1000}
-  keyBoardControl={true}
-  customTransition="all .5"
-  transitionDuration={500}
-  sliderClass='react-multi-carousel-track'
->
-  { spotsCarouselList }
-  {spotsCarouselList.length === 0 && <p className='sideBar__error'>No search results found</p>}
-</Carousel>
+  <div className="home__carousel-container">
+  <Carousel
+    swipeable={true}
+    draggable={true}
+    arrows={true}
+    responsive={responsive}
+    ssr={true} // means to render carousel on server-side.
+    infinite={true}
+    autoPlaySpeed={1000}
+    keyBoardControl={true}
+    customTransition="all .5"
+    transitionDuration={500}
+    sliderClass='react-multi-carousel-track'
+    className="home__carousel"
+  >
+    { spotsCarouselList }
+    {spotsCarouselList.length === 0 && <p className='sideBar__error'>No search results found</p>}
+  </Carousel>
+  </div>
 )
 
 };
