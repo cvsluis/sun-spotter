@@ -25,9 +25,6 @@ module.exports = db => {
       const data = JSON.parse(req.body.data);
       const file = req.file; // to get file name
 
-      // need to be logged in, check for user (to be implemented)
-      // for now user_id will be 1
-      const user_id = 1;
       const newSpot = data.spot;
       const newVisit = data.visit;
       const newVisitLabels = data.labels;
@@ -36,7 +33,6 @@ module.exports = db => {
 
       // add details to new Visit
       newVisit.spot_id = spot.id;
-      newVisit.user_id = user_id;
       newVisit.time_stamp = newVisit.time_stamp.replace("T", " ");
       newVisit.image_url = 'images/' + file.originalname;
 
