@@ -1,9 +1,8 @@
 @import '_theme.scss';
 
 .user-spots__container {
-  width: 786px;
   padding: 2rem 1.5rem;
-  
+  width: 812px;
   height: auto;
   flex: 16 auto;
   position: relative;
@@ -20,13 +19,13 @@
 .user-spots__saves {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1.5em;
+  grid-gap: 0.5em;
 }
 
 .user-spots__visits {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1.5em;
+  grid-gap: 0.5em;
 }
 
 .user-spots__map {
