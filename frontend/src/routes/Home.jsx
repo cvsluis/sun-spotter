@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import useUserPins from "../hooks/useUserPins";
+import useUser from "../hooks/useUser";
 import useWeather from "../hooks/useWeather";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
@@ -13,8 +14,9 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [timeToSunset, setTimeToSunset] = useState({ hours: 0, minutes: 0 });
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
-  const [userID] = useOutletContext();
+  const [userID, setUserID] = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
+  const [user] = useUser(userID);
 
   const handleInput = (e) => {
     setSearchInput(e.target.value);
