@@ -114,7 +114,9 @@ export default function Home() {
         <img className="header__img" alt="sunset" src={sunset}></img>
 
         <div className="welcome__section">
-          <h4 className="header__title">Welcome, user!</h4>
+        <h4 className="header__title">
+            {user ? `Welcome, ${user.first_name}!` : "Welcome, sun chaser!"}
+          </h4>
 
           <div className="search__wrapper">
             <form action="/search" method="get" onSubmit={handleFormSubmit}>
