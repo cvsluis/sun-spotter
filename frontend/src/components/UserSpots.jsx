@@ -5,6 +5,9 @@ import VisitCard from "./VisitCard";
 import SavedSpotCard from './SavedSpotCard';
 import ViewToggle from "./ViewToggle";
 import Map from "./Map";
+
+import { ReactComponent as Yellow } from '../assets/pins/yellow.svg';
+import { ReactComponent as Purple } from '../assets/pins/purple.svg';
 import '../styles/UserSpots.scss';
 
 export default function UserSpots({ userID, userPageID }) {
@@ -48,7 +51,11 @@ export default function UserSpots({ userID, userPageID }) {
 
       {view === 'map' && 
       <div className="user-spots__map">
-          <Map spots={userSaves} spots2={userVisits} borderRadius={true} handlePinClick={handlePinClick} handleVisitClick={handleVisitClick} />
+        <div className="user-spots__legend">
+          <div className="user-spots__legend-item"><Yellow /> Saved Spots</div>
+          <div className="user-spots__legend-item"><Purple /> Visits</div>
+        </div>
+        <Map spots={userSaves} spots2={userVisits} borderRadius={true} handlePinClick={handlePinClick} handleVisitClick={handleVisitClick} />
       </div>
       }
 

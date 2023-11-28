@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import Map from '../components/Map';
 import SideBar from '../components/SideBar';
 import AllSpotsSearch from '../components/AllSpotsSearch';
 import '../styles/AllSpots.scss';
 
 export default function AllSpots() {
+  // logged in user
+  const [userID] = useOutletContext();
   // all spots state
   const [spots, setSpots] = useState([]);
   
@@ -53,10 +55,11 @@ export default function AllSpots() {
     <div className='allSpots__map-container'>
       <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} />
       <div className='allSpots__map'>
-          <Link className='allSpots__btn--add-spot' to='/spots/new'>
-            <span className='allSpots__btn--icon'>+</span>
-            <span className='allSpots__btn--text slide-right'>Add Spot to Map</span>
-          </Link>
+          { userID &&
+            <Link className='allSpots__btn--add-spot' to='/spots/new'>
+              <span className='allSpots__btn--icon'>+</span>
+              <span className='allSpots__btn--text slide-right'>Add Spot to Map</span>
+            </Link> }
         <Map spots={spots} handlePinClick={handlePinClick} />
       </div>
     </div>

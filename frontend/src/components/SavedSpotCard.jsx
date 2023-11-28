@@ -11,7 +11,7 @@ export default function SpotCard({ spot }) {
       </div>
       <div className='savedSpotCard__details'>
         <div className='savedSpotCard__header'>
-          <p className="savedSpotCard__title">{spot.spotname}</p>
+          <p className="savedSpotCard__title">{spot.name}</p>
           <p className="savedSpotCard__location">{spot.city}, {spot.province}</p>
         </div>
       </div>
