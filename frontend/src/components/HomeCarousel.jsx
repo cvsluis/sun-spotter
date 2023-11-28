@@ -1,5 +1,6 @@
 import Carousel from "react-multi-carousel";
 import CarouselCard from "./CarouselCard";
+import '../styles/Home.scss';
 import "react-multi-carousel/lib/styles.css";
 
 export default function HomeCarousel({ places, visit }) {
@@ -28,23 +29,25 @@ export default function HomeCarousel({ places, visit }) {
   });
 
   return (
-    <Carousel
-      swipeable={true}
-      draggable={true}
-      arrows={true}
-      responsive={responsive}
-      ssr={true} // means to render carousel on server-side.
-      infinite={true}
-      autoPlaySpeed={1000}
-      keyBoardControl={true}
-      customTransition="all .5"
-      transitionDuration={500}
-      sliderClass='react-multi-carousel-track'
-      className="homeCarousel--container"
-    >
-      {carouselPlaces}
-      {carouselPlaces.length === 0 && <p className='sideBar__error'>No search results found</p>}
-    </Carousel>
+    <div className="home__carousel-wrapper">
+      <Carousel
+        swipeable={true}
+        draggable={true}
+        arrows={true}
+        responsive={responsive}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        autoPlaySpeed={1000}
+        keyBoardControl={true}
+        customTransition="all .5"
+        transitionDuration={500}
+        sliderClass='react-multi-carousel-track'
+        className="home__carousel"
+      >
+        {carouselPlaces}
+        {carouselPlaces.length === 0 && <p className='sideBar__error'>No search results found</p>}
+      </Carousel>
+    </div>
   );
 
 };

@@ -45,7 +45,7 @@ export default function TopNavBar({ context }) {
     <nav>
       <div className='nav__main'>
       <Link to={'/home'}><img className='nav__logo' alt='logo' src={logo}></img></Link>
-      <Link to={`/spots`} className='nav__explore-link'>Explore</Link>
+      <Link to={`/spots`} className='nav__explore-link'>EXPLORE</Link>
       </div>
 
       {!userID && 
