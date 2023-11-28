@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import Cookies from 'js-cookie';
 import useUserPins from "../hooks/useUserPins";
 import useUser from "../hooks/useUser";
 import useWeather from "../hooks/useWeather";
@@ -15,14 +14,9 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [timeToSunset, setTimeToSunset] = useState({ hours: 0, minutes: 0 });
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
-  const [userID, setUserID] = useOutletContext();
+  const [userID] = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
   const [user] = useUser(userID);
-
-  useEffect(() => {
-    const userIDFromCookie = Cookies.get("user_id");
-    setUserID(userIDFromCookie);
-  });
 
   const handleInput = (e) => {
     setSearchInput(e.target.value);
