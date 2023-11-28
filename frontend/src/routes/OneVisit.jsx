@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useOutletContext } from 'react-router-dom';
+import { useParams, useOutletContext, Link } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
 import '../styles/OneVisit.scss';
 import useVisitData from '../hooks/useVisitData';
@@ -24,6 +24,8 @@ export default function OneVisit() {
   const commentsList = comments.map(comment => {
     return <Comment key={'one-visit__comment_' + comment.id} comment={comment} />;
   }); 
+
+  const userLink = `/users/${visit.user_id}`
   
   return (
     <div className='one-visit__container'>
@@ -31,9 +33,8 @@ export default function OneVisit() {
         <div className='one-visit__header--container'>
 
           <div className='one-visit__header--profile'>
-            <img src={`http://localhost:8080/${visit.profile_pic}`} className='one-visit__header--image' alt={`Profile for ${visit.first_name} ${visit.last_name}`} />
-
-            <div>
+            <Link to={userLink}><img src={`http://localhost:8080/${visit.profile_pic}`} className='one-visit__header--image' alt={`Profile for ${visit.first_name} ${visit.last_name}`} /></Link>
+                <div>
               <h2>{visit.first_name} {visit.last_name}</h2>
               <p>{visit.city}, {visit.province}</p>
             </div>

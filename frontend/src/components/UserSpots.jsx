@@ -5,9 +5,12 @@ import VisitCard from "./VisitCard";
 import SavedSpotCard from './SavedSpotCard';
 import ViewToggle from "./ViewToggle";
 import Map from "./Map";
+
+import { ReactComponent as Yellow } from '../assets/pins/yellow.svg';
+import { ReactComponent as Purple } from '../assets/pins/purple.svg';
 import '../styles/UserSpots.scss';
 
-export default function UserSpots() {
+export default function UserSpots({ userID, userPageID }) {
   // for redirect after form submission
   const navigate = useNavigate();
 
@@ -19,12 +22,13 @@ export default function UserSpots() {
     navigate(`/visits/${visitId}`);
   };
   
-  const userID = useParams().id;
 
   // User Visits & Spots Data
-  const [userSaves, userVisits] = useUserPins(userID);
+  const [userSaves, userVisits] = useUserPins(userPageID);
   //view toggle
   const [ view, setView ] = useState('visits');
+
+  const isOwnProfile = userID === userPageID ? true : false;
 
   return (
     <div className="user-spots__container">
@@ -32,10 +36,10 @@ export default function UserSpots() {
         <span className="user-spots__category">
           { view === 'map' && <h2>My Spots</h2> }
           { view === 'saved' && <h2>My Saved Spots</h2> }
-          { view === 'visits' && <h2>My Visited Spots</h2>}
+          { view === 'visits' && isOwnProfile ? <h2>My Visited Spots</h2> : <h2>Visited Spots</h2>}
         </span>
 
-        <ViewToggle view={view} setView={setView}/>
+        {isOwnProfile && <ViewToggle view={view} setView={setView}/>}
       </header>
 
       {/* user spot view changes with toggle */}
@@ -47,7 +51,11 @@ export default function UserSpots() {
 
       {view === 'map' && 
       <div className="user-spots__map">
-          <Map spots={userSaves} spots2={userVisits} borderRadius={true} handlePinClick={handlePinClick} handleVisitClick={handleVisitClick} />
+        <div className="user-spots__legend">
+          <div className="user-spots__legend-item"><Yellow /> Saved Spots</div>
+          <div className="user-spots__legend-item"><Purple /> Visits</div>
+        </div>
+        <Map spots={userSaves} spots2={userVisits} borderRadius={true} handlePinClick={handlePinClick} handleVisitClick={handleVisitClick} />
       </div>
       }
 

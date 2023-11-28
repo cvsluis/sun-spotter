@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Cookies from "js-cookie";
 import { useOutletContext } from "react-router-dom";
-import useWeather from "../hooks/useWeather";
-import SpotCarousel from "../components/SpotCarousel";
-import UserSpotsCarousel from "../components/UserSpotsCarousel";
-import VisitSpotsCarousel from '../components/VisitSpotsCarousel';
 import useUserPins from "../hooks/useUserPins";
+import useWeather from "../hooks/useWeather";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
+import HomeCarousel from "../components/HomeCarousel";
+
 
 export default function Home() {
   const [spots, setSpots] = useState([]);
@@ -15,13 +13,8 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [timeToSunset, setTimeToSunset] = useState({ hours: 0, minutes: 0 });
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
-  const [userID, setUserID] = useOutletContext();
+  const [userID] = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
-
-  useEffect(() => {
-    const userIDFromCookie = Cookies.get("user_id");
-    setUserID(userIDFromCookie);
-  }, []);
 
   const handleInput = (e) => {
     setSearchInput(e.target.value);
@@ -144,46 +137,25 @@ export default function Home() {
         </div>
       </header>
 
-      {!userID && (
-        <section className="list__spots">
-          <div className="spots__near-user">
-            <h1 className="spots__carousel-title">
-              Local favourites near Victoria
-            </h1>
-            <div className="spots__carousel"></div>
-            <SpotCarousel spots={spots} />
-          </div>
-        </section>
-      )}
+      <section className="list__spots">
+        <div className="home__carousel--container">
+          <h1 className="spots__carousel-title">Local favourites near Victoria</h1>
+          <HomeCarousel places={spots} />
+        </div>
 
-      {userID && (
-        <section className="list__spots">
-          <div className="spots__near-user">
-            <h1 className="spots__carousel-title">
-              Local favourites near Victoria
-            </h1>
-            <div className="spots__carousel"></div>
-            <SpotCarousel spots={spots} />
+        { userID && 
+        <>
+          <div className="home__carousel--container">
+            <h1 className="spots__carousel-title">Your saved sunset spots</h1>
+            <HomeCarousel places={userSaves} />
           </div>
 
-          <div className="spots__saved">
-            <h1 className="spots__carousel-title">
-              Your favourites sunset spots
-            </h1>
-            <div className="spots__carousel"></div>
-            <UserSpotsCarousel spots={userSaves} />
+          <div className="home__carousel--container">
+            <h1 className="spots__carousel-title">Your visits</h1>
+            <HomeCarousel places={userVisits} visit={true}/>
           </div>
-
-          <div className="spots__visits">
-            <h1 className="spots__carousel-title">
-              Your Visits
-            </h1>
-            <div className="spots__carousel"></div>
-            <VisitSpotsCarousel visits={userVisits} />
-          </div>
-
-        </section>
-      )}
+        </> }
+      </section>
     </div>
   );
 }
