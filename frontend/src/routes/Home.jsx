@@ -11,9 +11,6 @@ import HomeCarousel from "../components/HomeCarousel";
 export default function Home() {
   const [spots, setSpots] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [timeToSunset, setTimeToSunset] = useState({ hours: 0, minutes: 0 });
-  const [isParagraphVisible, setIsParagraphVisible] = useState(false);
   const [userID] = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
   const [user] = useUser(userID);
@@ -38,7 +35,6 @@ export default function Home() {
       })
       .then((data) => setSpots(data))
       .catch((error) => console.error("Error fetching data:", error))
-      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
@@ -68,7 +64,7 @@ export default function Home() {
             </form>
           </div>
 
-          <TimeUntilSunset loading={loading} timeToSunset={timeToSunset} isParagraphVisible={isParagraphVisible}/>
+          <TimeUntilSunset />
         </div>
       </header>
 
