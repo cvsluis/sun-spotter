@@ -24,7 +24,7 @@ export default function VisitCard({ visit, isProfilePage }) {
           {/* visit card info looks different depending on where the card is called */}
           {isProfilePage ?
           <div className='visitCard__name'>
-            {visit.spot_name}
+            {visit.name}
           </div>
           :
           <div className='visitCard__user'>

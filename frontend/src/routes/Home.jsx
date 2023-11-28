@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
+import useUserPins from "../hooks/useUserPins";
 import useWeather from "../hooks/useWeather";
-import SpotCarousel from "../components/SpotCarousel";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
+import HomeCarousel from "../components/HomeCarousel";
+
 
 export default function Home() {
   const [spots, setSpots] = useState([]);
@@ -10,6 +13,8 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [timeToSunset, setTimeToSunset] = useState({ hours: 0, minutes: 0 });
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
+  const [userID] = useOutletContext();
+  const [userSaves, userVisits] = useUserPins(userID);
 
   const handleInput = (e) => {
     setSearchInput(e.target.value);
@@ -130,16 +135,19 @@ export default function Home() {
       </header>
 
       <section className="list__spots">
-        <div className="spots__near-user">
+        <div className="home__carousel--container">
           <h1 className="spots__carousel-title">Local favourites near Victoria</h1>
-          <div className="spots__carousel"></div>
-          <SpotCarousel spots={spots} />
+          <HomeCarousel places={spots} />
         </div>
 
-        <div className="spots__saved">
-          <h1 className="spots__carousel-title">Your favourites sunset spots</h1>
-          <div className="spots__carousel"></div>
-          <SpotCarousel spots={spots} />
+        <div className="home__carousel--container">
+          <h1 className="spots__carousel-title">Your saved sunset spots</h1>
+          <HomeCarousel places={userSaves} />
+        </div>
+
+        <div className="home__carousel--container">
+          <h1 className="spots__carousel-title">Your visits</h1>
+          <HomeCarousel places={userVisits} />
         </div>
       </section>
     </div>
