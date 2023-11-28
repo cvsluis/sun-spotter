@@ -15,7 +15,7 @@ export default function CarouselCard({ spot }) {
   return (
     <Link to={`/spots/${spot.id}`} className='carouselCard__container' id={`spot_card_${spot.id}`}>
       <div className='carouselCard__image'>
-        <img src={`http://localhost:8080/${spot.image_url}`} />
+        <img src={`http://localhost:8080/${spot.image_url}`} alt='Sun setting' />
       </div>
       <div className='carouselCard__details'>
         <div className='spotCard__header'>
