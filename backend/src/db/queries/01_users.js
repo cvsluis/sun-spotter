@@ -31,7 +31,7 @@ const getVisitsByUser = (userID) => {
 const getSavesByUser = function(userID) {
   const query = `SELECT
   SPOTS.name AS name,
-  MIN(SPOTS.id) AS spot_id,
+  MIN(SPOTS.id) AS id,
   MIN(SPOTS.lat) AS lat,
   MIN(SPOTS.lng) AS lng,
   MIN(SPOTS.city) AS city,
