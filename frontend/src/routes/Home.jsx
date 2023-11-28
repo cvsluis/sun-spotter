@@ -144,17 +144,20 @@ export default function Home() {
           <HomeCarousel places={spots} />
         </div>
 
-        <div className="bg-grey">
+        { userID && 
+        <>
+          <div className="bg-grey">
           <div className="home__carousel--container">
-            <h1 className="spots__carousel-title">Your saved sunset spots</h1>
-            <HomeCarousel places={userSaves} />
-          </div>
+              <h1 className="spots__carousel-title">Your saved sunset spots</h1>
+              <HomeCarousel places={userSaves} />
+            </div>
         </div>
 
-        <div className="home__carousel--container">
-          <h1 className="spots__carousel-title">Your visits</h1>
-          <HomeCarousel places={userVisits} />
-        </div>
+          <div className="home__carousel--container">
+            <h1 className="spots__carousel-title">Your visits</h1>
+            <HomeCarousel places={userVisits} visit={true}/>
+          </div>
+        </> }
       </section>
     </div>
   );
