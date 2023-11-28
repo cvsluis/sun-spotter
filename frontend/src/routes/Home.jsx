@@ -144,9 +144,11 @@ export default function Home() {
           <HomeCarousel places={spots} />
         </div>
 
-        <div className="home__carousel--container">
-          <h1 className="spots__carousel-title">Your saved sunset spots</h1>
-          <HomeCarousel places={userSaves} />
+        <div className="bg-grey">
+          <div className="home__carousel--container">
+            <h1 className="spots__carousel-title">Your saved sunset spots</h1>
+            <HomeCarousel places={userSaves} />
+          </div>
         </div>
 
         <div className="home__carousel--container">

@@ -2,7 +2,7 @@
 
 .welcome__section {
   position: absolute;
-  top: 400px;
+  top: 375px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -58,7 +58,12 @@
 .home__carousel--container {
   width: 60%;
   margin: 0 auto;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
+}
+
+.bg-grey {
+  background-color: #efefef;
+  padding: 1rem 0;
 }
 
 .home__carousel-wrapper {
@@ -80,17 +85,18 @@
 
     &:hover {
       background-color: #fff;
+      box-shadow: $shadow-grey 0px 8px 15px 2px;
     }
   }
 
   .react-multiple-carousel__arrow--left {
     left: calc(-6% + 1px);
-    top: calc(50% - 50px); 
+    top: 125px; 
   }
 
   .react-multiple-carousel__arrow--right {
     right: calc(-6% + 1px);
-    top: calc(50% - 50px);
+    top: 125px;
   }
 } 
 
