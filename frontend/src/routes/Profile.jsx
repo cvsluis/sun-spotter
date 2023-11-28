@@ -14,7 +14,7 @@ export default function Profile() {
 
   const userPageID = useParams().id;
 
-  const [user] = useUser(userID);
+  const [user] = useUser(userPageID);
 
   return (
     <div className="profile">
