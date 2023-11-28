@@ -16,8 +16,6 @@ export default function Home() {
   const [userID] = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
 
-  console.log('vis', userVisits);
-
   const handleInput = (e) => {
     setSearchInput(e.target.value);
   };
