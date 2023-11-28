@@ -109,7 +109,7 @@ export default function Home() {
 
         <div className="welcome__section">
         <h4 className="header__title">
-            {user ? `Welcome, ${user.first_name}!` : "Welcome, sun chaser!"}
+            Welcome, sun-chaser!
           </h4>
 
           <div className="search__wrapper">
