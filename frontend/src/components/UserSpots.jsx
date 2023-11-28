@@ -30,6 +30,8 @@ export default function UserSpots({ userID, userPageID }) {
 
   const isOwnProfile = userID === userPageID ? true : false;
 
+  console.log('is own profile>', isOwnProfile);
+
   return (
     <div className="user-spots__container">
       <header className="user-spots__header">
