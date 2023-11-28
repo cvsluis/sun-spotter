@@ -14,6 +14,7 @@ export default function SpotCard({ spot, userID }) {
 
   return (
     <div className='spotCard'>
+      {userID && 
       <button className='spotCard__save-btn' onClick={(event) => {handleSaveClick(event, userID, spot.id)}}>
         {saveID ? 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#F86204" viewBox="0 0 16 16">
@@ -25,6 +26,7 @@ export default function SpotCard({ spot, userID }) {
         </svg> 
         }
       </button>
+      }
     <Link to={`/spots/${spot.id}`} className='spotCard__container' id={`spot_card_${spot.id}`}>
       <div className='spotCard__image'>
         <img src={`http://localhost:8080/${spot.image_url}`} />
