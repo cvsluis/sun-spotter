@@ -1,5 +1,5 @@
-import React, {  useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useOutletContext, useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 import useUser from '../hooks/useUser';
 
@@ -14,6 +14,8 @@ export default function Profile() {
   const [userID, setUserID] = useOutletContext();
   const [user] = useUser(userID);
 
+  const userPageID = useParams().id;
+
   useEffect(() => {
     const userIDFromCookie = Cookies.get("user_id");
     setUserID(userIDFromCookie);
@@ -22,7 +24,7 @@ export default function Profile() {
   return (
     <div className="profile">
       <UserInfoCard user={user}/>
-      <UserSpots />
+      <UserSpots userID={userID} userPageID={userPageID}/>
     </div>
   );
 }

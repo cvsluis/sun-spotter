@@ -9,6 +9,7 @@ import useUserPins from "../hooks/useUserPins";
 import useUser from "../hooks/useUser";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
+import HomeCarousel from "../components/HomeCarousel";
 
 export default function Home() {
   const [spots, setSpots] = useState([]);
@@ -100,7 +101,7 @@ export default function Home() {
   }, [loading, sunsetTime, currentTimeInMin, sunsetTimeInMin]);
 
   useEffect(() => {
-      const timeoutId = setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setIsParagraphVisible(true);
     }, 1000);
 
@@ -112,7 +113,9 @@ export default function Home() {
       <header>
         <img className="header__img" alt="sunset" src={sunset}></img>
         <div className="welcome__section">
-          <h1 className="header__title">{user ? `Welcome, ${user.first_name}!` : "Welcome, sun chaser!"}</h1>
+          <h1 className="header__title">
+            {user ? `Welcome, ${user.first_name}!` : "Welcome, sun chaser!"}
+          </h1>
 
           <div className="search__wrapper">
             <form action="/search" method="get" onSubmit={handleFormSubmit}>
@@ -155,26 +158,21 @@ export default function Home() {
 
       {userID && (
         <section className="list__spots">
-          <div className="spots__near-user">
+          <div className="home__carousel--container">
             <h1 className="spots__carousel-title">
               Local favourites near Victoria
             </h1>
-            <div className="spots__carousel"></div>
-            <SpotCarousel spots={spots} />
+            <HomeCarousel places={spots} />
           </div>
 
-          <div className="spots__saved">
-            <h1 className="spots__carousel-title">
-              Your favourite sunset spots
-            </h1>
-            <div className="spots__carousel"></div>
-            <UserSpotsCarousel spots={userSaves} />
+          <div className="home__carousel--container">
+            <h1 className="spots__carousel-title">Your saved sunset spots</h1>
+            <HomeCarousel places={userSaves} />
           </div>
 
-          <div className="spots__visits">
-            <h1 className="spots__carousel-title">Your Visits</h1>
-            <div className="spots__carousel"></div>
-            <VisitSpotsCarousel visits={userVisits} />
+          <div className="home__carousel--container">
+            <h1 className="spots__carousel-title">Your visits</h1>
+            <HomeCarousel places={userVisits} />
           </div>
         </section>
       )}
