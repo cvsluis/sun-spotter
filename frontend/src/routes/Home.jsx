@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import useUserPins from "../hooks/useUserPins";
 import useUser from "../hooks/useUser";
-import useWeather from "../hooks/useWeather";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
+import TimeUntilSunset from "../components/TimeUntilSunset";
 import HomeCarousel from "../components/HomeCarousel";
 
 
@@ -45,63 +45,6 @@ export default function Home() {
     fetchAllSpots();
   }, []);
 
-  const weather = useWeather();
-  const sunsetTime = weather.sunsetTime;
-
-  const currentTime = {
-    hour: new Date().getHours(),
-    minute: new Date().getMinutes(),
-  };
-
-  const convertToMinutes = (time) => {
-    if (
-      !time ||
-      typeof time !== "object" ||
-      !("hour" in time) ||
-      !("minute" in time)
-    ) {
-      //console.error("Invalid time object:", time);
-      return NaN;
-    }
-    const { hour, minute } = time;
-    return hour * 60 + minute;
-  };
-
-  const currentTimeInMin = convertToMinutes(currentTime);
-  const sunsetTimeInMin = convertToMinutes(sunsetTime);
-
-  const calculateTimeUntilSunset = (currentTime, sunsetTime) => {
-    let timeDifference = sunsetTime - currentTime;
-
-    if (timeDifference < 0) {
-      timeDifference += 24 * 60;
-    }
-
-    const hours = Math.floor(timeDifference / 60);
-    const minutes = timeDifference % 60;
-
-    return { hours, minutes };
-  };
-
-  useEffect(() => {
-    if (!loading && sunsetTime) {
-      const result = calculateTimeUntilSunset(
-        currentTimeInMin,
-        sunsetTimeInMin
-      );
-      setTimeToSunset(result);
-    }
-  }, [loading, sunsetTime, currentTimeInMin, sunsetTimeInMin]);
-
-  useEffect(() => {
-    // Assuming you want the paragraph to slide down after a delay
-    const timeoutId = setTimeout(() => {
-      setIsParagraphVisible(true);
-    }, 1000); // Adjust the delay as needed
-
-    return () => clearTimeout(timeoutId);
-  }, []);
-
   return (
     <div>
       <header>
@@ -124,17 +67,8 @@ export default function Home() {
               ></input>
             </form>
           </div>
-          {loading ? (
-            <p className="header__paragraph">Loading...</p>
-          ) : (
-            <p 
-              className={`header__paragraph slide-down-paragraph ${
-                isParagraphVisible ? "visible" : ""
-              }`}
-            >
-              Time until sunset: {timeToSunset.hours} hours and {timeToSunset.minutes} minutes
-            </p>
-          )}
+
+          <TimeUntilSunset loading={loading} timeToSunset={timeToSunset} isParagraphVisible={isParagraphVisible}/>
         </div>
       </header>
 
