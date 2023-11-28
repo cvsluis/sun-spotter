@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import Cookies from 'js-cookies';
+import Cookies from 'js-cookie';
 import useUserPins from "../hooks/useUserPins";
 import useUser from "../hooks/useUser";
 import useWeather from "../hooks/useWeather";
