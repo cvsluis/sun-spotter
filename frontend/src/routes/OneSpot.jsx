@@ -32,7 +32,8 @@ export default function OneSpot() {
   //get weather info
   const weather = useWeather();
 
-  
+  const lat = Number(spotInfo.lat);
+  const lng = Number(spotInfo.lng);
 
   return (
     <div className='one-spot'>
@@ -49,7 +50,7 @@ export default function OneSpot() {
           </Link>
       <header className='one-spot__header'>
         <OneSpotMap lng={spotInfo.lng} lat={spotInfo.lat} />
-        <div>
+        <div className='one-spot__details-container'>
           {userID &&
           //if logged in save button works
           <button className='one-spot__save' onClick={(event) => {handleSaveClick(event, userID, spotID)}}>
@@ -67,9 +68,14 @@ export default function OneSpot() {
           
           <AboutSpot spotData={spotInfo} spotLabels={spotLabels} spotRating={spotRating}/> 
 
-          {userID &&
-          <Link className={'one-spot__create-visit'} to={`/spots/${spotID}/visits/new`}>Add Visit</Link>
-          }
+          <div className='one-spot__links-container'>
+            <Link className='one-spot__directions' to={`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`}>Get Directions</Link>
+
+            {userID &&
+              <Link className={'one-spot__create-visit'} to={`/spots/${spotID}/visits/new`}>Add Visit</Link>
+            }
+          </div>
+
         </div>
       </header>
 
