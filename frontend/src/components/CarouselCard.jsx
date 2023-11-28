@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import '../styles/CarouselCard.scss';
 
-export default function CarouselCard({ spot }) {
+export default function CarouselCard({ spot, visit }) {
   let labelList;
   if (spot.list) {
     labelList = spot.list.join(', ');
@@ -13,7 +13,7 @@ export default function CarouselCard({ spot }) {
   const needsPartialStar = starNumber - Number(spot.rating) !== 0;
 
   return (
-    <Link to={`/spots/${spot.id}`} className='carouselCard__container' id={`spot_card_${spot.id}`}>
+    <Link to={visit ? `/visits/${spot.id}` : `/spots/${spot.id}`} className='carouselCard__container' id={`spot_card_${spot.id}`}>
       <div className='carouselCard__image'>
         <img src={`http://localhost:8080/${spot.image_url}`} />
       </div>

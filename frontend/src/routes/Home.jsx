@@ -16,6 +16,8 @@ export default function Home() {
   const [userID] = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
 
+  console.log('vis', userVisits);
+
   const handleInput = (e) => {
     setSearchInput(e.target.value);
   };
@@ -149,7 +151,7 @@ export default function Home() {
 
           <div className="home__carousel--container">
             <h1 className="spots__carousel-title">Your visits</h1>
-            <HomeCarousel places={userVisits} />
+            <HomeCarousel places={userVisits} visit={true}/>
           </div>
         </> }
       </section>

@@ -2,7 +2,7 @@ import Carousel from "react-multi-carousel";
 import CarouselCard from "./CarouselCard";
 import "react-multi-carousel/lib/styles.css";
 
-export default function HomeCarousel({ places }) {
+export default function HomeCarousel({ places, visit }) {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -24,7 +24,7 @@ export default function HomeCarousel({ places }) {
   };
 
   const carouselPlaces = places.map((place) => {
-    return <CarouselCard spot={place} key={place.id} />;
+    return <CarouselCard spot={place} key={place.id} visit={visit} />;
   });
 
   return (
@@ -47,4 +47,8 @@ export default function HomeCarousel({ places }) {
     </Carousel>
   );
 
+};
+
+HomeCarousel.defaultProps = {
+  visit: false
 };
