@@ -1,15 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import useUser from "../hooks/useUser";
 import '../styles/TopNavBar.scss';
 import logo from '../assets/logo.png';
 import Cookies from 'js-cookie';
 
-
-
 export default function TopNavBar({ context }) {
 
   const [ userID, setUserID ] = context;
-  const [ user, setUser ] = useState()
+  const [user] = useUser(userID);
   const navigate = useNavigate();
   
   const handleLogout = function (e) {
@@ -19,27 +17,12 @@ export default function TopNavBar({ context }) {
     Cookies.remove('user_id');
     //remove userID state
     setUserID(undefined);
-    navigate("/Home");      
+    navigate(-1);      
   }
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await fetch(`http://localhost:8080/api/users/${userID}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        setUser(data[0]);
-      } catch (error) {
-        console.error("Error fetching user data", error);
-      }
-    };
 
-    if (userID) {
-      fetchUser();
-    }
-  }, [userID]);
+  console.log("userID:", userID);
+  console.log("user:", user);
 
   return (
     <nav>

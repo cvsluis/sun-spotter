@@ -4,8 +4,9 @@ import { useOutletContext } from "react-router-dom";
 import useWeather from "../hooks/useWeather";
 import SpotCarousel from "../components/SpotCarousel";
 import UserSpotsCarousel from "../components/UserSpotsCarousel";
-import VisitSpotsCarousel from '../components/VisitSpotsCarousel';
+import VisitSpotsCarousel from "../components/VisitSpotsCarousel";
 import useUserPins from "../hooks/useUserPins";
+import useUser from "../hooks/useUser";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
 
@@ -17,6 +18,9 @@ export default function Home() {
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
   const [userID, setUserID] = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
+  const [user] = useUser(userID);
+
+  console.log("hey user", user);
 
   useEffect(() => {
     const userIDFromCookie = Cookies.get("user_id");
@@ -112,10 +116,7 @@ export default function Home() {
       <header>
         <img className="header__img" alt="sunset" src={sunset}></img>
         <div className="welcome__section">
-        {userID ? (
-          <h4 className="header__title">Welcome, user!</h4> 
-        ) : <h4 className="header__title">Welcome, sun chaser!</h4>
-        }
+          <h1 className="header__title">{user ? `Welcome, ${user.first_name}!` : "Welcome, sun chaser!"}</h1>
 
           <div className="search__wrapper">
             <form action="/search" method="get" onSubmit={handleFormSubmit}>
@@ -175,13 +176,10 @@ export default function Home() {
           </div>
 
           <div className="spots__visits">
-            <h1 className="spots__carousel-title">
-              Your Visits
-            </h1>
+            <h1 className="spots__carousel-title">Your Visits</h1>
             <div className="spots__carousel"></div>
             <VisitSpotsCarousel visits={userVisits} />
           </div>
-
         </section>
       )}
     </div>
