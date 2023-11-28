@@ -37,7 +37,7 @@ export default function Login() {
           Cookies.set('user_id', data.user_id, {expires: 1})
           setUserID(data.user_id)
           //return to home
-          navigate("/Home");      
+          navigate(-1);      
         }
         else {
           console.log('Login failed');
