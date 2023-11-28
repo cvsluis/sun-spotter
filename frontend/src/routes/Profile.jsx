@@ -18,7 +18,7 @@ export default function Profile() {
 
   return (
     <div className="profile">
-      <UserInfoCard user={user} userPageID={userPageID}/>
+      <UserInfoCard user={user}/>
       <UserSpots userID={userID} userPageID={userPageID}/>
     </div>
   );
