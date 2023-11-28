@@ -17,8 +17,9 @@ export default function useUserPins(userId) {
         console.error('Error fetching data', err);
       }
     };
-
-    fetchVisit();
+    if (userId) {
+      fetchVisit();
+    }
   }, []);
 
   return [userSaves, userVisits];
