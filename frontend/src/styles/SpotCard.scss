@@ -10,7 +10,8 @@
   gap: 0.65rem;
   padding: 1.5rem;
   padding-bottom: 0.75rem;
-
+  position:relative;
+  z-index: 1;
 
 
   h2, h5 {
@@ -41,6 +42,7 @@
 
   &:hover {
     cursor: pointer;
+    z-index: 1;
 
     .spotCard__image img {
       transform: scale(1.08);
@@ -104,6 +106,7 @@
   position: absolute;
   top: 3rem;
   right: 3rem;
+  z-index: 9999;
 
   svg {
     opacity: 1;
