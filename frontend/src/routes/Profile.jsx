@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 
 //import componenets
@@ -13,13 +13,15 @@ export default function Profile() {
   const [user, setUser] = useState();
   const [userID, setUserID] = useOutletContext();
 
+  const userPageID = useParams().id;
+
   useEffect(() => {
     const userIDFromCookie = Cookies.get("user_id");
     setUserID(userIDFromCookie);
   }, []);
 
   const fetchUser = () => {
-    fetch(`http://localhost:8080/api/users/${userID}`)
+    fetch(`http://localhost:8080/api/users/${userPageID}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -31,10 +33,9 @@ export default function Profile() {
   };
 
   useEffect(() => {
-    if (userID) {
-      fetchUser();
-    }
-  }, [userID]);
+    fetchUser();
+  }, []);
+
 
   // const fetchSavedUserSpots = () => {};
 
@@ -43,7 +44,7 @@ export default function Profile() {
   return (
     <div className="profile">
       <UserInfoCard user={user}/>
-      <UserSpots />
+      <UserSpots userID={userID} userPageID={userPageID}/>
     </div>
   );
 }
