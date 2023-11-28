@@ -36,7 +36,11 @@ export default function UserSpots({ userID, userPageID }) {
         <span className="user-spots__category">
           { view === 'map' && <h2>My Spots</h2> }
           { view === 'saved' && <h2>My Saved Spots</h2> }
-          { view === 'visits' && isOwnProfile ? <h2>My Visited Spots</h2> : <h2>Visited Spots</h2>}
+          { isOwnProfile ? 
+          view === "visits" && <h2>My Visited Spots</h2>
+          :
+          <h2>Visited Spots</h2>
+          }
         </span>
 
         {isOwnProfile && <ViewToggle view={view} setView={setView}/>}
