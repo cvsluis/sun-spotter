@@ -20,8 +20,6 @@ export default function Home() {
   const [userSaves, userVisits] = useUserPins(userID);
   const [user] = useUser(userID);
 
-  console.log("hey user", user);
-
   useEffect(() => {
     const userIDFromCookie = Cookies.get("user_id");
     setUserID(userIDFromCookie);
@@ -69,7 +67,6 @@ export default function Home() {
       !("hour" in time) ||
       !("minute" in time)
     ) {
-      //console.error("Invalid time object:", time);
       return NaN;
     }
     const { hour, minute } = time;
@@ -103,10 +100,9 @@ export default function Home() {
   }, [loading, sunsetTime, currentTimeInMin, sunsetTimeInMin]);
 
   useEffect(() => {
-    // Assuming you want the paragraph to slide down after a delay
-    const timeoutId = setTimeout(() => {
+      const timeoutId = setTimeout(() => {
       setIsParagraphVisible(true);
-    }, 1000); // Adjust the delay as needed
+    }, 1000);
 
     return () => clearTimeout(timeoutId);
   }, []);

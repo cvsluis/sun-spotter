@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { useOutletContext } from "react-router-dom";
 
-
 // import styles
 import "../styles/Login.scss";
 

@@ -20,10 +20,6 @@ export default function TopNavBar({ context }) {
     navigate(-1);      
   }
 
-
-  console.log("userID:", userID);
-  console.log("user:", user);
-
   return (
     <nav>
       <div className='nav__main'>
