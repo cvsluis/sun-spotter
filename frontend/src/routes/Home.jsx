@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import useUserPins from "../hooks/useUserPins";
+import useUser from "../hooks/useUser";
 import useWeather from "../hooks/useWeather";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
@@ -15,6 +16,7 @@ export default function Home() {
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
   const [userID] = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
+  const [user] = useUser(userID);
 
   const handleInput = (e) => {
     setSearchInput(e.target.value);
@@ -106,7 +108,9 @@ export default function Home() {
         <img className="header__img" alt="sunset" src={sunset}></img>
 
         <div className="welcome__section">
-          <h4 className="header__title">Welcome, user!</h4>
+        <h4 className="header__title">
+            {user ? `Welcome, ${user.first_name}!` : "Welcome, sun chaser!"}
+          </h4>
 
           <div className="search__wrapper">
             <form action="/search" method="get" onSubmit={handleFormSubmit}>
