@@ -32,7 +32,6 @@ export default function OneSpot() {
   //get weather info
   const weather = useWeather();
 
-  
 
   return (
     <div className='one-spot'>

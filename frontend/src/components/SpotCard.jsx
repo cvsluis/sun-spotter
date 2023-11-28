@@ -9,7 +9,8 @@ export default function SpotCard({ spot, userID }) {
   const starNumber = Math.floor(Number(spot.rating));
   const needsPartialStar = starNumber - Number(spot.rating) !== 0;
   
-  const [saveID, handleSaveClick] = useSaved();
+  const [saveID, handleSaveClick] = useSaved(userID, spot.id);
+
 
   return (
     <div className='spotCard'>
