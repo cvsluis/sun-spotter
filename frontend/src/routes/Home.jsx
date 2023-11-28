@@ -141,7 +141,7 @@ export default function Home() {
         </div>
 
         <div className="home__carousel--container">
-          <h1 className="spots__carousel-title">Your favourite sunset spots</h1>
+          <h1 className="spots__carousel-title">Your saved sunset spots</h1>
           <HomeCarousel places={userSaves} />
         </div>
 
