@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../styles/SpotCard.scss';
+import useSaved from '../hooks/useSaved';
 
-export default function SpotCard({ spot }) {
+export default function SpotCard({ spot, userID }) {
   const labelList = spot.list.join(', ');
   //how many stars to display
   const starNumber = Math.floor(Number(spot.rating));
   const needsPartialStar = starNumber - Number(spot.rating) !== 0;
+  
+  const [saveID, handleSaveClick] = useSaved();
 
   return (
+    <>
+    <div className='allSpots_save-btn'>
+      
+    </div>
     <Link to={`/spots/${spot.id}`} className='spotCard__container' id={`spot_card_${spot.id}`}>
       <div className='spotCard__image'>
         <img src={`http://localhost:8080/${spot.image_url}`} />
@@ -41,5 +48,6 @@ export default function SpotCard({ spot }) {
         <h4>{labelList}</h4>
       </div>
     </Link>
+    </>
   );
 }
