@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Roboto, sans-serif;
-}
+@import '_theme.scss';
 
 .welcome__section {
   position: absolute;
@@ -13,7 +7,6 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
- 
 }
 
 .header__title{
@@ -48,16 +41,18 @@ body {
 .list__spots{
   display: flex;
   flex-direction: column;
-  width: 60%;
-  margin: auto;
+  margin: 1.5rem auto;
   justify-content: center;
-  padding-top: 24px;
-  margin-bottom: 64px;
 }
 
-.spots__carousel-title{
-  padding-top: 20px;
-  padding-bottom: 20px;
+.home__carousel--container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+.spots__carousel-title {
+  padding: 0 1rem;
 }
 
 /* Define the keyframes for the slide down animation */
@@ -72,4 +67,4 @@ body {
 
 .slide-down-paragraph {
   animation: slide-down 4s forwards;
- }
+}

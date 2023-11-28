@@ -15,7 +15,7 @@ const getUserByID = (id) => {
 };
 
 const getVisitsByUser = (userID) => {
-  query = `SELECT spots.name as spot_name, visits.id as id, visits.time_stamp as date, visits.image_url as image_url, spots.lat, spots.lng 
+  query = `SELECT spots.name as name, visits.id as id, visits.time_stamp as date, visits.image_url as image_url, spots.lat, spots.lng, spots.city, spots.province  
     FROM visits 
     JOIN spots ON spots.id = visits.spot_id
     WHERE visits.user_id = $1
@@ -30,7 +30,7 @@ const getVisitsByUser = (userID) => {
 
 const getSavesByUser = function(userID) {
   const query = `SELECT
-  SPOTS.name AS spotName,
+  SPOTS.name AS name,
   MIN(SPOTS.id) AS spot_id,
   MIN(SPOTS.lat) AS lat,
   MIN(SPOTS.lng) AS lng,
