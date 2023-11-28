@@ -2,7 +2,7 @@
 
 .welcome__section {
   position: absolute;
-  top: 375px;
+  top: 360px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -115,5 +115,5 @@
 }
 
 .slide-down-paragraph {
-  animation: slide-down 4s forwards;
+  animation: slide-down 0.8s;
 }
