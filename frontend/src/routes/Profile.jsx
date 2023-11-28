@@ -12,13 +12,13 @@ import "../styles/Profile.scss";
 export default function Profile() {
   const [userID] = useOutletContext();
 
-  const userPageID = useParams().id;
+  const userPageID = parseInt(useParams().id);
 
-  const [user] = useUser(userID);
+  const [user] = useUser(userPageID);
 
   return (
     <div className="profile">
-      <UserInfoCard user={user}/>
+      <UserInfoCard user={user} userPageID={userPageID}/>
       <UserSpots userID={userID} userPageID={userPageID}/>
     </div>
   );
