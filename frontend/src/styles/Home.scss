@@ -1,11 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 @import '_theme.scss';
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Roboto, sans-serif;
-}
 
 .welcome__section {
   position: absolute;
@@ -58,31 +51,18 @@ body {
 .list__spots{
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 1.5rem auto;
   justify-content: center;
 }
 
-.spots__near-user {
-  padding: 3rem 0;
+.home__carousel--container {
   width: 60%;
   margin: 0 auto;
+  padding: 1.5rem 0;
 }
 
-.spots__saved--container {
-  width: 100%;
-  padding: 3rem 0;
-  // background-color: #efefef;
-  // box-shadow: $shadow-grey 0px 4px 8px 0px;
-}
-
-.spots__saved {
-  width: 60%;
-  margin: 0 auto;
-}
-
-.spots__carousel-title{
-  padding-top: 20px;
-  padding-bottom: 20px;
+.spots__carousel-title {
+  padding: 0 1rem;
 }
 
 /* Define the keyframes for the slide down animation */
@@ -96,34 +76,5 @@ body {
 }
 
 .slide-down-paragraph {
-  animation: slide-down 0.8s;
- }
-
-.home__carousel-container {
-  position:relative;
-}
-
-.home__carousel {
-  position:unset;
-
-  .react-multiple-carousel__arrow {
-    position:absolute;
-    background-color: #fff;
-    color: #000;
-    box-shadow: $shadow-grey 0px 4px 8px 0px;
-
-    &::before {
-      color: #000;
-    }
-  }
-
-  .react-multiple-carousel__arrow--left {
-    left: calc(-4% + 1px);
-    top: calc(50% - 70px); 
-  }
-
-  .react-multiple-carousel__arrow--right {
-    right: calc(-4% + 1px);
-    top: calc(50% - 70px);
-  }
+  animation: slide-down 4s forwards;
 }
