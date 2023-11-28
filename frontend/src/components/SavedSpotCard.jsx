@@ -5,7 +5,7 @@ import '../styles/SavedSpotCard.scss';
 export default function SpotCard({ spot }) {
 
   return (
-    <Link to={`/spots/${spot.spot_id}`} className='savedSpotCard__container'>
+    <Link to={`/spots/${spot.id}`} className='savedSpotCard__container'>
       <div className='savedSpotCard__image'>
         <img src={`http://localhost:8080/${spot.image_url}`} alt='The sun setting' />
       </div>
