@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useUserPins(userId) {
+export default function useUserPins(userID) {
 
   const [userSaves, setUserSaves] = useState([]);
   const [userVisits, setUserVisits] = useState([]);
@@ -9,8 +9,8 @@ export default function useUserPins(userId) {
     let isUser = true;
     const fetchVisit = async () => {
       try {
-        const saves = await fetch(`http://localhost:8080/api/users/${userId}/saves`).then(res => res.json());
-        const visits = await fetch(`http://localhost:8080/api/users/${userId}/visits`).then(res => res.json());
+        const saves = await fetch(`http://localhost:8080/api/users/${userID}/saves`).then(res => res.json());
+        const visits = await fetch(`http://localhost:8080/api/users/${userID}/visits`).then(res => res.json());
 
         setUserSaves(saves);
         setUserVisits(visits);
@@ -25,7 +25,7 @@ export default function useUserPins(userId) {
     return () => {
       isUser = false;  
     };
-  }, [userId]);
+  }, [userID]);
 
   return [userSaves, userVisits];
 }
