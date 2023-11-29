@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import '../styles/SavedSpotCard.scss';
 
-export default function SpotCard({ spot }) {
+export default function SavedSpotCard({ spot, view }) {
 
   return (
     <Link to={`/spots/${spot.id}`} className='savedSpotCard__container'>

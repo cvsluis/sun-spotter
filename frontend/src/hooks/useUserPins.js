@@ -6,6 +6,7 @@ export default function useUserPins(userID) {
   const [userVisits, setUserVisits] = useState([]);
 
   useEffect(() => {
+    let isUser = true;
     const fetchVisit = async () => {
       try {
         const saves = await fetch(`http://localhost:8080/api/users/${userID}/saves`).then(res => res.json());
@@ -17,10 +18,14 @@ export default function useUserPins(userID) {
         console.error('Error fetching data', err);
       }
     };
-    if (userID) {
-      fetchVisit();
-    }
-  }, []);
+
+    fetchVisit();
+
+      // Cleanup function
+    return () => {
+      isUser = false;  
+    };
+  }, [userID]);
 
   return [userSaves, userVisits];
 }

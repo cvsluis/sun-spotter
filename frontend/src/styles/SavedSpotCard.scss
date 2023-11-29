@@ -4,10 +4,39 @@
   color: #000000;
   text-decoration: none;
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
+  padding: 1.5rem;
   padding-bottom: 0.75rem;
+
+  h2, h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+
+    span {
+      position: relative;
+      font-weight: 400;
+      font-size: 15px;
+      color: $text-light-grey;
+      bottom: 0.02rem;
+    }
+  }
+
+  h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: $text-grey;
+  }
+
+  h4 {
+    font-size: 13px;
+    font-weight: 400;
+    color: $text-light-grey;
+    padding: 0;
+  }
 }
 
 .savedSpotCard__container:hover .savedSpotCard__image img {
@@ -24,17 +53,29 @@
   }
 }
 
+.savedSpot-homepage__image{
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+
+  img {
+    transition: ease-in 0.25s;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .savedSpotCard__header  {
   display: flex;
   flex-direction: column;
   margin-left: 7px;
 }
 
-.savedSpotCard__title h4 {
-  margin-left: 0.5em;
-  font-size: 14px;
-  font-weight: 800px;
-}
+// .savedSpotCard__title h4 {
+//   margin-left: 0.5em;
+//   font-size: 14px;
+//   font-weight: 800px;
+// }
 
 .savedSpotCard__location {
   font-size: 12px;
