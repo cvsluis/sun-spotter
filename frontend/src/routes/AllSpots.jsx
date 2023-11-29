@@ -50,7 +50,7 @@ export default function AllSpots() {
 
   return (
     <div className='allSpots__container'>
-      <SideBar spots={spots} />
+      <SideBar spots={spots} userID={userID}/>
 
     <div className='allSpots__map-container'>
       <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} />
