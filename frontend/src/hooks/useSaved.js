@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 export default function useSaved(userID, spotID) {
 
-
   const[ saveID, setSaveID ] = useState(undefined);
 
   //check if save exists if user is logged in;

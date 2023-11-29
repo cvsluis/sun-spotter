@@ -2,35 +2,86 @@
 @import 'index.scss';
 @import 'Profile.scss';
 
-.profile .user-info__container{
+.user-info__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 300px;
-  height: 400px;
+  height: 500px;
   padding: 20px;
   background-color: var(--body_background);
   box-shadow: $shadow-grey 0px 2px 8px 0px;
   border-radius: 24px;
-  
- }
+}
 
-
- .card__image {
-  width: 80px;
-  height: 80px;
+.user-info__picture {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
   margin: 2rem 1.5rem;
- }
- 
- .card__name {
-  margin: 10px 0;
-  font-size: 24px;
- }
- 
- .card__location {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #888;
- }
+}
+
+.user-info__details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+
+  .user-info__location {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $text-grey;
+  }
+}
+
+.user-info__profile-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  h2{
+    margin-bottom: 2rem;
+  }
+}
+
+.user-info__counts{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4rem;
+
+  .user-info__counts-number {
+    color: black;
+  }
+}
+
+.user-info__saved {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    color: var(--text-light);
+  }
+}
+
+.user-info__visits {
+  flex-direction: column;
+  border-left: 2px solid $shadow-grey;
+  
+
+  p {
+    padding-left: 4rem;
+    color: var(--text-light);
+  }
+}
+

@@ -21,6 +21,17 @@ const checkSave = (userID, spotID) => {
   .catch(err => console.log('Error checking save: ', err))
 }
 
+const totalSaves = (userID) => {
+  
+  const query = `SELECT COUNT(*) AS total_saves FROM saves WHERE user_id = $1;`;
+
+  return db.query(query, [userID])
+  .then(data => {
+     return data;
+  })
+  .catch(err => console.log('Error checking save: ', err))
+}
+
 const deleteSave = (saveID) => {
   const query = `DELETE FROM saves WHERE id = $1`;
   return db.query(query, [saveID])
@@ -30,4 +41,4 @@ const deleteSave = (saveID) => {
   .catch(err => console.log("Error deleting save: ", err));
 };
 
-module.exports = { createSave, checkSave, deleteSave }
+module.exports = { createSave, checkSave, totalSaves, deleteSave }

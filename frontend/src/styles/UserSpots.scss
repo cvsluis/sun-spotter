@@ -26,13 +26,13 @@ body {
 .user-spots__saves {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1.5em;
+  grid-gap: 0.5em;
 }
 
 .user-spots__visits {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1.5em;
+  grid-gap: 0.5em;
 }
 
 .user-spots__map {
