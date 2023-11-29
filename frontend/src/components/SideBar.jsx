@@ -2,10 +2,10 @@ import React from 'react';
 import SpotCard from './SpotCard';
 import '../styles/SideBar.scss';
 
-export default function SideBar({ spots }) {
+export default function SideBar({ spots, userID }) {
 
   const spotsList = spots.map((spot) => {
-    return <SpotCard spot={spot} key={spot.id} />
+    return <SpotCard spot={spot} key={spot.id} userID = {userID}/>
   });
 
   return (
