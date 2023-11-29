@@ -21,14 +21,20 @@
   color: #000;
 }
 
+.label__hover {
+  transition: $transition-3;
+}
+
 .label__hover.label__inactive:hover {
   cursor: pointer;
   background-color: $button-grey-hover;
+  transition: $transition-3;
 }
 
 .label__hover.label__active:hover {
   cursor: pointer;
   background-color: $button-orange-hover;
+  transition: $transition-3;
 }
 
 .label__container {

@@ -25,8 +25,7 @@
   height: 4rem;
   display: inline-flex;
   align-items: center;
-  align-items: center;
-  overflow:hidden;
+  overflow: hidden;
   z-index: 9999;
   position: absolute;
   left: 2rem;
@@ -36,8 +35,18 @@
   padding-top: 0.75rem;
   font-size: 2rem;
   font-weight: 300;
-  -webkit-transition: max-width 0.5s;
-  transition: max-width 0.5s;
+  transition: $transition-3;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $button-orange-hover;
+    max-width: 200px;
+    transition: $transition-3;
+
+    .allSpots__btn--text {
+      animation: 0.5s slide-right;
+    }
+  }
 }
 
 .allSpots__btn--text {
@@ -45,16 +54,6 @@
   margin-left: 1.41rem;
   padding-right: 0.5rem;
   font-size: 1rem;
-}
-
-.allSpots__btn--add-spot:hover {
-  cursor: pointer;
-  background-color: $button-orange-hover;
-  max-width: 200px;
-
-  .allSpots__btn--text {
-    animation: 0.5s slide-right;
-  }
 }
 
 @keyframes slide-right {

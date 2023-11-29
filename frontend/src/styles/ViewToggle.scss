@@ -5,18 +5,17 @@
   top: 2rem;
   right: 1.5rem;
   height: 36px;
-  width: 240px;
   background-color: $button-grey;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  box-shadow: inset $shadow-grey 0px 2px 8px 0px;
   border-radius: 24px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
 
   .view-toggle__option {
     text-align: center;
     color: $text-light-grey;
     transition: color 0.2s ease-in 0s;
+    padding: 0 1rem;
 
     &:hover{
       color:$text-grey;
@@ -34,7 +33,7 @@
 
     //center overflow + recenter text
     margin: -10px 0;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     line-height: 22px;
 
     &:hover {

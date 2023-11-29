@@ -1,7 +1,5 @@
 @import '_theme.scss';
 
-
-
 .one-spot{
   max-width: 1020px;
   min-width: 1020px;
@@ -38,6 +36,36 @@
   flex: 0 0 40%;
 }
 
+.one-spot__details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.one-spot__links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.one-spot__directions {
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: $button-orange;
+  border-radius: 9999px;
+  padding: 0.5em 2.5em;
+  align-self: flex-end;
+  font-size: 14px;
+  transition: $transition-3;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $button-orange-hover;
+    transition: $transition-3;
+  }
+}
+
 .one-spot__create-visit {
   text-decoration: none;
   color: #FFFFFF;
@@ -46,13 +74,13 @@
   padding: 0.5em 2.5em;
   align-self: flex-end;
   font-size: 14px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
+  transition: $transition-3;
 
-.one-spot__create-visit:hover {
-  background-color: $button-orange-hover;
+  &:hover {
+    cursor: pointer;
+    background-color: $button-orange-hover;
+    transition: $transition-3;
+  }
 }
 
 .one-spot__header > div {
@@ -68,6 +96,10 @@
     top: 0;
     right: 0;
     margin: 1.0em;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

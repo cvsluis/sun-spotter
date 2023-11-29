@@ -1,47 +1,44 @@
 @import '_theme.scss';
 
 .about-spot { 
-
   width: 100%;
   display: flex;
   flex-direction: column;
   gap:1.5rem;
   padding-top: 1.5rem;
-
-
 }
 
 .about-spot__save {
   align-self: flex-end;
-
 }
 
 .about-spot__info {
   display: flex;
   flex-direction: column;
   gap: 5px;
+
   h1 {
    padding-top: 0px; 
    padding-bottom: 0px;
   }
-
-
 }
+
 .about-spot__labels {
   display: flex;
   gap: 4px;
   flex-wrap: wrap;
-
 }
+
 .about-spot__label {
   font-size: 12px;
   background-color: $light-orange;
   border-radius: 9999px;
-  padding: 0.5em;
+  padding: 0.5rem 0.7rem;
+  width: auto;
 }
 
-about-spot__name {
-  font-size: 34px;
+.about-spot__name {
+  font-size: 32px;
 }
 
 .about-spot__label--pink {
@@ -52,6 +49,14 @@ about-spot__name {
   display: flex;
   gap: 3px;
 }
+
+.about-spot__stars {
+  margin-bottom: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .about-spot__star  {
   height: 20px;
   width: 20px;
