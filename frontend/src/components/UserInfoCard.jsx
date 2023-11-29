@@ -1,12 +1,15 @@
 import React from "react";
-
+import useUserStats from '../hooks/useUserStats';
 import "../styles/UserInfoCard.scss";
 
-export default function UserInfoCard({ user }) {
+export default function UserInfoCard({ user, userID }) {
+
+  const [totalSaves, totalVisits] = useUserStats(userID);
+
   if (!user) {
     return null;
   }
-
+  console.log(totalSaves, totalVisits);
   const { first_name, last_name, profile_pic, city, province, country } = user;
 
   return (
@@ -24,10 +27,8 @@ export default function UserInfoCard({ user }) {
         <p>{country}</p>
         </div>
         <div class="profile-stats">
-          <p>18 Followers</p>
-          <p>2 Stats</p>
-          <p>Lists 18</p>
-          <p>Following 0</p>
+          <p>{totalSaves} Saved</p>
+          <p>{totalVisits} Visited</p>
         </div>
       </div>
 
