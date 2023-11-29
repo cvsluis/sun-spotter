@@ -1,4 +1,5 @@
 @import '_theme.scss';
+@import 'index.scss';
 @import 'Profile.scss';
 
 .profile .user-info__container{
@@ -8,7 +9,7 @@
   width: 300px;
   height: 400px;
   padding: 20px;
-  background-color: #FFFFFF;
+  background-color: var(--body_background);
   box-shadow: $shadow-grey 0px 2px 8px 0px;
   border-radius: 24px;
   

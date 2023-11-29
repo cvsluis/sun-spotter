@@ -1,4 +1,5 @@
 @import '_theme.scss';
+@import 'index.scss';
 
 nav {
   display: flex;
@@ -8,7 +9,7 @@ nav {
   height: 64px;
   width: 100%;
   box-shadow: $shadow-grey 0px 2px 8px 0px;
-  background-color: #ffffff;
+  background-color: var(--body_background);
 }
 
 .nav__main{
@@ -34,7 +35,7 @@ nav .nav__logo {
 nav .nav__explore-link{
   text-decoration: none;
   font-size: 13px;
-  color: black;
+  color: var(--text-color);
   transition: $transition-3;
 
   &:hover {
@@ -56,28 +57,28 @@ nav button {
   border: none;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: $button-grey;
-  color: black;
+  background-color: var(--button-color);
+  color: var(--text-color);
   text-decoration: none;
   font-size: 13px;
   transition: $transition-3;
 
   &:hover {
     cursor: pointer;
-    background-color: $button-grey-hover;
+    background-color: var(--button-color-hover);
     transition: $transition-3;
   }
 }
 
 .nav__register-btn {
-  background-color: $button-orange;
+  background-color: var(--button-highlight-color);
   color: white;
   margin: 1rem;
   transition: $transition-3;
 
   &:hover {
     cursor: pointer;
-    background-color: $button-orange-hover;
+    background-color: var(--button-highlight-hover);
     transition: $transition-3;
   }
 }
@@ -95,15 +96,15 @@ nav button {
   border: none;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: $button-grey;
-  color: black;
+  background-color: var(--button-color);
+  color: var(--text-color);
   text-decoration: none;
   font-size: 13px;
   transition: $transition-3;
 
   &:hover {
     cursor: pointer;
-    background-color: $button-grey-hover;
+    background-color: var(--button-color-hover);
     transition: $transition-3;
   }
 }
