@@ -41,6 +41,21 @@ module.exports = db => {
     }
   });
 
+  router.get("/visits/totalVisits/:id", (req, res) => {
+    const user_id = req.params.id;
+
+    visitQueries
+    .totalVisits(user_id)
+    .then((result) => {
+      const totalVisits = result.rows[0].total_visits;
+      res.status(200).json({ message: "Saves successfully counted", total: totalVisits });
+    })
+    .catch((err) => {
+      console.log("Error: ", err);
+      res.status(500).json({ error: "Internal Server Error" });
+    });
+});
+
   // POST /api/visits/:id/comments
   router.post("/visits/:id/comments", async (req, res) => {
     try {
