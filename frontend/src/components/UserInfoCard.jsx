@@ -35,13 +35,13 @@ export default function UserInfoCard({ user, userID }) {
         <h2>My Spots</h2>
         <div className="user-info__counts">
         <div className="user-info__saved">
-          <p>
+          <p className="user-info__counts-number">
             <strong>{totalSaves}</strong>
           </p>
           <p>Saved</p>
         </div>
         <div className="user-info__visits">
-          <p>
+          <p className="user-info__counts-number">
             <strong>{totalVisits}</strong>
           </p>
           <p>Visited</p>
