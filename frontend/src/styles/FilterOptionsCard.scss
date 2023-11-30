@@ -14,7 +14,7 @@
 
   footer {
     position: relative;
-    flex: 2;
+    flex: 1;
     display: inline;
     border-top: 1px solid $button-grey-hover;
     
@@ -42,7 +42,7 @@
 }
 
 .filterOptions__list {
-  flex: 10;
+  flex: 5;
   height: 220px;
   overflow: scroll;
 
@@ -66,7 +66,7 @@
       width: 20px;
       height: 20px;
       margin: 0;
-      border: 2px solid $text-light-grey;
+      border: 1.5px solid $text-light-grey;
       display: grid;
       place-content: center;
     }

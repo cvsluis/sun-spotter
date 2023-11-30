@@ -25,13 +25,13 @@
       width: 20px;
       height: 20px;
       margin: 0;
-      border: 2px solid $text-light-grey;
+      border: 1.5px solid $text-light-grey;
       transition: 0.2s all linear;
       position: relative;
     }
 
     input:checked {
-      border: 2px solid $text-light-grey;
+      border: 1.5px solid $text-light-grey;
     }
 
     input:checked::before {
