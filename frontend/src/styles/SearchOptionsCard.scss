@@ -1,1 +1,22 @@
 @import '_theme';
+
+.searchOptions {
+  width: 300px;
+  height: auto;
+  z-index: 9999;
+  overflow: scroll;
+  padding: 1.5rem;
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+
+  li{
+    padding: 1rem;
+    width: max-content;
+    border-radius: 24px;
+  }
+}

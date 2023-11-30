@@ -47,5 +47,11 @@
       transition: $transition-3;
     }
   }
+
+  .allSpots__searchOption {
+    height: auto;
+    align-self: flex-start;
+    z-index: 9999;
+  }
   
 }
