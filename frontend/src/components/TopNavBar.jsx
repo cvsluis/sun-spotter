@@ -2,10 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import DarkModeToggle from '../components/DarkModeToggle';
 import '../styles/TopNavBar.scss';
-import logo from '../assets/logo.png';
+import logoLight from '../assets/logo.png';
+import logoDark from '../assets/logo-white.png';
 import Cookies from 'js-cookie';
-
-
 
 export default function TopNavBar({ context }) {
 
@@ -45,7 +44,7 @@ export default function TopNavBar({ context }) {
   return (
     <nav>
       <div className='nav__main'>
-      <Link to={'/home'}><img className='nav__logo' alt='logo' src={logo}></img></Link>
+      <Link to={'/home'}><img className='nav__logo' alt='logo' src={logoLight}></img></Link>
       <Link to={`/spots`} className='nav__explore-link'>EXPLORE</Link>
       </div>
 

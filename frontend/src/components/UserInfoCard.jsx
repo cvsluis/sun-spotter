@@ -8,7 +8,7 @@ export default function UserInfoCard({ user, userID }) {
   if (!user) {
     return null;
   }
-  console.log(totalSaves, totalVisits);
+  
   const { first_name, last_name, profile_pic, city, province, country } = user;
 
   return (

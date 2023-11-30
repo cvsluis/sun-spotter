@@ -15,7 +15,8 @@
 }
 
 .button-navigate {
-  background-color: var(--body-offcolor-background);
+  background-color: var(--page-background);
+  color: var(--text-color);
   width: 64px;
   height: 64px;
   position: absolute;

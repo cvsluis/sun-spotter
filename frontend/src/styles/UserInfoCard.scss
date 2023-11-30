@@ -38,7 +38,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: $text-grey;
+    color: var(--text-light);
   }
 }
 
@@ -76,7 +76,7 @@
 
 .user-info__visits {
   flex-direction: column;
-  border-left: 2px solid var(--shadow);
+  border-left: 2px solid var(--text-light);
   
 
   p {
