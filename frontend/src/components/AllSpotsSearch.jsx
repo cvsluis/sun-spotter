@@ -3,6 +3,7 @@ import '../styles/AllSpotsSearch.scss';
 import sortSpots from '../utils/sortSpots';
 import useSearchOptions from '../hooks/useSearchOptions';
 import SortOptionsCard from './SortOptionsCard';
+import FilterOptionsCard from './FilterOptionsCard';
 
 export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
 
@@ -26,6 +27,7 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Filter
         </button>
+        {isFilterMenu && <FilterOptionsCard />}
       </div>
       <div className='allSpots__searchOption'>
         <button id='allspots-btn-sort' className={ isSearchMenu ? 'allSpots-btn-grey allSpots-btn--pressed' : 'allSpots-btn-grey'} onClick={() => toggleSearchOptionMenu('sort')}>
