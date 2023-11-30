@@ -1,13 +1,17 @@
 import React, {useState} from "react";
 import '../styles/SortOptionsCard.scss'
+import sortSpots from '../utils/sortSpots';
 
-export default function SortOptionsCard({ spots, menuOptions, isCheckbox}) {
+export default function SortOptionsCard({ spots, setSpots}) {
 
   const [ selectedSortOption, setSelectedSortOption ] = useState('id');
 
   const handleOptionChange = function(event) {
+    sortSpots(spots, setSpots, event.target.value)
     setSelectedSortOption(event.target.value)
   }
+
+  
 
 
   return (

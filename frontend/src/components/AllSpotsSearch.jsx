@@ -10,8 +10,6 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
   
   const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy' ];
 
-  const sortOptions = ['Rating', 'Most Visited', 'Most Recent'];
-
   return (
     <div className='allSpotsSearch__container'>
       <div className='allSpotsSearch__input'>
@@ -37,7 +35,7 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           Sort
         </button>
         {/* {isSearchMenu && <SearchOptionsCard spots={spots} menuOptions={sortOptions}/>} uncomment when done dev */}
-        <SortOptionsCard spots={spots} menuOptions={sortOptions}/>
+        <SortOptionsCard spots={spots} setSpots={setSpots} />
 
       </div>
       {/* <button id='allspots-btn-clear' className='allSpots-btn-grey'>Clear All Filters</button> */}
