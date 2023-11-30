@@ -6,6 +6,7 @@
   --body_background: #f9f9f9;
   --body-offcolor-background: #F5F5F5;
   --text-color: black;
+  --text-nav-button: rgb(25, 25, 25);
   --text-light: #757575;
   --text-grey: #5d5d5d;
   --button-highlight-color: #F86204;
@@ -21,9 +22,10 @@
 }
 
 [data-theme= "dark"] {
-  --body_background: rgb(14, 10, 32);
-  --body-offcolor-background: rgb(22, 16, 51);
+  --body_background: rgb(28, 26, 39);
+  --body-offcolor-background: rgb(39, 36, 54);
   --text-color: rgb(238, 233, 233);
+  --text-nav-button: rgb(25, 25, 25);
   --text-light: #757575;
   --text-grey: #5d5d5d;
   --button-highlight-color: #FCA712;
@@ -34,8 +36,8 @@
   --light-orange: #FCBC94;
   --light-pink: #F7B09D;
   --sunny: #FCA712;
-  --shadow: rgb(73, 35, 100);
-  --weather: rgb(22, 16, 51);
+  --shadow: rgb(92, 75, 104);
+  --weather: rgb(38, 30, 43);
 }
 
 html {

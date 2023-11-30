@@ -51,7 +51,7 @@ export default function TopNavBar({ context }) {
 
       {!userID && 
       <div className="nav__logged-out">
-        <DarkModeToggle />
+        <DarkModeToggle className="nav__toggle"/>
         <Link to={'/login'} className='nav__login-btn'>Log In</Link>
         <button className='nav__register-btn'>Register</button>
       </div>
@@ -60,7 +60,7 @@ export default function TopNavBar({ context }) {
     
       {user && userID && 
       <div className="nav__logged-in">
-        <DarkModeToggle />
+        <DarkModeToggle className="nav__toggle"/>
         <button className="nav__logout-btn" onClick={handleLogout}>Log Out</button>
         <Link to={`/users/${userID}`} className="nav__user-profile"><img src={`http://localhost:8080/${user.profile_pic}`} alt='profile-pics'></img></Link>
       </div>

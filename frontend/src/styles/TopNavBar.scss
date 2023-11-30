@@ -55,10 +55,11 @@ nav button {
 .nav__login-btn {
   border-radius: 24px;
   border: none;
-  margin: 0.5rem;
+  margin: 1rem;
+  margin-left: 1.5rem;
   padding: 0.5rem 1rem;
   background-color: var(--button-color);
-  color: var(--text-grey);
+  color: var(--text-nav-button);
   text-decoration: none;
   font-size: 13px;
   transition: $transition-3;
@@ -73,7 +74,7 @@ nav button {
 .nav__register-btn {
   background-color: var(--button-highlight-color);
   color: white;
-  margin: 1rem;
+  margin-right: 1rem;
   transition: $transition-3;
 
   &:hover {
@@ -102,9 +103,10 @@ nav button {
   border-radius: 24px;
   border: none;
   margin: 0.5rem;
+  margin-left: 1.5rem;
   padding: 0.5rem 1rem;
   background-color: var(--button-color);
-  color: var(--text-grey);
+  color: var(--nav--button);
   text-decoration: none;
   font-size: 13px;
   transition: $transition-3;
@@ -127,4 +129,8 @@ nav button {
     cursor: pointer;
     box-shadow: var(--shadow) 0px 2px 8px 1px;
   }
+}
+
+.nav__toggle {
+  height: 20px;
 }
