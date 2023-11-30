@@ -47,4 +47,12 @@
       transition: $transition-3;
     }
   }
+
+  .allspots-dropdown > ul {
+    display:none;
+  }
+
+  .allspots-dropdown > .allSpots__show {
+    display: block;
+  }
 }
