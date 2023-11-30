@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { ReactComponent as Sun } from "../assets/Sun.svg";
 import { ReactComponent as Moon } from "../assets/Moon.svg";
 import "../styles/DarkModeToggle.scss";
