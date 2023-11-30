@@ -97,9 +97,10 @@
 .spotCard {
   position: relative;
 }
+
 .spotCard__save-btn {
   text-decoration: none;
-  background-color: rgba(245, 245, 245, 0.25);
+  background-color: inherit;
   padding: 0.5rem;
   border-radius: 9999px;
   border: none;
