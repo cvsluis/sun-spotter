@@ -29,11 +29,11 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Sort
         </button>
-      <ul>
-        <button onClick={() => sortSpots(spots, setSpots, 'rating')}>Top Rated</button>
-        <button onClick={() => sortSpots(spots, setSpots, 'rating_count')}>Most Popular</button>
-        <button onClick={() => sortSpots(spots, setSpots, 'id')}>Recently added</button>
-      </ul>
+        <ul>
+          <button onClick={() => sortSpots(spots, setSpots, 'rating')}>Top Rated</button>
+          <button onClick={() => sortSpots(spots, setSpots, 'rating_count')}>Most Popular</button>
+          <button onClick={() => sortSpots(spots, setSpots, 'id')}>Recently added</button>
+        </ul>
       </div>
       {/* <button id='allspots-btn-clear' className='allSpots-btn-grey'>Clear All Filters</button> */}
     </div>
