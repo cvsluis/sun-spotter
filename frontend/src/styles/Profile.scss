@@ -1,5 +1,5 @@
 @import '_theme.scss';
-
+@import 'index.scss';
 
 $width: 1220px;
 
@@ -15,7 +15,7 @@ $width: 1220px;
 }
 
 .profile > * {
-  background-color: #FFFFFF;
+  background-color: var(--body_background);
   box-shadow: $shadow-grey 0px 2px 8px 0px;
   border-radius: 24px;
 }

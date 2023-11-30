@@ -1,14 +1,18 @@
 @import "_theme.scss";
+@import "index.scss";
+
+body {
+  background-color: var(--body-offcolor-background);
+}
 
 .visitCard__container {
-  color: #000000;
+  color: var(--text-color);
   text-decoration: none;
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  padding: 1.5rem;
+  gap: 0.5rem;
 
   h2, h5 {
     font-size: 16px;
@@ -20,7 +24,7 @@
 h3 {
   font-size: 13px;
   font-weight: 700;
-  color: $text-grey;
+  color: var(--text-grey);
 }
 
 .visitCard__container:hover .visitCard__image img {
@@ -36,19 +40,11 @@ h3 {
   font-size: 16px;
   font-weight: 700;
 }
+
 .visitCard__date {
   font-size: 13px;
-  font-weight: 700;
-  color: $text-light-grey;
-
-}
-
-.visitCard__date--profile {
-  margin-left:  0.5em;
-}
-
-.visitCard__name {
-  margin-left: 0.5em;
+  font-weight: 400;
+  color: var(--text-light);
 }
 
 .visitCard__image {
