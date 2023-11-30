@@ -20,7 +20,8 @@
 .addImage__remove-image {
   width: 2.5rem;
   height: 2.5rem;
-  background-color: #efefef;
+  background-color: var(--button-disabled);
+  color: var(--text-color);
   border-radius: 9999px;
   border: none;
   position: absolute;
@@ -31,7 +32,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: #dedede;
+    background-color: var(--input-outline);
     transition: $transition-3;
   }
 
@@ -58,7 +59,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: var(--body-offcolor-background);
+    background-color: var(--page-background-accent);
     transition: $transition-3;
   }
 }

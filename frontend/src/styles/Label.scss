@@ -9,12 +9,12 @@
 }
 
 .label__inactive {
-  background-color: var(--button-disabled);
-  color: var(--text-grey);
+  background-color: var(--button-color);
+  color: var(--text-color);
 }
 
 .label__active {
-  color: var(--text-color);
+  color: #fff;
   background-color: var(--button-highlight-color);
 }
 
