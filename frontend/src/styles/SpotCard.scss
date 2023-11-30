@@ -10,6 +10,9 @@
   gap: 0.65rem;
   padding: 1.5rem;
   padding-bottom: 0.75rem;
+  position:relative;
+  z-index: 1;
+
 
   h2, h5 {
     font-size: 16px;
@@ -39,6 +42,7 @@
 
   &:hover {
     cursor: pointer;
+    z-index: 1;
 
     .spotCard__image img {
       transform: scale(1.08);
@@ -87,5 +91,28 @@
     transition: ease-in 0.25s;
     width: 100%;
     height: 100%;
+  }
+}
+
+.spotCard {
+  position: relative;
+}
+.spotCard__save-btn {
+  text-decoration: none;
+  background-color: rgba(245, 245, 245, 0.25);
+  padding: 0.5rem;
+  border-radius: 9999px;
+  border: none;
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  z-index: 9999;
+
+  svg {
+    opacity: 1;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }

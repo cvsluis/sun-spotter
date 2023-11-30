@@ -13,6 +13,17 @@ const getOneVisit = (id) => {
     });
 };
 
+const totalVisits = (userID) => {
+  
+  const query = `SELECT COUNT(*) AS total_visits FROM visits WHERE user_id = $1;`;
+
+  return db.query(query, [userID])
+  .then(data => {
+     return data;
+  })
+  .catch(err => console.log('Error checking save: ', err))
+}
+
 // Create Visit
 const createVisit = (visit) => {
   const { user_id, spot_id, image_url, rating, description, time_stamp } = visit;
@@ -32,4 +43,4 @@ const createVisit = (visit) => {
 };
 
 
-module.exports = { getOneVisit, createVisit };
+module.exports = { getOneVisit, totalVisits, createVisit };

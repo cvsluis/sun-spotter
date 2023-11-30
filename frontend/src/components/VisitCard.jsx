@@ -27,15 +27,15 @@ export default function VisitCard({ visit, isProfilePage }) {
             {visit.name}
           </div>
           :
-          <div className='visitCard__user'>
+          <h2 className='visitCard__user'>
             {visit.first_name} {visit.last_name}
-          </div>
+          </h2>
           }
           
           {isProfilePage ?
-          <div className='visitCard__date visitCard__date--profile'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</div>
+          <h3 className='visitCard__date visitCard__date--profile'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</h3>
           : 
-          <div className='visitCard__date'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</div>
+          <h3 className='visitCard__date'>{isVisitOld ? dateFormatter(visitDate) :<TimeAgo date={visitDate}/>}</h3>
           }
         </div>
       </div>
