@@ -9,9 +9,15 @@ export default function useSearchOptions() {
     switch(optionType){
       case 'sort':
         setIsSearchMenu(!isSearchMenu);
+        if (isFilterMenu) {
+          setIsFilterMenu(false);
+        }
         break;
       case 'filter':
         setIsFilterMenu(!isFilterMenu);
+        if (isSearchMenu) {
+          setIsSearchMenu(false);
+        }
     }
   }
 
