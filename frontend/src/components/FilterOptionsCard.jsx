@@ -30,6 +30,12 @@ export default function FilterOptionsCard({ spots, setSpots }) {
     }
   }
 
+  const handleClearClick = function() {
+    console.log('clearning')
+    setSpots(allSpots);
+    setLabels([]);
+  }
+
   useEffect(() => {
     if (isFirstRender) {   
       console.log(isFirstRender)
@@ -57,7 +63,7 @@ export default function FilterOptionsCard({ spots, setSpots }) {
         ))}
       </ul>
       <footer>
-        <button className="filterOptions__clear">
+        <button className="filterOptions__clear" onClick={handleClearClick}>
           Clear
         </button>
       </footer>
