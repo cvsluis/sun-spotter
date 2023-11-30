@@ -1,12 +1,9 @@
 @import '_theme.scss';
 @import 'index.scss';
 
-body{
-  background-color: var(--body-offcolor-background);
-}
 .createSpot__container {
   margin: 2rem auto;
-  background-color: var(--body_background);
+  background-color: var(--page-background);
   color: var(--text-color);
   width: 800px;
   height: auto;
@@ -68,7 +65,7 @@ body{
 
 .navigationButton__btn {
   background-color: var(--button-disabled);
-  color: black;
+  color: var(--text-color);
   width: 6rem;
   height: 3rem;
   border: none;
@@ -98,7 +95,7 @@ body{
 
   &:hover {
     cursor: pointer;
-    background-color: #efefef;
+    background-color: var(--button-disabled);
     transition: $transition-3;
   }
 }

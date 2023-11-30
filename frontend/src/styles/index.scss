@@ -1,47 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap%27');
 @import '_theme.scss';
 
-
 :root {
-  --body_background: #f9f9f9;
-  --body-offcolor-background: #F5F5F5;
+  --body-background: #f9f9f9;
+  --page-background: #fff;
+  --page-background-accent: #efefef;
+  --weather: #F5F5F5;
   --text-color: black;
-  --text-nav-button: rgb(25, 25, 25);
+  --line-color: #dcdcdc;
   --text-light: #757575;
   --text-grey: #5d5d5d;
   --button-highlight-color: #F86204;
   --button-highlight-hover: #ea4e15;
-  --button-color: #151b0d14;
-  --button-color-hover: #151b0d29;
+  --button-color: #ededec;
+  --button-color-hover: #dadad8;
   --button-disabled: #e5e5e5;
+  --input-outline: #949494;
   --light-orange: #FCBC94;
   --light-pink: #F7B09D;
   --sunny: #FCA712;
   --shadow: #63636333;
-  --weather: rgba(160, 181, 190, 0.44);
 }
 
 [data-theme= "dark"] {
-  --body_background: rgb(28, 26, 39);
-  --body-offcolor-background: rgb(39, 36, 54);
-  --text-color: rgb(238, 233, 233);
-  --text-nav-button: rgb(25, 25, 25);
-  --text-light: #757575;
-  --text-grey: #5d5d5d;
-  --button-highlight-color: #FCA712;
-  --button-highlight-hover:  #F86204;
-  --button-color: #babab9d4;
-  --button-color-hover: #cacbca9a;
-  --button-disabled: #e5e5e5;
-  --light-orange: #FCBC94;
+  --body-background: #252525;
+  --page-background: #2b2b2b;
+  --page-background-accent: #202020;
+  --weather: #202020;
+  --text-color: #eee9e9;
+  --line-color: #c9c9c9;
+  --text-light: #a5a5a5;
+  --text-grey: #909090;
+  --button-highlight-color: #F86204;
+  --button-highlight-hover: #ea4e15;
+  --button-color: #595959;
+  --button-color-hover: #4a4a4a;
+  --button-disabled: #474747;
+  --input-outline: #252525;
+  --light-orange: #ffa66f;
   --light-pink: #F7B09D;
   --sunny: #FCA712;
-  --shadow: rgb(92, 75, 104);
-  --weather: rgb(38, 30, 43);
+  --shadow: #111111;
 }
 
-html {
-  background-color: var(--body_background-color);
+body {
+  background-color: var(--body-background);
 }
 
 * {

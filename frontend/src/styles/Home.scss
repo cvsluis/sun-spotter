@@ -1,9 +1,6 @@
 @import '_theme.scss';
 @import 'index.scss';
 
-.body {
-}
-
 .welcome__section {
   position: absolute;
   top: 360px;
@@ -57,17 +54,18 @@
   flex-direction: column;
   margin: 1.5rem auto;
   justify-content: center;
-  background-color: var(--body_background-color);
+  background-color: var(--body-background);
 }
 
 .home__carousel--container {
   width: 60%;
   margin: 0 auto;
   padding: 2rem 0;
+  color: var(--text-color);
 }
 
 .bg-grey {
-  background-color: var(--body_background-color);
+  background-color: var(--page-background-accent);
   padding: 1rem 0;
 }
 
@@ -80,17 +78,17 @@
 
   .react-multiple-carousel__arrow {
     position:absolute;
-    background-color: var(--body_background-color);
+    background-color: var(--page-background);
     color: var(--text-color);
-    box-shadow: var(--shadow) 2px 2px 10px 10px;
+    box-shadow: var(--shadow) 0px 4px 8px 0px;
 
     &::before {
       color: var(--text-color);
     }
 
     &:hover {
-      background-color: var(--body-offcolor-background);
-      box-shadow: var(--shadow) 4px 4px 4px 4px;
+      background-color: var(--page-background);
+      box-shadow: var(--shadow) 0px 8px 15px 2px;
     }
   }
 

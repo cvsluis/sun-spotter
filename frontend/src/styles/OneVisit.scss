@@ -3,13 +3,9 @@
 
 $square-dimension: 650px;
 
-body {
-  background-color: var(--body-offcolor-background);
-}
-
 .one-visit__container {
   margin: 2rem auto;
-  background-color: var(--body_background);
+  background-color: var(--body-background);
   color: var(--text-color);
   box-shadow: var(--shadow) 0px 2px 8px 0px;
   width: fit-content;
@@ -17,6 +13,29 @@ body {
   border-radius: 24px;
   display: flex;
   flex-direction: row;
+  position: relative;
+}
+
+.button-navigate {
+  background-color: var(--page-background);
+  color: var(--text-color);
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  left: -80px;
+  border-radius: 9999px;
+  border: none;
+  box-shadow: var(--shadow) 0px 2px 8px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: $transition-3;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: var(--shadow) 0px 8px 15px 2px;
+    transition: $transition-3;
+  }
 }
 
 .one-visit__details--container {
@@ -86,7 +105,7 @@ body {
 .one-visit--line {
   width: 100%;
   border: none;
-  border-top: 1.5px solid var(--shadow);
+  border-top: 1.5px solid var(--line-color);
 }
 
 .one-visit__visit-details--container {
@@ -153,7 +172,7 @@ body {
 .one-visit__comments--add {
   input {
     border-radius: 10px;
-    background-color: var(--body-offcolor-background);
+    background-color: var(--page-background-accent);
     color: var(--text-color);
     border: none;
     padding: 0.8rem 1rem;

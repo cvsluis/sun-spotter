@@ -17,10 +17,11 @@
     height: 2rem;
     width: 30rem;
     padding: 0 1rem;
-    background-color: #fff;
+    background-color: var(--page-background);
+    color: var(--text-color);
     border: 0.8px solid var(--button-color-hover);
     border-radius: 24px;
-    outline-color: #949494;
+    outline-color: var(--input-outline);
     padding-left: 40px;
   }
 
@@ -35,6 +36,7 @@
     height: 2rem;
     padding: 0 1rem;
     background-color: var(--button-color);
+    color: var(--text-color);
     border: none;
     border-radius: 24px;
     display: flex;

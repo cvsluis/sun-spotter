@@ -11,11 +11,11 @@ $width: 1220px;
   margin: 0 auto;
   margin-top: 2rem;
   margin-bottom: 64px;
-
+  color: var(--text-color);
 }
 
 .profile > * {
-  background-color: var(--body_background);
-  box-shadow: $shadow-grey 0px 2px 8px 0px;
+  background-color: var(--page-background);
+  box-shadow: var(--shadow) 0px 2px 8px 0px;
   border-radius: 24px;
 }
