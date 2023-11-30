@@ -1,3 +1,5 @@
+@import 'index.scss';
+
 .dark_mode {
     margin-top: -20px;
     margin-left: 10px;
@@ -8,7 +10,7 @@
     height: 30px;
     position: relative;
     display: flex;
-    background: #ebebeb;
+    background: var(--button-color);
     border-radius: 200px;
     cursor: pointer;
     transition: 0.3s;
@@ -32,7 +34,7 @@
     visibility: hidden;
 }
 .dark_mode_input:checked + .dark_mode_label {
-    background: #242424;
+    background: var(--page-background-accent);
 }
 .dark_mode_input:checked + .dark_mode_label:after {
     left: 62px;
@@ -50,12 +52,13 @@
     z-index: 100;
 }
 .dark_mode_label svg.sun {
-    left: 5px;
+    left: 5.5px;
     fill: #fff;
     transition: 0.3s;
 }
 .dark_mode_label svg.moon {
     left: 40px;
+    top: 6.5px;
     fill: #7e7e7e;
     transition: 0.3s;
 }
