@@ -5,7 +5,7 @@ $square-dimension: 650px;
 
 .one-visit__container {
   margin: 2rem auto;
-  background-color: var(--body_background);
+  background-color: var(--body-background);
   color: var(--text-color);
   box-shadow: var(--shadow) 0px 2px 8px 0px;
   width: fit-content;
@@ -172,7 +172,7 @@ $square-dimension: 650px;
 .one-visit__comments--add {
   input {
     border-radius: 10px;
-    background-color: var(--body-offcolor-background);
+    background-color: var(--page-background-accent);
     color: var(--text-color);
     border: none;
     padding: 0.8rem 1rem;

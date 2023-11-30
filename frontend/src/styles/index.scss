@@ -2,10 +2,10 @@
 @import '_theme.scss';
 
 :root {
-  --body_background: #f9f9f9;
+  --body-background: #f9f9f9;
   --page-background: #fff;
   --page-background-accent: #efefef;
-  --body-offcolor-background: #F5F5F5;
+  --weather: #F5F5F5;
   --text-color: black;
   --text-nav-button: #191919;
   --text-light: #757575;
@@ -23,10 +23,10 @@
 }
 
 [data-theme= "dark"] {
-  --body_background: #252525;
+  --body-background: #252525;
   --page-background: #2b2b2b;
   --page-background-accent: #202020;
-  --body-offcolor-background: #202020;
+  --weather: #202020;
   --text-color: #eee9e9;
   --text-nav-button: #191919;
   --text-light: #a5a5a5;
@@ -44,7 +44,7 @@
 }
 
 body {
-  background-color: var(--body_background);
+  background-color: var(--body-background);
 }
 
 * {
