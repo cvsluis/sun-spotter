@@ -1,20 +1,36 @@
 @import '_theme';
 
-.filterOptions {
+.filterOptions{
   z-index: 9999;
   height: 300px;
-  overflow: scroll;
+  
   padding: 1.5rem;
   background-color: #FFFFFF;
+  box-shadow: $shadow-grey 0px 2px 8px 0px;
   border-radius: 24px;
+  position: relative;
+
+  footer {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+}
+
+.filterOptions__list {
+  height: 200px;
+  overflow: scroll;
+
+  position: relative;
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
-  gap: 0.5rem;
   list-style-type: none;
-  box-shadow: $shadow-grey 0px 2px 8px 0px;
 
+
+  
   li {
+    position:relative;
     display: flex;
     gap: 1rem;
 
@@ -26,14 +42,24 @@
       height: 20px;
       margin: 0;
       border: 2px solid $text-light-grey;
+      display: grid;
+      place-content: center;
     }
 
-    input:checked {
-      border: 2px solid $text-light-grey;
+    input::before {
+      background-color: $light-orange;
+      border-radius: 2px;
+      content: "";
+      width: 10px;
+      height: 10px;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+ 
     }
 
     input:checked::before {
-      content: ''
+      transform: scale(1);
+
     }
 
     label {
@@ -42,3 +68,4 @@
   }
 
 }
+

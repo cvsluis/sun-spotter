@@ -10,18 +10,27 @@ export default function FilterOptionsCard({ spots, setSpots }) {
 
   }
   return (
-    <ul className="filterOptions">
-      {filterOptions.map((option, i) => (
-        <li key={i}>
-          <input 
-            type="checkbox" 
-            name="filter" 
-            value={option} 
-            />
-        <label htmlFor="id">{option}</label>
-      </li>
-      ))}
-    </ul>
+    <div className="filterOptions">
+      <ul className="filterOptions__list">
+        {filterOptions.map((option, i) => (
+          <li key={i}>
+            <input 
+              type="checkbox" 
+              name="filter" 
+              value={option} 
+              />
+          <label htmlFor="id">{option}</label>
+        </li>
+        ))}
+      </ul>
+      <footer>
+        <button className="filterOptions__submit">
+          Clear
+        </button>
+      </footer>
+
+
+    </div>
   );
 
 };
