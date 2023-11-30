@@ -2,7 +2,9 @@ import React from 'react';
 import '../styles/AllSpotsSearch.scss';
 import sortSpots from '../utils/sortSpots';
 
-export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots }) {
+export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
+
+
   return (
     <div className='allSpotsSearch__container'>
       <div className='allSpotsSearch__input'>
@@ -28,12 +30,13 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           Sort
         </button>
       <ul>
-        <button onClick={() => sortSpots(spots, 'rating')}>Top Rated</button>
-        <button onClick={() => sortSpots(spots, 'rating_count')}>Most Popular</button>
-        <button onClick={() => sortSpots(spots, 'id')}>Recently added</button>
+        <button onClick={() => sortSpots(spots, setSpots, 'rating')}>Top Rated</button>
+        <button onClick={() => sortSpots(spots, setSpots, 'rating_count')}>Most Popular</button>
+        <button onClick={() => sortSpots(spots, setSpots, 'id')}>Recently added</button>
       </ul>
       </div>
       {/* <button id='allspots-btn-clear' className='allSpots-btn-grey'>Clear All Filters</button> */}
     </div>
+
   );
 };

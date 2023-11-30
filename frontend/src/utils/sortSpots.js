@@ -1,4 +1,5 @@
-export default function sortSpots(spots, sortKey, isReverse) {
-  const sortedSpots = spots.sort((spotA, spotB) => spotB[sortKey] - spotA[sortKey]);
-  return isReverse? sortedSpots.reverse() : sortedSpots;
+export default function sortSpots(spots, setSpots, sortKey) {
+  let sortedSpots = [...spots];
+  sortedSpots = sortedSpots.sort((spotA, spotB) => spotB[sortKey] - spotA[sortKey]);
+  setSpots(sortedSpots)
 }

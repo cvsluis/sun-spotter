@@ -5,6 +5,8 @@ import SideBar from '../components/SideBar';
 import AllSpotsSearch from '../components/AllSpotsSearch';
 import '../styles/AllSpots.scss';
 
+import sortSpots from '../utils/sortSpots';
+
 export default function AllSpots() {
   // logged in user
   const [userID] = useOutletContext();
@@ -53,7 +55,7 @@ export default function AllSpots() {
       <SideBar spots={spots} userID={userID}/>
 
     <div className='allSpots__map-container'>
-      <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} />
+      <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} spots={spots} setSpots={setSpots}/>
       <div className='allSpots__map'>
           { userID &&
             <Link className='allSpots__btn--add-spot' to='/spots/new'>
