@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/AllSpotsSearch.scss';
 
 import useSearchOptions from '../hooks/useSearchOptions';
@@ -8,6 +8,22 @@ import FilterOptionsCard from './FilterOptionsCard';
 export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
 
   const [ isSearchMenu, isFilterMenu, toggleSearchOptionMenu ] = useSearchOptions();
+  const [ isFirstRender, setIsFirstRender ] = useState(true);
+  const [allSpots, setAllSpots ] =useState([]);
+  const [ labels, setLabels ] = useState([]);
+
+
+
+  useEffect(() => {
+    if (isFirstRender) {   
+      console.log('first render')
+      setAllSpots(spots);
+
+      setIsFirstRender(false);
+      return;
+    }
+    console.log(allSpots, isFirstRender)
+  }, [])
   
   return (
     <div className='allSpotsSearch__container'>
@@ -25,7 +41,12 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Filter
         </button>
-        {isFilterMenu && <FilterOptionsCard spots={spots} setSpots={setSpots}/>}
+        {isFilterMenu && <FilterOptionsCard 
+        spots={spots} 
+        setSpots={setSpots} 
+        labels={labels} 
+        setLabels={setLabels}
+        allSpots={allSpots}/>}
       </div>
       <div className='allSpots__searchOption'>
         <button id='allspots-btn-sort' className={ isSearchMenu ? 'allSpots-btn-grey allSpots-btn--pressed' : 'allSpots-btn-grey'} onClick={() => toggleSearchOptionMenu('sort')}>
