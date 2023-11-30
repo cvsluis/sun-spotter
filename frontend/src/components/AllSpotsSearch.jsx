@@ -1,11 +1,13 @@
 import React from 'react';
 import '../styles/AllSpotsSearch.scss';
 import sortSpots from '../utils/sortSpots';
-import useSearchButtons from '../hooks/useSpotFilters';
+import useSearchOptions from '../hooks/useSearchOptions';
+import SearchOptionsCard from './SearchOptionsCard';
 
 export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
 
-  const [ sortMenuClass, filterMenuClass, toggleSearchButton ] = useSearchButtons();
+  const [ sortMenuClass, filterMenuClass, toggleSearchButton ] = useSearchOptions();
+  console.log()
 
   return (
     <div className='allSpotsSearch__container'>
@@ -31,11 +33,7 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Sort
         </button>
-        <ul className={sortMenuClass}>
-          <button onClick={() => sortSpots(spots, setSpots, 'rating')}>Top Rated</button>
-          <button onClick={() => sortSpots(spots, setSpots, 'rating_count')}>Most Popular</button>
-          <button onClick={() => sortSpots(spots, setSpots, 'id')}>Recently added</button>
-        </ul>
+        <SearchOptionsCard menuClass={sortMenuClass}/>
       </div>
       {/* <button id='allspots-btn-clear' className='allSpots-btn-grey'>Clear All Filters</button> */}
     </div>
