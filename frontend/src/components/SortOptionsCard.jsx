@@ -9,8 +9,6 @@ export default function SortOptionsCard({ spots, menuOptions, isCheckbox}) {
     setSelectedSortOption(event.target.value)
   }
 
-  
-
 
   return (
     <ul className="sortOptions">

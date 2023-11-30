@@ -1,73 +1,56 @@
 @import '_theme';
 
 .sortOptions {
-  width: 300px;
-  height: auto;
   z-index: 9999;
   overflow: scroll;
   padding: 1.5rem;
   background-color: #FFFFFF;
   border-radius: 24px;
   display: flex;
+  gap: 0.5rem;
   flex-direction: column;
   gap: 0.5rem;
   list-style-type: none;
+  box-shadow: $shadow-grey 0px 2px 8px 0px;
 
-  // .sortOptions__option {
-  //   display: block;
-  //   position: relative;
-  //   cursor: pointer;
-  //   padding-left: 35px;
-  //   -webkit-user-select: none;
-  //   -moz-user-select: none;
-  //   -ms-user-select: none;
-  //   user-select: none;
+  li {
+    display: flex;
+    gap: 1rem;
+  
 
-  //   input {
-  //     position: absolute;
-  //     opacity: 0;
-  //     cursor: pointer;
-  //     height: 0;
-  //     width: 0;
-    
-  //   }
+    input {
+      padding: 0;
+      appearance: none;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      margin: 0;
+      border: 2px solid $button-grey;
+      transition: 0.2s all linear;
+      position: relative;
+    }
 
-  //   .checkmark {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     height: 25px;
-  //     width: 25px;
-  //     background-color: #eee;
-  //     border-radius: 50%;
-  //   }
+    input:checked {
+      border: 2px solid $button-grey;
+    }
 
-  //   &:hover input ~ .checkmark {
-  //     background-color: #ccc;
-  //   }
+    input:checked::before {
+      content: ''; 
+      display: block;
+      width: 10px; 
+      height: 10px;
+      background-color: $button-orange; 
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+    }
 
-  //   input:checked ~ .checkmark {
-  //     background-color: #2196F3;
-  //   }
-
-  //   .checkmark:after {
-  //     content: "";
-  //     position: absolute;
-  //     display: none;
-  //   }
-
-  //   input:checked ~ .checkmark:after {
-  //     display: block;
-  //   }
-
-  //   .checkmark:after {
-  //     top: 9px;
-  //     left: 9px;
-  //     width: 8px;
-  //     height: 8px;
-  //     border-radius: 50%;
-  //     background: white;
-  //   }
-  // }
+    label {
+      align-self: center;
+    }
+  }
 
 }
