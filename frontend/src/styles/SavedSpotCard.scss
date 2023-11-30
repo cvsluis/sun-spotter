@@ -1,16 +1,13 @@
 @import "_theme.scss";
-@import "index.scss";
 
 .savedSpotCard__container {
-  color: #000000;
+  color: var(--text-color);
   text-decoration: none;
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  padding: 1.5rem;
-  padding-bottom: 0.75rem;
+  gap: 0.5rem;
 
   h2, h5 {
     font-size: 16px;
@@ -21,7 +18,7 @@
       position: relative;
       font-weight: 400;
       font-size: 15px;
-      color: var(--text-light);
+      color: $text-light-grey;
       bottom: 0.02rem;
     }
   }
@@ -29,13 +26,13 @@
   h3 {
     font-size: 13px;
     font-weight: 700;
-    color: var(--text-grey);
+    color: $text-grey;
   }
 
   h4 {
     font-size: 13px;
     font-weight: 400;
-    color: var(--text-light);
+    color: $text-light-grey;
     padding: 0;
   }
 }
@@ -54,7 +51,7 @@
   }
 }
 
-.savedSpot-homepage__image{
+.savedSpot-homepage__image {
   width: 100%;
   border-radius: 24px;
   overflow: hidden;
@@ -66,14 +63,18 @@
   }
 }
 
-.savedSpotCard__header  {
+.savedSpotCard__header {
   display: flex;
   flex-direction: column;
-  margin-left: 7px;
+}
+
+.savedSpotCard__title {
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .savedSpotCard__location {
   font-size: 12px;
   font-weight: 400;
-  color: var(--text-light);
+  color: $text-light-grey;
 }

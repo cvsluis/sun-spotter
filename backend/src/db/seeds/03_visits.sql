@@ -15,4 +15,4 @@ VALUES
   (1, 1, 'images/4.jpg', 4, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
   (1, 10, 'images/19.jpg', 4, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
   (2, 4, 'images/10.jpg', 4, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
-  (2, 5, 'images/7.jpg', 4, 'Pink Pink PInk!', '2023-05-14 19:30:00', DEFAULT);
+  (2, 5, 'images/7.jpg', 4, 'Pink Pink Pink!', '2023-05-14 19:30:00', DEFAULT);
