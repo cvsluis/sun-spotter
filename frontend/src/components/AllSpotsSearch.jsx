@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/AllSpotsSearch.scss';
 import sortSpots from '../utils/sortSpots';
 import useSearchOptions from '../hooks/useSearchOptions';
@@ -7,7 +7,10 @@ import SearchOptionsCard from './SearchOptionsCard';
 export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
 
   const [ isSearchMenu, isFilterMenu, toggleSearchOptionMenu ] = useSearchOptions();
-  console.log(isSearchMenu)
+  
+  const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy' ];
+
+  const sortOptions = ['Rating', 'Most Visited', 'Most Recent'];
 
   return (
     <div className='allSpotsSearch__container'>
@@ -18,7 +21,7 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
         <input placeholder='Search location' autoComplete='off' value={searchInput} onChange={handleSearchInputChange} onKeyUp={handleSearchInputChange} />
       </div>
       {/* to be implemented */}
-      <div className='allspots-dropdown'>
+      <div className='allSpots__searchOption'>
         <button id='allspots-btn-filter' className='allSpots-btn-grey' onClick={() => toggleSearchOptionMenu('filter')}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fillRule="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
             <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
@@ -27,14 +30,15 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
         </button>
         {isFilterMenu && <SearchOptionsCard />}
       </div>
-      <div className='allspots-dropdown'>
+      <div className='allSpots__searchOption'>
         <button id='allspots-btn-sort' className='allSpots-btn-grey' onClick={() => toggleSearchOptionMenu('sort')}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-down" viewBox="0 0 16 16">
             <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
           </svg>
           Sort
         </button>
-        {isSearchMenu && <SearchOptionsCard />}
+        {/* {isSearchMenu && <SearchOptionsCard spots={spots} menuOptions={sortOptions}/>} uncomment when done dev */}
+        <SearchOptionsCard spots={spots} menuOptions={sortOptions}/>
 
       </div>
       {/* <button id='allspots-btn-clear' className='allSpots-btn-grey'>Clear All Filters</button> */}
