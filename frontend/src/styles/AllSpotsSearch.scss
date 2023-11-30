@@ -42,10 +42,19 @@
     gap: 0.5rem;
     transition: $transition-3;
 
+
     &:hover {
       cursor: pointer;
       background-color: var(--button-color-hover);
       transition: $transition-3;
+    }
+  }
+
+  .allSpots-btn--pressed {
+    background-color: $light-orange;
+    
+    &:hover {
+      background-color: $light-orange;
     }
   }
 
