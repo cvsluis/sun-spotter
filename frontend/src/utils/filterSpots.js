@@ -2,7 +2,7 @@ export default function filterSpots(spots, setSpots, labels) {
   console.log('in filter', spots, labels)
 
   //if no labels chosen
-  if (labels.length === 0) {
+  if (labels.length === 0 ) {
     setSpots(spots);
     console.log('no more filters');
     return;

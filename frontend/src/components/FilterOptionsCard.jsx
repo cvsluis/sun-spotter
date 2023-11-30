@@ -5,7 +5,7 @@ import filterSpots from '../utils/filterSpots';
 export default function FilterOptionsCard({ spots, setSpots }) {
 
   const [ isFirstRender, setIsFirstRender ] = useState(true);
-
+  const [allSpots, setAllSpots ] =useState([]);
   
   //static variable as there is no way to modify db labels as of right now
   const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy'];
@@ -34,10 +34,11 @@ export default function FilterOptionsCard({ spots, setSpots }) {
     if (isFirstRender) {   
       console.log(isFirstRender)
       setIsFirstRender(false);
+      setAllSpots(spots);
       return;
     }
     console.log('filtering spots');
-    filterSpots(spots, setSpots, labels);
+    filterSpots(allSpots, setSpots, labels);
   }, [labels]);
 
   return (
