@@ -8,6 +8,11 @@ import FilterOptionsCard from './FilterOptionsCard';
 export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
 
   const [ isSearchMenu, isFilterMenu, toggleSearchOptionMenu ] = useSearchOptions();
+
+
+  console.log('allspots Render', spots)
+
+
   
   return (
     <div className='allSpotsSearch__container'>

@@ -18,32 +18,32 @@ export default function FilterOptionsCard({ spots, setSpots }) {
       let newLabels = [...labels]
       newLabels = newLabels.filter(item => item !== value);
       setLabels(prev => {
-        console.log("removing label from ", prev);
+        //console.log("removing label from ", prev);
         return newLabels;
       })
     } else {
       const newLabels = [...labels, value]
       setLabels(prev => {
-        console.log("adding label to ", prev)
+        //console.log("adding label to ", prev)
         return newLabels;
       } )
     }
   }
 
   const handleClearClick = function() {
-    console.log('clearning')
+    //console.log('clearning')
     setSpots(allSpots);
     setLabels([]);
   }
 
   useEffect(() => {
     if (isFirstRender) {   
-      console.log(isFirstRender)
+     // console.log(isFirstRender)
       setIsFirstRender(false);
       setAllSpots(spots);
       return;
     }
-    console.log('filtering spots');
+    //console.log('filtering spots');
     filterSpots(allSpots, setSpots, labels);
   }, [labels]);
 
