@@ -8,15 +8,66 @@
   padding: 1.5rem;
   background-color: #FFFFFF;
   border-radius: 24px;
-  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  list-style-type: none;
 
+  // .sortOptions__option {
+  //   display: block;
+  //   position: relative;
+  //   cursor: pointer;
+  //   padding-left: 35px;
+  //   -webkit-user-select: none;
+  //   -moz-user-select: none;
+  //   -ms-user-select: none;
+  //   user-select: none;
 
-  li{
-    padding: 1rem;
-    width: max-content;
-    border-radius: 24px;
-  }
+  //   input {
+  //     position: absolute;
+  //     opacity: 0;
+  //     cursor: pointer;
+  //     height: 0;
+  //     width: 0;
+    
+  //   }
+
+  //   .checkmark {
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     height: 25px;
+  //     width: 25px;
+  //     background-color: #eee;
+  //     border-radius: 50%;
+  //   }
+
+  //   &:hover input ~ .checkmark {
+  //     background-color: #ccc;
+  //   }
+
+  //   input:checked ~ .checkmark {
+  //     background-color: #2196F3;
+  //   }
+
+  //   .checkmark:after {
+  //     content: "";
+  //     position: absolute;
+  //     display: none;
+  //   }
+
+  //   input:checked ~ .checkmark:after {
+  //     display: block;
+  //   }
+
+  //   .checkmark:after {
+  //     top: 9px;
+  //     left: 9px;
+  //     width: 8px;
+  //     height: 8px;
+  //     border-radius: 50%;
+  //     background: white;
+  //   }
+  // }
+
 }
