@@ -1,7 +1,13 @@
 @import "_theme.scss";
+@import "index.scss";
+
+body {
+  background-color: var(--body-offcolor-backgroung);
+}
 
 .visitCard__container {
-  color: #000000;
+  color: var(--text-color);
+  background-color: var(--body_background);
   text-decoration: none;
   width: 100%;
   height: auto;
@@ -20,7 +26,7 @@
 h3 {
   font-size: 13px;
   font-weight: 700;
-  color: $text-grey;
+  color: var(--text-grey);
 }
 
 .visitCard__container:hover .visitCard__image img {
@@ -39,7 +45,7 @@ h3 {
 .visitCard__date {
   font-size: 13px;
   font-weight: 700;
-  color: $text-light-grey;
+  color: var(--text-light);
 
 }
 

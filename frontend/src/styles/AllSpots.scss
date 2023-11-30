@@ -1,4 +1,5 @@
 @import '_theme.scss';
+@import 'index.scss';
 
 .allSpots__container {
   display: flex;
@@ -39,7 +40,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: $button-orange-hover;
+    background-color: var(--button-highlight-color);
     max-width: 200px;
     transition: $transition-3;
 

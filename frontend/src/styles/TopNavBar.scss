@@ -58,7 +58,7 @@ nav button {
   margin: 0.5rem;
   padding: 0.5rem 1rem;
   background-color: var(--button-color);
-  color: var(--text-color);
+  color: var(--text-grey);
   text-decoration: none;
   font-size: 13px;
   transition: $transition-3;
@@ -83,6 +83,13 @@ nav button {
   }
 }
 
+.nav__logged-out {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .nav__logged-in{
   display: flex;
   flex-direction: row;
@@ -97,7 +104,7 @@ nav button {
   margin: 0.5rem;
   padding: 0.5rem 1rem;
   background-color: var(--button-color);
-  color: var(--text-color);
+  color: var(--text-grey);
   text-decoration: none;
   font-size: 13px;
   transition: $transition-3;
@@ -118,6 +125,6 @@ nav button {
 
   &:hover{
     cursor: pointer;
-    box-shadow: $shadow-grey 0px 2px 8px 1px;
+    box-shadow: var(--shadow) 0px 2px 8px 1px;
   }
 }

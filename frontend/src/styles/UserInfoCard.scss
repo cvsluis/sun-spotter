@@ -10,7 +10,7 @@
   height: 500px;
   padding: 20px;
   background-color: var(--body_background);
-  box-shadow: $shadow-grey 0px 2px 8px 0px;
+  box-shadow: var(--shadow) 0px 2px 8px 0px;
   border-radius: 24px;
 }
 
@@ -61,7 +61,7 @@
   gap: 4rem;
 
   .user-info__counts-number {
-    color: black;
+    color: var(--text-color);
   }
 }
 
@@ -76,7 +76,7 @@
 
 .user-info__visits {
   flex-direction: column;
-  border-left: 2px solid $shadow-grey;
+  border-left: 2px solid var(--shadow);
   
 
   p {

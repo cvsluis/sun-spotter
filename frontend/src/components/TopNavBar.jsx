@@ -50,14 +50,14 @@ export default function TopNavBar({ context }) {
       </div>
 
       {!userID && 
-      <div>
+      <div className="nav__logged-out">
         <DarkModeToggle />
         <Link to={'/login'} className='nav__login-btn'>Log In</Link>
         <button className='nav__register-btn'>Register</button>
       </div>
 
       }
-
+    
       {user && userID && 
       <div className="nav__logged-in">
         <DarkModeToggle />
