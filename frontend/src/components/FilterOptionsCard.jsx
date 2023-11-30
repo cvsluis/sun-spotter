@@ -2,18 +2,15 @@ import React, { useEffect, useState }from "react";
 import '../styles/FilterOptionsCard.scss';
 import filterSpots from '../utils/filterSpots';
 
-export default function FilterOptionsCard({ spots, setSpots, labels, setLabels, allSpots }) {
+export default function FilterOptionsCard({ spots, setSpots }) {
 
-  // const [ isFirstRender, setIsFirstRender ] = useState(true);
-  // const [allSpots, setAllSpots ] =useState([]);
-  // //
-
-  console.log(allSpots)
+  const [ isFirstRender, setIsFirstRender ] = useState(true);
+  const [allSpots, setAllSpots ] =useState([]);
   
   //static variable as there is no way to modify db labels as of right now
   const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy'];
+  const [ labels, setLabels ] = useState([]);
 
-  //handle checkmark click
   const handleOptionChange = function(event) {
     const value = event.target.value;
 
@@ -21,29 +18,32 @@ export default function FilterOptionsCard({ spots, setSpots, labels, setLabels, 
       let newLabels = [...labels]
       newLabels = newLabels.filter(item => item !== value);
       setLabels(prev => {
+        console.log("removing label from ", prev);
         return newLabels;
       })
     } else {
       const newLabels = [...labels, value]
       setLabels(prev => {
+        console.log("adding label to ", prev)
         return newLabels;
       } )
     }
   }
 
-  //handle clear button click
   const handleClearClick = function() {
+    console.log('clearning')
     setSpots(allSpots);
     setLabels([]);
   }
 
   useEffect(() => {
-    // //if firstRender, do not filter spots and save list of all spots
-    // if (isFirstRender) {   
-    //   setIsFirstRender(false);
-    //   setAllSpots(spots);
-    //   return;
-    // }
+    if (isFirstRender) {   
+      console.log(isFirstRender)
+      setIsFirstRender(false);
+      setAllSpots(spots);
+      return;
+    }
+    console.log('filtering spots');
     filterSpots(allSpots, setSpots, labels);
   }, [labels]);
 
