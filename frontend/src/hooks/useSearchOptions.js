@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/SearchOptionsCard.scss';
+
 
 export default function useSearchOptions() {
   const [ isSearchMenu, setIsSearchMenu ] = useState(false);

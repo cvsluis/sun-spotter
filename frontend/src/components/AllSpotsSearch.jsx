@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import '../styles/AllSpotsSearch.scss';
 import sortSpots from '../utils/sortSpots';
 import useSearchOptions from '../hooks/useSearchOptions';
-import SearchOptionsCard from './SearchOptionsCard';
+import SortOptionsCard from './SortOptionsCard';
 
 export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
 
@@ -28,7 +28,6 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Filter
         </button>
-        {isFilterMenu && <SearchOptionsCard />}
       </div>
       <div className='allSpots__searchOption'>
         <button id='allspots-btn-sort' className='allSpots-btn-grey' onClick={() => toggleSearchOptionMenu('sort')}>
@@ -38,7 +37,7 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           Sort
         </button>
         {/* {isSearchMenu && <SearchOptionsCard spots={spots} menuOptions={sortOptions}/>} uncomment when done dev */}
-        <SearchOptionsCard spots={spots} menuOptions={sortOptions}/>
+        <SortOptionsCard spots={spots} menuOptions={sortOptions}/>
 
       </div>
       {/* <button id='allspots-btn-clear' className='allSpots-btn-grey'>Clear All Filters</button> */}
