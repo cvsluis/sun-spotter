@@ -50,6 +50,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  color: var(--text-color);
 
   textarea {
     resize: none;
@@ -58,12 +59,13 @@
 
 .formDetails__input--text {
   border-radius: 10px;
-  color: var(--text-grey);
+  color: var(--text-color);
   background-color: inherit;
   border: 1px solid var(--text-grey);
   padding: 0.8rem 1rem;
   font-size: 14px;
   width: 100%;
+  outline-color: var(--input-outline);
 }
 
 .formDetails__container--labels {

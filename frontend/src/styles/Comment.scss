@@ -15,8 +15,7 @@
 }
 
 .comment__bubble {
-  background-color: var(--body-offcolor-background);
-  // width: auto;
+  background-color: var(--page-background-accent);
   width: 100%;
   border-radius: 18px;
   padding: 0.75rem 1rem;
@@ -33,7 +32,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    // gap: 2rem;
 
     p {
       font-size: 10px;
