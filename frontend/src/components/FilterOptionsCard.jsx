@@ -1,4 +1,26 @@
 export default function FilterOptionsCard({ spots, setSpots }) {
-  return (<div>filtering </div>);
   
+  //static variable as there is no way to modify db labels as of right now
+  const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy'];
+
+  const handleOptionChange = function() {
+
+  }
+  return (
+    <ul>
+      {filterOptions.map((option, i) => (
+        <li key={i}>
+          <input 
+            type="checkbox" 
+            name="sort" 
+            value="id" 
+            checked='false' 
+            onChange={handleOptionChange}
+            />
+        <label htmlFor="id">Most Recent</label>
+      </li>
+      ))}
+    </ul>
+  );
+
 };
