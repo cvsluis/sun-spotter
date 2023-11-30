@@ -1,18 +1,20 @@
 import { useState } from 'react';
+import '../styles/SearchOptionsCard.scss';
 
 export default function useSearchOptions() {
-  const [sortMenuClass, setSortMenuClass] = useState('');
-  const [filterMenuClass, setFilterMenuClass] = useState('');
+  const [ isSearchMenu, setIsSearchMenu ] = useState(false);
+  const [ isFilterMenu, setIsFilterMenu ] = useState(false);
 
-  const toggleSearchButton = function(buttonType) {
-    switch (buttonType) {
+  const toggleSearchOptionMenu = function(optionType) {
+    switch(optionType){
       case 'sort':
-        setSortMenuClass((prevClass) => prevClass === '' ? 'allSpots__show' : '');
-      case 'filter': 
-        setFilterMenuClass((prevClass) => prevClass === '' ? 'allSpots__show' : '');
+        setIsSearchMenu(!isSearchMenu);
+        break;
+      case 'filter':
+        setIsFilterMenu(!isFilterMenu);
     }
   }
 
-  return [sortMenuClass, filterMenuClass, toggleSearchButton]
+  return [isSearchMenu, isFilterMenu, toggleSearchOptionMenu]
 
 }
