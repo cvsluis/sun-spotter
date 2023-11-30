@@ -38,7 +38,7 @@ export default function OneSpotMap (props) {
           mapTypeControl: false
         }}
       > 
-        <MarkerF position={{lat: Number(center.lat), lng: Number(center.lng)}} />
+        <MarkerF position={{ lat: Number(center.lat), lng: Number(center.lng) }} icon={{ url: (require('../assets/pins/yellow.svg')).default }} />
       </GoogleMap>
     </div>
   );
