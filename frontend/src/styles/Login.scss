@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 @import '_theme.scss';
+@import 'index.scss';
 
 .login__container {
   display: flex;
@@ -12,7 +13,7 @@
 
   span {
     font-size: 12px;
-    color: gray;
+    color: var(--text-light);
   }
 }
 
@@ -34,7 +35,7 @@
   width: 300px;
   padding: 12px;
   margin-bottom: 24px;
-  box-shadow: 0 4px 8px -2px rgba(0,0,0,.3);
+  box-shadow: 0 4px 8px -2px var(--shadow);
 }
 
 #password {
@@ -48,14 +49,14 @@
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
   width: 300px;
-  background-color: $button-orange;
+  background-color: var(--button-highlight-color);
   color: white;
 
 }
 
 .login__btn:hover {
-  background-color: $button-orange-hover;
-  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.3);
+  background-color: var(--button-highlight-hover);
+  box-shadow: 0 4px 8px -2px var(--shadow);
   cursor: pointer;
 }
 

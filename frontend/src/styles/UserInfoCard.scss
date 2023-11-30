@@ -1,4 +1,5 @@
 @import '_theme.scss';
+@import 'index.scss';
 @import 'Profile.scss';
 
 .user-info__container {
@@ -8,8 +9,8 @@
   width: 300px;
   height: 500px;
   padding: 20px;
-  background-color: #f7f7f7;
-  box-shadow: $shadow-grey 0px 2px 8px 0px;
+  background-color: var(--body_background);
+  box-shadow: var(--shadow) 0px 2px 8px 0px;
   border-radius: 24px;
 }
 
@@ -60,7 +61,7 @@
   gap: 4rem;
 
   .user-info__counts-number {
-    color: black;
+    color: var(--text-color);
   }
 }
 
@@ -69,18 +70,18 @@
   flex-direction: column;
 
   p {
-    color: $text-light-grey;
+    color: var(--text-light);
   }
 }
 
 .user-info__visits {
   flex-direction: column;
-  border-left: 2px solid $shadow-grey;
+  border-left: 2px solid var(--shadow);
   
 
   p {
     padding-left: 4rem;
-    color: $text-light-grey;
+    color: var(--text-light);
   }
 }
 

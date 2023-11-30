@@ -1,4 +1,10 @@
 @import '_theme.scss';
+@import 'index.scss';
+
+body {
+  background-color: var(--body_background);
+  color: var(--text-color);
+}
 
 .user-spots__container {
   width: 786px;
@@ -43,8 +49,8 @@
     left: 2rem;
     bottom: 2rem;
     z-index: 9999;
-    background-color: $background-grey;
-    color: $text-grey;
+    background-color: var(--body-offcolor-background);
+    color: var(--text-grey);
     border-radius: 12px;
 
     .user-spots__legend-item {

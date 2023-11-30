@@ -1,4 +1,5 @@
 @import '_theme.scss';
+@import 'index.scss';
 
 .addImage__container {
   width: 100%;
@@ -35,13 +36,13 @@
   }
 
   .addImage__icon {
-    color: $text-grey;
+    color: var(--text-grey);
   }
 }
 
 .file-upload {
   text-align: center;
-  border: 1px dashed $text-grey;
+  border: 1px dashed var(--text-grey);
   border-radius: 24px;
   padding: 1.5rem;
   position: relative;
@@ -57,7 +58,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: $background-grey;
+    background-color: var(--body-offcolor-background);
     transition: $transition-3;
   }
 }
@@ -65,7 +66,7 @@
 .file-upload p {
   padding: 0;
   font-size: 0.87rem;
-  color: $text-light-grey;
+  color: var(--text-light);
 }
 
 .file-upload input {
