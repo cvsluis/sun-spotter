@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import '../styles/AllSpotsSearch.scss';
-import sortSpots from '../utils/sortSpots';
+
 import useSearchOptions from '../hooks/useSearchOptions';
 import SortOptionsCard from './SortOptionsCard';
 import FilterOptionsCard from './FilterOptionsCard';
@@ -9,8 +9,6 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
 
   const [ isSearchMenu, isFilterMenu, toggleSearchOptionMenu ] = useSearchOptions();
   
-  const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy' ];
-
   return (
     <div className='allSpotsSearch__container'>
       <div className='allSpotsSearch__input'>
@@ -27,7 +25,7 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Filter
         </button>
-        <FilterOptionsCard />
+        {isFilterMenu && <FilterOptionsCard />}
       </div>
       <div className='allSpots__searchOption'>
         <button id='allspots-btn-sort' className={ isSearchMenu ? 'allSpots-btn-grey allSpots-btn--pressed' : 'allSpots-btn-grey'} onClick={() => toggleSearchOptionMenu('sort')}>

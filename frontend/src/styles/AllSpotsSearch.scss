@@ -59,9 +59,13 @@
   }
 
   .allSpots__searchOption {
+    position: relative;
     height: auto;
+    width: 80px;
+    overflow-x: visible;
     align-self: flex-start;
     z-index: 9999;
+    transition: height 0.4s all-linear;
   }
   
 }
