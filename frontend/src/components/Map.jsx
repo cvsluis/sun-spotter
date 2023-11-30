@@ -5,9 +5,11 @@ const libraries = ['places'];
 
 // default location set to Victoria
 const center = {
-  lat: 48.444689,
-  lng: -123.331720,
-};
+  lat: 48.468211,
+  lng: -123.332404
+}; 
+
+
 
 export default function Map({ spots, spots2, handlePinClick, handleVisitClick, borderRadius, onMapClick }) {
   const mapContainerStyle = {
