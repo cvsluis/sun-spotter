@@ -1,4 +1,5 @@
 @import '_theme.scss';
+@import 'index.scss';
 
 .label {
   padding: 0.5rem 0.7rem;
@@ -8,16 +9,17 @@
 }
 
 .label__inactive {
-  background-color: $button-grey-disabled;
+  background-color: var(--button-disabled);
+  color: var(--text-grey);
 }
 
 .label__active {
-  color: white;
-  background-color: $button-orange;
+  color: var(--text-color);
+  background-color: var(--button-highlight-color);
 }
 
 .label__lightorange {
-  background-color: $light-orange;
+  background-color: var(--light-orange);
   color: #000;
 }
 
@@ -27,13 +29,13 @@
 
 .label__hover.label__inactive:hover {
   cursor: pointer;
-  background-color: $button-grey-hover;
+  background-color: var(--button-color-hover);
   transition: $transition-3;
 }
 
 .label__hover.label__active:hover {
   cursor: pointer;
-  background-color: $button-orange-hover;
+  background-color: var(--button-highlight-hover);
   transition: $transition-3;
 }
 

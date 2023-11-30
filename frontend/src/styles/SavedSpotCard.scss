@@ -1,7 +1,7 @@
 @import "_theme.scss";
 
 .savedSpotCard__container {
-  color: #000000;
+  color: var(--text-color);
   text-decoration: none;
   width: 100%;
   height: auto;

@@ -1,15 +1,20 @@
 @import '_theme.scss';
+@import 'index.scss';
 
+body{
+  background-color: var(--body-offcolor-background);
+}
 .createSpot__container {
   margin: 2rem auto;
-  background-color: #fff;
+  background-color: var(--body_background);
+  color: var(--text-color);
   width: 800px;
   height: auto;
   border-radius: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: $shadow-grey 0px 2px 8px 0px;
+  box-shadow: var(--shadow) 0px 2px 8px 0px;
 
   h1 {
     margin: 0;
@@ -22,7 +27,7 @@
 
     h2 {
       font-size: 18px;
-      color: $text-light-grey;
+      color: var(--text-light);
 
       font-weight: 400;
     }
@@ -57,13 +62,13 @@
 
 .createSpot__line {
   border: none;
-  border-top: 1px solid $button-grey;
+  border-top: 1px solid var(--shadow);
   width: 100%;
 }
 
 .navigationButton__btn {
-  background-color: $button-grey-disabled;
-  color: #a0a0a0;
+  background-color: var(--button-disabled);
+  color: black;
   width: 6rem;
   height: 3rem;
   border: none;
@@ -75,20 +80,20 @@
 }
 
 .navigationButton__btn-orange {
-  background-color: $button-orange;
+  background-color: var(--button-highlight-color);
   color: #fff;
   transition: $transition-3;
 
   &:hover {
     cursor: pointer;
-    background-color: $button-orange-hover;
+    background-color: var(--button-highlight-hover);
     transition: $transition-3;
   }
 }
 
 .navigationButton__btn-grey {
   background-color: inherit;
-  color: #000;
+  color: var(--text-color);
   transition: $transition-3;
 
   &:hover {

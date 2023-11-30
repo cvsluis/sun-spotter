@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import DarkModeToggle from '../components/DarkModeToggle';
 import '../styles/TopNavBar.scss';
 import logo from '../assets/logo.png';
 import Cookies from 'js-cookie';
@@ -49,15 +50,17 @@ export default function TopNavBar({ context }) {
       </div>
 
       {!userID && 
-      <div>
+      <div className="nav__logged-out">
+        <DarkModeToggle className="nav__toggle"/>
         <Link to={'/login'} className='nav__login-btn'>Log In</Link>
         <button className='nav__register-btn'>Register</button>
       </div>
 
       }
-
+    
       {user && userID && 
       <div className="nav__logged-in">
+        <DarkModeToggle className="nav__toggle"/>
         <button className="nav__logout-btn" onClick={handleLogout}>Log Out</button>
         <Link to={`/users/${userID}`} className="nav__user-profile"><img src={`http://localhost:8080/${user.profile_pic}`} alt='profile-pics'></img></Link>
       </div>

@@ -1,7 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap%27');
+@import '_theme.scss';
+
+
+:root {
+  --body_background: #f9f9f9;
+  --body-offcolor-background: #F5F5F5;
+  --text-color: black;
+  --text-nav-button: rgb(25, 25, 25);
+  --text-light: #757575;
+  --text-grey: #5d5d5d;
+  --button-highlight-color: #F86204;
+  --button-highlight-hover: #ea4e15;
+  --button-color: #151b0d14;
+  --button-color-hover: #151b0d29;
+  --button-disabled: #e5e5e5;
+  --light-orange: #FCBC94;
+  --light-pink: #F7B09D;
+  --sunny: #FCA712;
+  --shadow: #63636333;
+  --weather: rgba(160, 181, 190, 0.44);
+}
+
+[data-theme= "dark"] {
+  --body_background: rgb(28, 26, 39);
+  --body-offcolor-background: rgb(39, 36, 54);
+  --text-color: rgb(238, 233, 233);
+  --text-nav-button: rgb(25, 25, 25);
+  --text-light: #757575;
+  --text-grey: #5d5d5d;
+  --button-highlight-color: #FCA712;
+  --button-highlight-hover:  #F86204;
+  --button-color: #babab9d4;
+  --button-color-hover: #cacbca9a;
+  --button-disabled: #e5e5e5;
+  --light-orange: #FCBC94;
+  --light-pink: #F7B09D;
+  --sunny: #FCA712;
+  --shadow: rgb(92, 75, 104);
+  --weather: rgb(38, 30, 43);
+}
 
 html {
-  background-color: #f9f9f9;
+  background-color: var(--body_background-color);
 }
 
 * {

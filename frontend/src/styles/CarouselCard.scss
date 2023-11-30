@@ -1,4 +1,5 @@
 @import '_theme.scss';
+@import 'index.scss';
 
 .carouselCard__container {
   padding: 0.75rem;
@@ -40,13 +41,13 @@
   h3 {
     font-size: 13px;
     font-weight: 700;
-    color: $text-grey;
+    color: var(--text-grey);
   }
 
   h4 {
     font-size: 13px;
     font-weight: 400;
-    color: $text-light-grey;
+    color: var(--text-light);
     padding: 0;
   }
 }
