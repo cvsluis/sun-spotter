@@ -9,11 +9,9 @@ export default function SavedSpotCard({ spot, view }) {
       <div className='savedSpotCard__image'>
         <img src={`http://localhost:8080/${spot.image_url}`} alt='The sun setting' />
       </div>
-      <div className='savedSpotCard__details'>
-        <div className='savedSpotCard__header'>
-          <p className="savedSpotCard__title">{spot.name}</p>
-          <p className="savedSpotCard__location">{spot.city}, {spot.province}</p>
-        </div>
+      <div className='savedSpotCard__header'>
+        <p className="savedSpotCard__title">{spot.name}</p>
+        <p className="savedSpotCard__location">{spot.city}, {spot.province}</p>
       </div>
     </Link>
   );

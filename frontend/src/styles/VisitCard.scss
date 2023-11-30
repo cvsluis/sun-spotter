@@ -7,7 +7,7 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.5rem;
 
   h2, h5 {
     font-size: 16px;
@@ -35,19 +35,11 @@ h3 {
   font-size: 16px;
   font-weight: 700;
 }
+
 .visitCard__date {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
   color: $text-light-grey;
-
-}
-
-.visitCard__date--profile {
-  margin-left:  0.5em;
-}
-
-.visitCard__name {
-  margin-left: 0.5em;
 }
 
 .visitCard__image {
