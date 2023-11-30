@@ -24,7 +24,7 @@ export default function FilterOptionsCard({ spots, setSpots }) {
         ))}
       </ul>
       <footer>
-        <button className="filterOptions__submit">
+        <button className="filterOptions__clear">
           Clear
         </button>
       </footer>
