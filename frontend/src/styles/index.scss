@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap%27');
 @import '_theme.scss';
 
-
 :root {
   --body_background: #f9f9f9;
   --page-background: #fff;
   --page-background-accent: #efefef;
   --body-offcolor-background: #F5F5F5;
   --text-color: black;
-  --text-nav-button: rgb(25, 25, 25);
+  --text-nav-button: #191919;
   --text-light: #757575;
   --text-grey: #5d5d5d;
   --button-highlight-color: #F86204;
@@ -16,32 +15,34 @@
   --button-color: #151b0d14;
   --button-color-hover: #151b0d29;
   --button-disabled: #e5e5e5;
+  --input-outline: #949494;
   --light-orange: #FCBC94;
   --light-pink: #F7B09D;
   --sunny: #FCA712;
   --shadow: #63636333;
-  --weather: rgba(160, 181, 190, 0.44);
+  --weather: #a0b5be70;
 }
 
 [data-theme= "dark"] {
   --body_background: #252525;
   --page-background: #2b2b2b;
   --page-background-accent: #292929;
-  --body-offcolor-background: rgb(39, 36, 54);
+  --body-offcolor-background: #272436;
   --text-color: #eee9e9;
-  --text-nav-button: rgb(25, 25, 25);
-  --text-light: #757575;
+  --text-nav-button: #191919;
+  --text-light: #a5a5a5;
   --text-grey: #909090;
   --button-highlight-color: #F86204;
   --button-highlight-hover: #ea4e15;
   --button-color: #595959;
   --button-color-hover: #515151;
   --button-disabled: #e5e5e5;
+  --input-outline: #252525;
   --light-orange: #FCBC94;
   --light-pink: #F7B09D;
   --sunny: #FCA712;
   --shadow: #111111;
-  --weather: rgb(38, 30, 43);
+  --weather: #261e2b;
 }
 
 body {
