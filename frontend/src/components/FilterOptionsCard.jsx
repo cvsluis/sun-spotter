@@ -3,6 +3,9 @@ import '../styles/FilterOptionsCard.scss';
 import filterSpots from '../utils/filterSpots';
 
 export default function FilterOptionsCard({ spots, setSpots }) {
+
+  const [ isFirstRender, setIsFirstRender ] = useState(true);
+
   
   //static variable as there is no way to modify db labels as of right now
   const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy'];
@@ -27,7 +30,6 @@ export default function FilterOptionsCard({ spots, setSpots }) {
     }
   }
 
-  const [ isFirstRender, setIsFirstRender ] = useState(true);
   useEffect(() => {
     if (isFirstRender) {   
       console.log(isFirstRender)
