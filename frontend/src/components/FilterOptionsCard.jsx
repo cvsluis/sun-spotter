@@ -1,3 +1,6 @@
+import React from "react";
+import '../styles/FilterOptionsCard.scss';
+
 export default function FilterOptionsCard({ spots, setSpots }) {
   
   //static variable as there is no way to modify db labels as of right now
@@ -7,17 +10,15 @@ export default function FilterOptionsCard({ spots, setSpots }) {
 
   }
   return (
-    <ul>
+    <ul className="filterOptions">
       {filterOptions.map((option, i) => (
         <li key={i}>
           <input 
             type="checkbox" 
-            name="sort" 
-            value="id" 
-            checked='false' 
-            onChange={handleOptionChange}
+            name="filter" 
+            value={option} 
             />
-        <label htmlFor="id">Most Recent</label>
+        <label htmlFor="id">{option}</label>
       </li>
       ))}
     </ul>

@@ -27,7 +27,7 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Filter
         </button>
-        {isFilterMenu && <FilterOptionsCard />}
+        <FilterOptionsCard />
       </div>
       <div className='allSpots__searchOption'>
         <button id='allspots-btn-sort' className={ isSearchMenu ? 'allSpots-btn-grey allSpots-btn--pressed' : 'allSpots-btn-grey'} onClick={() => toggleSearchOptionMenu('sort')}>
