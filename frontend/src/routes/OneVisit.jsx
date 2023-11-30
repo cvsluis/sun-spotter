@@ -1,12 +1,15 @@
 import React from 'react';
-import { useParams, useOutletContext, Link } from 'react-router-dom';
+import { useParams, useOutletContext, Link, useNavigate } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
 import '../styles/OneVisit.scss';
 import useVisitData from '../hooks/useVisitData';
 import Label from '../components/Label';
 import Comment from '../components/Comment';
+import ArrowLeft from '../assets/svg/ArrowLeft';
 
 export default function OneVisit() {
+  const navigate = useNavigate();
+  
   // get logged in user
   const [userID] = useOutletContext();
 
@@ -29,6 +32,10 @@ export default function OneVisit() {
   
   return (
     <div className='one-visit__container'>
+      <button onClick={() => navigate(-1)} className='button-navigate'>
+        <ArrowLeft sixe={'32px'} />
+      </button>
+
       <div className='one-visit__details--container'>
         <div className='one-visit__header--container'>
 
