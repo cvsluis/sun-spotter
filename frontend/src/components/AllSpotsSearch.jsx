@@ -34,8 +34,8 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Sort
         </button>
-        {/* {isSearchMenu && <SearchOptionsCard spots={spots} menuOptions={sortOptions}/>} uncomment when done dev */}
-        <SortOptionsCard spots={spots} setSpots={setSpots} />
+        {isSearchMenu && <SortOptionsCard spots={spots} setSpots={setSpots}/>}
+       
 
       </div>
       {/* <button id='allspots-btn-clear' className='allSpots-btn-grey'>Clear All Filters</button> */}
