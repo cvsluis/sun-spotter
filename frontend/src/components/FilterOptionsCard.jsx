@@ -57,6 +57,7 @@ export default function FilterOptionsCard({ spots, setSpots }) {
               name="filter" 
               value={option} 
               onChange={handleOptionChange}
+              checked={labels.includes(option)}
               />
           <label htmlFor="id">{option}</label>
         </li>
