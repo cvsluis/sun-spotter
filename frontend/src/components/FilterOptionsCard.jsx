@@ -2,14 +2,12 @@ import React, { useEffect, useState }from "react";
 import '../styles/FilterOptionsCard.scss';
 import filterSpots from '../utils/filterSpots';
 
-export default function FilterOptionsCard({ spots, setSpots }) {
+export default function FilterOptionsCard({ spots, setSpots, spotsList, labels, setLabels}) {
 
-  const [ isFirstRender, setIsFirstRender ] = useState(true);
-  const [allSpots, setAllSpots ] =useState([]);
   
   //static variable as there is no way to modify db labels as of right now
   const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy'];
-  const [ labels, setLabels ] = useState([]);
+
 
   const handleOptionChange = function(event) {
     const value = event.target.value;
@@ -32,19 +30,13 @@ export default function FilterOptionsCard({ spots, setSpots }) {
 
   const handleClearClick = function() {
     //console.log('clearning')
-    setSpots(allSpots);
+    setSpots(spotsList);
     setLabels([]);
   }
 
   useEffect(() => {
-    if (isFirstRender) {   
-     // console.log(isFirstRender)
-      setIsFirstRender(false);
-      setAllSpots(spots);
-      return;
-    }
-    //console.log('filtering spots');
-    filterSpots(allSpots, setSpots, labels);
+    console.log('filtering spots: ', labels);
+    filterSpots(spotsList, setSpots, labels);
   }, [labels]);
 
   return (

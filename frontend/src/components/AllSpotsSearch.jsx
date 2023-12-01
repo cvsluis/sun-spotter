@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/AllSpotsSearch.scss';
 
 import useSearchOptions from '../hooks/useSearchOptions';
@@ -7,10 +7,28 @@ import FilterOptionsCard from './FilterOptionsCard';
 
 export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
 
+  
   const [ isSearchMenu, isFilterMenu, toggleSearchOptionMenu ] = useSearchOptions();
 
+  //get initial list of all spots
+  const [ spotsList, setSpotsList ] = useState([]);
+  //state for which filter labels are clicked
+  const [ labels, setLabels ] = useState([]);
 
-  console.log('allspots Render', spots)
+//  console.log('allspots Render', spots)
+
+  useEffect(() => {
+   // console.log("spots has been re rendered. spots.length = ", spotsList.length)
+    if (spotsList.length === 0)  {
+      console.log(spotsList.length)
+      setSpotsList(spots);
+    }
+
+  },[spots])
+
+  useEffect(() => {
+    console.log("spotsList: ", spotsList);
+  }, [spotsList])
 
 
   
@@ -30,7 +48,11 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Filter
         </button>
-        {isFilterMenu && <FilterOptionsCard spots={spots} setSpots={setSpots}/>}
+        {isFilterMenu && <FilterOptionsCard spots={spots} 
+        setSpots={setSpots}
+        spotsList={spotsList}
+        labels ={labels}
+        setLabels={setLabels}/>}
       </div>
       <div className='allSpots__searchOption'>
         <button id='allspots-btn-sort' className={ isSearchMenu ? 'allSpots-btn-grey allSpots-btn--pressed' : 'allSpots-btn-grey'} onClick={() => toggleSearchOptionMenu('sort')}>
