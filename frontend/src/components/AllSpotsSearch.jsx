@@ -53,8 +53,8 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
   },[spots])
 
   useEffect(() => {
-    console.log("spotsList: ", spotsList);
-  }, [spotsList])
+    console.log("spots: ", spots);
+  }, [spots])
 
 
   
@@ -92,6 +92,7 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
         setFlaggedSpots={setFlaggedSpots}
         selectedSortOption={selectedSortOption}
         setSelectedSortOption={setSelectedSortOption}
+        setSpots={setSpots}
         />}
       </div>
     </div>
