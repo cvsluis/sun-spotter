@@ -5,13 +5,24 @@ import SideBar from '../components/SideBar';
 import AllSpotsSearch from '../components/AllSpotsSearch';
 import '../styles/AllSpots.scss';
 
-import sortSpots from '../utils/sortSpots';
-
 export default function AllSpots() {
   // logged in user
   const [userID] = useOutletContext();
   // all spots state
   const [spots, setSpots] = useState([]);
+  
+  //create flagged spots for searching/filtering/sorting
+  const [ flaggedSpots, setFlaggedSpots ] = useState([]);
+  useEffect(() => {
+    //if has not yet been initialized
+    if (flaggedSpots.length === 0) {
+      //map into array of spots with hidden flag
+      const newFlaggedSpots = spots.map(spot => ({spot, isHidden: false}))
+      //initialize new Flagged spots array
+      setFlaggedSpots(newFlaggedSpots);
+    }
+  }, [spots]);
+
   
   // search filter state
   const [searchInput, setSearchInput] = useState('');
@@ -55,7 +66,14 @@ export default function AllSpots() {
       <SideBar spots={spots} userID={userID}/>
 
     <div className='allSpots__map-container'>
-      <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} spots={spots} setSpots={setSpots}/>
+      <AllSpotsSearch 
+      searchInput={searchInput} 
+      handleSearchInputChange={handleSearchInputChange} 
+      spots={spots} 
+      setSpots={setSpots} 
+      flaggedSpots={flaggedSpots}
+      setFlaggedSpots={setFlaggedSpots}
+      />
       <div className='allSpots__map'>
           { userID &&
             <Link className='allSpots__btn--add-spot' to='/spots/new'>
