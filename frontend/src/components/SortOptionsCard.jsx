@@ -2,10 +2,10 @@ import React, {useState} from "react";
 import '../styles/SortOptionsCard.scss'
 import sortSpots from '../utils/sortSpots';
 
-export default function SortOptionsCard({ spots, setSpots, selectedSortOption, setSelectedSortOption}) {
+export default function SortOptionsCard({ flaggedSpots, setFlaggedSpots, selectedSortOption, setSelectedSortOption}) {
 
   const handleOptionChange = function(event) {
-    sortSpots(spots, setSpots, event.target.value)
+    sortSpots(flaggedSpots, setFlaggedSpots, event.target.value)
     setSelectedSortOption(event.target.value)
   }
 
