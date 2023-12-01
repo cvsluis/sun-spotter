@@ -5,8 +5,6 @@ import React from "react";
 
 import parseCookie from "../utils/parseCookie";
 
-
-
 export default function Root () {
   let userIDState = undefined;
 
@@ -17,12 +15,15 @@ export default function Root () {
 
   const [ userID, setUserID ] = useState(userIDState);
 
+  // search input state to track across home page and all spots page
+  const [searchInput, setSearchInput] = useState('');
+
   return (
     <div>
-      <TopNavBar context={[userID, setUserID]}/>
+      <TopNavBar context={{userID, setUserID}}/>
     
       <main>
-        <Outlet context={[userID, setUserID]}/>
+        <Outlet context={{userID, setUserID, searchInput, setSearchInput}} />
       </main>
     </div>
   );

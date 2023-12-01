@@ -1,45 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useOutletContext } from "react-router-dom";
 import Map from '../components/Map';
 import SideBar from '../components/SideBar';
 import AllSpotsSearch from '../components/AllSpotsSearch';
 import '../styles/AllSpots.scss';
+import useAllSpotsData from '../hooks/useAllSpotsData';
 
 export default function AllSpots() {
+
   // logged in user
-  const [userID] = useOutletContext();
-  // all spots state
-  const [spots, setSpots] = useState([]);
-  
-  // search filter state
-  const [searchInput, setSearchInput] = useState('');
+  const { userID } = useOutletContext();
 
-  const fetchAllSpots = (searchInput) => {
-    let url = 'http://localhost:8080/api/spots';
-
-    if (searchInput) {
-      url += `?search=${searchInput.trim()}`;
-    }
-
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => setSpots(data))
-      .catch(error => console.error('Error fetching data:', error));
-  };
-
-  const handleSearchInputChange = (e) => {
-    setSearchInput(e.target.value);
-    fetchAllSpots(searchInput);
-  };
+  const { spots, fetchAllSpots, searchInput, handleSearchInputChange } = useAllSpotsData();
 
   // fetch data from backend on intial render, set it to spots state
   useEffect(() => {
-    fetchAllSpots();
+    fetchAllSpots(searchInput);
   }, []);
 
   // scroll spot card into view when clicking on map pin

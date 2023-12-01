@@ -11,7 +11,7 @@ export default function OneVisit() {
   const navigate = useNavigate();
   
   // get logged in user
-  const [userID] = useOutletContext();
+  const { userID } = useOutletContext();
 
   const visitId = useParams().id;
   const [visit, labels, comments, addComment, handleCommentChange, postComment] = useVisitData(visitId, userID);

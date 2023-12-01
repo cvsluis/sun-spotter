@@ -1,44 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import useUserPins from "../hooks/useUserPins";
 import useUser from "../hooks/useUser";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
 import TimeUntilSunset from "../components/TimeUntilSunset";
 import HomeCarousel from "../components/HomeCarousel";
+import useAllSpotsData from "../hooks/useAllSpotsData";
 
 
 export default function Home() {
-  const [spots, setSpots] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
-  const [userID] = useOutletContext();
+  const navigate = useNavigate();
+  const { userID } = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
+  const { spots, fetchAllSpots, searchInput, handleHomeSearchInputChange, clearHomeSearchInput } = useAllSpotsData();
   const [user] = useUser(userID);
-
-  const handleInput = (e) => {
-    setSearchInput(e.target.value);
-  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    window.location.href = `/spots?query=${searchInput}`;
-  };
-
-  const fetchAllSpots = () => {
-    let url = "http://localhost:8080/api/spots";
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => setSpots(data))
-      .catch((error) => console.error("Error fetching data:", error))
+    navigate(`/spots/`);
   };
 
   useEffect(() => {
     fetchAllSpots();
+    clearHomeSearchInput();
   }, []);
 
   return (
@@ -60,10 +45,10 @@ export default function Home() {
                 className="homepage-search__input"
                 type="text"
                 id="search"
-                placeholder="Search by city"
+                placeholder="Search by location"
                 autoComplete='off'
                 value={searchInput}
-                onChange={handleInput}
+                onChange={handleHomeSearchInputChange}
               ></input>
             </form>
           </div>

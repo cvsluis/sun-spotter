@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 
 export default function TopNavBar({ context }) {
 
-  const [ userID, setUserID ] = context;
+  const { userID, setUserID } = context;
   const [ user, setUser ] = useState()
   const navigate = useNavigate();
   
