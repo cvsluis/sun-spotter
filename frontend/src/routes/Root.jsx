@@ -43,7 +43,7 @@ export default function Root () {
   return (
     <div>
       <TopNavBar
-        context={[userID, setUserID]}
+        context={{userID, setUserID}}
         toggleTheme={toggleTheme}
         darkMode={darkMode}
       />
