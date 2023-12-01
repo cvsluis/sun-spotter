@@ -3,7 +3,9 @@ export default function filterSpots(flaggedSpots, setFlaggedSpots, labels) {
 
   //if no labels chosen
   if (labels.length === 0 ) {
-    setFlaggedSpots(flaggedSpots);
+    let updatedSpots = [...flaggedSpots]
+    updatedSpots = updatedSpots.map(flaggedSpot => ({...flaggedSpot, isHidden: false}))
+    setFlaggedSpots(updatedSpots);
     console.log('no more filters');
     return;
   }
@@ -19,6 +21,7 @@ export default function filterSpots(flaggedSpots, setFlaggedSpots, labels) {
         return flaggedSpot
       }
     }
+    flaggedSpot.isHidden = false;
     console.log('the spot', flaggedSpot, ' has all selected labels')
     return flaggedSpot
   })
