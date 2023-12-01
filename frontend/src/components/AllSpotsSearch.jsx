@@ -15,24 +15,18 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
   //state for sorting type
   const [ selectedSortOption, setSelectedSortOption ] = useState('id');
 
-  /* REFACTPRING WITH FLAGGED SPOTS */
-
   //create spots array with flag for visibility
   const [ flaggedSpots, setFlaggedSpots ] = useState([]);
-
   useEffect(() => {
     //if has not yet been initialized
     if (flaggedSpots.length === 0) {
       //map into array of spots with hidden flag
       const newFlaggedSpots = spots.map(spot => ({spot, isHidden: false}))
-      console.log("newFlaggedSpots: ", newFlaggedSpots)
       //initialize new Flagged spots array
       setFlaggedSpots(newFlaggedSpots);
     }
   }, [spots]);
 
-
-  /* -------------------------------*/
 
   return (
     <div className='allSpotsSearch__container'>

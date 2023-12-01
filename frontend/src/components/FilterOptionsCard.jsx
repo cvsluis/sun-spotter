@@ -1,9 +1,9 @@
-import React, { useEffect, useState }from "react";
+import React, { useEffect } from "react";
 import '../styles/FilterOptionsCard.scss';
 import filterSpots from '../utils/filterSpots';
 
 export default function FilterOptionsCard({ flaggedSpots, setFlaggedSpots, setSpots, labels, setLabels}) {
-
+  //console.log(flaggedSpots)
   
   //static variable as there is no way to modify db labels as of right now
   const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy'];
@@ -26,7 +26,6 @@ export default function FilterOptionsCard({ flaggedSpots, setFlaggedSpots, setSp
     }
   }
 
-  
   const handleClearClick = function() {
     let clearedSpots = [...flaggedSpots];
     //make all hidden flags false
@@ -34,15 +33,16 @@ export default function FilterOptionsCard({ flaggedSpots, setFlaggedSpots, setSp
     //reset flagged spots and labels
     setFlaggedSpots(clearedSpots);
     setLabels([]);
-  }
+  };
 
   //trigger spot filter with every label change
   useEffect(() => {
     filterSpots(flaggedSpots, setFlaggedSpots, labels);
   }, [labels]);
 
-  //setSpots to only those not hidden after filtering
+  // set spots to all spots not flagged hidden
   useEffect(() => {
+    console.log('setting spots from sort options')
     const filteredSpots = flaggedSpots.filter((flaggedSpot) => (flaggedSpot.isHidden ? false : true))
     setSpots(filteredSpots.map(flaggedSpot => flaggedSpot.spot));
   }, [flaggedSpots]);

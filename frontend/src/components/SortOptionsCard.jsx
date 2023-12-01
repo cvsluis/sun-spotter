@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect } from "react";
 import '../styles/SortOptionsCard.scss'
 import sortSpots from '../utils/sortSpots';
 
@@ -7,14 +7,14 @@ export default function SortOptionsCard({ flaggedSpots, setFlaggedSpots, selecte
   const handleOptionChange = function(event) {
     sortSpots(flaggedSpots, setFlaggedSpots, setSpots, event.target.value)
     setSelectedSortOption(event.target.value)
-  }
-
-  //set spots after flagged spots are set
-  useEffect(() => {
-    setSpots(flaggedSpots.map(flaggedSpot => flaggedSpot.spot))
-  }, [flaggedSpots])
+  };
   
-
+    // set spots to all spots not flagged hidden
+  useEffect(() => {
+    console.log('setting spots from sort options')
+    const filteredSpots = flaggedSpots.filter((flaggedSpot) => (flaggedSpot.isHidden ? false : true))
+    setSpots(filteredSpots.map(flaggedSpot => flaggedSpot.spot));
+  }, [flaggedSpots]);
 
   return (
     <ul className="sortOptions">
