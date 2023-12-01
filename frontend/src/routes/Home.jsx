@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <div>
-      <header>
+      <header className="home__header">
         <img className="header__img" alt="sunset" src={sunset}></img>
 
         <div className="welcome__section">
