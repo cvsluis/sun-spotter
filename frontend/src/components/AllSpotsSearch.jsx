@@ -5,16 +5,27 @@ import useSearchOptions from '../hooks/useSearchOptions';
 import SortOptionsCard from './SortOptionsCard';
 import FilterOptionsCard from './FilterOptionsCard';
 
-export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots, flaggedSpots, setFlaggedSpots }) {
+export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
 
   
   const [ isSearchMenu, isFilterMenu, toggleSearchOptionMenu ] = useSearchOptions();
+
   //state for which filter labels are clicked
   const [ labels, setLabels ] = useState([]);
   //state for sorting type
   const [ selectedSortOption, setSelectedSortOption ] = useState('id');
 
   //create spots array with flag for visibility
+  const [ flaggedSpots, setFlaggedSpots ] = useState([]);
+  useEffect(() => {
+    //if has not yet been initialized
+    if (flaggedSpots.length === 0) {
+      //map into array of spots with hidden flag
+      const newFlaggedSpots = spots.map(spot => ({spot, isHidden: false}))
+      //initialize new Flagged spots array
+      setFlaggedSpots(newFlaggedSpots);
+    }
+  }, [spots]);
 
 
   return (
