@@ -29,6 +29,8 @@ export default function OneVisit() {
   }); 
 
   const userLink = `/users/${visit.user_id}`
+
+  console.log(visit);
   
   return (
     <div className='one-visit__container'>
@@ -51,7 +53,7 @@ export default function OneVisit() {
 
           <div className='one-visit__visit-details--container'>
             <div className='one-visit--visit-header'>
-              <h1>{visit.spot_name}</h1>
+              <Link to={`/spots/${visit.spot_id}`} className='one-visit--link'><h1>{visit.spot_name}</h1></Link>
             { visit.rating > 0 &&
               <div className='one-visit--rating'>
                 <div className='one-visit--stars'>

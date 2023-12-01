@@ -126,7 +126,12 @@ $square-dimension: 650px;
   h1 {
     font-size: 24px;
     font-weight: 700;
+    color: var(--text-color);
   }
+}
+
+.one-visit--link {
+  text-decoration: none;
 }
 
 .one-visit--rating {
