@@ -10,8 +10,6 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
   
   const [ isSearchMenu, isFilterMenu, toggleSearchOptionMenu ] = useSearchOptions();
 
-  //get initial list of all spots
-  const [ spotsList, setSpotsList ] = useState([]);
   //state for which filter labels are clicked
   const [ labels, setLabels ] = useState([]);
   //state for sorting type
@@ -35,23 +33,7 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
 
 
   /* -------------------------------*/
-//  console.log('allspots Render', spots)
 
-  useEffect(() => {
-   // console.log("spots has been re rendered. spots.length = ", spotsList.length)
-    if (spotsList.length === 0)  {
-      console.log(spotsList.length)
-      setSpotsList(spots);
-    }
-
-  },[spots])
-
-  useEffect(() => {
-    console.log("spots: ", spots);
-  }, [spots])
-
-
-  
   return (
     <div className='allSpotsSearch__container'>
       <div className='allSpotsSearch__input'>
@@ -72,7 +54,6 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
         flaggedSpots={flaggedSpots} 
         setFlaggedSpots={setFlaggedSpots}
         setSpots={setSpots}
-        spotsList={spotsList}
         labels ={labels}
         setLabels={setLabels}/>}
       </div>
