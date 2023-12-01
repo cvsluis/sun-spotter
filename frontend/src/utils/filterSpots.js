@@ -1,30 +1,30 @@
-export default function filterSpots(spots, setSpots, labels) {
-  console.log('in filter', spots, labels)
+export default function filterSpots(flaggedSpots, setFlaggedSpots, labels) {
+  console.log('in filter', flaggedSpots, labels)
 
   //if no labels chosen
   if (labels.length === 0 ) {
-    setSpots(spots);
+    setFlaggedSpots(flaggedSpots);
     console.log('no more filters');
     return;
   }
 
-  let filteredSpots = [...spots];
+  let filteredSpots = [...flaggedSpots];
 
-  filteredSpots = filteredSpots.filter(spot => {
-    //console.log(spot.list, labels);
+  filteredSpots = filteredSpots.map(flaggedSpot => {
+
     for (const label of labels) {
-      //console.log(label)
-      if (!spot.list.includes(label)) {
-        //console.log("included!", label, spot.list)
-        return false;
+      if (!flaggedSpot.spot.list.includes(label)){
+        //console.log('the spot, ', flaggedSpot.spot.name, ' does not have label ', label)
+        flaggedSpot.isHidden = true;
+        return flaggedSpot
       }
-      //console.log('nothing found', label)
     }
-    return true;
-
+    console.log('the spot', flaggedSpot, ' has all selected labels')
+    return flaggedSpot
   })
-  console.log(filteredSpots)
 
-  setSpots(filteredSpots)
+  console.log("after the filter ", filteredSpots)
+
+  setFlaggedSpots(filteredSpots)
   return;
 }

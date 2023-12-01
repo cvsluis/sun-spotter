@@ -33,12 +33,6 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
     }
   }, [spots]);
 
-  //everytime flagged spots updates, set spots to that vlaue too
-
-  // useEffect(() => {
-  //   setSpots(flaggedSpots.map(spot => spot.spot))
-  // }, [flaggedSpots])
-
 
   /* -------------------------------*/
 //  console.log('allspots Render', spots)
@@ -74,7 +68,9 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Filter
         </button>
-        {isFilterMenu && <FilterOptionsCard spots={spots} 
+        {isFilterMenu && <FilterOptionsCard 
+        flaggedSpots={flaggedSpots} 
+        setFlaggedSpots={setFlaggedSpots}
         setSpots={setSpots}
         spotsList={spotsList}
         labels ={labels}
