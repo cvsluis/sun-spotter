@@ -7,7 +7,7 @@ import logoDark from "../assets/logo-white.png";
 import Cookies from "js-cookie";
 
 export default function TopNavBar({ context, toggleTheme, darkMode }) {
-  const [userID, setUserID] = context;
+  const { userID, setUserID } = context;
   const [user, setUser] = useState();
   const navigate = useNavigate();
 

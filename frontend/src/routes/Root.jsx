@@ -1,11 +1,12 @@
-import { Outlet } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import TopNavBar from "../components/TopNavBar";
-import { useState } from "react";
-import React from "react";
 
 import parseCookie from "../utils/parseCookie";
 
-export default function Root() {
+export default function Root () {
+  const navigate = useNavigate();
+
   let userIDState = undefined;
 
   if (document.cookie) {
@@ -31,16 +32,24 @@ export default function Root() {
     else light();
   };
 
+  // search input state to track across home page and all spots page
+  const [searchInput, setSearchInput] = useState('');
+
+  // redirect root page to home after initial render
+  useEffect(() => {
+    navigate('/home');
+  }, []);
+
   return (
     <div>
       <TopNavBar
-        context={[userID, setUserID]}
+        context={{userID, setUserID}}
         toggleTheme={toggleTheme}
         darkMode={darkMode}
       />
 
       <main>
-        <Outlet context={[userID, setUserID]} darkMode={darkMode} />
+        <Outlet context={{userID, setUserID, searchInput, setSearchInput}} />
       </main>
     </div>
   );
