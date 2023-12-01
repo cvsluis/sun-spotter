@@ -14,6 +14,8 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
   const [ spotsList, setSpotsList ] = useState([]);
   //state for which filter labels are clicked
   const [ labels, setLabels ] = useState([]);
+  //state for sorting type
+  const [ selectedSortOption, setSelectedSortOption ] = useState('id');
 
 //  console.log('allspots Render', spots)
 
@@ -61,11 +63,13 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Sort
         </button>
-        {isSearchMenu && <SortOptionsCard spots={spots} setSpots={setSpots}/>}
-       
-
+        {isSearchMenu && <SortOptionsCard 
+        spots={spots} 
+        setSpots={setSpots}
+        selectedSortOption={selectedSortOption}
+        setSelectedSortOption={setSelectedSortOption}
+        />}
       </div>
-      {/* <button id='allspots-btn-clear' className='allSpots-btn-grey'>Clear All Filters</button> */}
     </div>
 
   );
