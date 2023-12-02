@@ -6,8 +6,8 @@ export default function FilterOptionsCard({ flaggedSpots, setFlaggedSpots, setSp
   //console.log(flaggedSpots)
   
   //static variable as there is no way to modify db labels as of right now
-  const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy'];
-
+  const filterOptions = ['Wheelchair access', 'Hike required', 'No hike required', 'Car Pull Out', 'Bird Watching', 'Seating Available', 'Kid Friendly', 'Dog Friendly', 'Dogs on Leash', 'Ocean', 'Forest', 'Mountains', 'City', 'Waterfall', 'Lake', 'Wildflowers', 'Wildlife', 'Windy'].sort();
+  
   //controls label click
   const handleOptionChange = function(event) {
     const value = event.target.value;
