@@ -11,7 +11,6 @@ export default function SortOptionsCard({ flaggedSpots, setFlaggedSpots, selecte
   
     // set spots to all spots not flagged hidden
   useEffect(() => {
-    console.log('setting spots from sort options')
     const filteredSpots = flaggedSpots.filter((flaggedSpot) => (flaggedSpot.isHidden ? false : true))
     setSpots(filteredSpots.map(flaggedSpot => flaggedSpot.spot));
   }, [flaggedSpots]);
