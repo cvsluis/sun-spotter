@@ -5,14 +5,15 @@
   z-index: 9999;
   overflow: scroll;
   padding: 1rem 1.5rem;
-  background-color: #FFFFFF;
+  background-color: var(--page-background);
+  color: var(--text-color);
   border-radius: 24px;
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
   gap: 0.5rem;
   list-style-type: none;
-  box-shadow: $shadow-grey 0px 2px 8px 0px;
+  box-shadow: var(--shadow) 0px 2px 4px 0px;
 
   li {
     display: flex;
@@ -26,13 +27,13 @@
       width: 20px;
       height: 20px;
       margin: 0;
-      border: 1.5px solid $text-light-grey;
+      border: 1.5px solid var(--text-light);
       transition: 0.2s all linear;
       position: relative;
     }
 
     input:checked {
-      border: 1.5px solid $text-light-grey;
+      border: 1.5px solid var(--text-light);
     }
 
     input:checked::before {
@@ -40,7 +41,7 @@
       display: block;
       width: 10px; 
       height: 10px;
-      background-color: $button-orange; 
+      background-color: var(--button-highlight-color); 
       border-radius: 50%;
       position: absolute;
       top: 50%;

@@ -5,8 +5,9 @@
   height: 300px;
   width:300px;
   padding: 1rem 1.5rem;
-  background-color: #FFFFFF;
-  box-shadow: $shadow-grey 0px 2px 8px 0px;
+  background-color: var(--page-background);
+  color: var(--text-color);
+  box-shadow: var(--shadow) 0px 2px 4px 0px;
   border-radius: 24px;
   display: flex;
   flex-direction: column;
@@ -16,7 +17,7 @@
     position: relative;
     flex: 1;
     display: inline;
-    border-top: 1px solid $button-grey-hover;
+    border-top: 1px solid var(--line-color);
     
     .filterOptions__clear {
       position: absolute;
@@ -24,7 +25,7 @@
       bottom: 0;
       height: 2rem;
       padding: 0 1rem;
-      background-color: $button-orange;
+      background-color: var(--button-highlight-color);
       color: #FFFFFF;
       border-radius: 24px;
       display: flex;
@@ -34,7 +35,7 @@
       transition: $transition-3;
 
       &:hover {
-        background-color: $button-orange-hover;
+        background-color: var(--button-highlight-hover);
         cursor: pointer;
       }
     }
@@ -66,13 +67,13 @@
       width: 20px;
       height: 20px;
       margin: 0;
-      border: 1.5px solid $text-light-grey;
+      border: 1.5px solid var(--text-light);
       display: grid;
       place-content: center;
     }
 
     input::before {
-      background-color: $button-orange;
+      background-color: var(--button-highlight-color);
       border-radius: 2px;
       content: "";
       width: 10px;

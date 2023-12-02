@@ -53,10 +53,12 @@
   }
 
   .allSpots-btn--pressed {
-    background-color: $light-orange;
+    background-color: var(--button-highlight-color);
+    color: #fff;
     
     &:hover {
-      background-color: $light-orange;
+      background-color: var(--button-highlight-hover);
+      color: #fff;
     }
   }
 
