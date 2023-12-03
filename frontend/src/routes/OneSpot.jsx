@@ -32,7 +32,7 @@ export default function OneSpot() {
   const navigate = useNavigate();
 
   //get userID and spotID. if not logged in, userID is undefined
-  const [userID] = useOutletContext();
+  const { userID } = useOutletContext();
   const spotID = useParams().id;
 
   //handle user saves

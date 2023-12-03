@@ -5,7 +5,7 @@ export default function useCreateSpotData() {
   // for redirect
   const navigate = useNavigate();
   // logged in user
-  const [userID] = useOutletContext();
+  const {userID} = useOutletContext();
   // not logged in, redirect to login
   if (userID === undefined) {
     navigate("/login");
