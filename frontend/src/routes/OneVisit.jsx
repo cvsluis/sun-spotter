@@ -11,7 +11,7 @@ export default function OneVisit() {
   const navigate = useNavigate();
   
   // get logged in user
-  const { userID } = useOutletContext();
+  const [userID] = useOutletContext();
 
   const visitId = useParams().id;
   const [visit, labels, comments, addComment, handleCommentChange, postComment] = useVisitData(visitId, userID);
@@ -29,8 +29,6 @@ export default function OneVisit() {
   }); 
 
   const userLink = `/users/${visit.user_id}`
-
-  console.log(visit);
   
   return (
     <div className='one-visit__container'>
@@ -53,7 +51,7 @@ export default function OneVisit() {
 
           <div className='one-visit__visit-details--container'>
             <div className='one-visit--visit-header'>
-              <Link to={`/spots/${visit.spot_id}`} className='one-visit--link'><h1>{visit.spot_name}</h1></Link>
+              <h1>{visit.spot_name}</h1>
             { visit.rating > 0 &&
               <div className='one-visit--rating'>
                 <div className='one-visit--stars'>

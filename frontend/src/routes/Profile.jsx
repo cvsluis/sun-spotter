@@ -10,7 +10,7 @@ import UserSpots from "../components/UserSpots";
 import "../styles/Profile.scss";
 
 export default function Profile() {
-  const { userID } = useOutletContext();
+  const [userID] = useOutletContext();
 
   const userPageID = parseInt(useParams().id);
 

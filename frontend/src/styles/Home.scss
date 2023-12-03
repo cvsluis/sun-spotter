@@ -1,13 +1,9 @@
 @import '_theme.scss';
 @import 'index.scss';
 
-.home__header {
-  position: relative;
-}
-
 .welcome__section {
   position: absolute;
-  top: 45%;
+  top: 360px;
   left: 50%;
   transform: translate(-50%, -30%);
   text-align: center;
@@ -44,7 +40,7 @@
 
 .homepage-search__input { 
   font-size: 1rem;
-  width: 100%;
+  width: 500px;
   height: 52px;
   box-shadow: 0 4px 8px -2px var(--shadow);
   border-radius: 9999px;

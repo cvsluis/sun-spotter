@@ -9,7 +9,7 @@ import "../styles/Login.scss";
 
 export default function Login() {
 
-  const { setUserID } = useOutletContext();
+  const [userID, setUserID] = useOutletContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
