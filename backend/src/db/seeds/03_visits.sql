@@ -3,7 +3,7 @@ VALUES
   (3, 8, 'images/1.jpg', 4, 'Beautiful colors today up on Mount Tolmie :)', '2023-11-14 16:30:00', DEFAULT),
   (2, 5, 'images/6.jpg', 5, 'Amazing sunset as usual on Moss Rock', '2023-08-04 20:00:00', DEFAULT),
   (3, 10, 'images/5.jpg', 4, 'Perfect sunset vibes!!', '2023-07-26 20:30:00', DEFAULT),
-  (1, 1, 'images/3.jpg', 4, 'Gorgeous views but a bit windy!', '2023-05-14 19:30:00', DEFAULT),
+  (1, 1, 'images/3.jpg', 4, 'Gorgeous views but a bit windy!', '2023-08-23 19:30:00', DEFAULT),
   (2, 5, 'images/9.jpg', 5, 'Never a bad sunset here :)', '2023-02-16 17:00:00', DEFAULT),
   (3, 7, 'images/12.jpg', 4, 'Beautiful!', '2022-09-23 19:30:00', DEFAULT),
   (3, 3, 'images/11.jpg', 5, 'Amazing light filtering through clouds over the ocean :)', '2022-10-29 18:30:00', DEFAULT),
@@ -15,4 +15,5 @@ VALUES
   (1, 1, 'images/4.jpg', 4, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
   (1, 10, 'images/19.jpg', 4, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
   (2, 4, 'images/10.jpg', 4, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
-  (2, 5, 'images/7.jpg', 4, 'Pink Pink Pink!', '2023-05-14 19:30:00', DEFAULT);
+  (2, 5, 'images/7.jpg', 4, 'Pink Pink Pink!', '2023-05-14 19:30:00', DEFAULT),
+  (3, 1, 'images/2.jpg', 4, 'Such a calm place to watch the sunset', '2023-05-25 17:47:00', DEFAULT);
