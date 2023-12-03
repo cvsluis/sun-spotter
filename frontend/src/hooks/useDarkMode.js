@@ -21,9 +21,13 @@ export default function useDarkMode() {
   const [times, setTimes] = useState({});
 
   const checkDarkTime = async () => {
-    const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=48.4359&longitude=-123.3516&daily=sunrise,sunset&timezone=America%2FLos_Angeles');
-    const data = await res.json();
-    setTimes(() => ({ sunset: new Date(data.daily.sunset[0]), sunrise: new Date(data.daily.sunrise[1]) }));
+    try {
+      const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=48.4359&longitude=-123.3516&daily=sunrise,sunset&timezone=America%2FLos_Angeles');
+      const data = await res.json();
+      setTimes(() => ({ sunset: new Date(data.daily.sunset[0]), sunrise: new Date(data.daily.sunrise[1]) }));
+    } catch (error) {
+      console.error("Error fetching user data", error);
+    }
   };
 
   useEffect(() => {
