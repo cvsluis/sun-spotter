@@ -19,7 +19,7 @@ const getVisitsByUser = (userID) => {
     FROM visits 
     JOIN spots ON spots.id = visits.spot_id
     WHERE visits.user_id = $1
-   ORDER BY visits.time_stamp DESC;`
+   ORDER BY visits.time_stamp;`
 
   return db.query(query, [userID])
     .then(data => data.rows)
