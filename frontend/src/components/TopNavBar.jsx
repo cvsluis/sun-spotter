@@ -18,7 +18,7 @@ export default function TopNavBar({ context, toggleTheme, darkMode }) {
     Cookies.remove("user_id");
     //remove userID state
     setUserID(undefined);
-    navigate("/Home");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -46,11 +46,11 @@ export default function TopNavBar({ context, toggleTheme, darkMode }) {
     <nav>
       <div className="nav__main">
         {darkMode ? (
-          <Link to={"/home"}>
+          <Link to={"/"}>
             <img className="nav__logo" alt="dark-logo" src={logoDark}></img>
           </Link>
         ) : (
-          <Link to={"/home"}>
+          <Link to={"/"}>
             <img className="nav__logo" alt="logo" src={logoLight}></img>
           </Link>
         )}
