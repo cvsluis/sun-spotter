@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
 import useUserPins from "../hooks/useUserPins";
-import useUser from "../hooks/useUser";
 import sunset from "../assets/sunset_header.jpg";
 import "../styles/Home.scss";
 import TimeUntilSunset from "../components/TimeUntilSunset";
@@ -14,7 +13,6 @@ export default function Home() {
   const { userID } = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
   const { spots, fetchAllSpots, searchInput, handleHomeSearchInputChange, clearHomeSearchInput } = useAllSpotsData();
-  const [user] = useUser(userID);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

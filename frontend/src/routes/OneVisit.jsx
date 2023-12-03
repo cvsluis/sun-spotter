@@ -29,8 +29,6 @@ export default function OneVisit() {
   }); 
 
   const userLink = `/users/${visit.user_id}`
-
-  console.log(visit);
   
   return (
     <div className='one-visit__container'>
