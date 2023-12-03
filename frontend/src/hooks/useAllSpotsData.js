@@ -38,5 +38,5 @@ export default function useAllSpotsData() {
     setSearchInput('');
   };
 
-  return { spots, fetchAllSpots, searchInput, handleSearchInputChange, handleHomeSearchInputChange, clearHomeSearchInput };
+  return { spots, setSpots, fetchAllSpots, searchInput, handleSearchInputChange, handleHomeSearchInputChange, clearHomeSearchInput };
 }

@@ -13,7 +13,7 @@ export default function AllSpots() {
   // logged in user
   const { userID } = useOutletContext();
 
-  const { spots, fetchAllSpots, searchInput, handleSearchInputChange } = useAllSpotsData();
+  const { spots, setSpots, fetchAllSpots, searchInput, handleSearchInputChange } = useAllSpotsData();
 
   // fetch data from backend on intial render, set it to spots state
   useEffect(() => {
