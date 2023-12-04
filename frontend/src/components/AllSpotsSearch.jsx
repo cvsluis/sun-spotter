@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/AllSpotsSearch.scss';
 
 import useSearchOptions from '../hooks/useSearchOptions';
@@ -7,8 +7,7 @@ import FilterOptionsCard from './FilterOptionsCard';
 
 export default function AllSpotsSearch({ searchInput, handleSearchInputChange, spots, setSpots }) {
 
-  
-  const [ isSearchMenu, isFilterMenu, toggleSearchOptionMenu ] = useSearchOptions();
+  const [isSearchMenu, isFilterMenu, toggleSearchOptionMenu, useOutsideClick ] = useSearchOptions();
 
   //state for which filter labels are clicked
   const [ labels, setLabels ] = useState([]);
@@ -28,6 +27,11 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
   }, [spots]);
 
 
+  const filterRef = useRef(null);
+  const searchRef = useRef(null);
+  useOutsideClick(filterRef, 'filter');
+  useOutsideClick(searchRef, 'search');
+
   return (
     <div className='allSpotsSearch__container'>
       <div className='allSpotsSearch__input'>
@@ -44,12 +48,15 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Filter
         </button>
-        {isFilterMenu && <FilterOptionsCard 
-        flaggedSpots={flaggedSpots} 
-        setFlaggedSpots={setFlaggedSpots}
-        setSpots={setSpots}
-        labels ={labels}
-        setLabels={setLabels}/>}
+        <div ref={filterRef}>
+          {isFilterMenu && <FilterOptionsCard
+            flaggedSpots={flaggedSpots}
+            setFlaggedSpots={setFlaggedSpots}
+            setSpots={setSpots}
+            labels={labels}
+            setLabels={setLabels} />}
+        </div>
+        
       </div>
       <div className='allSpots__searchOption'>
         <button id='allspots-btn-sort' className={ isSearchMenu ? 'allSpots-btn-grey allSpots-btn--pressed' : 'allSpots-btn-grey'} onClick={() => toggleSearchOptionMenu('sort')}>
@@ -58,13 +65,15 @@ export default function AllSpotsSearch({ searchInput, handleSearchInputChange, s
           </svg>
           Sort
         </button>
-        {isSearchMenu && <SortOptionsCard 
-        flaggedSpots={flaggedSpots} 
-        setFlaggedSpots={setFlaggedSpots}
-        selectedSortOption={selectedSortOption}
-        setSelectedSortOption={setSelectedSortOption}
-        setSpots={setSpots}
-        />}
+        <div ref={searchRef}>
+          {isSearchMenu && <SortOptionsCard
+            flaggedSpots={flaggedSpots}
+            setFlaggedSpots={setFlaggedSpots}
+            selectedSortOption={selectedSortOption}
+            setSelectedSortOption={setSelectedSortOption}
+            setSpots={setSpots}
+          />}
+        </div>
       </div>
     </div>
 
