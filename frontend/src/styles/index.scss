@@ -20,6 +20,7 @@
   --light-pink: #F7B09D;
   --sunny: #FCA712;
   --shadow: #63636333;
+  --footer: #2e2e2e;
 }
 
 [data-theme= "dark"] {
@@ -41,15 +42,16 @@
   --light-pink: #F7B09D;
   --sunny: #FCA712;
   --shadow: #111111;
+  --footer: #181818;
 }
 
 body {
-  background-color: var(--body-background);
+  background-color: var(--page-background);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
 }

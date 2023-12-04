@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
 import useUserPins from "../hooks/useUserPins";
 import sunset from "../assets/sunset_header.jpg";
+import logoDark from "../assets/logo-white.png";
 import "../styles/Home.scss";
 import TimeUntilSunset from "../components/TimeUntilSunset";
 import HomeCarousel from "../components/HomeCarousel";
@@ -76,6 +77,15 @@ export default function Home() {
           </div>
         </> }
       </section>
+
+      <footer>
+        <div className="footer__container">
+          <img className="footer__logo" alt="dark-logo" src={logoDark}></img>
+          {/* <p>About</p> */}
+          <p className="footer__at">@2023 Sun Spotter</p>
+        </div>
+      </footer>
+      
     </div>
   );
 }
