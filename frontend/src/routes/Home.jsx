@@ -78,14 +78,14 @@ export default function Home() {
         </> }
       </section>
 
-      <footer>
+      <footer className="home__footer">
         <div className="footer__container">
           <img className="footer__logo" alt="dark-logo" src={logoDark}></img>
           {/* <p>About</p> */}
           <p className="footer__at">@2023 Sun Spotter</p>
         </div>
       </footer>
-      
+
     </div>
   );
 }
