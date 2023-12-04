@@ -12,7 +12,7 @@ VALUES
   (1, 9, 'images/15.jpg', 4, 'Beautiful and pink!', '2023-07-26 21:30:00', DEFAULT),
   (2, 7, 'images/17.jpg', 4, 'Gorgeous!', '2023-05-14 19:30:00', DEFAULT),
   (2, 2, 'images/13.jpg', 5, 'Perfect sunset vibes!!', '2023-07-26 20:30:00', DEFAULT),
-  (1, 1, 'images/4.jpg', 4, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
+  (1, 1, 'images/4.jpg', 5, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
   (1, 10, 'images/19.jpg', 4, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
   (2, 4, 'images/10.jpg', 4, 'So beatiful here :)', '2023-05-14 19:30:00', DEFAULT),
   (2, 5, 'images/7.jpg', 4, 'Pink Pink Pink!', '2023-05-14 19:30:00', DEFAULT),

@@ -96,7 +96,7 @@ const getSpotVisits = function (spotID) {
                   FROM users JOIN visits
                   ON users.id = visits.user_id
                   WHERE visits.spot_id = $1
-                  ORDER BY visits.time_stamp;`
+                  ORDER BY visits.time_stamp DESC;`
   return db.query(query, [spotID])
     .then(data => data.rows);
     
