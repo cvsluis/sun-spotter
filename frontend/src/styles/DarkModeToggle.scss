@@ -1,8 +1,8 @@
 @import 'index.scss';
 
 .dark_mode {
-    margin-top: -20px;
-    margin-left: 10px;
+  display: flex;
+  align-self: center;
 }
 
 .dark_mode_label {

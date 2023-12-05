@@ -20,16 +20,9 @@ nav {
 
 nav .nav__logo {
   height: 35px;
-  margin-left: 1rem;
+  margin-left: 1.25rem;
   margin-right: 1.5rem;
   margin-top: 0.2rem;
-  // transition: $transition-3;
-
-  // &:hover {
-  //   cursor: pointer;
-  //   transition: $transition-3;
-  //   transform: scale(1.05);
-  // }
 }
 
 nav .nav__explore-link{
@@ -45,18 +38,23 @@ nav .nav__explore-link{
   }
 }
 
+.nav__section-right {
+  margin-right: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  align-items: center;
+}
+
 nav button {
   border-radius: 24px;
   border: none;
-  margin: 0.5rem;
   padding: 0.5rem 1rem;
 }
 
 .nav__login-btn {
   border-radius: 24px;
   border: none;
-  margin: 1rem;
-  margin-left: 1.5rem;
   padding: 0.5rem 1rem;
   background-color: var(--button-color);
   color: var(--text-color);
@@ -74,7 +72,6 @@ nav button {
 .nav__register-btn {
   background-color: var(--button-highlight-color);
   color: white;
-  margin-right: 1rem;
   transition: $transition-3;
 
   &:hover {
@@ -87,24 +84,20 @@ nav button {
 .nav__logged-out {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   align-items: center;
+  gap: 1.25rem;
 }
 
 .nav__logged-in{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
-  margin-right: 1rem;
+  gap: 1.25rem;
 }
 
 .nav__logout-btn {
   border-radius: 24px;
   border: none;
-  margin: 0.5rem;
-  margin-left: 1.5rem;
-  padding: 0.5rem 1rem;
   background-color: var(--button-color);
   color: var(--text-color);
   text-decoration: none;
@@ -118,16 +111,20 @@ nav button {
   }
 }
 
-.nav__user-profile img{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 2rem 1.5rem;
+.nav__user-profile {
+  display: flex;
+  align-items: center;
 
-  &:hover{
-    cursor: pointer;
-    box-shadow: var(--shadow) 0px 2px 8px 1px;
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    &:hover{
+      cursor: pointer;
+      box-shadow: var(--shadow) 0px 2px 8px 1px;
+    }
   }
 }
 

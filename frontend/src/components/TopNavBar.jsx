@@ -58,38 +58,35 @@ export default function TopNavBar({ context, toggleTheme, darkMode }) {
         </Link>
       </div>
 
-      {!userID && (
-        <div className="nav__logged-out">
-          <DarkModeToggle
-            className="nav__toggle"
-            toggleTheme={toggleTheme}
-            darkMode={darkMode}
-          />
-          <Link to={"/login"} className="nav__login-btn">
-            Log In
-          </Link>
-          <button className="nav__register-btn">Register</button>
-        </div>
-      )}
+      <div className="nav__section-right">
+        <DarkModeToggle
+          className="nav__toggle"
+          toggleTheme={toggleTheme}
+          darkMode={darkMode}
+        />
 
-      {user && userID && (
-        <div className="nav__logged-in">
-          <DarkModeToggle
-            className="nav__toggle"
-            toggleTheme={toggleTheme}
-            darkMode={darkMode}
-          />
-          <button className="nav__logout-btn" onClick={handleLogout}>
-            Log Out
-          </button>
-          <Link to={`/users/${userID}`} className="nav__user-profile">
-            <img
-              src={`http://localhost:8080/${user.profile_pic}`}
-              alt="profile-pics"
-            ></img>
-          </Link>
-        </div>
-      )}
+        {user && userID ? (
+          <div className="nav__logged-in">
+            <button className="nav__logout-btn" onClick={handleLogout}>
+              Log Out
+            </button>
+            <Link to={`/users/${userID}`} className="nav__user-profile">
+              <img
+                src={`http://localhost:8080/${user.profile_pic}`}
+                alt="profile-pics"
+              ></img>
+            </Link>
+          </div>
+        ) : (
+          <div className="nav__logged-out">
+            <Link to={"/login"} className="nav__login-btn">
+              Log In
+            </Link>
+            <button className="nav__register-btn">Register</button>
+          </div>
+        )}
+      </div>
+      
     </nav>
   );
 }

@@ -9,12 +9,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
-  h2, h5 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-  }
 }
 
 h3 {
@@ -29,12 +23,20 @@ h3 {
 
 .visitCard__info {
   display: flex;
+  align-items: center;
   gap: 0.5em;
 }
 
 .visitCard__details {
   font-size: 16px;
   font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.visitCard__user {
+  font-size: 14px;
 }
 
 .visitCard__date {
@@ -46,6 +48,7 @@ h3 {
 .visitCard__image {
   border-radius: 24px;
   overflow: hidden;
+  
   img {
     transition: ease-in 0.25s;
     width: 100%;
@@ -53,16 +56,8 @@ h3 {
   }
 }
 
-.bi-person-circle {
-  height: 30px;
-  width: 30px;
-  margin: 0px 3px;
-}
-
-
 .visitCard__profile {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  margin-left: 0.5rem;
- }
+}

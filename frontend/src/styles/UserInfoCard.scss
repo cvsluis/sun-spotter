@@ -12,6 +12,24 @@
   background-color: var(--body-background);
   box-shadow: var(--shadow) 0px 2px 8px 0px;
   border-radius: 24px;
+  position: relative;
+  padding-top: 3rem;
+}
+
+.user-info__edit {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  padding-top: 0.6rem;
+  padding-left: 0.6rem;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--button-disabled);
+  }
 }
 
 .user-info__picture {
@@ -27,7 +45,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 
   h1 {
     padding-bottom: 1rem;
