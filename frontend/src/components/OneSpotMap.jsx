@@ -8,6 +8,16 @@ const mapContainerStyle = {
   borderRadius: '24px'
 }
 
+const waterColor = [
+  {
+    featureType: "water",
+    elementType: "geometry.fill",
+    stylers: [
+      { color: '#a3cde3' }
+    ]
+  }
+];
+
 //static for now
 
 export default function OneSpotMap (props) {
@@ -35,7 +45,8 @@ export default function OneSpotMap (props) {
           streetViewControl: true,
           fullscreenControl: false,
           zoomControl: false,
-          mapTypeControl: false
+          mapTypeControl: false,
+          styles: waterColor 
         }}
       > 
         <MarkerF position={{ lat: Number(center.lat), lng: Number(center.lng) }} icon={{ url: (require('../assets/pins/yellow.svg')).default }} />

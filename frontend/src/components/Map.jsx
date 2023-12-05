@@ -5,9 +5,19 @@ const libraries = ['places'];
 
 // default location set to Victoria
 const center = {
-  lat: 48.444689,
-  lng: -123.331720,
+  lat: 48.447789,
+  lng: -123.35,
 };
+
+const waterColor = [
+  {
+    featureType: "water",
+    elementType: "geometry.fill",
+    stylers: [
+      { color: '#a3cde3' }
+    ]
+  }
+];
 
 export default function Map({ spots, spots2, handlePinClick, handleVisitClick, borderRadius, onMapClick }) {
   const mapContainerStyle = {
@@ -58,7 +68,7 @@ export default function Map({ spots, spots2, handlePinClick, handleVisitClick, b
       mapContainerStyle={mapContainerStyle}
       zoom={12}
       center={center}
-      options={{ fullscreenControl: false, streetViewControl: false, mapTypeControl: false }}
+      options={{ fullscreenControl: false, streetViewControl: false, mapTypeControl: false, styles: waterColor }}
       onClick={onMapClick}
     >
       {markers}

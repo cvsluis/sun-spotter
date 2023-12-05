@@ -30,7 +30,7 @@ export default function Root () {
       />
 
       <main>
-        <Outlet context={{userID, setUserID, searchInput, setSearchInput}} />
+        <Outlet context={{userID, setUserID, searchInput, setSearchInput, darkMode}} />
       </main>
     </div>
   );

@@ -13,12 +13,12 @@ export default function AllSpots() {
   // logged in user
   const { userID } = useOutletContext();
 
-  const { spots, setSpots, fetchAllSpots, searchInput, handleSearchInputChange } = useAllSpotsData();
+  const { spots, setSpots, fetchAllSpots, searchInput, handleSearchInputChange, clearHomeSearchInput } = useAllSpotsData();
 
   // fetch data from backend on intial render, set it to spots state
   useEffect(() => {
     fetchAllSpots(searchInput);
-  }, []);
+  }, [searchInput]);
 
   // scroll spot card into view when clicking on map pin
   const handlePinClick = (id) => {
@@ -31,7 +31,7 @@ export default function AllSpots() {
       <SideBar spots={spots} userID={userID}/>
 
     <div className='allSpots__map-container'>
-      <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} spots={spots} setSpots={setSpots}/>
+        <AllSpotsSearch searchInput={searchInput} handleSearchInputChange={handleSearchInputChange} spots={spots} setSpots={setSpots} clearHomeSearchInput={clearHomeSearchInput} />
       <div className='allSpots__map'>
           { userID &&
             <Link className='allSpots__btn--add-spot' to='/spots/new'>
