@@ -14,6 +14,30 @@ This project was built as a part of our learnings at [Lighthouse Labs](https://w
 ## Final Product
 
 ## Features
+**Browse Sunset Spots**
+- Search by location, filter by labels, or sort by rating to find the perfect sunset spot
+- Click on map pins to bring sunset spot into view
+- Get overview of spot information for easy browsing
+
+**View Details about Sunset Spot**
+- Get local weather forecast and sunset time to help plan your next sunset viewing
+- Use button to get directions to a particular sunset spot
+- View more specific details about other's visits to that spot
+
+**Create a Spot or Share a Visit**
+- Easy to follow step by step form to save your sunset
+- Add a description, some labels, a rating and a photo of the sunset
+- Leave a comment on other sun-chasers photos
+
+**View Profile Page with All Saved and Visited Spots**
+- Save sunset spots to your profile for your future visits
+- Look back on all of your sunsets with either a map or grid view
+- Add profile information to share with other sun-chasers
+
+**Dark Mode**
+- Automatically applied dark mode between sunset and sunrise
+- Swiftly switch to an easier on the eye interaction
+
 
 ## Getting Started
 Clone the repository onto your local device.
