@@ -68,7 +68,7 @@ const TimeUntilSunset = () => {
             isParagraphVisible ? "visible" : ""
           }`}
         >
-          Time until sunset: {timeToSunset.hours} hours and {timeToSunset.minutes} minutes
+          Time until sunset: {timeToSunset.hours !== 0 && `${timeToSunset.hours} hours and`} {timeToSunset.minutes} minutes
         </p>
       )}
     </div>
