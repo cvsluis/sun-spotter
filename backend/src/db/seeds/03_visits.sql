@@ -2,7 +2,7 @@ INSERT INTO VISITS(user_id, spot_id, image_url, rating, description, time_stamp,
 VALUES
   (3, 8, 'images/1.jpg', 4, 'Beautiful colors today up on Mount Tolmie :)', '2023-11-14 16:30:00', DEFAULT),
   (2, 5, 'images/6.jpg', 5, 'Amazing sunset as usual on Moss Rock', '2023-08-04 20:00:00', DEFAULT),
-  (3, 10, 'images/5.jpg', 4, 'Perfect sunset vibes!!', '2023-07-26 20:30:00', DEFAULT),
+  (3, 10, 'images/5.jpg', 4, 'Perfect sunset vibes!!', '2023-05-14 19:30:00', DEFAULT),
   (1, 1, 'images/3.jpg', 5, 'Gorgeous views but a bit windy!', '2023-08-23 19:30:00', DEFAULT),
   (2, 5, 'images/9.jpg', 5, 'Never a bad sunset here :)', '2023-02-16 17:00:00', DEFAULT),
   (3, 7, 'images/12.jpg', 4, 'Beautiful!', '2022-09-23 19:30:00', DEFAULT),
