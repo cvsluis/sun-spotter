@@ -1,5 +1,4 @@
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
 
 export default function useSearchOptions() {
   const [ isSearchMenu, setIsSearchMenu ] = useState(false);
@@ -21,6 +20,26 @@ export default function useSearchOptions() {
     }
   }
 
-  return [isSearchMenu, isFilterMenu, toggleSearchOptionMenu]
+  const useOutsideClick = (ref, type) => {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {    
+          if (type === 'filter') {
+            setIsFilterMenu(false);
+          } else if (type === 'search') {
+            setIsSearchMenu(false);
+          }
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mouseup", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mouseup", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  return [isSearchMenu, isFilterMenu, toggleSearchOptionMenu, useOutsideClick]
 
 }

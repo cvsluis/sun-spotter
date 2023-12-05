@@ -35,11 +35,6 @@ export default function Root () {
   // search input state to track across home page and all spots page
   const [searchInput, setSearchInput] = useState('');
 
-  // redirect root page to home after initial render
-  useEffect(() => {
-    navigate('/home');
-  }, []);
-
   return (
     <div>
       <TopNavBar

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams, useOutletContext } from 'react-router-dom';
 import FormDetails from '../components/FormDetails';
 import AddImage from '../components/AddImage';
 import BackButton from '../components/BackButton';
@@ -24,6 +24,11 @@ export default function CreateVisit() {
     handleRatingInput,
     handleBackClick,
     handleForwardClick] = useCreateVisitData(spotID);
+
+    const { setSearchInput } = useOutletContext();
+    useEffect(() => {
+      setSearchInput('');
+    }, []);
 
   return (
     <div className='createSpot__container'>
