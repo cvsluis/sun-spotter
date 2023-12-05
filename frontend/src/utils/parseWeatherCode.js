@@ -29,7 +29,7 @@ export default function parseWeatherCode(code) {
     clouds: fogCodes,
     sun: [0],
     sunAndRain: [14, 15, 16, 17, 18, 20, 21, 24, 25],
-    rain: rainCodes.concat([80, 81, 82, 91, 92]),
+    rain: rainCodes.concat([80, 81, 82, 91, 92, 71]),
     snow: [36, 37, 38, 39, 83, 84, 85, 86, 87, 88, 89, 90, 93, 94].concat(snowCodes),
     sunAndSnow: [22, 23, 26, 27],
     thunder: [13, 17, 19, 29, 95, 96, 97, 98, 99],
