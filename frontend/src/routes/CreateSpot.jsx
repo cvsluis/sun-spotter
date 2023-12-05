@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useOutletContext } from "react-router-dom";
 import '../styles/CreateSpot.scss';
 
 import ChooseSpot from '../components/ChooseSpot';
@@ -25,6 +26,11 @@ export default function CreateSpot() {
     modal, 
     handleBackClick, 
     handleForwardClick] = useCreateSpotData();
+
+    const { setSearchInput } = useOutletContext();
+    useEffect(() => {
+      setSearchInput('');
+    }, []);
 
   return (
     <div className='createSpot__container'>

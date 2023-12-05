@@ -44,10 +44,32 @@
     gap: 0.5rem;
     transition: $transition-3;
 
+
     &:hover {
       cursor: pointer;
       background-color: var(--button-color-hover);
       transition: $transition-3;
     }
   }
+
+  .allSpots-btn--pressed {
+    background-color: var(--button-highlight-color);
+    color: #fff;
+    
+    &:hover {
+      background-color: var(--button-highlight-hover);
+      color: #fff;
+    }
+  }
+
+  .allSpots__searchOption {
+    position: relative;
+    height: auto;
+    width: 80px;
+    overflow-x: visible;
+    align-self: flex-start;
+    z-index: 9999;
+    color: var(--text-color);
+  }
+  
 }

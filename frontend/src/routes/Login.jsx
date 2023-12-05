@@ -32,7 +32,6 @@ export default function Login() {
       .then(res => res.json())
       .then(data => {
         if (data.success) {
-          console.log('Login successful!', data);
           //set cookie
           Cookies.set('user_id', data.user_id, {expires: 1})
           setUserID(data.user_id)

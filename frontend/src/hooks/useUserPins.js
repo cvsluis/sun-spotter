@@ -7,24 +7,26 @@ export default function useUserPins(userID) {
 
   useEffect(() => {
     let isUser = true;
-    const fetchVisit = async () => {
-      try {
-        const saves = await fetch(`http://localhost:8080/api/users/${userID}/saves`).then(res => res.json());
-        const visits = await fetch(`http://localhost:8080/api/users/${userID}/visits`).then(res => res.json());
+    if (userID) {
+      const fetchVisit = async () => {
+        try {
+          const saves = await fetch(`http://localhost:8080/api/users/${userID}/saves`).then(res => res.json());
+          const visits = await fetch(`http://localhost:8080/api/users/${userID}/visits`).then(res => res.json());
 
-        setUserSaves(saves);
-        setUserVisits(visits);
-      } catch (err) {
-        console.error('Error fetching data', err);
-      }
-    };
+          setUserSaves(saves);
+          setUserVisits(visits);
+        } catch (err) {
+          console.error('Error fetching data', err);
+        }
+      };
 
-    fetchVisit();
+      fetchVisit();
 
-      // Cleanup function
-    return () => {
-      isUser = false;  
-    };
+        // Cleanup function
+      return () => {
+        isUser = false;  
+      };
+    }
   }, [userID]);
 
   return [userSaves, userVisits];
