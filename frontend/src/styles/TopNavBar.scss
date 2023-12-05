@@ -45,18 +45,23 @@ nav .nav__explore-link{
   }
 }
 
+.nav__section-right {
+  margin-right: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  align-items: center;
+}
+
 nav button {
   border-radius: 24px;
   border: none;
-  margin: 0.5rem;
   padding: 0.5rem 1rem;
 }
 
 .nav__login-btn {
   border-radius: 24px;
   border: none;
-  margin: 1rem;
-  margin-left: 1.5rem;
   padding: 0.5rem 1rem;
   background-color: var(--button-color);
   color: var(--text-color);
@@ -74,7 +79,6 @@ nav button {
 .nav__register-btn {
   background-color: var(--button-highlight-color);
   color: white;
-  margin-right: 1rem;
   transition: $transition-3;
 
   &:hover {
@@ -87,24 +91,20 @@ nav button {
 .nav__logged-out {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   align-items: center;
+  gap: 1.25rem;
 }
 
 .nav__logged-in{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
-  margin-right: 1rem;
+  gap: 1.25rem;
 }
 
 .nav__logout-btn {
   border-radius: 24px;
   border: none;
-  margin: 0.5rem;
-  margin-left: 1.5rem;
-  padding: 0.5rem 1rem;
   background-color: var(--button-color);
   color: var(--text-color);
   text-decoration: none;
@@ -123,7 +123,6 @@ nav button {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 2rem 1.5rem;
 
   &:hover{
     cursor: pointer;

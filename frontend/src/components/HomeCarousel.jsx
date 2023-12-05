@@ -45,7 +45,7 @@ export default function HomeCarousel({ places, visit }) {
         className="home__carousel"
       >
         {carouselPlaces}
-        {carouselPlaces.length === 0 && <p className='sideBar__error'>No search results found</p>}
+        {carouselPlaces.length === 0 && <p className='carousel__error'>No spots found</p>}
       </Carousel>
     </div>
   );
