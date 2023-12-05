@@ -24,6 +24,10 @@ export default function FormDetails({ formType, handleFormChange, handleLabelCli
     return <Label key={'createSpot_' + label.id} active={active} label={label} handleLabelClick={handleLabelClick} />;
   });
 
+  // set max date for form
+  const tzoffset = (new Date()).getTimezoneOffset() * 60000;
+  const localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1);
+
   return (
     <div className='formDetails__container'>
 
@@ -38,7 +42,7 @@ export default function FormDetails({ formType, handleFormChange, handleLabelCli
 
           <div className='formDetails__container--input'>
             <label htmlFor="time_stamp">When did you visit this sunset spot?</label>
-            <input onChange={handleFormChange} value={visitValues.time_stamp} className='formDetails__input--text' type="datetime-local" id='createSpot__form-id--date-time' name='time_stamp'></input>
+            <input onChange={handleFormChange} value={visitValues.time_stamp} className='formDetails__input--text' type="datetime-local" id='createSpot__form-id--date-time' name='time_stamp' max={localISOTime}></input>
           </div>
 
           <div className='formDetails__container--input'>
