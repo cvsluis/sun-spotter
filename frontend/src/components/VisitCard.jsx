@@ -12,7 +12,6 @@ export default function VisitCard({ visit, isProfilePage }) {
   const visitDate = new Date(visit.date);
   const isVisitOld = (Date.now() - visitDate) > 2628000000;
 
-
   return (
     <Link to={`/visits/${visit.id}`} className='visitCard__container'>
       <div className='visitCard__image'>
@@ -27,9 +26,9 @@ export default function VisitCard({ visit, isProfilePage }) {
             {visit.name}
           </div>
           :
-          <h2 className='visitCard__user'>
+          <div className='visitCard__user'>
             {visit.first_name} {visit.last_name}
-          </h2>
+          </div>
           }
           
           {isProfilePage ?
@@ -40,8 +39,5 @@ export default function VisitCard({ visit, isProfilePage }) {
         </div>
       </div>
     </Link>
-    
-
   )
-
 }
