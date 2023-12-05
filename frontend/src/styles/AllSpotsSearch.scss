@@ -37,6 +37,10 @@
     position: absolute;
     right: 12px;
     top: 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .allSpots-btn-grey {
