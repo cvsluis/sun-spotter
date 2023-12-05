@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
 import useUserPins from "../hooks/useUserPins";
 import sunset from "../assets/sunset_header.jpg";
+import sunsetDark from "../assets/sunset_header_dark.jpg";
 import logoDark from "../assets/logo-white.png";
 import "../styles/Home.scss";
 import TimeUntilSunset from "../components/TimeUntilSunset";
@@ -11,7 +12,7 @@ import useAllSpotsData from "../hooks/useAllSpotsData";
 
 export default function Home() {
   const navigate = useNavigate();
-  const { userID } = useOutletContext();
+  const { userID, darkMode } = useOutletContext();
   const [userSaves, userVisits] = useUserPins(userID);
   const { spots, fetchAllSpots, searchInput, handleHomeSearchInputChange, clearHomeSearchInput } = useAllSpotsData();
 
@@ -28,7 +29,7 @@ export default function Home() {
   return (
     <div>
       <header className="home__header">
-        <img className="header__img" alt="sunset" src={sunset}></img>
+        <img className="header__img" alt="sunset" src={darkMode ? sunsetDark : sunset}></img>
 
         <div className="welcome__section">
         <h4 className="header__title">
