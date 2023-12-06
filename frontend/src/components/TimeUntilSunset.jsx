@@ -47,7 +47,6 @@ const TimeUntilSunset = () => {
         sunsetTimeInMin
       );
       setTimeToSunset(result);
-      setTimeToSunset({hours: 2, minutes: 2})
     }
   }, [weatherLoading, sunsetTime, currentTimeInMin, sunsetTimeInMin]);
 
