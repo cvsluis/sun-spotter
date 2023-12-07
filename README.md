@@ -12,6 +12,20 @@ A webapp for users to discover, discuss, and share their favourite local sunset 
 This project was built as a part of our learnings at [Lighthouse Labs](https://www.lighthouselabs.ca).
 
 ## Final Product
+**Home Page**
+!["Screenshot of Home Page"](./docs/screenshots/home.png)
+
+**Explore Page**
+!["Screenshot of Explore Page"](./docs/screenshots/explore.png)
+
+**One Spot**
+!["Screenshot of One Spot"](./docs/screenshots/one_spot.png)
+
+**Profile Page**
+!["Screenshot of Profile Page"](./docs/screenshots/profile.png)
+
+**One Visit**
+!["Screenshot of One Visit"](./docs/screenshots/one_visit.png)
 
 ## Features
 **Browse Sunset Spots**
