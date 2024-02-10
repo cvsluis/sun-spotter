@@ -12,6 +12,10 @@ A webapp for users to discover, discuss, and share their favourite local sunset 
 This project was built as a part of our learnings at [Lighthouse Labs](https://www.lighthouselabs.ca).
 
 ## Final Product
+https://github.com/cvsluis/sun-spotter/assets/122842285/25539a8f-be50-4a3f-b31d-03b81bfa9a0b
+
+** Demo Video **
+
 **Home Page**
 !["Screenshot of Home Page"](./docs/screenshots/home.png)
 
